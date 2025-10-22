@@ -10,12 +10,12 @@ This repository uses a two-workflow approach for releases:
 ### Step 1: Prepare Release (Manual Trigger)
 
 1. **Run Update Dependencies Workflow**
-   - Go to [Actions → Update Dependencies and API](https://github.com/NextAgentAI/client-sdk-web/actions/workflows/update-deps.yml)
+   - Go to [Actions → Update Dependencies and API](https://github.com/NexAgentAI/client-sdk-web/actions/workflows/update-deps.yml)
    - Click "Run workflow"
    - Choose options:
      - **Version bump type**: patch, minor, or major
      - **Update dependencies**: Update all dependencies to latest versions
-     - **Generate API**: Regenerate API types from NextAgent OpenAPI spec
+     - **Generate API**: Regenerate API types from NexAgent OpenAPI spec
    - Click "Run workflow"
 
 2. **Review and Merge PR**
@@ -26,7 +26,7 @@ This repository uses a two-workflow approach for releases:
 ### Step 2: Publish Release (Automated)
 
 3. **Create GitHub Release**
-   - Go to the [Releases page](https://github.com/NextAgentAI/client-sdk-web/releases)
+   - Go to the [Releases page](https://github.com/NexAgentAI/client-sdk-web/releases)
    - Click "Draft a new release"
    - Create a tag with the format `v{VERSION}` matching the version in package.json
    - Set the release title (e.g., "v2.3.7")
@@ -113,7 +113,7 @@ npm publish --access public
 If a release has issues:
 
 1. Delete the problematic release from GitHub
-2. Use `npm unpublish @nextagent/web@{VERSION}` (within 72 hours)
+2. Use `npm unpublish @nexagent/web@{VERSION}` (within 72 hours)
 3. Fix the issues
 4. Run update workflow with patch version bump
 5. Create new release

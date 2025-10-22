@@ -526,9 +526,9 @@ export interface CustomTranscriber {
    * This is where the transcription request will be sent.
    *
    * Usage:
-   * 1. NextAgent will initiate a websocket connection with `server.url`.
+   * 1. NexAgent will initiate a websocket connection with `server.url`.
    *
-   * 2. NextAgent will send an initial text frame with the sample rate. Format:
+   * 2. NexAgent will send an initial text frame with the sample rate. Format:
    * ```
    *     {
    *       "type": "start",
@@ -539,7 +539,7 @@ export interface CustomTranscriber {
    *     }
    * ```
    *
-   * 3. NextAgent will send the audio data in 16-bit raw PCM format as binary frames.
+   * 3. NexAgent will send the audio data in 16-bit raw PCM format as binary frames.
    *
    * 4. You can read the messages something like this:
    * ```
@@ -735,7 +735,7 @@ export interface DeepgramTranscriber {
    * Here are the most important bits:
    * - Defaults to 10. This is recommended for most use cases to optimize for latency.
    * - 10 can cause some missing transcriptions since because of the shorter context. This mostly happens for one-word utterances. For those uses cases, it's recommended to try 300. It will add a bit of latency but the quality and reliability of the experience will be better.
-   * - If neither 10 nor 300 work, contact support@nextagent.ai and we'll find another solution.
+   * - If neither 10 nor 300 work, contact support@nexagent.ai and we'll find another solution.
    *
    * @default 10
    * @min 10
@@ -1966,9 +1966,9 @@ export interface FallbackCustomTranscriber {
    * This is where the transcription request will be sent.
    *
    * Usage:
-   * 1. NextAgent will initiate a websocket connection with `server.url`.
+   * 1. NexAgent will initiate a websocket connection with `server.url`.
    *
-   * 2. NextAgent will send an initial text frame with the sample rate. Format:
+   * 2. NexAgent will send an initial text frame with the sample rate. Format:
    * ```
    *     {
    *       "type": "start",
@@ -1979,7 +1979,7 @@ export interface FallbackCustomTranscriber {
    *     }
    * ```
    *
-   * 3. NextAgent will send the audio data in 16-bit raw PCM format as binary frames.
+   * 3. NexAgent will send the audio data in 16-bit raw PCM format as binary frames.
    *
    * 4. You can read the messages something like this:
    * ```
@@ -2173,7 +2173,7 @@ export interface FallbackDeepgramTranscriber {
    * Here are the most important bits:
    * - Defaults to 10. This is recommended for most use cases to optimize for latency.
    * - 10 can cause some missing transcriptions since because of the shorter context. This mostly happens for one-word utterances. For those uses cases, it's recommended to try 300. It will add a bit of latency but the quality and reliability of the experience will be better.
-   * - If neither 10 nor 300 work, contact support@nextagent.ai and we'll find another solution.
+   * - If neither 10 nor 300 work, contact support@nexagent.ai and we'll find another solution.
    *
    * @default 10
    * @min 10
@@ -5158,7 +5158,7 @@ export interface HandoffDestinationAssistant {
 export interface HandoffDestinationDynamic {
   type: "dynamic";
   /**
-   * This is where NextAgent will send the handoff-destination-request webhook in a dynamic handoff.
+   * This is where NexAgent will send the handoff-destination-request webhook in a dynamic handoff.
    *
    * The order of precedence is:
    *
@@ -7350,7 +7350,7 @@ export interface OpenAIModel {
   /**
    * This is the OpenAI model that will be used.
    *
-   * When using NextAgent OpenAI or your own Azure Credentials, you have the option to specify the region for the selected model. This shouldn't be specified unless you have a specific reason to do so. NextAgent will automatically find the fastest region that make sense.
+   * When using NexAgent OpenAI or your own Azure Credentials, you have the option to specify the region for the selected model. This shouldn't be specified unless you have a specific reason to do so. NexAgent will automatically find the fastest region that make sense.
    * This is helpful when you are required to comply with Data Residency rules. Learn more about Azure regions here https://azure.microsoft.com/en-us/explore/global-infrastructure/data-residency/.
    *
    * @default undefined
@@ -7454,7 +7454,7 @@ export interface OpenAIModel {
     | "gpt-3.5-turbo-1106:canadaeast"
     | "gpt-3.5-turbo-1106:westus";
   /**
-   * These are the fallback models that will be used if the primary model fails. This shouldn't be specified unless you have a specific reason to do so. NextAgent will automatically find the fastest fallbacks that make sense.
+   * These are the fallback models that will be used if the primary model fails. This shouldn't be specified unless you have a specific reason to do so. NexAgent will automatically find the fastest fallbacks that make sense.
    * @example ["gpt-4-0125-preview","gpt-4-0613"]
    */
   fallbackModels?:
@@ -7829,7 +7829,7 @@ export interface WorkflowOpenAIModel {
   /**
    * This is the OpenAI model that will be used.
    *
-   * When using NextAgent OpenAI or your own Azure Credentials, you have the option to specify the region for the selected model. This shouldn't be specified unless you have a specific reason to do so. NextAgent will automatically find the fastest region that make sense.
+   * When using NexAgent OpenAI or your own Azure Credentials, you have the option to specify the region for the selected model. This shouldn't be specified unless you have a specific reason to do so. NexAgent will automatically find the fastest region that make sense.
    * This is helpful when you are required to comply with Data Residency rules. Learn more about Azure regions here https://azure.microsoft.com/en-us/explore/global-infrastructure/data-residency/.
    * @maxLength 100
    */
@@ -8135,7 +8135,7 @@ export interface ConversationNode {
     | RimeAIVoice
     | SmallestAIVoice
     | TavusVoice
-    | NextAgentVoice
+    | NexAgentVoice
     | SesameVoice
     | InworldVoice
     | MinimaxVoice;
@@ -8441,7 +8441,7 @@ export interface TwilioVoicemailDetectionPlan {
   machineDetectionSilenceTimeout?: number;
 }
 
-export interface NextAgentVoicemailDetectionPlan {
+export interface NexAgentVoicemailDetectionPlan {
   /**
    * This is the maximum duration from the start of the call that we will wait for a voicemail beep, before speaking our message
    *
@@ -8458,7 +8458,7 @@ export interface NextAgentVoicemailDetectionPlan {
    */
   beepMaxAwaitSeconds?: number;
   /** This is the provider to use for voicemail detection. */
-  provider: "nextagent";
+  provider: "nexagent";
   /** This is the backoff plan for the voicemail detection. */
   backoffPlan?: VoicemailDetectionBackoffPlan;
   /**
@@ -8515,7 +8515,7 @@ export interface RecordingConsentPlanStayOnLine {
     | RimeAIVoice
     | SmallestAIVoice
     | TavusVoice
-    | NextAgentVoice
+    | NexAgentVoice
     | SesameVoice
     | InworldVoice
     | MinimaxVoice;
@@ -8560,7 +8560,7 @@ export interface RecordingConsentPlanVerbal {
     | RimeAIVoice
     | SmallestAIVoice
     | TavusVoice
-    | NextAgentVoice
+    | NexAgentVoice
     | SesameVoice
     | InworldVoice
     | MinimaxVoice;
@@ -8846,10 +8846,10 @@ export interface ArtifactPlan {
   /**
    * This determines whether to use custom storage (S3 or GCP) for call recordings when storage credentials are configured.
    *
-   * When set to false, recordings will be stored on NextAgent's storage instead of your custom storage, even if you have custom storage credentials configured.
+   * When set to false, recordings will be stored on NexAgent's storage instead of your custom storage, even if you have custom storage credentials configured.
    *
    * Usage:
-   * - Set to false if you have custom storage configured but want to store recordings on NextAgent's storage for this assistant.
+   * - Set to false if you have custom storage configured but want to store recordings on NexAgent's storage for this assistant.
    * - Set to true (or leave unset) to use your custom storage for recordings when available.
    *
    * @default true
@@ -8871,7 +8871,7 @@ export interface ArtifactPlan {
    */
   fullMessageHistoryEnabled?: boolean;
   /**
-   * This determines whether the SIP packet capture is enabled. Defaults to true. Only relevant for `phone` type calls where phone number's provider is `nextagent` or `byo-phone-number`.
+   * This determines whether the SIP packet capture is enabled. Defaults to true. Only relevant for `phone` type calls where phone number's provider is `nexagent` or `byo-phone-number`.
    *
    * You can find the packet capture at `call.artifact.pcapUrl` after the call is ended.
    *
@@ -8895,10 +8895,10 @@ export interface ArtifactPlan {
   /**
    * This determines whether to use custom storage (S3 or GCP) for SIP packet captures when storage credentials are configured.
    *
-   * When set to false, packet captures will be stored on NextAgent's storage instead of your custom storage, even if you have custom storage credentials configured.
+   * When set to false, packet captures will be stored on NexAgent's storage instead of your custom storage, even if you have custom storage credentials configured.
    *
    * Usage:
-   * - Set to false if you have custom storage configured but want to store packet captures on NextAgent's storage for this assistant.
+   * - Set to false if you have custom storage configured but want to store packet captures on NexAgent's storage for this assistant.
    * - Set to true (or leave unset) to use your custom storage for packet captures when available.
    *
    * @default true
@@ -8915,10 +8915,10 @@ export interface ArtifactPlan {
   /**
    * This determines whether to use custom storage (S3 or GCP) for call logs when storage credentials are configured.
    *
-   * When set to false, logs will be stored on NextAgent's storage instead of your custom storage, even if you have custom storage credentials configured.
+   * When set to false, logs will be stored on NexAgent's storage instead of your custom storage, even if you have custom storage credentials configured.
    *
    * Usage:
-   * - Set to false if you have custom storage configured but want to store logs on NextAgent's storage for this assistant.
+   * - Set to false if you have custom storage configured but want to store logs on NexAgent's storage for this assistant.
    * - Set to true (or leave unset) to use your custom storage for logs when available.
    *
    * @default true
@@ -9102,12 +9102,12 @@ export interface BothCustomEndpointingRule {
   timeoutSeconds: number;
 }
 
-export interface NextAgentSmartEndpointingPlan {
+export interface NexAgentSmartEndpointingPlan {
   /**
    * This is the provider for the smart endpointing plan.
-   * @example "nextagent"
+   * @example "nexagent"
    */
-  provider: "nextagent" | "livekit" | "custom-endpointing-model";
+  provider: "nexagent" | "livekit" | "custom-endpointing-model";
 }
 
 export interface LivekitSmartEndpointingPlan {
@@ -9115,7 +9115,7 @@ export interface LivekitSmartEndpointingPlan {
    * This is the provider for the smart endpointing plan.
    * @example "livekit"
    */
-  provider: "nextagent" | "livekit" | "custom-endpointing-model";
+  provider: "nexagent" | "livekit" | "custom-endpointing-model";
   /**
    * This expression describes how long the bot will wait to start speaking based on the likelihood that the user has reached an endpoint.
    *
@@ -9135,7 +9135,7 @@ export interface CustomEndpointingModelSmartEndpointingPlan {
    * This is the provider for the smart endpointing plan. Use `custom-endpointing-model` for custom endpointing providers that are not natively supported.
    * @example "custom-endpointing-model"
    */
-  provider: "nextagent" | "livekit" | "custom-endpointing-model";
+  provider: "nexagent" | "livekit" | "custom-endpointing-model";
   /**
    * This is where the endpointing request will be sent. If not provided, will be sent to `assistant.server`. If that does not exist either, will be sent to `org.server`.
    *
@@ -9230,7 +9230,7 @@ export interface StartSpeakingPlan {
    */
   smartEndpointingEnabled?: boolean | "livekit";
   /**
-   * This is the plan for smart endpointing. Pick between NextAgent smart endpointing, LiveKit, or custom endpointing model (or nothing). We strongly recommend using livekit endpointing when working in English. LiveKit endpointing is not supported in other languages, yet.
+   * This is the plan for smart endpointing. Pick between NexAgent smart endpointing, LiveKit, or custom endpointing model (or nothing). We strongly recommend using livekit endpointing when working in English. LiveKit endpointing is not supported in other languages, yet.
    *
    * If this is set, it will override and take precedence over `transcriptionEndpointingPlan`.
    * This plan will still be overridden by any matching `customEndpointingRules`.
@@ -9238,7 +9238,7 @@ export interface StartSpeakingPlan {
    * If this is not set, the system will automatically use the transcriber's built-in endpointing capabilities if available.
    */
   smartEndpointingPlan?:
-    | NextAgentSmartEndpointingPlan
+    | NexAgentSmartEndpointingPlan
     | LivekitSmartEndpointingPlan
     | CustomEndpointingModelSmartEndpointingPlan;
   /**
@@ -9351,7 +9351,7 @@ export interface MonitorPlan {
   /**
    * This enables authentication on the `call.monitor.listenUrl`.
    *
-   * If `listenAuthenticationEnabled` is `true`, the `call.monitor.listenUrl` will require an `Authorization: Bearer <nextagent-public-api-key>` header.
+   * If `listenAuthenticationEnabled` is `true`, the `call.monitor.listenUrl` will require an `Authorization: Bearer <nexagent-public-api-key>` header.
    *
    * @default false
    * @example false
@@ -9362,7 +9362,7 @@ export interface MonitorPlan {
    *
    * Fetch `call.monitor.controlUrl` to get the live control URL.
    *
-   * To use, send any control message via a POST request to `call.monitor.controlUrl`. Here are the types of controls supported: https://docs.nextagent.ai/api-reference/messages/client-inbound-message
+   * To use, send any control message via a POST request to `call.monitor.controlUrl`. Here are the types of controls supported: https://docs.nexagent.ai/api-reference/messages/client-inbound-message
    *
    * @default true
    * @example false
@@ -9371,7 +9371,7 @@ export interface MonitorPlan {
   /**
    * This enables authentication on the `call.monitor.controlUrl`.
    *
-   * If `controlAuthenticationEnabled` is `true`, the `call.monitor.controlUrl` will require an `Authorization: Bearer <nextagent-public-api-key>` header.
+   * If `controlAuthenticationEnabled` is `true`, the `call.monitor.controlUrl` will require an `Authorization: Bearer <nexagent-public-api-key>` header.
    *
    * @default false
    * @example false
@@ -9522,7 +9522,7 @@ export interface WorkflowUserEditable {
     | RimeAIVoice
     | SmallestAIVoice
     | TavusVoice
-    | NextAgentVoice
+    | NexAgentVoice
     | SesameVoice
     | InworldVoice
     | MinimaxVoice;
@@ -9705,14 +9705,14 @@ export interface WorkflowUserEditable {
     | GoogleVoicemailDetectionPlan
     | OpenAIVoicemailDetectionPlan
     | TwilioVoicemailDetectionPlan
-    | NextAgentVoicemailDetectionPlan;
+    | NexAgentVoicemailDetectionPlan;
   /** @maxLength 80 */
   name: string;
   edges: Edge[];
   /** @maxLength 5000 */
   globalPrompt?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -9781,7 +9781,7 @@ export interface WorkflowUserEditable {
   voicemailMessage?: string;
 }
 
-export interface NextAgentModel {
+export interface NexAgentModel {
   /** This is the starting state for the conversation. */
   messages?: OpenAIMessage[];
   /**
@@ -9819,7 +9819,7 @@ export interface NextAgentModel {
   toolIds?: string[];
   /** These are the options for the knowledge base. */
   knowledgeBase?: CreateCustomKnowledgeBaseDTO;
-  provider: "nextagent";
+  provider: "nexagent";
   /** This is the workflow that will be used for the call. To use a transient workflow, use `workflow` instead. */
   workflowId?: string;
   /** This is the workflow that will be used for the call. To use an existing workflow, use `workflowId` instead. */
@@ -9938,7 +9938,7 @@ export interface ExactReplacement {
    * - Replace "good morning" with "good day": { type: 'exact', key: 'good morning', value: 'good day' }
    * - Replace a specific name: { type: 'exact', key: 'John Doe', value: 'Jane Smith' }
    * - Replace an acronym: { type: 'exact', key: 'AI', value: 'Artificial Intelligence' }
-   * - Replace a company name with its phonetic pronunciation: { type: 'exact', key: 'NextAgent', value: 'Vappy' }
+   * - Replace a company name with its phonetic pronunciation: { type: 'exact', key: 'NexAgent', value: 'Vappy' }
    */
   type: "exact";
   /**
@@ -10066,7 +10066,7 @@ export interface ChunkPlan {
    * - To rely on the voice provider's audio generation logic, set this to `false`.
    * - If seeing issues with quality, set this to `true`.
    *
-   * If disabled, NextAgent-provided audio control tokens like <flush /> will not work.
+   * If disabled, NexAgent-provided audio control tokens like <flush /> will not work.
    *
    * @default true
    * @example true
@@ -10124,7 +10124,7 @@ export interface FallbackPlan {
     | FallbackCustomVoice
     | FallbackDeepgramVoice
     | FallbackElevenLabsVoice
-    | FallbackNextAgentVoice
+    | FallbackNexAgentVoice
     | FallbackLMNTVoice
     | FallbackOpenAIVoice
     | FallbackPlayHTVoice
@@ -11251,7 +11251,7 @@ export interface TavusVoice {
   fallbackPlan?: FallbackPlan;
 }
 
-export interface NextAgentVoice {
+export interface NexAgentVoice {
   /**
    * This is the flag to toggle voice caching for the assistant.
    * @default true
@@ -11259,8 +11259,8 @@ export interface NextAgentVoice {
    */
   cachingEnabled?: boolean;
   /** This is the voice provider that will be used. */
-  provider: "nextagent";
-  /** The voices provided by NextAgent */
+  provider: "nexagent";
+  /** The voices provided by NexAgent */
   voiceId:
     | "Elliot"
     | "Kylie"
@@ -12514,7 +12514,7 @@ export interface FallbackTavusVoice {
   chunkPlan?: ChunkPlan;
 }
 
-export interface FallbackNextAgentVoice {
+export interface FallbackNexAgentVoice {
   /**
    * This is the flag to toggle voice caching for the assistant.
    * @default true
@@ -12522,8 +12522,8 @@ export interface FallbackNextAgentVoice {
    */
   cachingEnabled?: boolean;
   /** This is the voice provider that will be used. */
-  provider: "nextagent";
-  /** The voices provided by NextAgent */
+  provider: "nexagent";
+  /** The voices provided by NexAgent */
   voiceId:
     | "Elliot"
     | "Kylie"
@@ -13056,7 +13056,7 @@ export interface CreateByoSipTrunkCredentialDTO {
    * @maxLength 10000
    */
   sipDiversionHeader?: string;
-  /** This is an advanced configuration for enterprise deployments. This uses the onprem SBC to trunk into the SIP trunk's `gateways`, rather than the managed SBC provided by NextAgent. */
+  /** This is an advanced configuration for enterprise deployments. This uses the onprem SBC to trunk into the SIP trunk's `gateways`, rather than the managed SBC provided by NexAgent. */
   sbcConfiguration?: SbcConfiguration;
   /**
    * This is the name of credential. This is just for your reference.
@@ -14071,7 +14071,7 @@ export interface CreateAssistantDTO {
     | RimeAIVoice
     | SmallestAIVoice
     | TavusVoice
-    | NextAgentVoice
+    | NexAgentVoice
     | SesameVoice
     | InworldVoice
     | MinimaxVoice;
@@ -14108,7 +14108,7 @@ export interface CreateAssistantDTO {
     | GoogleVoicemailDetectionPlan
     | OpenAIVoicemailDetectionPlan
     | TwilioVoicemailDetectionPlan
-    | NextAgentVoicemailDetectionPlan;
+    | NexAgentVoicemailDetectionPlan;
   /**
    * These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transfer-update,transcript,tool-calls,user-interrupted,voice-input,workflow.node.started. You can check the shape of the messages in ClientMessage schema.
    * @example ["conversation-update","function-call","hang","model-output","speech-update","status-update","transfer-update","transcript","tool-calls","user-interrupted","voice-input","workflow.node.started"]
@@ -14428,7 +14428,7 @@ export interface CreateAssistantDTO {
   /** These are the credentials that will be used for the assistant calls. By default, all the credentials are available for use in the call but you can provide a subset using this. */
   credentialIds?: string[];
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -14485,7 +14485,7 @@ export interface Assistant {
     | RimeAIVoice
     | SmallestAIVoice
     | TavusVoice
-    | NextAgentVoice
+    | NexAgentVoice
     | SesameVoice
     | InworldVoice
     | MinimaxVoice;
@@ -14522,7 +14522,7 @@ export interface Assistant {
     | GoogleVoicemailDetectionPlan
     | OpenAIVoicemailDetectionPlan
     | TwilioVoicemailDetectionPlan
-    | NextAgentVoicemailDetectionPlan;
+    | NexAgentVoicemailDetectionPlan;
   /**
    * These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transfer-update,transcript,tool-calls,user-interrupted,voice-input,workflow.node.started. You can check the shape of the messages in ClientMessage schema.
    * @example ["conversation-update","function-call","hang","model-output","speech-update","status-update","transfer-update","transcript","tool-calls","user-interrupted","voice-input","workflow.node.started"]
@@ -14842,7 +14842,7 @@ export interface Assistant {
   /** These are the credentials that will be used for the assistant calls. By default, all the credentials are available for use in the call but you can provide a subset using this. */
   credentialIds?: string[];
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -14935,7 +14935,7 @@ export interface UpdateAssistantDTO {
     | RimeAIVoice
     | SmallestAIVoice
     | TavusVoice
-    | NextAgentVoice
+    | NexAgentVoice
     | SesameVoice
     | InworldVoice
     | MinimaxVoice;
@@ -14972,7 +14972,7 @@ export interface UpdateAssistantDTO {
     | GoogleVoicemailDetectionPlan
     | OpenAIVoicemailDetectionPlan
     | TwilioVoicemailDetectionPlan
-    | NextAgentVoicemailDetectionPlan;
+    | NexAgentVoicemailDetectionPlan;
   /**
    * These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transfer-update,transcript,tool-calls,user-interrupted,voice-input,workflow.node.started. You can check the shape of the messages in ClientMessage schema.
    * @example ["conversation-update","function-call","hang","model-output","speech-update","status-update","transfer-update","transcript","tool-calls","user-interrupted","voice-input","workflow.node.started"]
@@ -15292,7 +15292,7 @@ export interface UpdateAssistantDTO {
   /** These are the credentials that will be used for the assistant calls. By default, all the credentials are available for use in the call but you can provide a subset using this. */
   credentialIds?: string[];
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -15349,7 +15349,7 @@ export interface AssistantOverrides {
     | RimeAIVoice
     | SmallestAIVoice
     | TavusVoice
-    | NextAgentVoice
+    | NexAgentVoice
     | SesameVoice
     | InworldVoice
     | MinimaxVoice;
@@ -15386,7 +15386,7 @@ export interface AssistantOverrides {
     | GoogleVoicemailDetectionPlan
     | OpenAIVoicemailDetectionPlan
     | TwilioVoicemailDetectionPlan
-    | NextAgentVoicemailDetectionPlan;
+    | NexAgentVoicemailDetectionPlan;
   /**
    * These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transfer-update,transcript,tool-calls,user-interrupted,voice-input,workflow.node.started. You can check the shape of the messages in ClientMessage schema.
    * @example ["conversation-update","function-call","hang","model-output","speech-update","status-update","transfer-update","transcript","tool-calls","user-interrupted","voice-input","workflow.node.started"]
@@ -15716,7 +15716,7 @@ export interface AssistantOverrides {
   /** These are the credentials that will be used for the assistant calls. By default, all the credentials are available for use in the call but you can provide a subset using this. */
   credentialIds?: string[];
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -15863,7 +15863,7 @@ export interface Workflow {
     | RimeAIVoice
     | SmallestAIVoice
     | TavusVoice
-    | NextAgentVoice
+    | NexAgentVoice
     | SesameVoice
     | InworldVoice
     | MinimaxVoice;
@@ -16046,7 +16046,7 @@ export interface Workflow {
     | GoogleVoicemailDetectionPlan
     | OpenAIVoicemailDetectionPlan
     | TwilioVoicemailDetectionPlan
-    | NextAgentVoicemailDetectionPlan;
+    | NexAgentVoicemailDetectionPlan;
   id: string;
   orgId: string;
   /** @format date-time */
@@ -16059,7 +16059,7 @@ export interface Workflow {
   /** @maxLength 5000 */
   globalPrompt?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -16176,7 +16176,7 @@ export interface CreateWorkflowDTO {
     | RimeAIVoice
     | SmallestAIVoice
     | TavusVoice
-    | NextAgentVoice
+    | NexAgentVoice
     | SesameVoice
     | InworldVoice
     | MinimaxVoice;
@@ -16359,14 +16359,14 @@ export interface CreateWorkflowDTO {
     | GoogleVoicemailDetectionPlan
     | OpenAIVoicemailDetectionPlan
     | TwilioVoicemailDetectionPlan
-    | NextAgentVoicemailDetectionPlan;
+    | NexAgentVoicemailDetectionPlan;
   /** @maxLength 80 */
   name: string;
   edges: Edge[];
   /** @maxLength 5000 */
   globalPrompt?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -16483,7 +16483,7 @@ export interface UpdateWorkflowDTO {
     | RimeAIVoice
     | SmallestAIVoice
     | TavusVoice
-    | NextAgentVoice
+    | NexAgentVoice
     | SesameVoice
     | InworldVoice
     | MinimaxVoice;
@@ -16666,14 +16666,14 @@ export interface UpdateWorkflowDTO {
     | GoogleVoicemailDetectionPlan
     | OpenAIVoicemailDetectionPlan
     | TwilioVoicemailDetectionPlan
-    | NextAgentVoicemailDetectionPlan;
+    | NexAgentVoicemailDetectionPlan;
   /** @maxLength 80 */
   name?: string;
   edges?: Edge[];
   /** @maxLength 5000 */
   globalPrompt?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -16778,8 +16778,8 @@ export interface CostBreakdown {
   llm?: number;
   /** This is the cost of the text-to-speech service. */
   tts?: number;
-  /** This is the cost of NextAgent. */
-  nextagent?: number;
+  /** This is the cost of NexAgent. */
+  nexagent?: number;
   /** This is the cost of chat interactions. */
   chat?: number;
   /** This is the total cost of the call. */
@@ -16910,7 +16910,7 @@ export interface Artifact {
   recording?: Recording;
   /** This is the transcript of the call. This is derived from `artifact.messages` but provided for convenience. */
   transcript?: string;
-  /** This is the packet capture url for the call. This is only available for `phone` type calls where phone number's provider is `nextagent` or `byo-phone-number`. */
+  /** This is the packet capture url for the call. This is only available for `phone` type calls where phone number's provider is `nexagent` or `byo-phone-number`. */
   pcapUrl?: string;
   /** This is the url for the call logs. This includes all logging output during the call for debugging purposes. */
   logUrl?: string;
@@ -17031,10 +17031,10 @@ export interface ImportTwilioPhoneNumberDTO {
   /** This is the hooks that will be used for incoming calls to this phone number. */
   hooks?: (PhoneNumberHookCallRinging | PhoneNumberHookCallEnding)[];
   /**
-   * Controls whether NextAgent sets the messaging webhook URL on the Twilio number during import.
+   * Controls whether NexAgent sets the messaging webhook URL on the Twilio number during import.
    *
-   * If set to `false`, NextAgent will not update the Twilio messaging URL, leaving it as is.
-   * If `true` or omitted (default), NextAgent will configure both the voice and messaging URLs.
+   * If set to `false`, NexAgent will not update the Twilio messaging URL, leaving it as is.
+   * If `true` or omitted (default), NexAgent will configure both the voice and messaging URLs.
    *
    * @default true
    * @default true
@@ -17077,7 +17077,7 @@ export interface ImportTwilioPhoneNumberDTO {
    */
   squadId?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -17159,14 +17159,14 @@ export interface Call {
     | "inboundPhoneCall"
     | "outboundPhoneCall"
     | "webCall"
-    | "nextagent.websocketCall";
+    | "nexagent.websocketCall";
   /** These are the costs of individual components of the call in USD. */
   costs?: (
     | TransportCost
     | TranscriberCost
     | ModelCost
     | VoiceCost
-    | NextAgentCost
+    | NexAgentCost
     | VoicemailDetectionCost
     | AnalysisCost
     | KnowledgeBaseCost
@@ -17184,7 +17184,7 @@ export interface Call {
    * Only relevant for `outboundPhoneCall` and `inboundPhoneCall` type.
    * @deprecated
    */
-  phoneCallProvider?: "twilio" | "vonage" | "nextagent" | "telnyx";
+  phoneCallProvider?: "twilio" | "vonage" | "nexagent" | "telnyx";
   /**
    * This is the transport of the phone call.
    *
@@ -17209,14 +17209,14 @@ export interface Call {
     | "assistant-request-returned-no-assistant"
     | "assistant-request-returned-forwarding-phone-number"
     | "scheduled-call-deleted"
-    | "call.start.error-nextagentfault-get-org"
-    | "call.start.error-nextagentfault-get-subscription"
+    | "call.start.error-nexagentfault-get-org"
+    | "call.start.error-nexagentfault-get-subscription"
     | "call.start.error-get-assistant"
     | "call.start.error-get-phone-number"
     | "call.start.error-get-customer"
     | "call.start.error-get-resources-validation"
-    | "call.start.error-nextagent-number-international"
-    | "call.start.error-nextagent-number-outbound-daily-limit"
+    | "call.start.error-nexagent-number-international"
+    | "call.start.error-nexagent-number-outbound-daily-limit"
     | "call.start.error-get-transport"
     | "call.start.error-subscription-wallet-does-not-exist"
     | "call.start.error-fraud-check-failed"
@@ -17242,58 +17242,58 @@ export interface Call {
     | "pipeline-error-inworld-voice-failed"
     | "pipeline-error-minimax-voice-failed"
     | "pipeline-error-tavus-video-failed"
-    | "call.in-progress.error-nextagentfault-openai-voice-failed"
-    | "call.in-progress.error-nextagentfault-cartesia-voice-failed"
-    | "call.in-progress.error-nextagentfault-deepgram-voice-failed"
-    | "call.in-progress.error-nextagentfault-eleven-labs-voice-failed"
-    | "call.in-progress.error-nextagentfault-playht-voice-failed"
-    | "call.in-progress.error-nextagentfault-lmnt-voice-failed"
-    | "call.in-progress.error-nextagentfault-azure-voice-failed"
-    | "call.in-progress.error-nextagentfault-rime-ai-voice-failed"
-    | "call.in-progress.error-nextagentfault-smallest-ai-voice-failed"
-    | "call.in-progress.error-nextagentfault-neuphonic-voice-failed"
-    | "call.in-progress.error-nextagentfault-hume-voice-failed"
-    | "call.in-progress.error-nextagentfault-sesame-voice-failed"
-    | "call.in-progress.error-nextagentfault-inworld-voice-failed"
-    | "call.in-progress.error-nextagentfault-minimax-voice-failed"
-    | "call.in-progress.error-nextagentfault-tavus-video-failed"
-    | "pipeline-error-nextagent-llm-failed"
-    | "pipeline-error-nextagent-400-bad-request-validation-failed"
-    | "pipeline-error-nextagent-401-unauthorized"
-    | "pipeline-error-nextagent-403-model-access-denied"
-    | "pipeline-error-nextagent-429-exceeded-quota"
-    | "pipeline-error-nextagent-500-server-error"
-    | "pipeline-error-nextagent-503-server-overloaded-error"
-    | "call.in-progress.error-providerfault-nextagent-llm-failed"
-    | "call.in-progress.error-nextagentfault-nextagent-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-nextagent-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-nextagent-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-nextagent-429-exceeded-quota"
-    | "call.in-progress.error-providerfault-nextagent-500-server-error"
-    | "call.in-progress.error-providerfault-nextagent-503-server-overloaded-error"
+    | "call.in-progress.error-nexagentfault-openai-voice-failed"
+    | "call.in-progress.error-nexagentfault-cartesia-voice-failed"
+    | "call.in-progress.error-nexagentfault-deepgram-voice-failed"
+    | "call.in-progress.error-nexagentfault-eleven-labs-voice-failed"
+    | "call.in-progress.error-nexagentfault-playht-voice-failed"
+    | "call.in-progress.error-nexagentfault-lmnt-voice-failed"
+    | "call.in-progress.error-nexagentfault-azure-voice-failed"
+    | "call.in-progress.error-nexagentfault-rime-ai-voice-failed"
+    | "call.in-progress.error-nexagentfault-smallest-ai-voice-failed"
+    | "call.in-progress.error-nexagentfault-neuphonic-voice-failed"
+    | "call.in-progress.error-nexagentfault-hume-voice-failed"
+    | "call.in-progress.error-nexagentfault-sesame-voice-failed"
+    | "call.in-progress.error-nexagentfault-inworld-voice-failed"
+    | "call.in-progress.error-nexagentfault-minimax-voice-failed"
+    | "call.in-progress.error-nexagentfault-tavus-video-failed"
+    | "pipeline-error-nexagent-llm-failed"
+    | "pipeline-error-nexagent-400-bad-request-validation-failed"
+    | "pipeline-error-nexagent-401-unauthorized"
+    | "pipeline-error-nexagent-403-model-access-denied"
+    | "pipeline-error-nexagent-429-exceeded-quota"
+    | "pipeline-error-nexagent-500-server-error"
+    | "pipeline-error-nexagent-503-server-overloaded-error"
+    | "call.in-progress.error-providerfault-nexagent-llm-failed"
+    | "call.in-progress.error-nexagentfault-nexagent-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-nexagent-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-nexagent-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-nexagent-429-exceeded-quota"
+    | "call.in-progress.error-providerfault-nexagent-500-server-error"
+    | "call.in-progress.error-providerfault-nexagent-503-server-overloaded-error"
     | "pipeline-error-deepgram-transcriber-failed"
     | "pipeline-error-deepgram-transcriber-api-key-missing"
-    | "call.in-progress.error-nextagentfault-deepgram-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-deepgram-transcriber-failed"
     | "pipeline-error-gladia-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-gladia-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-gladia-transcriber-failed"
     | "pipeline-error-speechmatics-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-speechmatics-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-speechmatics-transcriber-failed"
     | "pipeline-error-assembly-ai-transcriber-failed"
     | "pipeline-error-assembly-ai-returning-400-insufficent-funds"
     | "pipeline-error-assembly-ai-returning-400-paid-only-feature"
     | "pipeline-error-assembly-ai-returning-401-invalid-credentials"
     | "pipeline-error-assembly-ai-returning-500-invalid-schema"
     | "pipeline-error-assembly-ai-returning-500-word-boost-parsing-failed"
-    | "call.in-progress.error-nextagentfault-assembly-ai-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-assembly-ai-returning-400-insufficent-funds"
-    | "call.in-progress.error-nextagentfault-assembly-ai-returning-400-paid-only-feature"
-    | "call.in-progress.error-nextagentfault-assembly-ai-returning-401-invalid-credentials"
-    | "call.in-progress.error-nextagentfault-assembly-ai-returning-500-invalid-schema"
-    | "call.in-progress.error-nextagentfault-assembly-ai-returning-500-word-boost-parsing-failed"
+    | "call.in-progress.error-nexagentfault-assembly-ai-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-assembly-ai-returning-400-insufficent-funds"
+    | "call.in-progress.error-nexagentfault-assembly-ai-returning-400-paid-only-feature"
+    | "call.in-progress.error-nexagentfault-assembly-ai-returning-401-invalid-credentials"
+    | "call.in-progress.error-nexagentfault-assembly-ai-returning-500-invalid-schema"
+    | "call.in-progress.error-nexagentfault-assembly-ai-returning-500-word-boost-parsing-failed"
     | "pipeline-error-talkscriber-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-talkscriber-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-talkscriber-transcriber-failed"
     | "pipeline-error-azure-speech-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-azure-speech-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-azure-speech-transcriber-failed"
     | "call.in-progress.error-pipeline-no-available-llm-model"
     | "worker-shutdown"
     | "vonage-disconnected"
@@ -17301,11 +17301,11 @@ export interface Call {
     | "vonage-completed"
     | "phone-call-provider-bypass-enabled-but-no-call-received"
     | "call.in-progress.error-providerfault-transport-never-connected"
-    | "call.in-progress.error-nextagentfault-worker-not-available"
-    | "call.in-progress.error-nextagentfault-transport-never-connected"
-    | "call.in-progress.error-nextagentfault-transport-connected-but-call-not-active"
-    | "call.in-progress.error-nextagentfault-call-started-but-connection-to-transport-missing"
-    | "call.in-progress.error-nextagentfault-worker-died"
+    | "call.in-progress.error-nexagentfault-worker-not-available"
+    | "call.in-progress.error-nexagentfault-transport-never-connected"
+    | "call.in-progress.error-nexagentfault-transport-connected-but-call-not-active"
+    | "call.in-progress.error-nexagentfault-call-started-but-connection-to-transport-missing"
+    | "call.in-progress.error-nexagentfault-worker-died"
     | "call.in-progress.twilio-completed-call"
     | "call.in-progress.sip-completed-call"
     | "call.in-progress.error-providerfault-openai-llm-failed"
@@ -17317,7 +17317,7 @@ export interface Call {
     | "call.in-progress.error-providerfault-inflection-ai-llm-failed"
     | "call.in-progress.error-providerfault-cerebras-llm-failed"
     | "call.in-progress.error-providerfault-deep-seek-llm-failed"
-    | "call.in-progress.error-nextagentfault-chat-pipeline-failed-to-start"
+    | "call.in-progress.error-nexagentfault-chat-pipeline-failed-to-start"
     | "pipeline-error-openai-400-bad-request-validation-failed"
     | "pipeline-error-openai-401-unauthorized"
     | "pipeline-error-openai-401-incorrect-api-key"
@@ -17328,13 +17328,13 @@ export interface Call {
     | "pipeline-error-openai-500-server-error"
     | "pipeline-error-openai-503-server-overloaded-error"
     | "pipeline-error-openai-llm-failed"
-    | "call.in-progress.error-nextagentfault-openai-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-openai-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-openai-401-incorrect-api-key"
-    | "call.in-progress.error-nextagentfault-openai-401-account-not-in-organization"
-    | "call.in-progress.error-nextagentfault-openai-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-openai-429-exceeded-quota"
-    | "call.in-progress.error-nextagentfault-openai-429-rate-limit-reached"
+    | "call.in-progress.error-nexagentfault-openai-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-openai-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-openai-401-incorrect-api-key"
+    | "call.in-progress.error-nexagentfault-openai-401-account-not-in-organization"
+    | "call.in-progress.error-nexagentfault-openai-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-openai-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-openai-429-rate-limit-reached"
     | "call.in-progress.error-providerfault-openai-500-server-error"
     | "call.in-progress.error-providerfault-openai-503-server-overloaded-error"
     | "pipeline-error-azure-openai-400-bad-request-validation-failed"
@@ -17344,10 +17344,10 @@ export interface Call {
     | "pipeline-error-azure-openai-500-server-error"
     | "pipeline-error-azure-openai-503-server-overloaded-error"
     | "pipeline-error-azure-openai-llm-failed"
-    | "call.in-progress.error-nextagentfault-azure-openai-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-azure-openai-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-azure-openai-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-azure-openai-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-azure-openai-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-azure-openai-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-azure-openai-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-azure-openai-429-exceeded-quota"
     | "call.in-progress.error-providerfault-azure-openai-500-server-error"
     | "call.in-progress.error-providerfault-azure-openai-503-server-overloaded-error"
     | "pipeline-error-google-400-bad-request-validation-failed"
@@ -17357,10 +17357,10 @@ export interface Call {
     | "pipeline-error-google-500-server-error"
     | "pipeline-error-google-503-server-overloaded-error"
     | "pipeline-error-google-llm-failed"
-    | "call.in-progress.error-nextagentfault-google-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-google-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-google-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-google-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-google-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-google-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-google-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-google-429-exceeded-quota"
     | "call.in-progress.error-providerfault-google-500-server-error"
     | "call.in-progress.error-providerfault-google-503-server-overloaded-error"
     | "pipeline-error-xai-400-bad-request-validation-failed"
@@ -17370,10 +17370,10 @@ export interface Call {
     | "pipeline-error-xai-500-server-error"
     | "pipeline-error-xai-503-server-overloaded-error"
     | "pipeline-error-xai-llm-failed"
-    | "call.in-progress.error-nextagentfault-xai-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-xai-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-xai-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-xai-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-xai-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-xai-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-xai-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-xai-429-exceeded-quota"
     | "call.in-progress.error-providerfault-xai-500-server-error"
     | "call.in-progress.error-providerfault-xai-503-server-overloaded-error"
     | "pipeline-error-mistral-400-bad-request-validation-failed"
@@ -17383,10 +17383,10 @@ export interface Call {
     | "pipeline-error-mistral-500-server-error"
     | "pipeline-error-mistral-503-server-overloaded-error"
     | "pipeline-error-mistral-llm-failed"
-    | "call.in-progress.error-nextagentfault-mistral-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-mistral-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-mistral-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-mistral-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-mistral-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-mistral-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-mistral-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-mistral-429-exceeded-quota"
     | "call.in-progress.error-providerfault-mistral-500-server-error"
     | "call.in-progress.error-providerfault-mistral-503-server-overloaded-error"
     | "pipeline-error-inflection-ai-400-bad-request-validation-failed"
@@ -17396,10 +17396,10 @@ export interface Call {
     | "pipeline-error-inflection-ai-500-server-error"
     | "pipeline-error-inflection-ai-503-server-overloaded-error"
     | "pipeline-error-inflection-ai-llm-failed"
-    | "call.in-progress.error-nextagentfault-inflection-ai-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-inflection-ai-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-inflection-ai-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-inflection-ai-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-inflection-ai-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-inflection-ai-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-inflection-ai-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-inflection-ai-429-exceeded-quota"
     | "call.in-progress.error-providerfault-inflection-ai-500-server-error"
     | "call.in-progress.error-providerfault-inflection-ai-503-server-overloaded-error"
     | "pipeline-error-deep-seek-400-bad-request-validation-failed"
@@ -17409,10 +17409,10 @@ export interface Call {
     | "pipeline-error-deep-seek-500-server-error"
     | "pipeline-error-deep-seek-503-server-overloaded-error"
     | "pipeline-error-deep-seek-llm-failed"
-    | "call.in-progress.error-nextagentfault-deep-seek-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-deep-seek-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-deep-seek-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-deep-seek-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-deep-seek-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-deep-seek-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-deep-seek-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-deep-seek-429-exceeded-quota"
     | "call.in-progress.error-providerfault-deep-seek-500-server-error"
     | "call.in-progress.error-providerfault-deep-seek-503-server-overloaded-error"
     | "pipeline-error-groq-400-bad-request-validation-failed"
@@ -17422,10 +17422,10 @@ export interface Call {
     | "pipeline-error-groq-500-server-error"
     | "pipeline-error-groq-503-server-overloaded-error"
     | "pipeline-error-groq-llm-failed"
-    | "call.in-progress.error-nextagentfault-groq-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-groq-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-groq-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-groq-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-groq-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-groq-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-groq-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-groq-429-exceeded-quota"
     | "call.in-progress.error-providerfault-groq-500-server-error"
     | "call.in-progress.error-providerfault-groq-503-server-overloaded-error"
     | "pipeline-error-cerebras-400-bad-request-validation-failed"
@@ -17435,10 +17435,10 @@ export interface Call {
     | "pipeline-error-cerebras-500-server-error"
     | "pipeline-error-cerebras-503-server-overloaded-error"
     | "pipeline-error-cerebras-llm-failed"
-    | "call.in-progress.error-nextagentfault-cerebras-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-cerebras-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-cerebras-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-cerebras-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-cerebras-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-cerebras-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-cerebras-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-cerebras-429-exceeded-quota"
     | "call.in-progress.error-providerfault-cerebras-500-server-error"
     | "call.in-progress.error-providerfault-cerebras-503-server-overloaded-error"
     | "pipeline-error-anthropic-400-bad-request-validation-failed"
@@ -17449,10 +17449,10 @@ export interface Call {
     | "pipeline-error-anthropic-503-server-overloaded-error"
     | "pipeline-error-anthropic-llm-failed"
     | "call.in-progress.error-providerfault-anthropic-llm-failed"
-    | "call.in-progress.error-nextagentfault-anthropic-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-anthropic-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-anthropic-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-anthropic-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-anthropic-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-anthropic-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-anthropic-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-anthropic-429-exceeded-quota"
     | "call.in-progress.error-providerfault-anthropic-500-server-error"
     | "call.in-progress.error-providerfault-anthropic-503-server-overloaded-error"
     | "pipeline-error-anthropic-bedrock-400-bad-request-validation-failed"
@@ -17463,10 +17463,10 @@ export interface Call {
     | "pipeline-error-anthropic-bedrock-503-server-overloaded-error"
     | "pipeline-error-anthropic-bedrock-llm-failed"
     | "call.in-progress.error-providerfault-anthropic-bedrock-llm-failed"
-    | "call.in-progress.error-nextagentfault-anthropic-bedrock-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-anthropic-bedrock-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-anthropic-bedrock-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-anthropic-bedrock-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-anthropic-bedrock-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-anthropic-bedrock-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-anthropic-bedrock-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-anthropic-bedrock-429-exceeded-quota"
     | "call.in-progress.error-providerfault-anthropic-bedrock-500-server-error"
     | "call.in-progress.error-providerfault-anthropic-bedrock-503-server-overloaded-error"
     | "pipeline-error-anthropic-vertex-400-bad-request-validation-failed"
@@ -17477,10 +17477,10 @@ export interface Call {
     | "pipeline-error-anthropic-vertex-503-server-overloaded-error"
     | "pipeline-error-anthropic-vertex-llm-failed"
     | "call.in-progress.error-providerfault-anthropic-vertex-llm-failed"
-    | "call.in-progress.error-nextagentfault-anthropic-vertex-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-anthropic-vertex-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-anthropic-vertex-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-anthropic-vertex-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-anthropic-vertex-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-anthropic-vertex-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-anthropic-vertex-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-anthropic-vertex-429-exceeded-quota"
     | "call.in-progress.error-providerfault-anthropic-vertex-500-server-error"
     | "call.in-progress.error-providerfault-anthropic-vertex-503-server-overloaded-error"
     | "pipeline-error-together-ai-400-bad-request-validation-failed"
@@ -17491,10 +17491,10 @@ export interface Call {
     | "pipeline-error-together-ai-503-server-overloaded-error"
     | "pipeline-error-together-ai-llm-failed"
     | "call.in-progress.error-providerfault-together-ai-llm-failed"
-    | "call.in-progress.error-nextagentfault-together-ai-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-together-ai-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-together-ai-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-together-ai-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-together-ai-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-together-ai-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-together-ai-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-together-ai-429-exceeded-quota"
     | "call.in-progress.error-providerfault-together-ai-500-server-error"
     | "call.in-progress.error-providerfault-together-ai-503-server-overloaded-error"
     | "pipeline-error-anyscale-400-bad-request-validation-failed"
@@ -17505,10 +17505,10 @@ export interface Call {
     | "pipeline-error-anyscale-503-server-overloaded-error"
     | "pipeline-error-anyscale-llm-failed"
     | "call.in-progress.error-providerfault-anyscale-llm-failed"
-    | "call.in-progress.error-nextagentfault-anyscale-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-anyscale-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-anyscale-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-anyscale-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-anyscale-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-anyscale-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-anyscale-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-anyscale-429-exceeded-quota"
     | "call.in-progress.error-providerfault-anyscale-500-server-error"
     | "call.in-progress.error-providerfault-anyscale-503-server-overloaded-error"
     | "pipeline-error-openrouter-400-bad-request-validation-failed"
@@ -17519,10 +17519,10 @@ export interface Call {
     | "pipeline-error-openrouter-503-server-overloaded-error"
     | "pipeline-error-openrouter-llm-failed"
     | "call.in-progress.error-providerfault-openrouter-llm-failed"
-    | "call.in-progress.error-nextagentfault-openrouter-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-openrouter-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-openrouter-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-openrouter-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-openrouter-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-openrouter-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-openrouter-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-openrouter-429-exceeded-quota"
     | "call.in-progress.error-providerfault-openrouter-500-server-error"
     | "call.in-progress.error-providerfault-openrouter-503-server-overloaded-error"
     | "pipeline-error-perplexity-ai-400-bad-request-validation-failed"
@@ -17533,10 +17533,10 @@ export interface Call {
     | "pipeline-error-perplexity-ai-503-server-overloaded-error"
     | "pipeline-error-perplexity-ai-llm-failed"
     | "call.in-progress.error-providerfault-perplexity-ai-llm-failed"
-    | "call.in-progress.error-nextagentfault-perplexity-ai-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-perplexity-ai-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-perplexity-ai-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-perplexity-ai-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-perplexity-ai-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-perplexity-ai-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-perplexity-ai-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-perplexity-ai-429-exceeded-quota"
     | "call.in-progress.error-providerfault-perplexity-ai-500-server-error"
     | "call.in-progress.error-providerfault-perplexity-ai-503-server-overloaded-error"
     | "pipeline-error-deepinfra-400-bad-request-validation-failed"
@@ -17547,10 +17547,10 @@ export interface Call {
     | "pipeline-error-deepinfra-503-server-overloaded-error"
     | "pipeline-error-deepinfra-llm-failed"
     | "call.in-progress.error-providerfault-deepinfra-llm-failed"
-    | "call.in-progress.error-nextagentfault-deepinfra-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-deepinfra-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-deepinfra-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-deepinfra-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-deepinfra-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-deepinfra-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-deepinfra-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-deepinfra-429-exceeded-quota"
     | "call.in-progress.error-providerfault-deepinfra-500-server-error"
     | "call.in-progress.error-providerfault-deepinfra-503-server-overloaded-error"
     | "pipeline-error-runpod-400-bad-request-validation-failed"
@@ -17561,10 +17561,10 @@ export interface Call {
     | "pipeline-error-runpod-503-server-overloaded-error"
     | "pipeline-error-runpod-llm-failed"
     | "call.in-progress.error-providerfault-runpod-llm-failed"
-    | "call.in-progress.error-nextagentfault-runpod-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-runpod-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-runpod-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-runpod-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-runpod-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-runpod-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-runpod-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-runpod-429-exceeded-quota"
     | "call.in-progress.error-providerfault-runpod-500-server-error"
     | "call.in-progress.error-providerfault-runpod-503-server-overloaded-error"
     | "pipeline-error-custom-llm-400-bad-request-validation-failed"
@@ -17575,10 +17575,10 @@ export interface Call {
     | "pipeline-error-custom-llm-503-server-overloaded-error"
     | "pipeline-error-custom-llm-llm-failed"
     | "call.in-progress.error-providerfault-custom-llm-llm-failed"
-    | "call.in-progress.error-nextagentfault-custom-llm-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-custom-llm-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-custom-llm-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-custom-llm-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-custom-llm-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-custom-llm-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-custom-llm-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-custom-llm-429-exceeded-quota"
     | "call.in-progress.error-providerfault-custom-llm-500-server-error"
     | "call.in-progress.error-providerfault-custom-llm-503-server-overloaded-error"
     | "pipeline-error-custom-voice-failed"
@@ -17588,8 +17588,8 @@ export interface Call {
     | "pipeline-error-cartesia-502-server-error"
     | "pipeline-error-cartesia-503-server-error"
     | "pipeline-error-cartesia-522-server-error"
-    | "call.in-progress.error-nextagentfault-cartesia-socket-hang-up"
-    | "call.in-progress.error-nextagentfault-cartesia-requested-payment"
+    | "call.in-progress.error-nexagentfault-cartesia-socket-hang-up"
+    | "call.in-progress.error-nexagentfault-cartesia-requested-payment"
     | "call.in-progress.error-providerfault-cartesia-500-server-error"
     | "call.in-progress.error-providerfault-cartesia-503-server-error"
     | "call.in-progress.error-providerfault-cartesia-522-server-error"
@@ -17606,7 +17606,7 @@ export interface Call {
     | "pipeline-error-eleven-labs-invalid-api-key"
     | "pipeline-error-eleven-labs-invalid-voice-samples"
     | "pipeline-error-eleven-labs-voice-disabled-by-owner"
-    | "pipeline-error-eleven-labs-nextagent-voice-disabled-by-owner"
+    | "pipeline-error-eleven-labs-nexagent-voice-disabled-by-owner"
     | "pipeline-error-eleven-labs-blocked-account-in-probation"
     | "pipeline-error-eleven-labs-blocked-content-against-their-policy"
     | "pipeline-error-eleven-labs-missing-samples-for-voice-clone"
@@ -17616,26 +17616,26 @@ export interface Call {
     | "pipeline-error-eleven-labs-blocked-voice-potentially-against-terms-of-service-and-awaiting-verification"
     | "pipeline-error-eleven-labs-500-server-error"
     | "pipeline-error-eleven-labs-503-server-error"
-    | "call.in-progress.error-nextagentfault-eleven-labs-voice-not-found"
-    | "call.in-progress.error-nextagentfault-eleven-labs-quota-exceeded"
-    | "call.in-progress.error-nextagentfault-eleven-labs-unauthorized-access"
-    | "call.in-progress.error-nextagentfault-eleven-labs-unauthorized-to-access-model"
-    | "call.in-progress.error-nextagentfault-eleven-labs-professional-voices-only-for-creator-plus"
-    | "call.in-progress.error-nextagentfault-eleven-labs-blocked-free-plan-and-requested-upgrade"
-    | "call.in-progress.error-nextagentfault-eleven-labs-blocked-concurrent-requests-and-requested-upgrade"
-    | "call.in-progress.error-nextagentfault-eleven-labs-blocked-using-instant-voice-clone-and-requested-upgrade"
-    | "call.in-progress.error-nextagentfault-eleven-labs-system-busy-and-requested-upgrade"
-    | "call.in-progress.error-nextagentfault-eleven-labs-voice-not-fine-tuned"
-    | "call.in-progress.error-nextagentfault-eleven-labs-invalid-api-key"
-    | "call.in-progress.error-nextagentfault-eleven-labs-invalid-voice-samples"
-    | "call.in-progress.error-nextagentfault-eleven-labs-voice-disabled-by-owner"
-    | "call.in-progress.error-nextagentfault-eleven-labs-blocked-account-in-probation"
-    | "call.in-progress.error-nextagentfault-eleven-labs-blocked-content-against-their-policy"
-    | "call.in-progress.error-nextagentfault-eleven-labs-missing-samples-for-voice-clone"
-    | "call.in-progress.error-nextagentfault-eleven-labs-voice-not-fine-tuned-and-cannot-be-used"
-    | "call.in-progress.error-nextagentfault-eleven-labs-voice-not-allowed-for-free-users"
-    | "call.in-progress.error-nextagentfault-eleven-labs-max-character-limit-exceeded"
-    | "call.in-progress.error-nextagentfault-eleven-labs-blocked-voice-potentially-against-terms-of-service-and-awaiting-verification"
+    | "call.in-progress.error-nexagentfault-eleven-labs-voice-not-found"
+    | "call.in-progress.error-nexagentfault-eleven-labs-quota-exceeded"
+    | "call.in-progress.error-nexagentfault-eleven-labs-unauthorized-access"
+    | "call.in-progress.error-nexagentfault-eleven-labs-unauthorized-to-access-model"
+    | "call.in-progress.error-nexagentfault-eleven-labs-professional-voices-only-for-creator-plus"
+    | "call.in-progress.error-nexagentfault-eleven-labs-blocked-free-plan-and-requested-upgrade"
+    | "call.in-progress.error-nexagentfault-eleven-labs-blocked-concurrent-requests-and-requested-upgrade"
+    | "call.in-progress.error-nexagentfault-eleven-labs-blocked-using-instant-voice-clone-and-requested-upgrade"
+    | "call.in-progress.error-nexagentfault-eleven-labs-system-busy-and-requested-upgrade"
+    | "call.in-progress.error-nexagentfault-eleven-labs-voice-not-fine-tuned"
+    | "call.in-progress.error-nexagentfault-eleven-labs-invalid-api-key"
+    | "call.in-progress.error-nexagentfault-eleven-labs-invalid-voice-samples"
+    | "call.in-progress.error-nexagentfault-eleven-labs-voice-disabled-by-owner"
+    | "call.in-progress.error-nexagentfault-eleven-labs-blocked-account-in-probation"
+    | "call.in-progress.error-nexagentfault-eleven-labs-blocked-content-against-their-policy"
+    | "call.in-progress.error-nexagentfault-eleven-labs-missing-samples-for-voice-clone"
+    | "call.in-progress.error-nexagentfault-eleven-labs-voice-not-fine-tuned-and-cannot-be-used"
+    | "call.in-progress.error-nexagentfault-eleven-labs-voice-not-allowed-for-free-users"
+    | "call.in-progress.error-nexagentfault-eleven-labs-max-character-limit-exceeded"
+    | "call.in-progress.error-nexagentfault-eleven-labs-blocked-voice-potentially-against-terms-of-service-and-awaiting-verification"
     | "call.in-progress.error-providerfault-eleven-labs-500-server-error"
     | "call.in-progress.error-providerfault-eleven-labs-503-server-error"
     | "pipeline-error-playht-request-timed-out"
@@ -17650,22 +17650,22 @@ export interface Call {
     | "pipeline-error-playht-429-exceeded-quota"
     | "pipeline-error-playht-502-gateway-error"
     | "pipeline-error-playht-504-gateway-error"
-    | "call.in-progress.error-nextagentfault-playht-request-timed-out"
-    | "call.in-progress.error-nextagentfault-playht-invalid-voice"
-    | "call.in-progress.error-nextagentfault-playht-unexpected-error"
-    | "call.in-progress.error-nextagentfault-playht-out-of-credits"
-    | "call.in-progress.error-nextagentfault-playht-invalid-emotion"
-    | "call.in-progress.error-nextagentfault-playht-voice-must-be-a-valid-voice-manifest-uri"
-    | "call.in-progress.error-nextagentfault-playht-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-playht-403-forbidden-out-of-characters"
-    | "call.in-progress.error-nextagentfault-playht-403-forbidden-api-access-not-available"
-    | "call.in-progress.error-nextagentfault-playht-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-playht-request-timed-out"
+    | "call.in-progress.error-nexagentfault-playht-invalid-voice"
+    | "call.in-progress.error-nexagentfault-playht-unexpected-error"
+    | "call.in-progress.error-nexagentfault-playht-out-of-credits"
+    | "call.in-progress.error-nexagentfault-playht-invalid-emotion"
+    | "call.in-progress.error-nexagentfault-playht-voice-must-be-a-valid-voice-manifest-uri"
+    | "call.in-progress.error-nexagentfault-playht-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-playht-403-forbidden-out-of-characters"
+    | "call.in-progress.error-nexagentfault-playht-403-forbidden-api-access-not-available"
+    | "call.in-progress.error-nexagentfault-playht-429-exceeded-quota"
     | "call.in-progress.error-providerfault-playht-502-gateway-error"
     | "call.in-progress.error-providerfault-playht-504-gateway-error"
     | "pipeline-error-custom-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-custom-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-custom-transcriber-failed"
     | "pipeline-error-eleven-labs-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-eleven-labs-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-eleven-labs-transcriber-failed"
     | "pipeline-error-deepgram-returning-400-no-such-model-language-tier-combination"
     | "pipeline-error-deepgram-returning-401-invalid-credentials"
     | "pipeline-error-deepgram-returning-403-model-access-denied"
@@ -17674,17 +17674,17 @@ export interface Call {
     | "pipeline-error-deepgram-returning-502-network-error"
     | "pipeline-error-deepgram-returning-502-bad-gateway-ehostunreach"
     | "pipeline-error-deepgram-returning-econnreset"
-    | "call.in-progress.error-nextagentfault-deepgram-returning-400-no-such-model-language-tier-combination"
-    | "call.in-progress.error-nextagentfault-deepgram-returning-401-invalid-credentials"
-    | "call.in-progress.error-nextagentfault-deepgram-returning-404-not-found"
-    | "call.in-progress.error-nextagentfault-deepgram-returning-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-deepgram-returning-400-no-such-model-language-tier-combination"
+    | "call.in-progress.error-nexagentfault-deepgram-returning-401-invalid-credentials"
+    | "call.in-progress.error-nexagentfault-deepgram-returning-404-not-found"
+    | "call.in-progress.error-nexagentfault-deepgram-returning-403-model-access-denied"
     | "call.in-progress.error-providerfault-deepgram-returning-500-invalid-json"
     | "call.in-progress.error-providerfault-deepgram-returning-502-network-error"
     | "call.in-progress.error-providerfault-deepgram-returning-502-bad-gateway-ehostunreach"
     | "pipeline-error-google-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-google-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-google-transcriber-failed"
     | "pipeline-error-openai-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-openai-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-openai-transcriber-failed"
     | "call.in-progress.error-warm-transfer-max-duration"
     | "call.in-progress.error-warm-transfer-assistant-cancelled"
     | "call.in-progress.error-warm-transfer-silence-timeout"
@@ -19259,7 +19259,7 @@ export interface ByoPhoneNumber {
    */
   squadId?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -19297,10 +19297,10 @@ export interface TwilioPhoneNumber {
   /** This is to use numbers bought on Twilio. */
   provider: "twilio";
   /**
-   * Controls whether NextAgent sets the messaging webhook URL on the Twilio number during import.
+   * Controls whether NexAgent sets the messaging webhook URL on the Twilio number during import.
    *
-   * If set to `false`, NextAgent will not update the Twilio messaging URL, leaving it as is.
-   * If `true` or omitted (default), NextAgent will configure both the voice and messaging URLs.
+   * If set to `false`, NexAgent will not update the Twilio messaging URL, leaving it as is.
+   * If `true` or omitted (default), NexAgent will configure both the voice and messaging URLs.
    *
    * @default true
    * @default true
@@ -19352,7 +19352,7 @@ export interface TwilioPhoneNumber {
    */
   squadId?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -19421,7 +19421,7 @@ export interface VonagePhoneNumber {
    */
   squadId?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -19432,12 +19432,12 @@ export interface VonagePhoneNumber {
   server?: Server;
   /** These are the digits of the phone number you own on your Vonage. */
   number: string;
-  /** This is the credential you added in dashboard.nextagent.ai/keys. This is used to configure the number to send inbound calls to NextAgent, make outbound calls and do live call updates like transfers and hangups. */
+  /** This is the credential you added in dashboard.nexagent.ai/keys. This is used to configure the number to send inbound calls to NexAgent, make outbound calls and do live call updates like transfers and hangups. */
   credentialId: string;
 }
 
 export interface SipAuthentication {
-  /** This will be expected in the `realm` field of the `authorization` header of the SIP INVITE. Defaults to sip.nextagent.ai. */
+  /** This will be expected in the `realm` field of the `authorization` header of the SIP INVITE. Defaults to sip.nexagent.ai. */
   realm?: string;
   /**
    * This will be expected in the `username` field of the `authorization` header of the SIP INVITE.
@@ -19453,7 +19453,7 @@ export interface SipAuthentication {
   password: string;
 }
 
-export interface NextAgentPhoneNumber {
+export interface NexAgentPhoneNumber {
   /**
    * This is the fallback destination an inbound call will be transferred to if:
    * 1. `assistantId` is not set
@@ -19465,8 +19465,8 @@ export interface NextAgentPhoneNumber {
   fallbackDestination?: TransferDestinationNumber | TransferDestinationSip;
   /** This is the hooks that will be used for incoming calls to this phone number. */
   hooks?: (PhoneNumberHookCallRinging | PhoneNumberHookCallEnding)[];
-  /** This is to create free SIP phone numbers on NextAgent. */
-  provider: "nextagent";
+  /** This is to create free SIP phone numbers on NexAgent. */
+  provider: "nexagent";
   /** This is the unique identifier for the phone number. */
   id: string;
   /** This is the unique identifier for the org that this phone number belongs to. */
@@ -19483,7 +19483,7 @@ export interface NextAgentPhoneNumber {
   updatedAt: string;
   /** This is the status of the phone number. */
   status?: "active" | "activating" | "blocked";
-  /** These are the digits of the phone number you purchased from NextAgent. */
+  /** These are the digits of the phone number you purchased from NexAgent. */
   number?: string;
   /**
    * This is the name of the phone number. This is just for your own reference.
@@ -19509,7 +19509,7 @@ export interface NextAgentPhoneNumber {
    */
   squadId?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -19592,7 +19592,7 @@ export interface TelnyxPhoneNumber {
    */
   squadId?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -19603,7 +19603,7 @@ export interface TelnyxPhoneNumber {
   server?: Server;
   /** These are the digits of the phone number you own on your Telnyx. */
   number: string;
-  /** This is the credential you added in dashboard.nextagent.ai/keys. This is used to configure the number to send inbound calls to NextAgent, make outbound calls and do live call updates like transfers and hangups. */
+  /** This is the credential you added in dashboard.nexagent.ai/keys. This is used to configure the number to send inbound calls to NexAgent, make outbound calls and do live call updates like transfers and hangups. */
   credentialId: string;
 }
 
@@ -19670,7 +19670,7 @@ export interface CreateByoPhoneNumberDTO {
    */
   squadId?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -19696,10 +19696,10 @@ export interface CreateTwilioPhoneNumberDTO {
   /** This is to use numbers bought on Twilio. */
   provider: "twilio";
   /**
-   * Controls whether NextAgent sets the messaging webhook URL on the Twilio number during import.
+   * Controls whether NexAgent sets the messaging webhook URL on the Twilio number during import.
    *
-   * If set to `false`, NextAgent will not update the Twilio messaging URL, leaving it as is.
-   * If `true` or omitted (default), NextAgent will configure both the voice and messaging URLs.
+   * If set to `false`, NexAgent will not update the Twilio messaging URL, leaving it as is.
+   * If `true` or omitted (default), NexAgent will configure both the voice and messaging URLs.
    *
    * @default true
    * @default true
@@ -19739,7 +19739,7 @@ export interface CreateTwilioPhoneNumberDTO {
    */
   squadId?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -19766,7 +19766,7 @@ export interface CreateVonagePhoneNumberDTO {
   provider: "vonage";
   /** These are the digits of the phone number you own on your Vonage. */
   number: string;
-  /** This is the credential you added in dashboard.nextagent.ai/keys. This is used to configure the number to send inbound calls to NextAgent, make outbound calls and do live call updates like transfers and hangups. */
+  /** This is the credential you added in dashboard.nexagent.ai/keys. This is used to configure the number to send inbound calls to NexAgent, make outbound calls and do live call updates like transfers and hangups. */
   credentialId: string;
   /**
    * This is the name of the phone number. This is just for your own reference.
@@ -19792,7 +19792,7 @@ export interface CreateVonagePhoneNumberDTO {
    */
   squadId?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -19803,7 +19803,7 @@ export interface CreateVonagePhoneNumberDTO {
   server?: Server;
 }
 
-export interface CreateNextAgentPhoneNumberDTO {
+export interface CreateNexAgentPhoneNumberDTO {
   /**
    * This is the fallback destination an inbound call will be transferred to if:
    * 1. `assistantId` is not set
@@ -19815,8 +19815,8 @@ export interface CreateNextAgentPhoneNumberDTO {
   fallbackDestination?: TransferDestinationNumber | TransferDestinationSip;
   /** This is the hooks that will be used for incoming calls to this phone number. */
   hooks?: (PhoneNumberHookCallRinging | PhoneNumberHookCallEnding)[];
-  /** This is to create free SIP phone numbers on NextAgent. */
-  provider: "nextagent";
+  /** This is to create free SIP phone numbers on NexAgent. */
+  provider: "nexagent";
   /**
    * This is the area code of the phone number to purchase.
    * @minLength 3
@@ -19859,7 +19859,7 @@ export interface CreateNextAgentPhoneNumberDTO {
    */
   squadId?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -19886,7 +19886,7 @@ export interface CreateTelnyxPhoneNumberDTO {
   provider: "telnyx";
   /** These are the digits of the phone number you own on your Telnyx. */
   number: string;
-  /** This is the credential you added in dashboard.nextagent.ai/keys. This is used to configure the number to send inbound calls to NextAgent, make outbound calls and do live call updates like transfers and hangups. */
+  /** This is the credential you added in dashboard.nexagent.ai/keys. This is used to configure the number to send inbound calls to NexAgent, make outbound calls and do live call updates like transfers and hangups. */
   credentialId: string;
   /**
    * This is the name of the phone number. This is just for your own reference.
@@ -19912,7 +19912,7 @@ export interface CreateTelnyxPhoneNumberDTO {
    */
   squadId?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -19972,7 +19972,7 @@ export interface UpdateByoPhoneNumberDTO {
    */
   squadId?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -20008,10 +20008,10 @@ export interface UpdateTwilioPhoneNumberDTO {
   /** This is the hooks that will be used for incoming calls to this phone number. */
   hooks?: (PhoneNumberHookCallRinging | PhoneNumberHookCallEnding)[];
   /**
-   * Controls whether NextAgent sets the messaging webhook URL on the Twilio number during import.
+   * Controls whether NexAgent sets the messaging webhook URL on the Twilio number during import.
    *
-   * If set to `false`, NextAgent will not update the Twilio messaging URL, leaving it as is.
-   * If `true` or omitted (default), NextAgent will configure both the voice and messaging URLs.
+   * If set to `false`, NexAgent will not update the Twilio messaging URL, leaving it as is.
+   * If `true` or omitted (default), NexAgent will configure both the voice and messaging URLs.
    *
    * @default true
    * @default true
@@ -20041,7 +20041,7 @@ export interface UpdateTwilioPhoneNumberDTO {
    */
   squadId?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -20098,7 +20098,7 @@ export interface UpdateVonagePhoneNumberDTO {
    */
   squadId?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -20109,11 +20109,11 @@ export interface UpdateVonagePhoneNumberDTO {
   server?: Server;
   /** These are the digits of the phone number you own on your Vonage. */
   number?: string;
-  /** This is the credential you added in dashboard.nextagent.ai/keys. This is used to configure the number to send inbound calls to NextAgent, make outbound calls and do live call updates like transfers and hangups. */
+  /** This is the credential you added in dashboard.nexagent.ai/keys. This is used to configure the number to send inbound calls to NexAgent, make outbound calls and do live call updates like transfers and hangups. */
   credentialId?: string;
 }
 
-export interface UpdateNextAgentPhoneNumberDTO {
+export interface UpdateNexAgentPhoneNumberDTO {
   /**
    * This is the fallback destination an inbound call will be transferred to if:
    * 1. `assistantId` is not set
@@ -20149,7 +20149,7 @@ export interface UpdateNextAgentPhoneNumberDTO {
    */
   squadId?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -20208,7 +20208,7 @@ export interface UpdateTelnyxPhoneNumberDTO {
    */
   squadId?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -20219,7 +20219,7 @@ export interface UpdateTelnyxPhoneNumberDTO {
   server?: Server;
   /** These are the digits of the phone number you own on your Telnyx. */
   number?: string;
-  /** This is the credential you added in dashboard.nextagent.ai/keys. This is used to configure the number to send inbound calls to NextAgent, make outbound calls and do live call updates like transfers and hangups. */
+  /** This is the credential you added in dashboard.nexagent.ai/keys. This is used to configure the number to send inbound calls to NexAgent, make outbound calls and do live call updates like transfers and hangups. */
   credentialId?: string;
 }
 
@@ -20240,7 +20240,7 @@ export interface ImportVonagePhoneNumberDTO {
    * @deprecated
    */
   vonagePhoneNumber: string;
-  /** This is the credential you added in dashboard.nextagent.ai/keys. This is used to configure the number to send inbound calls to NextAgent, make outbound calls and do live call updates like transfers and hangups. */
+  /** This is the credential you added in dashboard.nexagent.ai/keys. This is used to configure the number to send inbound calls to NexAgent, make outbound calls and do live call updates like transfers and hangups. */
   credentialId: string;
   /**
    * This is the name of the phone number. This is just for your own reference.
@@ -20266,7 +20266,7 @@ export interface ImportVonagePhoneNumberDTO {
    */
   squadId?: string;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -20283,7 +20283,7 @@ export interface PhoneNumberPaginatedResponse {
     | ByoPhoneNumber
     | TwilioPhoneNumber
     | VonagePhoneNumber
-    | NextAgentPhoneNumber
+    | NexAgentPhoneNumber
     | TelnyxPhoneNumber
   )[];
   /** Metadata about the pagination. */
@@ -27317,9 +27317,9 @@ export interface TargetPlan {
    */
   phoneNumberId?: string;
   /**
-   * This can be any phone number (even not on NextAgent).
+   * This can be any phone number (even not on NexAgent).
    * During the actual test, it'll be called.
-   * To test a NextAgent number, send phoneNumberId. To test an assistant directly, send assistantId instead.
+   * To test a NexAgent number, send phoneNumberId. To test an assistant directly, send assistantId instead.
    */
   phoneNumber?: TestSuitePhoneNumber;
   /**
@@ -28022,7 +28022,7 @@ export interface EvalOpenAIModel {
   /**
    * This is the OpenAI model that will be used.
    *
-   * When using NextAgent OpenAI or your own Azure Credentials, you have the option to specify the region for the selected model. This shouldn't be specified unless you have a specific reason to do so. NextAgent will automatically find the fastest region that make sense.
+   * When using NexAgent OpenAI or your own Azure Credentials, you have the option to specify the region for the selected model. This shouldn't be specified unless you have a specific reason to do so. NexAgent will automatically find the fastest region that make sense.
    * This is helpful when you are required to comply with Data Residency rules. Learn more about Azure regions here https://azure.microsoft.com/en-us/explore/global-infrastructure/data-residency/.
    * @maxLength 100
    */
@@ -28507,7 +28507,7 @@ export interface EvalRun {
    * When the eval fails due to an error like Chat error or incorrect configuration, the status is 'error'.
    * When the eval runs for too long, due to model issues or tool call issues, the status is 'timeout'.
    * When the eval run is cancelled by the user, the status is 'cancelled'.
-   * When the eval run is cancelled by NextAgent for any reason, the status is 'aborted'.
+   * When the eval run is cancelled by NexAgent for any reason, the status is 'aborted'.
    * @example "mockConversation.done"
    */
   endedReason:
@@ -28673,13 +28673,13 @@ export interface CreateOrgDTO {
   /** This is the channel of the org. There is the cluster the API traffic for the org will be directed. */
   channel?: "default" | "weekly";
   /**
-   * This is the monthly billing limit for the org. To go beyond $1000/mo, please contact us at support@nextagent.ai.
+   * This is the monthly billing limit for the org. To go beyond $1000/mo, please contact us at support@nexagent.ai.
    * @min 0
    * @max 1000
    */
   billingLimit?: number;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -28689,7 +28689,7 @@ export interface CreateOrgDTO {
    */
   server?: Server;
   /**
-   * This is the concurrency limit for the org. This is the maximum number of calls that can be active at any given time. To go beyond 10, please contact us at support@nextagent.ai.
+   * This is the concurrency limit for the org. This is the maximum number of calls that can be active at any given time. To go beyond 10, please contact us at support@nexagent.ai.
    * @deprecated
    * @min 1
    * @max 10
@@ -28919,13 +28919,13 @@ export interface Org {
   /** This is the channel of the org. There is the cluster the API traffic for the org will be directed. */
   channel?: "default" | "weekly";
   /**
-   * This is the monthly billing limit for the org. To go beyond $1000/mo, please contact us at support@nextagent.ai.
+   * This is the monthly billing limit for the org. To go beyond $1000/mo, please contact us at support@nexagent.ai.
    * @min 0
    * @max 1000
    */
   billingLimit?: number;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -28935,7 +28935,7 @@ export interface Org {
    */
   server?: Server;
   /**
-   * This is the concurrency limit for the org. This is the maximum number of calls that can be active at any given time. To go beyond 10, please contact us at support@nextagent.ai.
+   * This is the concurrency limit for the org. This is the maximum number of calls that can be active at any given time. To go beyond 10, please contact us at support@nexagent.ai.
    * @deprecated
    * @min 1
    * @max 10
@@ -28970,13 +28970,13 @@ export interface UpdateOrgDTO {
   /** This is the channel of the org. There is the cluster the API traffic for the org will be directed. */
   channel?: "default" | "weekly";
   /**
-   * This is the monthly billing limit for the org. To go beyond $1000/mo, please contact us at support@nextagent.ai.
+   * This is the monthly billing limit for the org. To go beyond $1000/mo, please contact us at support@nexagent.ai.
    * @min 0
    * @max 1000
    */
   billingLimit?: number;
   /**
-   * This is where NextAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
+   * This is where NexAgent will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
    *
    * The order of precedence is:
    *
@@ -28986,7 +28986,7 @@ export interface UpdateOrgDTO {
    */
   server?: Server;
   /**
-   * This is the concurrency limit for the org. This is the maximum number of calls that can be active at any given time. To go beyond 10, please contact us at support@nextagent.ai.
+   * This is the concurrency limit for the org. This is the maximum number of calls that can be active at any given time. To go beyond 10, please contact us at support@nexagent.ai.
    * @deprecated
    * @min 1
    * @max 10
@@ -29377,7 +29377,7 @@ export interface ByoSipTrunkCredential {
    * @maxLength 10000
    */
   sipDiversionHeader?: string;
-  /** This is an advanced configuration for enterprise deployments. This uses the onprem SBC to trunk into the SIP trunk's `gateways`, rather than the managed SBC provided by NextAgent. */
+  /** This is an advanced configuration for enterprise deployments. This uses the onprem SBC to trunk into the SIP trunk's `gateways`, rather than the managed SBC provided by NexAgent. */
   sbcConfiguration?: SbcConfiguration;
 }
 
@@ -30997,7 +30997,7 @@ export interface UpdateByoSipTrunkCredentialDTO {
    * @maxLength 10000
    */
   sipDiversionHeader?: string;
-  /** This is an advanced configuration for enterprise deployments. This uses the onprem SBC to trunk into the SIP trunk's `gateways`, rather than the managed SBC provided by NextAgent. */
+  /** This is an advanced configuration for enterprise deployments. This uses the onprem SBC to trunk into the SIP trunk's `gateways`, rather than the managed SBC provided by NexAgent. */
   sbcConfiguration?: SbcConfiguration;
 }
 
@@ -31912,7 +31912,7 @@ export interface UpdateToolTemplateDTO {
 export interface VoiceLibrary {
   /** This is the voice provider that will be used. */
   provider?:
-    | "nextagent"
+    | "nexagent"
     | "11labs"
     | "azure"
     | "cartesia"
@@ -31976,7 +31976,7 @@ export interface VoiceLibrary {
 export interface SyncVoiceLibraryDTO {
   /** List of providers you want to sync. */
   providers?:
-    | "nextagent"
+    | "nexagent"
     | "11labs"
     | "azure"
     | "cartesia"
@@ -32160,7 +32160,7 @@ export interface AnalyticsOperation {
     | "costBreakdown.llm"
     | "costBreakdown.stt"
     | "costBreakdown.tts"
-    | "costBreakdown.nextagent"
+    | "costBreakdown.nexagent"
     | "costBreakdown.transport"
     | "costBreakdown.analysisBreakdown.summary"
     | "costBreakdown.transcriber"
@@ -32229,7 +32229,7 @@ export interface ClientMessageWorkflowNodeStarted {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "workflow.node.started" is sent when the active node changes. */
   type: "workflow.node.started";
@@ -32251,7 +32251,7 @@ export interface ClientMessageConversationUpdate {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "conversation-update" is sent when an update is committed to the conversation history. */
   type: "conversation-update";
@@ -32281,7 +32281,7 @@ export interface ClientMessageHang {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /**
    * This is the type of the message. "hang" is sent when the assistant is hanging due to a delay. The delay can be caused by many factors, such as:
@@ -32307,7 +32307,7 @@ export interface ClientMessageMetadata {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "metadata" is sent to forward metadata to the client. */
   type: "metadata";
@@ -32329,7 +32329,7 @@ export interface ClientMessageModelOutput {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "model-output" is sent as the model outputs tokens. */
   type: "model-output";
@@ -32351,7 +32351,7 @@ export interface ClientMessageSpeechUpdate {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "speech-update" is sent whenever assistant or user start or stop speaking. */
   type: "speech-update";
@@ -32377,7 +32377,7 @@ export interface ClientMessageTranscript {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "transcript" is sent as transcriber outputs partial or final transcript. */
   type: "transcript" | "transcript[transcriptType='final']";
@@ -32409,7 +32409,7 @@ export interface ClientMessageToolCalls {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "tool-calls" is sent to call a tool. */
   type?: "tool-calls";
@@ -32441,7 +32441,7 @@ export interface ClientMessageToolCallsResult {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "tool-calls-result" is sent to forward the result of a tool call to the client. */
   type: "tool-calls-result";
@@ -32463,7 +32463,7 @@ export interface ClientMessageTransferUpdate {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "transfer-update" is sent whenever a transfer happens. */
   type: "transfer-update";
@@ -32496,7 +32496,7 @@ export interface ClientMessageUserInterrupted {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "user-interrupted" is sent when the user interrupts the assistant. */
   type: "user-interrupted";
@@ -32516,7 +32516,7 @@ export interface ClientMessageLanguageChangeDetected {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "language-change-detected" is sent when the transcriber is automatically switched based on the detected language. */
   type: "language-change-detected";
@@ -32538,7 +32538,7 @@ export interface ClientMessageVoiceInput {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "voice-input" is sent when a generation is requested from voice provider. */
   type: "voice-input";
@@ -32560,7 +32560,7 @@ export interface ClientMessageChatCreated {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "chat.created" is sent when a new chat is created. */
   type: "chat.created";
@@ -32582,7 +32582,7 @@ export interface ClientMessageChatDeleted {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "chat.deleted" is sent when a chat is deleted. */
   type: "chat.deleted";
@@ -32604,7 +32604,7 @@ export interface ClientMessageSessionCreated {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "session.created" is sent when a new session is created. */
   type: "session.created";
@@ -32626,7 +32626,7 @@ export interface ClientMessageSessionUpdated {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "session.updated" is sent when a session is updated. */
   type: "session.updated";
@@ -32648,7 +32648,7 @@ export interface ClientMessageSessionDeleted {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "session.deleted" is sent when a session is deleted. */
   type: "session.deleted";
@@ -32693,7 +32693,7 @@ export interface ServerMessageAssistantRequest {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "assistant-request" is sent to fetch assistant configuration for an incoming call. */
   type: "assistant-request";
@@ -32721,7 +32721,7 @@ export interface ServerMessageConversationUpdate {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "conversation-update" is sent when an update is committed to the conversation history. */
   type: "conversation-update";
@@ -32759,7 +32759,7 @@ export interface ServerMessageEndOfCallReport {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "end-of-call-report" is sent when the call ends and post-processing is complete. */
   type: "end-of-call-report";
@@ -32773,14 +32773,14 @@ export interface ServerMessageEndOfCallReport {
     | "assistant-request-returned-no-assistant"
     | "assistant-request-returned-forwarding-phone-number"
     | "scheduled-call-deleted"
-    | "call.start.error-nextagentfault-get-org"
-    | "call.start.error-nextagentfault-get-subscription"
+    | "call.start.error-nexagentfault-get-org"
+    | "call.start.error-nexagentfault-get-subscription"
     | "call.start.error-get-assistant"
     | "call.start.error-get-phone-number"
     | "call.start.error-get-customer"
     | "call.start.error-get-resources-validation"
-    | "call.start.error-nextagent-number-international"
-    | "call.start.error-nextagent-number-outbound-daily-limit"
+    | "call.start.error-nexagent-number-international"
+    | "call.start.error-nexagent-number-outbound-daily-limit"
     | "call.start.error-get-transport"
     | "call.start.error-subscription-wallet-does-not-exist"
     | "call.start.error-fraud-check-failed"
@@ -32806,58 +32806,58 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-inworld-voice-failed"
     | "pipeline-error-minimax-voice-failed"
     | "pipeline-error-tavus-video-failed"
-    | "call.in-progress.error-nextagentfault-openai-voice-failed"
-    | "call.in-progress.error-nextagentfault-cartesia-voice-failed"
-    | "call.in-progress.error-nextagentfault-deepgram-voice-failed"
-    | "call.in-progress.error-nextagentfault-eleven-labs-voice-failed"
-    | "call.in-progress.error-nextagentfault-playht-voice-failed"
-    | "call.in-progress.error-nextagentfault-lmnt-voice-failed"
-    | "call.in-progress.error-nextagentfault-azure-voice-failed"
-    | "call.in-progress.error-nextagentfault-rime-ai-voice-failed"
-    | "call.in-progress.error-nextagentfault-smallest-ai-voice-failed"
-    | "call.in-progress.error-nextagentfault-neuphonic-voice-failed"
-    | "call.in-progress.error-nextagentfault-hume-voice-failed"
-    | "call.in-progress.error-nextagentfault-sesame-voice-failed"
-    | "call.in-progress.error-nextagentfault-inworld-voice-failed"
-    | "call.in-progress.error-nextagentfault-minimax-voice-failed"
-    | "call.in-progress.error-nextagentfault-tavus-video-failed"
-    | "pipeline-error-nextagent-llm-failed"
-    | "pipeline-error-nextagent-400-bad-request-validation-failed"
-    | "pipeline-error-nextagent-401-unauthorized"
-    | "pipeline-error-nextagent-403-model-access-denied"
-    | "pipeline-error-nextagent-429-exceeded-quota"
-    | "pipeline-error-nextagent-500-server-error"
-    | "pipeline-error-nextagent-503-server-overloaded-error"
-    | "call.in-progress.error-providerfault-nextagent-llm-failed"
-    | "call.in-progress.error-nextagentfault-nextagent-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-nextagent-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-nextagent-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-nextagent-429-exceeded-quota"
-    | "call.in-progress.error-providerfault-nextagent-500-server-error"
-    | "call.in-progress.error-providerfault-nextagent-503-server-overloaded-error"
+    | "call.in-progress.error-nexagentfault-openai-voice-failed"
+    | "call.in-progress.error-nexagentfault-cartesia-voice-failed"
+    | "call.in-progress.error-nexagentfault-deepgram-voice-failed"
+    | "call.in-progress.error-nexagentfault-eleven-labs-voice-failed"
+    | "call.in-progress.error-nexagentfault-playht-voice-failed"
+    | "call.in-progress.error-nexagentfault-lmnt-voice-failed"
+    | "call.in-progress.error-nexagentfault-azure-voice-failed"
+    | "call.in-progress.error-nexagentfault-rime-ai-voice-failed"
+    | "call.in-progress.error-nexagentfault-smallest-ai-voice-failed"
+    | "call.in-progress.error-nexagentfault-neuphonic-voice-failed"
+    | "call.in-progress.error-nexagentfault-hume-voice-failed"
+    | "call.in-progress.error-nexagentfault-sesame-voice-failed"
+    | "call.in-progress.error-nexagentfault-inworld-voice-failed"
+    | "call.in-progress.error-nexagentfault-minimax-voice-failed"
+    | "call.in-progress.error-nexagentfault-tavus-video-failed"
+    | "pipeline-error-nexagent-llm-failed"
+    | "pipeline-error-nexagent-400-bad-request-validation-failed"
+    | "pipeline-error-nexagent-401-unauthorized"
+    | "pipeline-error-nexagent-403-model-access-denied"
+    | "pipeline-error-nexagent-429-exceeded-quota"
+    | "pipeline-error-nexagent-500-server-error"
+    | "pipeline-error-nexagent-503-server-overloaded-error"
+    | "call.in-progress.error-providerfault-nexagent-llm-failed"
+    | "call.in-progress.error-nexagentfault-nexagent-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-nexagent-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-nexagent-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-nexagent-429-exceeded-quota"
+    | "call.in-progress.error-providerfault-nexagent-500-server-error"
+    | "call.in-progress.error-providerfault-nexagent-503-server-overloaded-error"
     | "pipeline-error-deepgram-transcriber-failed"
     | "pipeline-error-deepgram-transcriber-api-key-missing"
-    | "call.in-progress.error-nextagentfault-deepgram-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-deepgram-transcriber-failed"
     | "pipeline-error-gladia-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-gladia-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-gladia-transcriber-failed"
     | "pipeline-error-speechmatics-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-speechmatics-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-speechmatics-transcriber-failed"
     | "pipeline-error-assembly-ai-transcriber-failed"
     | "pipeline-error-assembly-ai-returning-400-insufficent-funds"
     | "pipeline-error-assembly-ai-returning-400-paid-only-feature"
     | "pipeline-error-assembly-ai-returning-401-invalid-credentials"
     | "pipeline-error-assembly-ai-returning-500-invalid-schema"
     | "pipeline-error-assembly-ai-returning-500-word-boost-parsing-failed"
-    | "call.in-progress.error-nextagentfault-assembly-ai-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-assembly-ai-returning-400-insufficent-funds"
-    | "call.in-progress.error-nextagentfault-assembly-ai-returning-400-paid-only-feature"
-    | "call.in-progress.error-nextagentfault-assembly-ai-returning-401-invalid-credentials"
-    | "call.in-progress.error-nextagentfault-assembly-ai-returning-500-invalid-schema"
-    | "call.in-progress.error-nextagentfault-assembly-ai-returning-500-word-boost-parsing-failed"
+    | "call.in-progress.error-nexagentfault-assembly-ai-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-assembly-ai-returning-400-insufficent-funds"
+    | "call.in-progress.error-nexagentfault-assembly-ai-returning-400-paid-only-feature"
+    | "call.in-progress.error-nexagentfault-assembly-ai-returning-401-invalid-credentials"
+    | "call.in-progress.error-nexagentfault-assembly-ai-returning-500-invalid-schema"
+    | "call.in-progress.error-nexagentfault-assembly-ai-returning-500-word-boost-parsing-failed"
     | "pipeline-error-talkscriber-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-talkscriber-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-talkscriber-transcriber-failed"
     | "pipeline-error-azure-speech-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-azure-speech-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-azure-speech-transcriber-failed"
     | "call.in-progress.error-pipeline-no-available-llm-model"
     | "worker-shutdown"
     | "vonage-disconnected"
@@ -32865,11 +32865,11 @@ export interface ServerMessageEndOfCallReport {
     | "vonage-completed"
     | "phone-call-provider-bypass-enabled-but-no-call-received"
     | "call.in-progress.error-providerfault-transport-never-connected"
-    | "call.in-progress.error-nextagentfault-worker-not-available"
-    | "call.in-progress.error-nextagentfault-transport-never-connected"
-    | "call.in-progress.error-nextagentfault-transport-connected-but-call-not-active"
-    | "call.in-progress.error-nextagentfault-call-started-but-connection-to-transport-missing"
-    | "call.in-progress.error-nextagentfault-worker-died"
+    | "call.in-progress.error-nexagentfault-worker-not-available"
+    | "call.in-progress.error-nexagentfault-transport-never-connected"
+    | "call.in-progress.error-nexagentfault-transport-connected-but-call-not-active"
+    | "call.in-progress.error-nexagentfault-call-started-but-connection-to-transport-missing"
+    | "call.in-progress.error-nexagentfault-worker-died"
     | "call.in-progress.twilio-completed-call"
     | "call.in-progress.sip-completed-call"
     | "call.in-progress.error-providerfault-openai-llm-failed"
@@ -32881,7 +32881,7 @@ export interface ServerMessageEndOfCallReport {
     | "call.in-progress.error-providerfault-inflection-ai-llm-failed"
     | "call.in-progress.error-providerfault-cerebras-llm-failed"
     | "call.in-progress.error-providerfault-deep-seek-llm-failed"
-    | "call.in-progress.error-nextagentfault-chat-pipeline-failed-to-start"
+    | "call.in-progress.error-nexagentfault-chat-pipeline-failed-to-start"
     | "pipeline-error-openai-400-bad-request-validation-failed"
     | "pipeline-error-openai-401-unauthorized"
     | "pipeline-error-openai-401-incorrect-api-key"
@@ -32892,13 +32892,13 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-openai-500-server-error"
     | "pipeline-error-openai-503-server-overloaded-error"
     | "pipeline-error-openai-llm-failed"
-    | "call.in-progress.error-nextagentfault-openai-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-openai-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-openai-401-incorrect-api-key"
-    | "call.in-progress.error-nextagentfault-openai-401-account-not-in-organization"
-    | "call.in-progress.error-nextagentfault-openai-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-openai-429-exceeded-quota"
-    | "call.in-progress.error-nextagentfault-openai-429-rate-limit-reached"
+    | "call.in-progress.error-nexagentfault-openai-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-openai-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-openai-401-incorrect-api-key"
+    | "call.in-progress.error-nexagentfault-openai-401-account-not-in-organization"
+    | "call.in-progress.error-nexagentfault-openai-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-openai-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-openai-429-rate-limit-reached"
     | "call.in-progress.error-providerfault-openai-500-server-error"
     | "call.in-progress.error-providerfault-openai-503-server-overloaded-error"
     | "pipeline-error-azure-openai-400-bad-request-validation-failed"
@@ -32908,10 +32908,10 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-azure-openai-500-server-error"
     | "pipeline-error-azure-openai-503-server-overloaded-error"
     | "pipeline-error-azure-openai-llm-failed"
-    | "call.in-progress.error-nextagentfault-azure-openai-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-azure-openai-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-azure-openai-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-azure-openai-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-azure-openai-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-azure-openai-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-azure-openai-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-azure-openai-429-exceeded-quota"
     | "call.in-progress.error-providerfault-azure-openai-500-server-error"
     | "call.in-progress.error-providerfault-azure-openai-503-server-overloaded-error"
     | "pipeline-error-google-400-bad-request-validation-failed"
@@ -32921,10 +32921,10 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-google-500-server-error"
     | "pipeline-error-google-503-server-overloaded-error"
     | "pipeline-error-google-llm-failed"
-    | "call.in-progress.error-nextagentfault-google-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-google-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-google-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-google-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-google-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-google-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-google-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-google-429-exceeded-quota"
     | "call.in-progress.error-providerfault-google-500-server-error"
     | "call.in-progress.error-providerfault-google-503-server-overloaded-error"
     | "pipeline-error-xai-400-bad-request-validation-failed"
@@ -32934,10 +32934,10 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-xai-500-server-error"
     | "pipeline-error-xai-503-server-overloaded-error"
     | "pipeline-error-xai-llm-failed"
-    | "call.in-progress.error-nextagentfault-xai-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-xai-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-xai-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-xai-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-xai-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-xai-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-xai-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-xai-429-exceeded-quota"
     | "call.in-progress.error-providerfault-xai-500-server-error"
     | "call.in-progress.error-providerfault-xai-503-server-overloaded-error"
     | "pipeline-error-mistral-400-bad-request-validation-failed"
@@ -32947,10 +32947,10 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-mistral-500-server-error"
     | "pipeline-error-mistral-503-server-overloaded-error"
     | "pipeline-error-mistral-llm-failed"
-    | "call.in-progress.error-nextagentfault-mistral-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-mistral-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-mistral-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-mistral-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-mistral-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-mistral-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-mistral-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-mistral-429-exceeded-quota"
     | "call.in-progress.error-providerfault-mistral-500-server-error"
     | "call.in-progress.error-providerfault-mistral-503-server-overloaded-error"
     | "pipeline-error-inflection-ai-400-bad-request-validation-failed"
@@ -32960,10 +32960,10 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-inflection-ai-500-server-error"
     | "pipeline-error-inflection-ai-503-server-overloaded-error"
     | "pipeline-error-inflection-ai-llm-failed"
-    | "call.in-progress.error-nextagentfault-inflection-ai-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-inflection-ai-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-inflection-ai-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-inflection-ai-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-inflection-ai-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-inflection-ai-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-inflection-ai-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-inflection-ai-429-exceeded-quota"
     | "call.in-progress.error-providerfault-inflection-ai-500-server-error"
     | "call.in-progress.error-providerfault-inflection-ai-503-server-overloaded-error"
     | "pipeline-error-deep-seek-400-bad-request-validation-failed"
@@ -32973,10 +32973,10 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-deep-seek-500-server-error"
     | "pipeline-error-deep-seek-503-server-overloaded-error"
     | "pipeline-error-deep-seek-llm-failed"
-    | "call.in-progress.error-nextagentfault-deep-seek-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-deep-seek-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-deep-seek-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-deep-seek-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-deep-seek-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-deep-seek-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-deep-seek-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-deep-seek-429-exceeded-quota"
     | "call.in-progress.error-providerfault-deep-seek-500-server-error"
     | "call.in-progress.error-providerfault-deep-seek-503-server-overloaded-error"
     | "pipeline-error-groq-400-bad-request-validation-failed"
@@ -32986,10 +32986,10 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-groq-500-server-error"
     | "pipeline-error-groq-503-server-overloaded-error"
     | "pipeline-error-groq-llm-failed"
-    | "call.in-progress.error-nextagentfault-groq-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-groq-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-groq-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-groq-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-groq-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-groq-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-groq-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-groq-429-exceeded-quota"
     | "call.in-progress.error-providerfault-groq-500-server-error"
     | "call.in-progress.error-providerfault-groq-503-server-overloaded-error"
     | "pipeline-error-cerebras-400-bad-request-validation-failed"
@@ -32999,10 +32999,10 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-cerebras-500-server-error"
     | "pipeline-error-cerebras-503-server-overloaded-error"
     | "pipeline-error-cerebras-llm-failed"
-    | "call.in-progress.error-nextagentfault-cerebras-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-cerebras-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-cerebras-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-cerebras-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-cerebras-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-cerebras-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-cerebras-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-cerebras-429-exceeded-quota"
     | "call.in-progress.error-providerfault-cerebras-500-server-error"
     | "call.in-progress.error-providerfault-cerebras-503-server-overloaded-error"
     | "pipeline-error-anthropic-400-bad-request-validation-failed"
@@ -33013,10 +33013,10 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-anthropic-503-server-overloaded-error"
     | "pipeline-error-anthropic-llm-failed"
     | "call.in-progress.error-providerfault-anthropic-llm-failed"
-    | "call.in-progress.error-nextagentfault-anthropic-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-anthropic-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-anthropic-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-anthropic-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-anthropic-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-anthropic-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-anthropic-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-anthropic-429-exceeded-quota"
     | "call.in-progress.error-providerfault-anthropic-500-server-error"
     | "call.in-progress.error-providerfault-anthropic-503-server-overloaded-error"
     | "pipeline-error-anthropic-bedrock-400-bad-request-validation-failed"
@@ -33027,10 +33027,10 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-anthropic-bedrock-503-server-overloaded-error"
     | "pipeline-error-anthropic-bedrock-llm-failed"
     | "call.in-progress.error-providerfault-anthropic-bedrock-llm-failed"
-    | "call.in-progress.error-nextagentfault-anthropic-bedrock-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-anthropic-bedrock-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-anthropic-bedrock-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-anthropic-bedrock-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-anthropic-bedrock-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-anthropic-bedrock-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-anthropic-bedrock-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-anthropic-bedrock-429-exceeded-quota"
     | "call.in-progress.error-providerfault-anthropic-bedrock-500-server-error"
     | "call.in-progress.error-providerfault-anthropic-bedrock-503-server-overloaded-error"
     | "pipeline-error-anthropic-vertex-400-bad-request-validation-failed"
@@ -33041,10 +33041,10 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-anthropic-vertex-503-server-overloaded-error"
     | "pipeline-error-anthropic-vertex-llm-failed"
     | "call.in-progress.error-providerfault-anthropic-vertex-llm-failed"
-    | "call.in-progress.error-nextagentfault-anthropic-vertex-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-anthropic-vertex-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-anthropic-vertex-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-anthropic-vertex-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-anthropic-vertex-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-anthropic-vertex-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-anthropic-vertex-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-anthropic-vertex-429-exceeded-quota"
     | "call.in-progress.error-providerfault-anthropic-vertex-500-server-error"
     | "call.in-progress.error-providerfault-anthropic-vertex-503-server-overloaded-error"
     | "pipeline-error-together-ai-400-bad-request-validation-failed"
@@ -33055,10 +33055,10 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-together-ai-503-server-overloaded-error"
     | "pipeline-error-together-ai-llm-failed"
     | "call.in-progress.error-providerfault-together-ai-llm-failed"
-    | "call.in-progress.error-nextagentfault-together-ai-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-together-ai-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-together-ai-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-together-ai-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-together-ai-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-together-ai-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-together-ai-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-together-ai-429-exceeded-quota"
     | "call.in-progress.error-providerfault-together-ai-500-server-error"
     | "call.in-progress.error-providerfault-together-ai-503-server-overloaded-error"
     | "pipeline-error-anyscale-400-bad-request-validation-failed"
@@ -33069,10 +33069,10 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-anyscale-503-server-overloaded-error"
     | "pipeline-error-anyscale-llm-failed"
     | "call.in-progress.error-providerfault-anyscale-llm-failed"
-    | "call.in-progress.error-nextagentfault-anyscale-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-anyscale-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-anyscale-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-anyscale-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-anyscale-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-anyscale-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-anyscale-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-anyscale-429-exceeded-quota"
     | "call.in-progress.error-providerfault-anyscale-500-server-error"
     | "call.in-progress.error-providerfault-anyscale-503-server-overloaded-error"
     | "pipeline-error-openrouter-400-bad-request-validation-failed"
@@ -33083,10 +33083,10 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-openrouter-503-server-overloaded-error"
     | "pipeline-error-openrouter-llm-failed"
     | "call.in-progress.error-providerfault-openrouter-llm-failed"
-    | "call.in-progress.error-nextagentfault-openrouter-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-openrouter-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-openrouter-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-openrouter-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-openrouter-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-openrouter-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-openrouter-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-openrouter-429-exceeded-quota"
     | "call.in-progress.error-providerfault-openrouter-500-server-error"
     | "call.in-progress.error-providerfault-openrouter-503-server-overloaded-error"
     | "pipeline-error-perplexity-ai-400-bad-request-validation-failed"
@@ -33097,10 +33097,10 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-perplexity-ai-503-server-overloaded-error"
     | "pipeline-error-perplexity-ai-llm-failed"
     | "call.in-progress.error-providerfault-perplexity-ai-llm-failed"
-    | "call.in-progress.error-nextagentfault-perplexity-ai-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-perplexity-ai-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-perplexity-ai-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-perplexity-ai-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-perplexity-ai-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-perplexity-ai-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-perplexity-ai-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-perplexity-ai-429-exceeded-quota"
     | "call.in-progress.error-providerfault-perplexity-ai-500-server-error"
     | "call.in-progress.error-providerfault-perplexity-ai-503-server-overloaded-error"
     | "pipeline-error-deepinfra-400-bad-request-validation-failed"
@@ -33111,10 +33111,10 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-deepinfra-503-server-overloaded-error"
     | "pipeline-error-deepinfra-llm-failed"
     | "call.in-progress.error-providerfault-deepinfra-llm-failed"
-    | "call.in-progress.error-nextagentfault-deepinfra-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-deepinfra-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-deepinfra-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-deepinfra-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-deepinfra-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-deepinfra-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-deepinfra-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-deepinfra-429-exceeded-quota"
     | "call.in-progress.error-providerfault-deepinfra-500-server-error"
     | "call.in-progress.error-providerfault-deepinfra-503-server-overloaded-error"
     | "pipeline-error-runpod-400-bad-request-validation-failed"
@@ -33125,10 +33125,10 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-runpod-503-server-overloaded-error"
     | "pipeline-error-runpod-llm-failed"
     | "call.in-progress.error-providerfault-runpod-llm-failed"
-    | "call.in-progress.error-nextagentfault-runpod-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-runpod-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-runpod-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-runpod-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-runpod-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-runpod-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-runpod-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-runpod-429-exceeded-quota"
     | "call.in-progress.error-providerfault-runpod-500-server-error"
     | "call.in-progress.error-providerfault-runpod-503-server-overloaded-error"
     | "pipeline-error-custom-llm-400-bad-request-validation-failed"
@@ -33139,10 +33139,10 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-custom-llm-503-server-overloaded-error"
     | "pipeline-error-custom-llm-llm-failed"
     | "call.in-progress.error-providerfault-custom-llm-llm-failed"
-    | "call.in-progress.error-nextagentfault-custom-llm-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-custom-llm-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-custom-llm-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-custom-llm-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-custom-llm-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-custom-llm-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-custom-llm-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-custom-llm-429-exceeded-quota"
     | "call.in-progress.error-providerfault-custom-llm-500-server-error"
     | "call.in-progress.error-providerfault-custom-llm-503-server-overloaded-error"
     | "pipeline-error-custom-voice-failed"
@@ -33152,8 +33152,8 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-cartesia-502-server-error"
     | "pipeline-error-cartesia-503-server-error"
     | "pipeline-error-cartesia-522-server-error"
-    | "call.in-progress.error-nextagentfault-cartesia-socket-hang-up"
-    | "call.in-progress.error-nextagentfault-cartesia-requested-payment"
+    | "call.in-progress.error-nexagentfault-cartesia-socket-hang-up"
+    | "call.in-progress.error-nexagentfault-cartesia-requested-payment"
     | "call.in-progress.error-providerfault-cartesia-500-server-error"
     | "call.in-progress.error-providerfault-cartesia-503-server-error"
     | "call.in-progress.error-providerfault-cartesia-522-server-error"
@@ -33170,7 +33170,7 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-eleven-labs-invalid-api-key"
     | "pipeline-error-eleven-labs-invalid-voice-samples"
     | "pipeline-error-eleven-labs-voice-disabled-by-owner"
-    | "pipeline-error-eleven-labs-nextagent-voice-disabled-by-owner"
+    | "pipeline-error-eleven-labs-nexagent-voice-disabled-by-owner"
     | "pipeline-error-eleven-labs-blocked-account-in-probation"
     | "pipeline-error-eleven-labs-blocked-content-against-their-policy"
     | "pipeline-error-eleven-labs-missing-samples-for-voice-clone"
@@ -33180,26 +33180,26 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-eleven-labs-blocked-voice-potentially-against-terms-of-service-and-awaiting-verification"
     | "pipeline-error-eleven-labs-500-server-error"
     | "pipeline-error-eleven-labs-503-server-error"
-    | "call.in-progress.error-nextagentfault-eleven-labs-voice-not-found"
-    | "call.in-progress.error-nextagentfault-eleven-labs-quota-exceeded"
-    | "call.in-progress.error-nextagentfault-eleven-labs-unauthorized-access"
-    | "call.in-progress.error-nextagentfault-eleven-labs-unauthorized-to-access-model"
-    | "call.in-progress.error-nextagentfault-eleven-labs-professional-voices-only-for-creator-plus"
-    | "call.in-progress.error-nextagentfault-eleven-labs-blocked-free-plan-and-requested-upgrade"
-    | "call.in-progress.error-nextagentfault-eleven-labs-blocked-concurrent-requests-and-requested-upgrade"
-    | "call.in-progress.error-nextagentfault-eleven-labs-blocked-using-instant-voice-clone-and-requested-upgrade"
-    | "call.in-progress.error-nextagentfault-eleven-labs-system-busy-and-requested-upgrade"
-    | "call.in-progress.error-nextagentfault-eleven-labs-voice-not-fine-tuned"
-    | "call.in-progress.error-nextagentfault-eleven-labs-invalid-api-key"
-    | "call.in-progress.error-nextagentfault-eleven-labs-invalid-voice-samples"
-    | "call.in-progress.error-nextagentfault-eleven-labs-voice-disabled-by-owner"
-    | "call.in-progress.error-nextagentfault-eleven-labs-blocked-account-in-probation"
-    | "call.in-progress.error-nextagentfault-eleven-labs-blocked-content-against-their-policy"
-    | "call.in-progress.error-nextagentfault-eleven-labs-missing-samples-for-voice-clone"
-    | "call.in-progress.error-nextagentfault-eleven-labs-voice-not-fine-tuned-and-cannot-be-used"
-    | "call.in-progress.error-nextagentfault-eleven-labs-voice-not-allowed-for-free-users"
-    | "call.in-progress.error-nextagentfault-eleven-labs-max-character-limit-exceeded"
-    | "call.in-progress.error-nextagentfault-eleven-labs-blocked-voice-potentially-against-terms-of-service-and-awaiting-verification"
+    | "call.in-progress.error-nexagentfault-eleven-labs-voice-not-found"
+    | "call.in-progress.error-nexagentfault-eleven-labs-quota-exceeded"
+    | "call.in-progress.error-nexagentfault-eleven-labs-unauthorized-access"
+    | "call.in-progress.error-nexagentfault-eleven-labs-unauthorized-to-access-model"
+    | "call.in-progress.error-nexagentfault-eleven-labs-professional-voices-only-for-creator-plus"
+    | "call.in-progress.error-nexagentfault-eleven-labs-blocked-free-plan-and-requested-upgrade"
+    | "call.in-progress.error-nexagentfault-eleven-labs-blocked-concurrent-requests-and-requested-upgrade"
+    | "call.in-progress.error-nexagentfault-eleven-labs-blocked-using-instant-voice-clone-and-requested-upgrade"
+    | "call.in-progress.error-nexagentfault-eleven-labs-system-busy-and-requested-upgrade"
+    | "call.in-progress.error-nexagentfault-eleven-labs-voice-not-fine-tuned"
+    | "call.in-progress.error-nexagentfault-eleven-labs-invalid-api-key"
+    | "call.in-progress.error-nexagentfault-eleven-labs-invalid-voice-samples"
+    | "call.in-progress.error-nexagentfault-eleven-labs-voice-disabled-by-owner"
+    | "call.in-progress.error-nexagentfault-eleven-labs-blocked-account-in-probation"
+    | "call.in-progress.error-nexagentfault-eleven-labs-blocked-content-against-their-policy"
+    | "call.in-progress.error-nexagentfault-eleven-labs-missing-samples-for-voice-clone"
+    | "call.in-progress.error-nexagentfault-eleven-labs-voice-not-fine-tuned-and-cannot-be-used"
+    | "call.in-progress.error-nexagentfault-eleven-labs-voice-not-allowed-for-free-users"
+    | "call.in-progress.error-nexagentfault-eleven-labs-max-character-limit-exceeded"
+    | "call.in-progress.error-nexagentfault-eleven-labs-blocked-voice-potentially-against-terms-of-service-and-awaiting-verification"
     | "call.in-progress.error-providerfault-eleven-labs-500-server-error"
     | "call.in-progress.error-providerfault-eleven-labs-503-server-error"
     | "pipeline-error-playht-request-timed-out"
@@ -33214,22 +33214,22 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-playht-429-exceeded-quota"
     | "pipeline-error-playht-502-gateway-error"
     | "pipeline-error-playht-504-gateway-error"
-    | "call.in-progress.error-nextagentfault-playht-request-timed-out"
-    | "call.in-progress.error-nextagentfault-playht-invalid-voice"
-    | "call.in-progress.error-nextagentfault-playht-unexpected-error"
-    | "call.in-progress.error-nextagentfault-playht-out-of-credits"
-    | "call.in-progress.error-nextagentfault-playht-invalid-emotion"
-    | "call.in-progress.error-nextagentfault-playht-voice-must-be-a-valid-voice-manifest-uri"
-    | "call.in-progress.error-nextagentfault-playht-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-playht-403-forbidden-out-of-characters"
-    | "call.in-progress.error-nextagentfault-playht-403-forbidden-api-access-not-available"
-    | "call.in-progress.error-nextagentfault-playht-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-playht-request-timed-out"
+    | "call.in-progress.error-nexagentfault-playht-invalid-voice"
+    | "call.in-progress.error-nexagentfault-playht-unexpected-error"
+    | "call.in-progress.error-nexagentfault-playht-out-of-credits"
+    | "call.in-progress.error-nexagentfault-playht-invalid-emotion"
+    | "call.in-progress.error-nexagentfault-playht-voice-must-be-a-valid-voice-manifest-uri"
+    | "call.in-progress.error-nexagentfault-playht-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-playht-403-forbidden-out-of-characters"
+    | "call.in-progress.error-nexagentfault-playht-403-forbidden-api-access-not-available"
+    | "call.in-progress.error-nexagentfault-playht-429-exceeded-quota"
     | "call.in-progress.error-providerfault-playht-502-gateway-error"
     | "call.in-progress.error-providerfault-playht-504-gateway-error"
     | "pipeline-error-custom-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-custom-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-custom-transcriber-failed"
     | "pipeline-error-eleven-labs-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-eleven-labs-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-eleven-labs-transcriber-failed"
     | "pipeline-error-deepgram-returning-400-no-such-model-language-tier-combination"
     | "pipeline-error-deepgram-returning-401-invalid-credentials"
     | "pipeline-error-deepgram-returning-403-model-access-denied"
@@ -33238,17 +33238,17 @@ export interface ServerMessageEndOfCallReport {
     | "pipeline-error-deepgram-returning-502-network-error"
     | "pipeline-error-deepgram-returning-502-bad-gateway-ehostunreach"
     | "pipeline-error-deepgram-returning-econnreset"
-    | "call.in-progress.error-nextagentfault-deepgram-returning-400-no-such-model-language-tier-combination"
-    | "call.in-progress.error-nextagentfault-deepgram-returning-401-invalid-credentials"
-    | "call.in-progress.error-nextagentfault-deepgram-returning-404-not-found"
-    | "call.in-progress.error-nextagentfault-deepgram-returning-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-deepgram-returning-400-no-such-model-language-tier-combination"
+    | "call.in-progress.error-nexagentfault-deepgram-returning-401-invalid-credentials"
+    | "call.in-progress.error-nexagentfault-deepgram-returning-404-not-found"
+    | "call.in-progress.error-nexagentfault-deepgram-returning-403-model-access-denied"
     | "call.in-progress.error-providerfault-deepgram-returning-500-invalid-json"
     | "call.in-progress.error-providerfault-deepgram-returning-502-network-error"
     | "call.in-progress.error-providerfault-deepgram-returning-502-bad-gateway-ehostunreach"
     | "pipeline-error-google-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-google-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-google-transcriber-failed"
     | "pipeline-error-openai-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-openai-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-openai-transcriber-failed"
     | "call.in-progress.error-warm-transfer-max-duration"
     | "call.in-progress.error-warm-transfer-assistant-cancelled"
     | "call.in-progress.error-warm-transfer-silence-timeout"
@@ -33297,7 +33297,7 @@ export interface ServerMessageEndOfCallReport {
     | TranscriberCost
     | ModelCost
     | VoiceCost
-    | NextAgentCost
+    | NexAgentCost
     | VoicemailDetectionCost
     | AnalysisCost
     | KnowledgeBaseCost
@@ -33336,7 +33336,7 @@ export interface ServerMessageHandoffDestinationRequest {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "handoff-destination-request" is sent when the model is requesting handoff but destination is unknown. */
   type: "handoff-destination-request";
@@ -33366,7 +33366,7 @@ export interface ServerMessageHang {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /**
    * This is the type of the message. "hang" is sent when the assistant is hanging due to a delay. The delay can be caused by many factors, such as:
@@ -33400,7 +33400,7 @@ export interface ServerMessageKnowledgeBaseRequest {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "knowledge-base-request" is sent to request knowledge base documents. To enable, use `assistant.knowledgeBase.provider=custom-knowledge-base`. */
   type: "knowledge-base-request";
@@ -33438,7 +33438,7 @@ export interface ServerMessageModelOutput {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "model-output" is sent as the model outputs tokens. */
   type: "model-output";
@@ -33468,12 +33468,12 @@ export interface ServerMessagePhoneCallControl {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /**
    * This is the type of the message. "phone-call-control" is an advanced type of message.
    *
-   * When it is requested in `assistant.serverMessages`, the hangup and forwarding responsibilities are delegated to your server. NextAgent will no longer do the actual transfer and hangup.
+   * When it is requested in `assistant.serverMessages`, the hangup and forwarding responsibilities are delegated to your server. NexAgent will no longer do the actual transfer and hangup.
    */
   type: "phone-call-control";
   /** This is the request to control the phone call. */
@@ -33504,7 +33504,7 @@ export interface ServerMessageSpeechUpdate {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "speech-update" is sent whenever assistant or user start or stop speaking. */
   type: "speech-update";
@@ -33538,7 +33538,7 @@ export interface ServerMessageStatusUpdate {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "status-update" is sent whenever the `call.status` changes. */
   type: "status-update";
@@ -33560,14 +33560,14 @@ export interface ServerMessageStatusUpdate {
     | "assistant-request-returned-no-assistant"
     | "assistant-request-returned-forwarding-phone-number"
     | "scheduled-call-deleted"
-    | "call.start.error-nextagentfault-get-org"
-    | "call.start.error-nextagentfault-get-subscription"
+    | "call.start.error-nexagentfault-get-org"
+    | "call.start.error-nexagentfault-get-subscription"
     | "call.start.error-get-assistant"
     | "call.start.error-get-phone-number"
     | "call.start.error-get-customer"
     | "call.start.error-get-resources-validation"
-    | "call.start.error-nextagent-number-international"
-    | "call.start.error-nextagent-number-outbound-daily-limit"
+    | "call.start.error-nexagent-number-international"
+    | "call.start.error-nexagent-number-outbound-daily-limit"
     | "call.start.error-get-transport"
     | "call.start.error-subscription-wallet-does-not-exist"
     | "call.start.error-fraud-check-failed"
@@ -33593,58 +33593,58 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-inworld-voice-failed"
     | "pipeline-error-minimax-voice-failed"
     | "pipeline-error-tavus-video-failed"
-    | "call.in-progress.error-nextagentfault-openai-voice-failed"
-    | "call.in-progress.error-nextagentfault-cartesia-voice-failed"
-    | "call.in-progress.error-nextagentfault-deepgram-voice-failed"
-    | "call.in-progress.error-nextagentfault-eleven-labs-voice-failed"
-    | "call.in-progress.error-nextagentfault-playht-voice-failed"
-    | "call.in-progress.error-nextagentfault-lmnt-voice-failed"
-    | "call.in-progress.error-nextagentfault-azure-voice-failed"
-    | "call.in-progress.error-nextagentfault-rime-ai-voice-failed"
-    | "call.in-progress.error-nextagentfault-smallest-ai-voice-failed"
-    | "call.in-progress.error-nextagentfault-neuphonic-voice-failed"
-    | "call.in-progress.error-nextagentfault-hume-voice-failed"
-    | "call.in-progress.error-nextagentfault-sesame-voice-failed"
-    | "call.in-progress.error-nextagentfault-inworld-voice-failed"
-    | "call.in-progress.error-nextagentfault-minimax-voice-failed"
-    | "call.in-progress.error-nextagentfault-tavus-video-failed"
-    | "pipeline-error-nextagent-llm-failed"
-    | "pipeline-error-nextagent-400-bad-request-validation-failed"
-    | "pipeline-error-nextagent-401-unauthorized"
-    | "pipeline-error-nextagent-403-model-access-denied"
-    | "pipeline-error-nextagent-429-exceeded-quota"
-    | "pipeline-error-nextagent-500-server-error"
-    | "pipeline-error-nextagent-503-server-overloaded-error"
-    | "call.in-progress.error-providerfault-nextagent-llm-failed"
-    | "call.in-progress.error-nextagentfault-nextagent-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-nextagent-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-nextagent-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-nextagent-429-exceeded-quota"
-    | "call.in-progress.error-providerfault-nextagent-500-server-error"
-    | "call.in-progress.error-providerfault-nextagent-503-server-overloaded-error"
+    | "call.in-progress.error-nexagentfault-openai-voice-failed"
+    | "call.in-progress.error-nexagentfault-cartesia-voice-failed"
+    | "call.in-progress.error-nexagentfault-deepgram-voice-failed"
+    | "call.in-progress.error-nexagentfault-eleven-labs-voice-failed"
+    | "call.in-progress.error-nexagentfault-playht-voice-failed"
+    | "call.in-progress.error-nexagentfault-lmnt-voice-failed"
+    | "call.in-progress.error-nexagentfault-azure-voice-failed"
+    | "call.in-progress.error-nexagentfault-rime-ai-voice-failed"
+    | "call.in-progress.error-nexagentfault-smallest-ai-voice-failed"
+    | "call.in-progress.error-nexagentfault-neuphonic-voice-failed"
+    | "call.in-progress.error-nexagentfault-hume-voice-failed"
+    | "call.in-progress.error-nexagentfault-sesame-voice-failed"
+    | "call.in-progress.error-nexagentfault-inworld-voice-failed"
+    | "call.in-progress.error-nexagentfault-minimax-voice-failed"
+    | "call.in-progress.error-nexagentfault-tavus-video-failed"
+    | "pipeline-error-nexagent-llm-failed"
+    | "pipeline-error-nexagent-400-bad-request-validation-failed"
+    | "pipeline-error-nexagent-401-unauthorized"
+    | "pipeline-error-nexagent-403-model-access-denied"
+    | "pipeline-error-nexagent-429-exceeded-quota"
+    | "pipeline-error-nexagent-500-server-error"
+    | "pipeline-error-nexagent-503-server-overloaded-error"
+    | "call.in-progress.error-providerfault-nexagent-llm-failed"
+    | "call.in-progress.error-nexagentfault-nexagent-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-nexagent-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-nexagent-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-nexagent-429-exceeded-quota"
+    | "call.in-progress.error-providerfault-nexagent-500-server-error"
+    | "call.in-progress.error-providerfault-nexagent-503-server-overloaded-error"
     | "pipeline-error-deepgram-transcriber-failed"
     | "pipeline-error-deepgram-transcriber-api-key-missing"
-    | "call.in-progress.error-nextagentfault-deepgram-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-deepgram-transcriber-failed"
     | "pipeline-error-gladia-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-gladia-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-gladia-transcriber-failed"
     | "pipeline-error-speechmatics-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-speechmatics-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-speechmatics-transcriber-failed"
     | "pipeline-error-assembly-ai-transcriber-failed"
     | "pipeline-error-assembly-ai-returning-400-insufficent-funds"
     | "pipeline-error-assembly-ai-returning-400-paid-only-feature"
     | "pipeline-error-assembly-ai-returning-401-invalid-credentials"
     | "pipeline-error-assembly-ai-returning-500-invalid-schema"
     | "pipeline-error-assembly-ai-returning-500-word-boost-parsing-failed"
-    | "call.in-progress.error-nextagentfault-assembly-ai-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-assembly-ai-returning-400-insufficent-funds"
-    | "call.in-progress.error-nextagentfault-assembly-ai-returning-400-paid-only-feature"
-    | "call.in-progress.error-nextagentfault-assembly-ai-returning-401-invalid-credentials"
-    | "call.in-progress.error-nextagentfault-assembly-ai-returning-500-invalid-schema"
-    | "call.in-progress.error-nextagentfault-assembly-ai-returning-500-word-boost-parsing-failed"
+    | "call.in-progress.error-nexagentfault-assembly-ai-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-assembly-ai-returning-400-insufficent-funds"
+    | "call.in-progress.error-nexagentfault-assembly-ai-returning-400-paid-only-feature"
+    | "call.in-progress.error-nexagentfault-assembly-ai-returning-401-invalid-credentials"
+    | "call.in-progress.error-nexagentfault-assembly-ai-returning-500-invalid-schema"
+    | "call.in-progress.error-nexagentfault-assembly-ai-returning-500-word-boost-parsing-failed"
     | "pipeline-error-talkscriber-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-talkscriber-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-talkscriber-transcriber-failed"
     | "pipeline-error-azure-speech-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-azure-speech-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-azure-speech-transcriber-failed"
     | "call.in-progress.error-pipeline-no-available-llm-model"
     | "worker-shutdown"
     | "vonage-disconnected"
@@ -33652,11 +33652,11 @@ export interface ServerMessageStatusUpdate {
     | "vonage-completed"
     | "phone-call-provider-bypass-enabled-but-no-call-received"
     | "call.in-progress.error-providerfault-transport-never-connected"
-    | "call.in-progress.error-nextagentfault-worker-not-available"
-    | "call.in-progress.error-nextagentfault-transport-never-connected"
-    | "call.in-progress.error-nextagentfault-transport-connected-but-call-not-active"
-    | "call.in-progress.error-nextagentfault-call-started-but-connection-to-transport-missing"
-    | "call.in-progress.error-nextagentfault-worker-died"
+    | "call.in-progress.error-nexagentfault-worker-not-available"
+    | "call.in-progress.error-nexagentfault-transport-never-connected"
+    | "call.in-progress.error-nexagentfault-transport-connected-but-call-not-active"
+    | "call.in-progress.error-nexagentfault-call-started-but-connection-to-transport-missing"
+    | "call.in-progress.error-nexagentfault-worker-died"
     | "call.in-progress.twilio-completed-call"
     | "call.in-progress.sip-completed-call"
     | "call.in-progress.error-providerfault-openai-llm-failed"
@@ -33668,7 +33668,7 @@ export interface ServerMessageStatusUpdate {
     | "call.in-progress.error-providerfault-inflection-ai-llm-failed"
     | "call.in-progress.error-providerfault-cerebras-llm-failed"
     | "call.in-progress.error-providerfault-deep-seek-llm-failed"
-    | "call.in-progress.error-nextagentfault-chat-pipeline-failed-to-start"
+    | "call.in-progress.error-nexagentfault-chat-pipeline-failed-to-start"
     | "pipeline-error-openai-400-bad-request-validation-failed"
     | "pipeline-error-openai-401-unauthorized"
     | "pipeline-error-openai-401-incorrect-api-key"
@@ -33679,13 +33679,13 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-openai-500-server-error"
     | "pipeline-error-openai-503-server-overloaded-error"
     | "pipeline-error-openai-llm-failed"
-    | "call.in-progress.error-nextagentfault-openai-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-openai-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-openai-401-incorrect-api-key"
-    | "call.in-progress.error-nextagentfault-openai-401-account-not-in-organization"
-    | "call.in-progress.error-nextagentfault-openai-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-openai-429-exceeded-quota"
-    | "call.in-progress.error-nextagentfault-openai-429-rate-limit-reached"
+    | "call.in-progress.error-nexagentfault-openai-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-openai-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-openai-401-incorrect-api-key"
+    | "call.in-progress.error-nexagentfault-openai-401-account-not-in-organization"
+    | "call.in-progress.error-nexagentfault-openai-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-openai-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-openai-429-rate-limit-reached"
     | "call.in-progress.error-providerfault-openai-500-server-error"
     | "call.in-progress.error-providerfault-openai-503-server-overloaded-error"
     | "pipeline-error-azure-openai-400-bad-request-validation-failed"
@@ -33695,10 +33695,10 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-azure-openai-500-server-error"
     | "pipeline-error-azure-openai-503-server-overloaded-error"
     | "pipeline-error-azure-openai-llm-failed"
-    | "call.in-progress.error-nextagentfault-azure-openai-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-azure-openai-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-azure-openai-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-azure-openai-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-azure-openai-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-azure-openai-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-azure-openai-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-azure-openai-429-exceeded-quota"
     | "call.in-progress.error-providerfault-azure-openai-500-server-error"
     | "call.in-progress.error-providerfault-azure-openai-503-server-overloaded-error"
     | "pipeline-error-google-400-bad-request-validation-failed"
@@ -33708,10 +33708,10 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-google-500-server-error"
     | "pipeline-error-google-503-server-overloaded-error"
     | "pipeline-error-google-llm-failed"
-    | "call.in-progress.error-nextagentfault-google-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-google-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-google-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-google-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-google-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-google-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-google-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-google-429-exceeded-quota"
     | "call.in-progress.error-providerfault-google-500-server-error"
     | "call.in-progress.error-providerfault-google-503-server-overloaded-error"
     | "pipeline-error-xai-400-bad-request-validation-failed"
@@ -33721,10 +33721,10 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-xai-500-server-error"
     | "pipeline-error-xai-503-server-overloaded-error"
     | "pipeline-error-xai-llm-failed"
-    | "call.in-progress.error-nextagentfault-xai-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-xai-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-xai-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-xai-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-xai-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-xai-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-xai-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-xai-429-exceeded-quota"
     | "call.in-progress.error-providerfault-xai-500-server-error"
     | "call.in-progress.error-providerfault-xai-503-server-overloaded-error"
     | "pipeline-error-mistral-400-bad-request-validation-failed"
@@ -33734,10 +33734,10 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-mistral-500-server-error"
     | "pipeline-error-mistral-503-server-overloaded-error"
     | "pipeline-error-mistral-llm-failed"
-    | "call.in-progress.error-nextagentfault-mistral-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-mistral-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-mistral-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-mistral-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-mistral-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-mistral-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-mistral-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-mistral-429-exceeded-quota"
     | "call.in-progress.error-providerfault-mistral-500-server-error"
     | "call.in-progress.error-providerfault-mistral-503-server-overloaded-error"
     | "pipeline-error-inflection-ai-400-bad-request-validation-failed"
@@ -33747,10 +33747,10 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-inflection-ai-500-server-error"
     | "pipeline-error-inflection-ai-503-server-overloaded-error"
     | "pipeline-error-inflection-ai-llm-failed"
-    | "call.in-progress.error-nextagentfault-inflection-ai-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-inflection-ai-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-inflection-ai-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-inflection-ai-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-inflection-ai-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-inflection-ai-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-inflection-ai-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-inflection-ai-429-exceeded-quota"
     | "call.in-progress.error-providerfault-inflection-ai-500-server-error"
     | "call.in-progress.error-providerfault-inflection-ai-503-server-overloaded-error"
     | "pipeline-error-deep-seek-400-bad-request-validation-failed"
@@ -33760,10 +33760,10 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-deep-seek-500-server-error"
     | "pipeline-error-deep-seek-503-server-overloaded-error"
     | "pipeline-error-deep-seek-llm-failed"
-    | "call.in-progress.error-nextagentfault-deep-seek-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-deep-seek-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-deep-seek-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-deep-seek-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-deep-seek-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-deep-seek-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-deep-seek-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-deep-seek-429-exceeded-quota"
     | "call.in-progress.error-providerfault-deep-seek-500-server-error"
     | "call.in-progress.error-providerfault-deep-seek-503-server-overloaded-error"
     | "pipeline-error-groq-400-bad-request-validation-failed"
@@ -33773,10 +33773,10 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-groq-500-server-error"
     | "pipeline-error-groq-503-server-overloaded-error"
     | "pipeline-error-groq-llm-failed"
-    | "call.in-progress.error-nextagentfault-groq-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-groq-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-groq-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-groq-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-groq-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-groq-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-groq-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-groq-429-exceeded-quota"
     | "call.in-progress.error-providerfault-groq-500-server-error"
     | "call.in-progress.error-providerfault-groq-503-server-overloaded-error"
     | "pipeline-error-cerebras-400-bad-request-validation-failed"
@@ -33786,10 +33786,10 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-cerebras-500-server-error"
     | "pipeline-error-cerebras-503-server-overloaded-error"
     | "pipeline-error-cerebras-llm-failed"
-    | "call.in-progress.error-nextagentfault-cerebras-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-cerebras-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-cerebras-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-cerebras-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-cerebras-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-cerebras-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-cerebras-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-cerebras-429-exceeded-quota"
     | "call.in-progress.error-providerfault-cerebras-500-server-error"
     | "call.in-progress.error-providerfault-cerebras-503-server-overloaded-error"
     | "pipeline-error-anthropic-400-bad-request-validation-failed"
@@ -33800,10 +33800,10 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-anthropic-503-server-overloaded-error"
     | "pipeline-error-anthropic-llm-failed"
     | "call.in-progress.error-providerfault-anthropic-llm-failed"
-    | "call.in-progress.error-nextagentfault-anthropic-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-anthropic-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-anthropic-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-anthropic-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-anthropic-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-anthropic-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-anthropic-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-anthropic-429-exceeded-quota"
     | "call.in-progress.error-providerfault-anthropic-500-server-error"
     | "call.in-progress.error-providerfault-anthropic-503-server-overloaded-error"
     | "pipeline-error-anthropic-bedrock-400-bad-request-validation-failed"
@@ -33814,10 +33814,10 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-anthropic-bedrock-503-server-overloaded-error"
     | "pipeline-error-anthropic-bedrock-llm-failed"
     | "call.in-progress.error-providerfault-anthropic-bedrock-llm-failed"
-    | "call.in-progress.error-nextagentfault-anthropic-bedrock-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-anthropic-bedrock-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-anthropic-bedrock-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-anthropic-bedrock-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-anthropic-bedrock-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-anthropic-bedrock-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-anthropic-bedrock-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-anthropic-bedrock-429-exceeded-quota"
     | "call.in-progress.error-providerfault-anthropic-bedrock-500-server-error"
     | "call.in-progress.error-providerfault-anthropic-bedrock-503-server-overloaded-error"
     | "pipeline-error-anthropic-vertex-400-bad-request-validation-failed"
@@ -33828,10 +33828,10 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-anthropic-vertex-503-server-overloaded-error"
     | "pipeline-error-anthropic-vertex-llm-failed"
     | "call.in-progress.error-providerfault-anthropic-vertex-llm-failed"
-    | "call.in-progress.error-nextagentfault-anthropic-vertex-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-anthropic-vertex-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-anthropic-vertex-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-anthropic-vertex-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-anthropic-vertex-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-anthropic-vertex-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-anthropic-vertex-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-anthropic-vertex-429-exceeded-quota"
     | "call.in-progress.error-providerfault-anthropic-vertex-500-server-error"
     | "call.in-progress.error-providerfault-anthropic-vertex-503-server-overloaded-error"
     | "pipeline-error-together-ai-400-bad-request-validation-failed"
@@ -33842,10 +33842,10 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-together-ai-503-server-overloaded-error"
     | "pipeline-error-together-ai-llm-failed"
     | "call.in-progress.error-providerfault-together-ai-llm-failed"
-    | "call.in-progress.error-nextagentfault-together-ai-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-together-ai-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-together-ai-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-together-ai-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-together-ai-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-together-ai-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-together-ai-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-together-ai-429-exceeded-quota"
     | "call.in-progress.error-providerfault-together-ai-500-server-error"
     | "call.in-progress.error-providerfault-together-ai-503-server-overloaded-error"
     | "pipeline-error-anyscale-400-bad-request-validation-failed"
@@ -33856,10 +33856,10 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-anyscale-503-server-overloaded-error"
     | "pipeline-error-anyscale-llm-failed"
     | "call.in-progress.error-providerfault-anyscale-llm-failed"
-    | "call.in-progress.error-nextagentfault-anyscale-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-anyscale-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-anyscale-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-anyscale-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-anyscale-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-anyscale-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-anyscale-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-anyscale-429-exceeded-quota"
     | "call.in-progress.error-providerfault-anyscale-500-server-error"
     | "call.in-progress.error-providerfault-anyscale-503-server-overloaded-error"
     | "pipeline-error-openrouter-400-bad-request-validation-failed"
@@ -33870,10 +33870,10 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-openrouter-503-server-overloaded-error"
     | "pipeline-error-openrouter-llm-failed"
     | "call.in-progress.error-providerfault-openrouter-llm-failed"
-    | "call.in-progress.error-nextagentfault-openrouter-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-openrouter-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-openrouter-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-openrouter-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-openrouter-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-openrouter-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-openrouter-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-openrouter-429-exceeded-quota"
     | "call.in-progress.error-providerfault-openrouter-500-server-error"
     | "call.in-progress.error-providerfault-openrouter-503-server-overloaded-error"
     | "pipeline-error-perplexity-ai-400-bad-request-validation-failed"
@@ -33884,10 +33884,10 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-perplexity-ai-503-server-overloaded-error"
     | "pipeline-error-perplexity-ai-llm-failed"
     | "call.in-progress.error-providerfault-perplexity-ai-llm-failed"
-    | "call.in-progress.error-nextagentfault-perplexity-ai-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-perplexity-ai-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-perplexity-ai-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-perplexity-ai-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-perplexity-ai-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-perplexity-ai-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-perplexity-ai-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-perplexity-ai-429-exceeded-quota"
     | "call.in-progress.error-providerfault-perplexity-ai-500-server-error"
     | "call.in-progress.error-providerfault-perplexity-ai-503-server-overloaded-error"
     | "pipeline-error-deepinfra-400-bad-request-validation-failed"
@@ -33898,10 +33898,10 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-deepinfra-503-server-overloaded-error"
     | "pipeline-error-deepinfra-llm-failed"
     | "call.in-progress.error-providerfault-deepinfra-llm-failed"
-    | "call.in-progress.error-nextagentfault-deepinfra-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-deepinfra-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-deepinfra-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-deepinfra-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-deepinfra-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-deepinfra-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-deepinfra-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-deepinfra-429-exceeded-quota"
     | "call.in-progress.error-providerfault-deepinfra-500-server-error"
     | "call.in-progress.error-providerfault-deepinfra-503-server-overloaded-error"
     | "pipeline-error-runpod-400-bad-request-validation-failed"
@@ -33912,10 +33912,10 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-runpod-503-server-overloaded-error"
     | "pipeline-error-runpod-llm-failed"
     | "call.in-progress.error-providerfault-runpod-llm-failed"
-    | "call.in-progress.error-nextagentfault-runpod-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-runpod-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-runpod-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-runpod-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-runpod-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-runpod-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-runpod-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-runpod-429-exceeded-quota"
     | "call.in-progress.error-providerfault-runpod-500-server-error"
     | "call.in-progress.error-providerfault-runpod-503-server-overloaded-error"
     | "pipeline-error-custom-llm-400-bad-request-validation-failed"
@@ -33926,10 +33926,10 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-custom-llm-503-server-overloaded-error"
     | "pipeline-error-custom-llm-llm-failed"
     | "call.in-progress.error-providerfault-custom-llm-llm-failed"
-    | "call.in-progress.error-nextagentfault-custom-llm-400-bad-request-validation-failed"
-    | "call.in-progress.error-nextagentfault-custom-llm-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-custom-llm-403-model-access-denied"
-    | "call.in-progress.error-nextagentfault-custom-llm-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-custom-llm-400-bad-request-validation-failed"
+    | "call.in-progress.error-nexagentfault-custom-llm-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-custom-llm-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-custom-llm-429-exceeded-quota"
     | "call.in-progress.error-providerfault-custom-llm-500-server-error"
     | "call.in-progress.error-providerfault-custom-llm-503-server-overloaded-error"
     | "pipeline-error-custom-voice-failed"
@@ -33939,8 +33939,8 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-cartesia-502-server-error"
     | "pipeline-error-cartesia-503-server-error"
     | "pipeline-error-cartesia-522-server-error"
-    | "call.in-progress.error-nextagentfault-cartesia-socket-hang-up"
-    | "call.in-progress.error-nextagentfault-cartesia-requested-payment"
+    | "call.in-progress.error-nexagentfault-cartesia-socket-hang-up"
+    | "call.in-progress.error-nexagentfault-cartesia-requested-payment"
     | "call.in-progress.error-providerfault-cartesia-500-server-error"
     | "call.in-progress.error-providerfault-cartesia-503-server-error"
     | "call.in-progress.error-providerfault-cartesia-522-server-error"
@@ -33957,7 +33957,7 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-eleven-labs-invalid-api-key"
     | "pipeline-error-eleven-labs-invalid-voice-samples"
     | "pipeline-error-eleven-labs-voice-disabled-by-owner"
-    | "pipeline-error-eleven-labs-nextagent-voice-disabled-by-owner"
+    | "pipeline-error-eleven-labs-nexagent-voice-disabled-by-owner"
     | "pipeline-error-eleven-labs-blocked-account-in-probation"
     | "pipeline-error-eleven-labs-blocked-content-against-their-policy"
     | "pipeline-error-eleven-labs-missing-samples-for-voice-clone"
@@ -33967,26 +33967,26 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-eleven-labs-blocked-voice-potentially-against-terms-of-service-and-awaiting-verification"
     | "pipeline-error-eleven-labs-500-server-error"
     | "pipeline-error-eleven-labs-503-server-error"
-    | "call.in-progress.error-nextagentfault-eleven-labs-voice-not-found"
-    | "call.in-progress.error-nextagentfault-eleven-labs-quota-exceeded"
-    | "call.in-progress.error-nextagentfault-eleven-labs-unauthorized-access"
-    | "call.in-progress.error-nextagentfault-eleven-labs-unauthorized-to-access-model"
-    | "call.in-progress.error-nextagentfault-eleven-labs-professional-voices-only-for-creator-plus"
-    | "call.in-progress.error-nextagentfault-eleven-labs-blocked-free-plan-and-requested-upgrade"
-    | "call.in-progress.error-nextagentfault-eleven-labs-blocked-concurrent-requests-and-requested-upgrade"
-    | "call.in-progress.error-nextagentfault-eleven-labs-blocked-using-instant-voice-clone-and-requested-upgrade"
-    | "call.in-progress.error-nextagentfault-eleven-labs-system-busy-and-requested-upgrade"
-    | "call.in-progress.error-nextagentfault-eleven-labs-voice-not-fine-tuned"
-    | "call.in-progress.error-nextagentfault-eleven-labs-invalid-api-key"
-    | "call.in-progress.error-nextagentfault-eleven-labs-invalid-voice-samples"
-    | "call.in-progress.error-nextagentfault-eleven-labs-voice-disabled-by-owner"
-    | "call.in-progress.error-nextagentfault-eleven-labs-blocked-account-in-probation"
-    | "call.in-progress.error-nextagentfault-eleven-labs-blocked-content-against-their-policy"
-    | "call.in-progress.error-nextagentfault-eleven-labs-missing-samples-for-voice-clone"
-    | "call.in-progress.error-nextagentfault-eleven-labs-voice-not-fine-tuned-and-cannot-be-used"
-    | "call.in-progress.error-nextagentfault-eleven-labs-voice-not-allowed-for-free-users"
-    | "call.in-progress.error-nextagentfault-eleven-labs-max-character-limit-exceeded"
-    | "call.in-progress.error-nextagentfault-eleven-labs-blocked-voice-potentially-against-terms-of-service-and-awaiting-verification"
+    | "call.in-progress.error-nexagentfault-eleven-labs-voice-not-found"
+    | "call.in-progress.error-nexagentfault-eleven-labs-quota-exceeded"
+    | "call.in-progress.error-nexagentfault-eleven-labs-unauthorized-access"
+    | "call.in-progress.error-nexagentfault-eleven-labs-unauthorized-to-access-model"
+    | "call.in-progress.error-nexagentfault-eleven-labs-professional-voices-only-for-creator-plus"
+    | "call.in-progress.error-nexagentfault-eleven-labs-blocked-free-plan-and-requested-upgrade"
+    | "call.in-progress.error-nexagentfault-eleven-labs-blocked-concurrent-requests-and-requested-upgrade"
+    | "call.in-progress.error-nexagentfault-eleven-labs-blocked-using-instant-voice-clone-and-requested-upgrade"
+    | "call.in-progress.error-nexagentfault-eleven-labs-system-busy-and-requested-upgrade"
+    | "call.in-progress.error-nexagentfault-eleven-labs-voice-not-fine-tuned"
+    | "call.in-progress.error-nexagentfault-eleven-labs-invalid-api-key"
+    | "call.in-progress.error-nexagentfault-eleven-labs-invalid-voice-samples"
+    | "call.in-progress.error-nexagentfault-eleven-labs-voice-disabled-by-owner"
+    | "call.in-progress.error-nexagentfault-eleven-labs-blocked-account-in-probation"
+    | "call.in-progress.error-nexagentfault-eleven-labs-blocked-content-against-their-policy"
+    | "call.in-progress.error-nexagentfault-eleven-labs-missing-samples-for-voice-clone"
+    | "call.in-progress.error-nexagentfault-eleven-labs-voice-not-fine-tuned-and-cannot-be-used"
+    | "call.in-progress.error-nexagentfault-eleven-labs-voice-not-allowed-for-free-users"
+    | "call.in-progress.error-nexagentfault-eleven-labs-max-character-limit-exceeded"
+    | "call.in-progress.error-nexagentfault-eleven-labs-blocked-voice-potentially-against-terms-of-service-and-awaiting-verification"
     | "call.in-progress.error-providerfault-eleven-labs-500-server-error"
     | "call.in-progress.error-providerfault-eleven-labs-503-server-error"
     | "pipeline-error-playht-request-timed-out"
@@ -34001,22 +34001,22 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-playht-429-exceeded-quota"
     | "pipeline-error-playht-502-gateway-error"
     | "pipeline-error-playht-504-gateway-error"
-    | "call.in-progress.error-nextagentfault-playht-request-timed-out"
-    | "call.in-progress.error-nextagentfault-playht-invalid-voice"
-    | "call.in-progress.error-nextagentfault-playht-unexpected-error"
-    | "call.in-progress.error-nextagentfault-playht-out-of-credits"
-    | "call.in-progress.error-nextagentfault-playht-invalid-emotion"
-    | "call.in-progress.error-nextagentfault-playht-voice-must-be-a-valid-voice-manifest-uri"
-    | "call.in-progress.error-nextagentfault-playht-401-unauthorized"
-    | "call.in-progress.error-nextagentfault-playht-403-forbidden-out-of-characters"
-    | "call.in-progress.error-nextagentfault-playht-403-forbidden-api-access-not-available"
-    | "call.in-progress.error-nextagentfault-playht-429-exceeded-quota"
+    | "call.in-progress.error-nexagentfault-playht-request-timed-out"
+    | "call.in-progress.error-nexagentfault-playht-invalid-voice"
+    | "call.in-progress.error-nexagentfault-playht-unexpected-error"
+    | "call.in-progress.error-nexagentfault-playht-out-of-credits"
+    | "call.in-progress.error-nexagentfault-playht-invalid-emotion"
+    | "call.in-progress.error-nexagentfault-playht-voice-must-be-a-valid-voice-manifest-uri"
+    | "call.in-progress.error-nexagentfault-playht-401-unauthorized"
+    | "call.in-progress.error-nexagentfault-playht-403-forbidden-out-of-characters"
+    | "call.in-progress.error-nexagentfault-playht-403-forbidden-api-access-not-available"
+    | "call.in-progress.error-nexagentfault-playht-429-exceeded-quota"
     | "call.in-progress.error-providerfault-playht-502-gateway-error"
     | "call.in-progress.error-providerfault-playht-504-gateway-error"
     | "pipeline-error-custom-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-custom-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-custom-transcriber-failed"
     | "pipeline-error-eleven-labs-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-eleven-labs-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-eleven-labs-transcriber-failed"
     | "pipeline-error-deepgram-returning-400-no-such-model-language-tier-combination"
     | "pipeline-error-deepgram-returning-401-invalid-credentials"
     | "pipeline-error-deepgram-returning-403-model-access-denied"
@@ -34025,17 +34025,17 @@ export interface ServerMessageStatusUpdate {
     | "pipeline-error-deepgram-returning-502-network-error"
     | "pipeline-error-deepgram-returning-502-bad-gateway-ehostunreach"
     | "pipeline-error-deepgram-returning-econnreset"
-    | "call.in-progress.error-nextagentfault-deepgram-returning-400-no-such-model-language-tier-combination"
-    | "call.in-progress.error-nextagentfault-deepgram-returning-401-invalid-credentials"
-    | "call.in-progress.error-nextagentfault-deepgram-returning-404-not-found"
-    | "call.in-progress.error-nextagentfault-deepgram-returning-403-model-access-denied"
+    | "call.in-progress.error-nexagentfault-deepgram-returning-400-no-such-model-language-tier-combination"
+    | "call.in-progress.error-nexagentfault-deepgram-returning-401-invalid-credentials"
+    | "call.in-progress.error-nexagentfault-deepgram-returning-404-not-found"
+    | "call.in-progress.error-nexagentfault-deepgram-returning-403-model-access-denied"
     | "call.in-progress.error-providerfault-deepgram-returning-500-invalid-json"
     | "call.in-progress.error-providerfault-deepgram-returning-502-network-error"
     | "call.in-progress.error-providerfault-deepgram-returning-502-bad-gateway-ehostunreach"
     | "pipeline-error-google-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-google-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-google-transcriber-failed"
     | "pipeline-error-openai-transcriber-failed"
-    | "call.in-progress.error-nextagentfault-openai-transcriber-failed"
+    | "call.in-progress.error-nexagentfault-openai-transcriber-failed"
     | "call.in-progress.error-warm-transfer-max-duration"
     | "call.in-progress.error-warm-transfer-assistant-cancelled"
     | "call.in-progress.error-warm-transfer-silence-timeout"
@@ -34122,7 +34122,7 @@ export interface ServerMessageToolCalls {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "tool-calls" is sent to call a tool. */
   type?: "tool-calls";
@@ -34162,7 +34162,7 @@ export interface ServerMessageTransferDestinationRequest {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "transfer-destination-request" is sent when the model is requesting transfer but destination is unknown. */
   type: "transfer-destination-request";
@@ -34190,7 +34190,7 @@ export interface ServerMessageTransferUpdate {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "transfer-update" is sent whenever a transfer happens. */
   type: "transfer-update";
@@ -34231,7 +34231,7 @@ export interface ServerMessageTranscript {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "transcript" is sent as transcriber outputs partial or final transcript. */
   type: "transcript" | "transcript[transcriptType='final']";
@@ -34271,7 +34271,7 @@ export interface ServerMessageUserInterrupted {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "user-interrupted" is sent when the user interrupts the assistant. */
   type: "user-interrupted";
@@ -34299,7 +34299,7 @@ export interface ServerMessageLanguageChangeDetected {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "language-change-detected" is sent when the transcriber is automatically switched based on the detected language. */
   type: "language-change-detected";
@@ -34329,7 +34329,7 @@ export interface ServerMessageVoiceInput {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "voice-input" is sent when a generation is requested from voice provider. */
   type: "voice-input";
@@ -34359,7 +34359,7 @@ export interface ServerMessageVoiceRequest {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /**
    * This is the type of the message. "voice-request" is sent when using `assistant.voice={ "type": "custom-voice" }`.
@@ -34414,7 +34414,7 @@ export interface ServerMessageCallEndpointingRequest {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /**
    * This is the type of the message. "call.endpointing.request" is sent when using `assistant.startSpeakingPlan.smartEndpointingPlan={ "provider": "custom-endpointing-model" }`.
@@ -34479,7 +34479,7 @@ export interface ServerMessageChatCreated {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "chat.created" is sent when a new chat is created. */
   type: "chat.created";
@@ -34507,7 +34507,7 @@ export interface ServerMessageChatDeleted {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "chat.deleted" is sent when a chat is deleted. */
   type: "chat.deleted";
@@ -34535,7 +34535,7 @@ export interface ServerMessageSessionCreated {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "session.created" is sent when a new session is created. */
   type: "session.created";
@@ -34565,7 +34565,7 @@ export interface ServerMessageSessionUpdated {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "session.updated" is sent when a session is updated. */
   type: "session.updated";
@@ -34595,7 +34595,7 @@ export interface ServerMessageSessionDeleted {
     | CreateByoPhoneNumberDTO
     | CreateTwilioPhoneNumberDTO
     | CreateVonagePhoneNumberDTO
-    | CreateNextAgentPhoneNumberDTO
+    | CreateNexAgentPhoneNumberDTO
     | CreateTelnyxPhoneNumberDTO;
   /** This is the type of the message. "session.deleted" is sent when a session is deleted. */
   type: "session.deleted";
@@ -34995,11 +34995,11 @@ export interface TransportCost {
   type: "transport";
   provider?:
     | "daily"
-    | "nextagent.websocket"
+    | "nexagent.websocket"
     | "twilio"
     | "vonage"
     | "telnyx"
-    | "nextagent.sip";
+    | "nexagent.sip";
   /** This is the minutes of `transport` usage. This should match `call.endedAt` - `call.startedAt`. */
   minutes: number;
   /** This is the cost of the component in USD. */
@@ -35071,12 +35071,12 @@ export interface VoiceCost {
   cost: number;
 }
 
-export interface NextAgentCost {
-  /** This is the type of cost, always 'nextagent' for this class. */
-  type: "nextagent";
+export interface NexAgentCost {
+  /** This is the type of cost, always 'nexagent' for this class. */
+  type: "nexagent";
   /** This is the sub type of the cost. */
   subType: "normal" | "overage";
-  /** This is the minutes of NextAgent usage. This should match `call.endedAt` - `call.startedAt`. */
+  /** This is the minutes of NexAgent usage. This should match `call.endedAt` - `call.startedAt`. */
   minutes: number;
   /** This is the cost of the component in USD. */
   cost: number;
@@ -35107,7 +35107,7 @@ export interface VoicemailDetectionCost {
   /** This is the model that was used to perform the analysis. */
   model: object;
   /** This is the provider that was used to detect the voicemail. */
-  provider: "twilio" | "google" | "openai" | "nextagent";
+  provider: "twilio" | "google" | "openai" | "nexagent";
   /** This is the number of prompt text tokens used in the voicemail detection. */
   promptTextTokens: number;
   /** This is the number of prompt audio tokens used in the voicemail detection. */
@@ -36459,7 +36459,7 @@ export enum ContentType {
 }
 
 export class HttpClient<SecurityDataType = unknown> {
-  public baseUrl: string = "https://api.nextagent.ai";
+  public baseUrl: string = "https://api.nexagent.ai";
   private securityData: SecurityDataType | null = null;
   private securityWorker?: ApiConfig<SecurityDataType>["securityWorker"];
   private abortControllers = new Map<CancelToken, AbortController>();
@@ -36662,9 +36662,9 @@ export class HttpClient<SecurityDataType = unknown> {
 }
 
 /**
- * @title NextAgent API
+ * @title NexAgent API
  * @version 1.0
- * @baseUrl https://api.nextagent.ai
+ * @baseUrl https://api.nexagent.ai
  * @contact
  *
  * Voice AI for developers.
@@ -38652,8 +38652,8 @@ export class Api<
             provider: "vonage";
           } & VonagePhoneNumber)
         | ({
-            provider: "nextagent";
-          } & NextAgentPhoneNumber)
+            provider: "nexagent";
+          } & NexAgentPhoneNumber)
         | ({
             provider: "telnyx";
           } & TelnyxPhoneNumber),
@@ -38693,8 +38693,8 @@ export class Api<
             provider: "vonage";
           } & VonagePhoneNumber)
         | ({
-            provider: "nextagent";
-          } & NextAgentPhoneNumber)
+            provider: "nexagent";
+          } & NexAgentPhoneNumber)
         | ({
             provider: "telnyx";
           } & TelnyxPhoneNumber),
@@ -38730,8 +38730,8 @@ export class Api<
             provider: "vonage";
           } & CreateVonagePhoneNumberDTO)
         | ({
-            provider: "nextagent";
-          } & CreateNextAgentPhoneNumberDTO)
+            provider: "nexagent";
+          } & CreateNexAgentPhoneNumberDTO)
         | ({
             provider: "telnyx";
           } & CreateTelnyxPhoneNumberDTO),
@@ -38748,8 +38748,8 @@ export class Api<
             provider: "vonage";
           } & VonagePhoneNumber)
         | ({
-            provider: "nextagent";
-          } & NextAgentPhoneNumber)
+            provider: "nexagent";
+          } & NexAgentPhoneNumber)
         | ({
             provider: "telnyx";
           } & TelnyxPhoneNumber),
@@ -38836,8 +38836,8 @@ export class Api<
               provider: "vonage";
             } & VonagePhoneNumber)
           | ({
-              provider: "nextagent";
-            } & NextAgentPhoneNumber)
+              provider: "nexagent";
+            } & NexAgentPhoneNumber)
           | ({
               provider: "telnyx";
             } & TelnyxPhoneNumber)
@@ -38873,8 +38873,8 @@ export class Api<
             provider: "vonage";
           } & VonagePhoneNumber)
         | ({
-            provider: "nextagent";
-          } & NextAgentPhoneNumber)
+            provider: "nexagent";
+          } & NexAgentPhoneNumber)
         | ({
             provider: "telnyx";
           } & TelnyxPhoneNumber),
@@ -38909,8 +38909,8 @@ export class Api<
             provider: "vonage";
           } & UpdateVonagePhoneNumberDTO)
         | ({
-            provider: "nextagent";
-          } & UpdateNextAgentPhoneNumberDTO)
+            provider: "nexagent";
+          } & UpdateNexAgentPhoneNumberDTO)
         | ({
             provider: "telnyx";
           } & UpdateTelnyxPhoneNumberDTO),
@@ -38927,8 +38927,8 @@ export class Api<
             provider: "vonage";
           } & VonagePhoneNumber)
         | ({
-            provider: "nextagent";
-          } & NextAgentPhoneNumber)
+            provider: "nexagent";
+          } & NexAgentPhoneNumber)
         | ({
             provider: "telnyx";
           } & TelnyxPhoneNumber),
@@ -38964,8 +38964,8 @@ export class Api<
             provider: "vonage";
           } & VonagePhoneNumber)
         | ({
-            provider: "nextagent";
-          } & NextAgentPhoneNumber)
+            provider: "nexagent";
+          } & NexAgentPhoneNumber)
         | ({
             provider: "telnyx";
           } & TelnyxPhoneNumber),
@@ -42781,7 +42781,7 @@ export class Api<
      */
     voiceLibraryControllerVoiceGetByProvider: (
       provider:
-        | "nextagent"
+        | "nexagent"
         | "11labs"
         | "azure"
         | "cartesia"
@@ -42873,7 +42873,7 @@ export class Api<
      */
     voiceLibraryControllerVoiceGetAccentsByProvider: (
       provider:
-        | "nextagent"
+        | "nexagent"
         | "11labs"
         | "azure"
         | "cartesia"
@@ -42911,7 +42911,7 @@ export class Api<
      */
     voiceLibraryControllerVoiceLibrarySyncByProvider: (
       provider:
-        | "nextagent"
+        | "nexagent"
         | "11labs"
         | "azure"
         | "cartesia"
@@ -43328,7 +43328,7 @@ export class Api<
      *
      * @tags Providers
      * @name VoiceProviderControllerCloneVoices
-     * @summary Clone a voice to the provider account and add to NextAgent Voice Library.
+     * @summary Clone a voice to the provider account and add to NexAgent Voice Library.
      * @request POST:/11labs/voice/clone
      * @secure
      */

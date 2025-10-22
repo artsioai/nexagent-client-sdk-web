@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import NextAgent from '@nextagent/web';
+import NexAgent from '@nexagent/web';
 
-const NEXTAGENT_PUBLIC_KEY = import.meta.env.VITE_NEXTAGENT_PUBLIC_KEY;
-const NEXTAGENT_API_BASE_URL = import.meta.env.VITE_NEXTAGENT_API_BASE_URL;
+const NEXAGENT_PUBLIC_KEY = import.meta.env.VITE_NEXAGENT_PUBLIC_KEY;
+const NEXAGENT_API_BASE_URL = import.meta.env.VITE_NEXAGENT_API_BASE_URL;
 
-if (!NEXTAGENT_PUBLIC_KEY) {
-  throw new Error('VITE_NEXTAGENT_PUBLIC_KEY is required. Please set it in your .env.local file.');
+if (!NEXAGENT_PUBLIC_KEY) {
+  throw new Error('VITE_NEXAGENT_PUBLIC_KEY is required. Please set it in your .env.local file.');
 }
 
 interface Message {
@@ -15,7 +15,7 @@ interface Message {
 }
 
 function App() {
-  const [nextAgent] = useState(() => new NextAgent(NEXTAGENT_PUBLIC_KEY, NEXTAGENT_API_BASE_URL));
+  const [nexAgent] = useState(() => new NexAgent(NEXAGENT_PUBLIC_KEY, NEXAGENT_API_BASE_URL));
   const [connected, setConnected] = useState(false);
   const [assistantIsSpeaking, setAssistantIsSpeaking] = useState(false);
   const [volumeLevel, setVolumeLevel] = useState(0);
@@ -30,14 +30,14 @@ function App() {
 
   useEffect(() => {
     // Check for stored webCall on component mount
-    const stored = localStorage.getItem('nextagent-webcall');
+    const stored = localStorage.getItem('nexagent-webcall');
     if (stored) {
       try {
         const parsedWebCall = JSON.parse(stored);
         setStoredWebCall(parsedWebCall);
       } catch (error) {
         console.error('Error parsing stored webCall:', error);
-        localStorage.removeItem('nextagent-webcall');
+        localStorage.removeItem('nexagent-webcall');
       }
     }
 
@@ -46,14 +46,14 @@ function App() {
       setCurrentTime(new Date().toLocaleTimeString());
     }, 1000);
 
-    // Set up NextAgent event listeners
-    nextAgent.on('call-start', () => {
+    // Set up NexAgent event listeners
+    nexAgent.on('call-start', () => {
       console.log('Call started - call-start event fired');
       setConnected(true);
       addMessage('system', 'Call connected');
     });
 
-    nextAgent.on('call-end', () => {
+    nexAgent.on('call-end', () => {
       console.log('Call ended');
       setConnected(false);
       setAssistantIsSpeaking(false);
@@ -61,21 +61,21 @@ function App() {
       addMessage('system', 'Call ended - webCall data preserved for reconnection');
     });
 
-    nextAgent.on('speech-start', () => {
+    nexAgent.on('speech-start', () => {
       console.log('Assistant started speaking');
       setAssistantIsSpeaking(true);
     });
 
-    nextAgent.on('speech-end', () => {
+    nexAgent.on('speech-end', () => {
       console.log('Assistant stopped speaking');
       setAssistantIsSpeaking(false);
     });
 
-    nextAgent.on('volume-level', (volume) => {
+    nexAgent.on('volume-level', (volume) => {
       setVolumeLevel(volume);
     });
 
-    nextAgent.on('message', (message) => {
+    nexAgent.on('message', (message) => {
       console.log('Received message:', message);
       
       // Handle different message types
@@ -94,16 +94,16 @@ function App() {
       }
     });
 
-    nextAgent.on('error', (error) => {
-      console.error('NextAgent error:', error);
+    nexAgent.on('error', (error) => {
+      console.error('NexAgent error:', error);
       addMessage('system', `Error: ${error.message || error}`);
     });
     
     return () => {
       clearInterval(timer);
-      nextAgent.stop();
+      nexAgent.stop();
     };
-  }, [nextAgent]);
+  }, [nexAgent]);
 
   const addMessage = (type: 'user' | 'assistant' | 'system', content: string) => {
     setMessages(prev => [...prev, {
@@ -118,7 +118,7 @@ function App() {
       addMessage('system', 'Starting call...');
       
       // Start call with assistant configuration
-      const webCall = await nextAgent.start({
+      const webCall = await nexAgent.start({
         // Basic assistant configuration
         model: {
           provider: "openai",
@@ -133,7 +133,7 @@ function App() {
         
         // Voice configuration
         voice: {
-          provider: "nextagent",
+          provider: "nexagent",
           voiceId: "Elliot"
         },
         
@@ -163,7 +163,7 @@ function App() {
           artifactPlan: webCall.artifactPlan,
           assistant: webCall.assistant
         };
-        localStorage.setItem('nextagent-webcall', JSON.stringify(webCallToStore));
+        localStorage.setItem('nexagent-webcall', JSON.stringify(webCallToStore));
         setStoredWebCall(webCallToStore);
         addMessage('system', 'Call data stored for reconnection');
       }
@@ -175,7 +175,7 @@ function App() {
   };
 
   const stopCall = () => {
-    nextAgent.end();
+    nexAgent.end();
   };
 
   const reconnectCall = async () => {
@@ -187,7 +187,7 @@ function App() {
     try {
       addMessage('system', 'Reconnecting to previous call...');
       console.log('Attempting reconnect with data:', storedWebCall);
-      await nextAgent.reconnect(storedWebCall);
+      await nexAgent.reconnect(storedWebCall);
       addMessage('system', 'Reconnect method completed successfully');
       
       // Add a small delay to allow events to propagate
@@ -202,27 +202,27 @@ function App() {
       addMessage('system', `Failed to reconnect: ${error}`);
       
       // Clear invalid stored data
-      localStorage.removeItem('nextagent-webcall');
+      localStorage.removeItem('nexagent-webcall');
       setStoredWebCall(null);
     }
   };
 
   const clearStoredCall = () => {
-    localStorage.removeItem('nextagent-webcall');
+    localStorage.removeItem('nexagent-webcall');
     setStoredWebCall(null);
     addMessage('system', 'Cleared stored call data');
   };
 
   const toggleMute = () => {
     const newMutedState = !isMuted;
-    nextAgent.setMuted(newMutedState);
+    nexAgent.setMuted(newMutedState);
     setIsMuted(newMutedState);
     addMessage('system', newMutedState ? 'Microphone muted' : 'Microphone unmuted');
   };
 
   const sendMessage = () => {
     // Example of sending a background message to the assistant
-    nextAgent.send({
+    nexAgent.send({
       type: "add-message",
       message: {
         role: "system",
@@ -237,7 +237,7 @@ function App() {
     
     try {
       // Use the full say() method signature with all 4 parameters
-      nextAgent.say(text, endCallAfter, interruptionsEnabled, interruptAssistantEnabled);
+      nexAgent.say(text, endCallAfter, interruptionsEnabled, interruptAssistantEnabled);
       
       const statusParts = [
         `Manual say: "${text}"`,
@@ -271,7 +271,7 @@ function App() {
       padding: '20px',
       fontFamily: 'Arial, sans-serif'
     }}>
-      <h1 style={{ textAlign: 'center', color: '#333' }}>NextAgent Voice Assistant</h1>
+      <h1 style={{ textAlign: 'center', color: '#333' }}>NexAgent Voice Assistant</h1>
       
       {/* Status Panel */}
       <div style={{

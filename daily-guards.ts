@@ -22,7 +22,7 @@ export function createSafeDailyConfig(
   // Force true or remove the property entirely. This can cause Chrome 140+ issues
   if (alwaysIncludeMicInPermissionPrompt === false) {
     console.warn(
-      '[NextAgent] alwaysIncludeMicInPermissionPrompt:false detected. ' +
+      '[NexAgent] alwaysIncludeMicInPermissionPrompt:false detected. ' +
       'This can cause Chrome 140+ issues. Removing the property.'
     );
     return rest;
@@ -51,7 +51,7 @@ export async function safeSetInputDevicesAsync(
   // Validate audioSource
   if ('audioSource' in options && options.audioSource === false) {
     console.warn(
-      '[NextAgent] setInputDevicesAsync with audioSource:false detected. ' +
+      '[NexAgent] setInputDevicesAsync with audioSource:false detected. ' +
       'This can cause Chrome 140+ issues. Using default device instead.'
     );
     
@@ -71,7 +71,7 @@ export function createSafeDailyFactoryOptions(
   // Ensure audioSource is never false
   if (options.audioSource === false) {
     console.warn(
-      '[NextAgent] audioSource:false detected in factory options. ' +
+      '[NexAgent] audioSource:false detected in factory options. ' +
       'This can cause Chrome 140+ issues. Defaulting to true.'
     );
     return { ...options, audioSource: true };

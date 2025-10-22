@@ -8,7 +8,7 @@
       "preview": "vite preview"
     },
     "dependencies": {
-        "@nextagent/web": "file:../nextagent-web-latest.tgz",
+        "@nexagent/web": "file:../nexagent-web-latest.tgz",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
       },

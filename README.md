@@ -1,33 +1,33 @@
-# NextAgent Web SDK
+# NexAgent Web SDK
 
-This package lets you start NextAgent calls directly in your webapp.
+This package lets you start NexAgent calls directly in your webapp.
 
 ## Installation
 
 You can install the package via npm:
 
 ```bash
-npm install @nextagent/web
+npm install @nexagent/web
 ```
 
 ## Usage
 
-First, import the NextAgent class from the package:
+First, import the NexAgent class from the package:
 
 ```javascript
-import NextAgent from '@nextagent/web';
+import NexAgent from '@nexagent/web';
 ```
 
-Then, create a new instance of the NextAgent class, passing your Public Key as a parameter to the constructor:
+Then, create a new instance of the NexAgent class, passing your Public Key as a parameter to the constructor:
 
 ```javascript
-const nextAgent = new NextAgent('your-public-key');
+const nexAgent = new NexAgent('your-public-key');
 ```
 
 You can start a new call by calling the `start` method and passing an `assistant` object or `assistantId`:
 
 ```javascript
-nextAgent.start({
+nexAgent.start({
   model: {
     provider: "openai",
     model: "gpt-3.5-turbo",
@@ -47,7 +47,7 @@ nextAgent.start({
 ```
 
 ```javascript
-nextAgent.start('your-assistant-id');
+nexAgent.start('your-assistant-id');
 ```
 
 The `start` method will initiate a new call.
@@ -63,7 +63,7 @@ const assistantOverrides = {
   },
 };
 
-nextAgent.start(
+nexAgent.start(
   'your-assistant-id',
   assistantOverrides,
 );
@@ -72,7 +72,7 @@ nextAgent.start(
 You can send text messages to the assistant aside from the audio input using the `send` method and passing appropriate `role` and `content`.
 
 ```javascript
-nextAgent.send({
+nexAgent.send({
   type: 'add-message',
   message: {
     role: 'system',
@@ -86,7 +86,7 @@ Possible values for the role are `system`, `user`, `assistant`, `tool` or `funct
 You can stop the session by calling the `stop` method:
 
 ```javascript
-nextAgent.stop();
+nexAgent.stop();
 ```
 
 This will stop the recording and close the connection.
@@ -94,15 +94,15 @@ This will stop the recording and close the connection.
 The `setMuted(muted: boolean)` can be used to mute and un-mute the user's microphone.
 
 ```javascript
-nextAgent.isMuted(); // false
-nextAgent.setMuted(true);
-nextAgent.isMuted(); // true
+nexAgent.isMuted(); // false
+nexAgent.setMuted(true);
+nexAgent.isMuted(); // true
 ```
 
 The `say(message: string, endCallAfterSpoken?: boolean)` can be used to invoke speech and gracefully terminate the call if needed
 
 ```javascript
-nextAgent.say("Our time's up, goodbye!", true)
+nexAgent.say("Our time's up, goodbye!", true)
 ```
 
 ## Events
@@ -110,32 +110,32 @@ nextAgent.say("Our time's up, goodbye!", true)
 You can listen to the following events:
 
 ```javascript
-nextAgent.on('speech-start', () => {
+nexAgent.on('speech-start', () => {
   console.log('Speech has started');
 });
 
-nextAgent.on('speech-end', () => {
+nexAgent.on('speech-end', () => {
   console.log('Speech has ended');
 });
 
-nextAgent.on('call-start', () => {
+nexAgent.on('call-start', () => {
   console.log('Call has started');
 });
 
-nextAgent.on('call-end', () => {
+nexAgent.on('call-end', () => {
   console.log('Call has stopped');
 });
 
-nextAgent.on('volume-level', (volume) => {
+nexAgent.on('volume-level', (volume) => {
   console.log(`Assistant volume level: ${volume}`);
 });
 
 // Function calls and transcripts will be sent via messages
-nextAgent.on('message', (message) => {
+nexAgent.on('message', (message) => {
   console.log(message);
 });
 
-nextAgent.on('error', (e) => {
+nexAgent.on('error', (e) => {
   console.error(e);
 });
 ```
@@ -147,7 +147,7 @@ These events allow you to react to changes in the state of the call or speech.
 ```
 MIT License
 
-Copyright (c) 2024 NextAgent Labs Inc.
+Copyright (c) 2024 NexAgent Labs Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

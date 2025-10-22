@@ -1,7 +1,7 @@
 import { Api } from "./api";
 
 const api = new Api({
-  baseUrl: "https://api.nextagent.ai",
+  baseUrl: "https://api.nexagent.ai",
   baseApiParams: {
     secure: true,
   },

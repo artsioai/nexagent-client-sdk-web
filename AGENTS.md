@@ -1,7 +1,7 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-- Core TypeScript sources live at the repo root: `nextagent.ts` exposes the SDK entry point, `client.ts` wires HTTP helpers, `api.ts` houses the generated REST client, and `daily-guards.ts` contains Daily-specific guards.
+- Core TypeScript sources live at the repo root: `nexagent.ts` exposes the SDK entry point, `client.ts` wires HTTP helpers, `api.ts` houses the generated REST client, and `daily-guards.ts` contains Daily-specific guards.
 - Tests reside in `__tests__/` with Jest specs named `*.test.ts`. Keep new integration stubs inside `example/`, which is a minimal Vite + React playground for validating local builds.
 - Generated assets land in `dist/` after builds and should not be checked in. Regenerate API bindings with `generate-api.sh` whenever the backend Swagger schema shifts.
 
@@ -19,7 +19,7 @@
 - Avoid introducing lint rules ad hoc—mirror existing patterns and keep public API signatures stable.
 
 ## Testing Guidelines
-- Extend Jest specs in `__tests__/`, mirroring the file under test (e.g., `nextagent.test.ts` for `nextagent.ts`).
+- Extend Jest specs in `__tests__/`, mirroring the file under test (e.g., `nexagent.test.ts` for `nexagent.ts`).
 - Mock network and Daily APIs rather than hitting real services; assert observable behavior and event emission order.
 - Target at least the same coverage touchpoints as neighboring tests. When adding features, include regression tests that fail if the new logic is removed.
 - Run `npm test` before opening a pull request and note any skipped tests with justification.

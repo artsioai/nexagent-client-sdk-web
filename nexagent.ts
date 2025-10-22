@@ -52,13 +52,13 @@ export interface SayMessage {
   interruptAssistantEnabled?: boolean;
 }
 
-type NextAgentClientToServerMessage =
+type NexAgentClientToServerMessage =
   | AddMessageMessage
   | ControlMessages
   | SayMessage
   | EndCallMessage;
 
-type NextAgentEventNames =
+type NexAgentEventNames =
   | 'call-end'
   | 'call-start'
   | 'volume-level'
@@ -98,7 +98,7 @@ interface CallStartFailedEvent {
   context: Record<string, any>;
 }
 
-type NextAgentEventListeners = {
+type NexAgentEventListeners = {
   'call-end': () => void;
   'call-start': () => void;
   'volume-level': (volume: number) => void;
@@ -130,23 +130,23 @@ type StartCallOptions = {
 
 type WebCall = {
   /**
-   * The NextAgent WebCall URL. This is the URL that the call will be joined on.
+   * The NexAgent WebCall URL. This is the URL that the call will be joined on.
    * 
    * call.webCallUrl or call.transport.callUrl
    */
   webCallUrl: string;
   /**
-   * The NextAgent WebCall ID. This is the ID of the call.
+   * The NexAgent WebCall ID. This is the ID of the call.
    * 
    * call.id
    */
   id?: string;
   /**
-   * The NextAgent WebCall artifact plan. This is the artifact plan of the call.
+   * The NexAgent WebCall artifact plan. This is the artifact plan of the call.
    */
   artifactPlan?: { videoRecordingEnabled?: boolean };
   /**
-   * The NextAgent WebCall assistant. This is the assistant of the call.
+   * The NexAgent WebCall assistant. This is the assistant of the call.
    * 
    * call.assistant
    */
@@ -199,41 +199,41 @@ function subscribeToTracks(
   });
 }
 
-class NextAgentEventEmitter extends EventEmitter {
-  on<E extends NextAgentEventNames>(
+class NexAgentEventEmitter extends EventEmitter {
+  on<E extends NexAgentEventNames>(
     event: E,
-    listener: NextAgentEventListeners[E],
+    listener: NexAgentEventListeners[E],
   ): this {
     super.on(event, listener);
     return this;
   }
-  once<E extends NextAgentEventNames>(
+  once<E extends NexAgentEventNames>(
     event: E,
-    listener: NextAgentEventListeners[E],
+    listener: NexAgentEventListeners[E],
   ): this {
     super.once(event, listener);
     return this;
   }
-  emit<E extends NextAgentEventNames>(
+  emit<E extends NexAgentEventNames>(
     event: E,
-    ...args: Parameters<NextAgentEventListeners[E]>
+    ...args: Parameters<NexAgentEventListeners[E]>
   ): boolean {
     return super.emit(event, ...args);
   }
-  removeListener<E extends NextAgentEventNames>(
+  removeListener<E extends NexAgentEventNames>(
     event: E,
-    listener: NextAgentEventListeners[E],
+    listener: NexAgentEventListeners[E],
   ): this {
     super.removeListener(event, listener);
     return this;
   }
-  removeAllListeners(event?: NextAgentEventNames): this {
+  removeAllListeners(event?: NexAgentEventNames): this {
     super.removeAllListeners(event);
     return this;
   }
 }
 
-export default class NextAgent extends NextAgentEventEmitter {
+export default class NexAgent extends NexAgentEventEmitter {
   private started: boolean = false;
   private call: DailyCall | null = null;
   private speakingTimeout: NodeJS.Timeout | null = null;
@@ -252,7 +252,7 @@ export default class NextAgent extends NextAgentEventEmitter {
     dailyCallObject?: Pick<DailyFactoryOptions, 'audioSource' | 'startAudioOff'>,
   ) {
     super();
-    client.baseUrl = apiBaseUrl ?? 'https://api.nextagent.ai';
+    client.baseUrl = apiBaseUrl ?? 'https://api.nexagent.ai';
     client.setSecurityData(apiToken);
     this.dailyCallConfig = createSafeDailyConfig(dailyCallConfig);
     this.dailyCallObject = createSafeDailyFactoryOptions(dailyCallObject);
@@ -470,7 +470,7 @@ export default class NextAgent extends NextAgentEventEmitter {
         if (e.participant?.local) {
           return;
         }
-        if (e.participant?.user_name !== 'NextAgent Speaker') {
+        if (e.participant?.user_name !== 'NexAgent Speaker') {
           return;
         }
         if (e.track.kind === 'video') {
@@ -849,8 +849,8 @@ export default class NextAgent extends NextAgentEventEmitter {
   /**
    * Stops the call by destroying the Daily call object.
    * 
-   * If `roomDeleteOnUserLeaveEnabled` is set to `false`, the NextAgent call will be kept alive, allowing reconnections to the same call using the `reconnect` method.
-   * If `roomDeleteOnUserLeaveEnabled` is set to `true`, the NextAgent call will also be destroyed, preventing any reconnections.
+   * If `roomDeleteOnUserLeaveEnabled` is set to `false`, the NexAgent call will be kept alive, allowing reconnections to the same call using the `reconnect` method.
+   * If `roomDeleteOnUserLeaveEnabled` is set to `true`, the NexAgent call will also be destroyed, preventing any reconnections.
    */
   async stop(): Promise<void> {
     this.started = false;
@@ -862,11 +862,11 @@ export default class NextAgent extends NextAgentEventEmitter {
   }
 
   /**
-   * Sends a Live Call Control message to the NextAgent server.
+   * Sends a Live Call Control message to the NexAgent server.
    * 
-   * Docs: https://docs.nextagent.ai/calls/call-features
+   * Docs: https://docs.nexagent.ai/calls/call-features
    */
-  send(message: NextAgentClientToServerMessage): void {
+  send(message: NexAgentClientToServerMessage): void {
     this.call?.sendAppMessage(JSON.stringify(message));
   }
 
@@ -1079,7 +1079,7 @@ export default class NextAgent extends NextAgentEventEmitter {
         if (e.participant?.local) {
           return;
         }
-        if (e.participant?.user_name !== 'NextAgent Speaker') {
+        if (e.participant?.user_name !== 'NexAgent Speaker') {
           return;
         }
         if (e.track.kind === 'video') {
