@@ -133,4 +133,6 @@ dist
 .DS_Store
 
 # build output
+dist/
+example/dist/
 api-extended-json.json
