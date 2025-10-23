@@ -1,5 +1,5 @@
 # Step 1: Manually download the Swagger JSON file
-curl -o ./api-extended-json.json https://api.nexagent.ai/api-extended-json
+curl -o ./api-extended-json.json https://nexagent.api.next.newcast.ai/openapi.json
 
 # Step 2: Find and replace transcript[transcriptType=\"final\"] with transcript[transcriptType='final']
 # Use different sed syntax for Linux vs macOS compatibility
