@@ -21,6 +21,28 @@ export enum CredentialStatus {
 }
 
 /**
+ * CallType
+ * Valid call type values.
+ */
+export enum CallType {
+  InboundPhoneCall = "inboundPhoneCall",
+  OutboundPhoneCall = "outboundPhoneCall",
+  WebCall = "webCall",
+}
+
+/**
+ * CallStatus
+ * Valid call status values representing the call lifecycle.
+ */
+export enum CallStatus {
+  Queued = "queued",
+  Ringing = "ringing",
+  InProgress = "in-progress",
+  Forwarding = "forwarding",
+  Ended = "ended",
+}
+
+/**
  * AuthenticationType
  * Valid authentication types for credentials.
  */
@@ -461,6 +483,74 @@ export interface AzureVoice {
 }
 
 /**
+ * CallResponse
+ * Response DTO for call data.
+ */
+export interface CallResponse {
+  /**
+   * Id
+   * Call unique identifier
+   */
+  id: string;
+  /**
+   * Orgid
+   * Organization identifier
+   */
+  orgId: string;
+  /** Call type */
+  type: CallType;
+  /** Current call status */
+  status: CallStatus;
+  /**
+   * Createdat
+   * Creation timestamp
+   * @format date-time
+   */
+  createdAt: string;
+  /**
+   * Updatedat
+   * Last update timestamp
+   * @format date-time
+   */
+  updatedAt: string;
+  /**
+   * Startedat
+   * Call start timestamp
+   */
+  startedAt?: string | null;
+  /**
+   * Endedat
+   * Call end timestamp
+   */
+  endedAt?: string | null;
+  /**
+   * Name
+   * Call name
+   */
+  name?: string | null;
+  /**
+   * Endedreason
+   * Reason call ended
+   */
+  endedReason?: string | null;
+  /**
+   * Assistantid
+   * Assistant ID reference
+   */
+  assistantId?: string | null;
+  /**
+   * Phonenumberid
+   * Phone number ID reference
+   */
+  phoneNumberId?: string | null;
+  /**
+   * Metadata
+   * Free-form metadata
+   */
+  metadata?: Record<string, any> | null;
+}
+
+/**
  * CartesiaTranscriber
  * Cartesia transcriber configuration.
  */
@@ -682,6 +772,38 @@ export interface CreateAssistantDTO {
 }
 
 /**
+ * CreateCallDTO
+ * DTO for creating a new call.
+ */
+export interface CreateCallDTO {
+  /**
+   * Assistantid
+   * Assistant ID reference
+   */
+  assistantId?: string | null;
+  /**
+   * Phonenumberid
+   * Phone number ID reference
+   */
+  phoneNumberId?: string | null;
+  /**
+   * Name
+   * Call name
+   */
+  name?: string | null;
+  /**
+   * Call type
+   * @default "webCall"
+   */
+  type?: CallType;
+  /**
+   * Metadata
+   * Free-form metadata
+   */
+  metadata?: Record<string, any> | null;
+}
+
+/**
  * CreateTwilioPhoneNumber
  * DTO for creating a Twilio phone number.
  */
@@ -749,6 +871,28 @@ export interface CreateVapiPhoneNumber {
   name?: string | null;
   /** Assistantid */
   assistantId?: string | null;
+}
+
+/**
+ * CreateWebCallDTO
+ * DTO for creating a new call.
+ */
+export interface CreateWebCallDTO {
+  /**
+   * Assistantid
+   * Assistant ID reference
+   */
+  assistantId: string;
+  /**
+   * Name
+   * Call name
+   */
+  name?: string | null;
+  /**
+   * Metadata
+   * Free-form metadata
+   */
+  metadata?: Record<string, any> | null;
 }
 
 /**
@@ -1331,6 +1475,28 @@ export interface PaginationResponseAssistantResponse {
 }
 
 /**
+ * PaginationResponse[CallResponse]
+ * @example {"items":[],"next_token":"eyJwayI6InVzcjEyMyIsInNrIjoiYXNzaXN0YW50XzQ1NiJ9","total_count":250}
+ */
+export interface PaginationResponseCallResponse {
+  /**
+   * Items
+   * List of items in the current page
+   */
+  items: CallResponse[];
+  /**
+   * Next Token
+   * Token for retrieving the next page of results
+   */
+  next_token?: string | null;
+  /**
+   * Total Count
+   * Total number of items available (if known)
+   */
+  total_count?: number | null;
+}
+
+/**
  * PaginationResponse[CredentialResponse]
  * @example {"items":[],"next_token":"eyJwayI6InVzcjEyMyIsInNrIjoiYXNzaXN0YW50XzQ1NiJ9","total_count":250}
  */
@@ -1836,6 +2002,23 @@ export interface UpdateAssistantDTO {
   metadata?: Record<string, any> | null;
 }
 
+/**
+ * UpdateCallDTO
+ * DTO for updating an existing call.
+ */
+export interface UpdateCallDTO {
+  /**
+   * Name
+   * Call name
+   */
+  name?: string | null;
+  /**
+   * Metadata
+   * Free-form metadata
+   */
+  metadata?: Record<string, any> | null;
+}
+
 /** ValidationError */
 export interface ValidationError {
   /** Location */
@@ -1844,6 +2027,76 @@ export interface ValidationError {
   msg: string;
   /** Error Type */
   type: string;
+}
+
+/** WebCallResponse */
+export interface WebCallResponse {
+  /**
+   * Id
+   * Call unique identifier
+   */
+  id: string;
+  /**
+   * Orgid
+   * Organization identifier
+   */
+  orgId: string;
+  /** Call type */
+  type: CallType;
+  /** Current call status */
+  status: CallStatus;
+  /**
+   * Createdat
+   * Creation timestamp
+   * @format date-time
+   */
+  createdAt: string;
+  /**
+   * Updatedat
+   * Last update timestamp
+   * @format date-time
+   */
+  updatedAt: string;
+  /**
+   * Startedat
+   * Call start timestamp
+   */
+  startedAt?: string | null;
+  /**
+   * Endedat
+   * Call end timestamp
+   */
+  endedAt?: string | null;
+  /**
+   * Name
+   * Call name
+   */
+  name?: string | null;
+  /**
+   * Endedreason
+   * Reason call ended
+   */
+  endedReason?: string | null;
+  /**
+   * Assistantid
+   * Assistant ID reference
+   */
+  assistantId?: string | null;
+  /**
+   * Phonenumberid
+   * Phone number ID reference
+   */
+  phoneNumberId?: string | null;
+  /**
+   * Metadata
+   * Free-form metadata
+   */
+  metadata?: Record<string, any> | null;
+  /**
+   * Webcallurl
+   * Web call url
+   */
+  webCallUrl: string;
 }
 
 export type QueryParamsType = Record<string | number, any>;
@@ -2127,17 +2380,17 @@ export class Api<
       ...params,
     });
 
-  apiKeys = {
+  apiKey = {
     /**
      * @description Create a new API key for an organization with the provided information
      *
      * @tags api-keys
-     * @name CreateApiKeyEndpointApiKeysPost
+     * @name CreateApiKeyEndpointApiKeyPost
      * @summary Create new API key
-     * @request POST:/api-keys/
+     * @request POST:/api-key/
      * @secure
      */
-    createApiKeyEndpointApiKeysPost: (
+    createApiKeyEndpointApiKeyPost: (
       data: ApiKeyCreate,
       params: RequestParams = {},
     ) =>
@@ -2145,7 +2398,7 @@ export class Api<
         ApiKeyOperationResponse,
         ApiKeyErrorResponse | HTTPValidationError
       >({
-        path: `/api-keys/`,
+        path: `/api-key/`,
         method: "POST",
         body: data,
         secure: true,
@@ -2158,17 +2411,17 @@ export class Api<
      * @description Retrieve API key information by API key ID
      *
      * @tags api-keys
-     * @name GetApiKeyEndpointApiKeysKeyIdGet
+     * @name GetApiKeyEndpointApiKeyKeyIdGet
      * @summary Get API key by ID
-     * @request GET:/api-keys/{key_id}
+     * @request GET:/api-key/{key_id}
      * @secure
      */
-    getApiKeyEndpointApiKeysKeyIdGet: (
+    getApiKeyEndpointApiKeyKeyIdGet: (
       keyId: string,
       params: RequestParams = {},
     ) =>
       this.request<ApiKeyResponse, ApiKeyErrorResponse | HTTPValidationError>({
-        path: `/api-keys/${keyId}`,
+        path: `/api-key/${keyId}`,
         method: "GET",
         secure: true,
         format: "json",
@@ -2179,12 +2432,12 @@ export class Api<
      * @description Revoke (delete) an API key by ID
      *
      * @tags api-keys
-     * @name RevokeApiKeyEndpointApiKeysKeyIdDelete
+     * @name RevokeApiKeyEndpointApiKeyKeyIdDelete
      * @summary Revoke API key
-     * @request DELETE:/api-keys/{key_id}
+     * @request DELETE:/api-key/{key_id}
      * @secure
      */
-    revokeApiKeyEndpointApiKeysKeyIdDelete: (
+    revokeApiKeyEndpointApiKeyKeyIdDelete: (
       keyId: string,
       params: RequestParams = {},
     ) =>
@@ -2192,29 +2445,29 @@ export class Api<
         Record<string, any>,
         ApiKeyErrorResponse | HTTPValidationError
       >({
-        path: `/api-keys/${keyId}`,
+        path: `/api-key/${keyId}`,
         method: "DELETE",
         secure: true,
         format: "json",
         ...params,
       }),
   };
-  credentials = {
+  credential = {
     /**
      * @description Create a new credential with the provided authentication configuration
      *
      * @tags credentials
-     * @name CreateCredentialEndpointCredentialsPost
+     * @name CreateCredentialEndpointCredentialPost
      * @summary Create new credential
-     * @request POST:/credentials/
+     * @request POST:/credential/
      * @secure
      */
-    createCredentialEndpointCredentialsPost: (
+    createCredentialEndpointCredentialPost: (
       data: CredentialCreate,
       params: RequestParams = {},
     ) =>
       this.request<CredentialResponse, HTTPValidationError>({
-        path: `/credentials/`,
+        path: `/credential/`,
         method: "POST",
         body: data,
         secure: true,
@@ -2227,12 +2480,12 @@ export class Api<
      * @description Retrieve a paginated list of credentials for the authenticated user's organization
      *
      * @tags credentials
-     * @name ListCredentialsEndpointCredentialsGet
+     * @name ListCredentialsEndpointCredentialGet
      * @summary List credentials
-     * @request GET:/credentials/
+     * @request GET:/credential/
      * @secure
      */
-    listCredentialsEndpointCredentialsGet: (
+    listCredentialsEndpointCredentialGet: (
       query?: {
         /**
          * Provider
@@ -2278,7 +2531,7 @@ export class Api<
       params: RequestParams = {},
     ) =>
       this.request<PaginationResponseCredentialResponse, HTTPValidationError>({
-        path: `/credentials/`,
+        path: `/credential/`,
         method: "GET",
         query: query,
         secure: true,
@@ -2290,17 +2543,17 @@ export class Api<
      * @description Retrieve credential information by credential ID
      *
      * @tags credentials
-     * @name GetCredentialEndpointCredentialsCredentialIdGet
+     * @name GetCredentialEndpointCredentialCredentialIdGet
      * @summary Get credential by ID
-     * @request GET:/credentials/{credential_id}
+     * @request GET:/credential/{credential_id}
      * @secure
      */
-    getCredentialEndpointCredentialsCredentialIdGet: (
+    getCredentialEndpointCredentialCredentialIdGet: (
       credentialId: string,
       params: RequestParams = {},
     ) =>
       this.request<CredentialResponse, HTTPValidationError>({
-        path: `/credentials/${credentialId}`,
+        path: `/credential/${credentialId}`,
         method: "GET",
         secure: true,
         format: "json",
@@ -2311,18 +2564,18 @@ export class Api<
      * @description Update credential information with the provided data
      *
      * @tags credentials
-     * @name UpdateCredentialEndpointCredentialsCredentialIdPut
+     * @name UpdateCredentialEndpointCredentialCredentialIdPut
      * @summary Update credential
-     * @request PUT:/credentials/{credential_id}
+     * @request PUT:/credential/{credential_id}
      * @secure
      */
-    updateCredentialEndpointCredentialsCredentialIdPut: (
+    updateCredentialEndpointCredentialCredentialIdPut: (
       credentialId: string,
       data: CredentialUpdate,
       params: RequestParams = {},
     ) =>
       this.request<CredentialResponse, HTTPValidationError>({
-        path: `/credentials/${credentialId}`,
+        path: `/credential/${credentialId}`,
         method: "PUT",
         body: data,
         secure: true,
@@ -2335,39 +2588,39 @@ export class Api<
      * @description Delete a credential by ID
      *
      * @tags credentials
-     * @name DeleteCredentialEndpointCredentialsCredentialIdDelete
+     * @name DeleteCredentialEndpointCredentialCredentialIdDelete
      * @summary Delete credential
-     * @request DELETE:/credentials/{credential_id}
+     * @request DELETE:/credential/{credential_id}
      * @secure
      */
-    deleteCredentialEndpointCredentialsCredentialIdDelete: (
+    deleteCredentialEndpointCredentialCredentialIdDelete: (
       credentialId: string,
       params: RequestParams = {},
     ) =>
       this.request<Record<string, any>, HTTPValidationError>({
-        path: `/credentials/${credentialId}`,
+        path: `/credential/${credentialId}`,
         method: "DELETE",
         secure: true,
         format: "json",
         ...params,
       }),
   };
-  assistants = {
+  assistant = {
     /**
      * @description Create a new AI assistant with complex configuration. **Configuration Options:** - **Transcriber**: AssemblyAI, OpenAI Whisper, or Deepgram - **Model**: OpenAI GPT, Anthropic Claude, or Google Gemini - **Voice**: OpenAI TTS, ElevenLabs, or Amazon Polly Each configuration supports provider-specific options like temperature, confidence thresholds, and voice parameters. **Example Request:** ```json { "name": "Customer Support Assistant", "transcriber": { "provider": "assembly-ai", "language": "en", "confidenceThreshold": 0.4 }, "model": { "provider": "openai", "model": "gpt-4", "temperature": 0.7 }, "voice": { "provider": "openai", "voice": "alloy", "speed": 1.0 }, "firstMessage": "Hello! How can I help you today?", "metadata": { "department": "support", "version": "1.0" } } ```
      *
      * @tags assistants
-     * @name CreateAssistantEndpointAssistantsPost
+     * @name CreateAssistantEndpointAssistantPost
      * @summary Create Assistant
-     * @request POST:/assistants/
+     * @request POST:/assistant/
      * @secure
      */
-    createAssistantEndpointAssistantsPost: (
+    createAssistantEndpointAssistantPost: (
       data: CreateAssistantDTO,
       params: RequestParams = {},
     ) =>
       this.request<AssistantResponse, void | HTTPValidationError>({
-        path: `/assistants/`,
+        path: `/assistant/`,
         method: "POST",
         body: data,
         secure: true,
@@ -2380,12 +2633,12 @@ export class Api<
      * @description List all assistants in the organization with pagination
      *
      * @tags assistants
-     * @name ListAssistantsEndpointAssistantsGet
+     * @name ListAssistantsEndpointAssistantGet
      * @summary List Assistants
-     * @request GET:/assistants/
+     * @request GET:/assistant/
      * @secure
      */
-    listAssistantsEndpointAssistantsGet: (
+    listAssistantsEndpointAssistantGet: (
       query?: {
         /**
          * Limit
@@ -2421,7 +2674,7 @@ export class Api<
       params: RequestParams = {},
     ) =>
       this.request<PaginationResponseAssistantResponse, HTTPValidationError>({
-        path: `/assistants/`,
+        path: `/assistant/`,
         method: "GET",
         query: query,
         secure: true,
@@ -2433,17 +2686,17 @@ export class Api<
      * @description Retrieve a specific assistant by its unique identifier. Returns the complete assistant configuration including: - Basic information (name, creation/update timestamps) - Complex nested configurations (transcriber, model, voice) - Custom metadata and first message **Organization Isolation:** Only returns assistants that belong to the authenticated user's organization. **Example Response:** ```json { "id": "123e4567-e89b-12d3-a456-426614174000", "orgId": "org-123", "name": "Customer Support Assistant", "createdAt": "2025-01-13T10:30:00Z", "updatedAt": "2025-01-13T15:45:00Z", "transcriber": { "provider": "assembly-ai", "language": "en", "confidenceThreshold": 0.4 }, "model": { "provider": "openai", "model": "gpt-4", "temperature": 0.7 }, "voice": { "provider": "openai", "voice": "alloy", "speed": 1.0 }, "firstMessage": "Hello! How can I help you today?", "metadata": { "department": "support", "version": "1.0" } } ```
      *
      * @tags assistants
-     * @name GetAssistantEndpointAssistantsAssistantIdGet
+     * @name GetAssistantEndpointAssistantAssistantIdGet
      * @summary Get Assistant
-     * @request GET:/assistants/{assistant_id}
+     * @request GET:/assistant/{assistant_id}
      * @secure
      */
-    getAssistantEndpointAssistantsAssistantIdGet: (
+    getAssistantEndpointAssistantAssistantIdGet: (
       assistantId: string,
       params: RequestParams = {},
     ) =>
       this.request<AssistantResponse, void | HTTPValidationError>({
-        path: `/assistants/${assistantId}`,
+        path: `/assistant/${assistantId}`,
         method: "GET",
         secure: true,
         format: "json",
@@ -2454,18 +2707,18 @@ export class Api<
      * @description Update an existing assistant's configuration
      *
      * @tags assistants
-     * @name UpdateAssistantEndpointAssistantsAssistantIdPatch
+     * @name UpdateAssistantEndpointAssistantAssistantIdPatch
      * @summary Update Assistant
-     * @request PATCH:/assistants/{assistant_id}
+     * @request PATCH:/assistant/{assistant_id}
      * @secure
      */
-    updateAssistantEndpointAssistantsAssistantIdPatch: (
+    updateAssistantEndpointAssistantAssistantIdPatch: (
       assistantId: string,
       data: UpdateAssistantDTO,
       params: RequestParams = {},
     ) =>
       this.request<AssistantResponse, HTTPValidationError>({
-        path: `/assistants/${assistantId}`,
+        path: `/assistant/${assistantId}`,
         method: "PATCH",
         body: data,
         secure: true,
@@ -2478,38 +2731,211 @@ export class Api<
      * @description Delete an assistant permanently
      *
      * @tags assistants
-     * @name DeleteAssistantEndpointAssistantsAssistantIdDelete
+     * @name DeleteAssistantEndpointAssistantAssistantIdDelete
      * @summary Delete Assistant
-     * @request DELETE:/assistants/{assistant_id}
+     * @request DELETE:/assistant/{assistant_id}
      * @secure
      */
-    deleteAssistantEndpointAssistantsAssistantIdDelete: (
+    deleteAssistantEndpointAssistantAssistantIdDelete: (
       assistantId: string,
       params: RequestParams = {},
     ) =>
       this.request<void, HTTPValidationError>({
-        path: `/assistants/${assistantId}`,
+        path: `/assistant/${assistantId}`,
         method: "DELETE",
         secure: true,
         ...params,
       }),
   };
-  api = {
+  call = {
+    /**
+     * @description Create a new call with comprehensive configuration. **Configuration Options:** - **Assistant**: assistantId must be provided - **Phone Number**: phoneNumberId must be provided (not required for web calls) **Call Types:** - **outboundPhoneCall**: Outbound phone call to customer - **inboundPhoneCall**: Inbound phone call from customer - **webCall**: Web-based call (no phone number required) **Example Call:** ```json { "name": "Customer Support Call", "assistantId": "550e8400-e29b-41d4-a716-446655440001", "phoneNumberId": "phone-456", "type": "outboundPhoneCall", "metadata": { "campaign": "support", "priority": "high" } } ```
+     *
+     * @tags calls
+     * @name CreateCallEndpointCallPost
+     * @summary Create Call
+     * @request POST:/call/
+     * @secure
+     */
+    createCallEndpointCallPost: (
+      data: CreateCallDTO,
+      params: RequestParams = {},
+    ) =>
+      this.request<CallResponse, void | HTTPValidationError>({
+        path: `/call/`,
+        method: "POST",
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * @description List all calls in the organization with filtering and pagination. **Filtering Options:** - **assistantId**: Filter by specific assistant - **phoneNumberId**: Filter by specific phone number - **status**: Filter by call status (queued, ringing, in-progress, ended) - **type**: Filter by call type (inboundPhoneCall, outboundPhoneCall, webCall) **Pagination:** - **limit**: Number of results per page (1-1000, default 100) - **next_token**: Token for retrieving next page - **ascending**: Sort order (false for newest-first, true for oldest-first) **Date Range Filtering:** - **created_at_gt/ge/lt/le**: Filter by creation date - **updated_at_gt/ge/lt/le**: Filter by update date **Example Request:** ``` GET /calls?assistantId=assistant-123&status=ended&limit=50&ascending=false ``` **Example Response:** ```json { "items": [ { "id": "call-123", "type": "outboundPhoneCall", "status": "ended", "createdAt": "2025-01-13T10:30:00Z", "name": "Customer Support Call" } ], "next_token": "eyJwayI6ImNhbCIsInNrIjoiY2FsbC0xMjMifQ==", "total_count": 150 } ```
+     *
+     * @tags calls
+     * @name ListCallsEndpointCallGet
+     * @summary List Calls
+     * @request GET:/call/
+     * @secure
+     */
+    listCallsEndpointCallGet: (
+      query?: {
+        /**
+         * Limit
+         * @min 1
+         * @max 1000
+         * @default 100
+         */
+        limit?: number;
+        /** Next Token */
+        next_token?: string | null;
+        /**
+         * Ascending
+         * @default false
+         */
+        ascending?: boolean;
+        /** Created At Gt */
+        created_at_gt?: string | null;
+        /** Created At Ge */
+        created_at_ge?: string | null;
+        /** Created At Lt */
+        created_at_lt?: string | null;
+        /** Created At Le */
+        created_at_le?: string | null;
+        /** Updated At Gt */
+        updated_at_gt?: string | null;
+        /** Updated At Ge */
+        updated_at_ge?: string | null;
+        /** Updated At Lt */
+        updated_at_lt?: string | null;
+        /** Updated At Le */
+        updated_at_le?: string | null;
+        /** Assistantid */
+        assistantId?: string | null;
+        /** Phonenumberid */
+        phoneNumberId?: string | null;
+        /** Status */
+        status?: CallStatus | null;
+        /** Type */
+        type?: CallType | null;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<PaginationResponseCallResponse, void | HTTPValidationError>({
+        path: `/call/`,
+        method: "GET",
+        query: query,
+        secure: true,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * @description Create a new call with comprehensive configuration. **Configuration Options:** - **Assistant**: assistantId must be provided - **Phone Number**: phoneNumberId must be provided (not required for web calls) **Example Call:** ```json { "name": "Customer Support Call", "assistantId": "550e8400-e29b-41d4-a716-446655440001", "phoneNumberId": "phone-456", "metadata": { "campaign": "support", "priority": "high" } } ```
+     *
+     * @tags calls
+     * @name CreateWebCallEndpointCallWebPost
+     * @summary Create Call
+     * @request POST:/call/web
+     * @secure
+     */
+    createWebCallEndpointCallWebPost: (
+      data: CreateWebCallDTO,
+      params: RequestParams = {},
+    ) =>
+      this.request<WebCallResponse, void | HTTPValidationError>({
+        path: `/call/web`,
+        method: "POST",
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * @description Retrieve a specific call by its unique identifier. Returns the complete call information including: - Basic information (name, type, status, timestamps) - Configuration references (assistant, phone number, customer) - Cost breakdown and analytics data - Call artifacts (recordings, transcripts, logs) - Scheduling information and metadata **Organization Isolation:** Only returns calls that belong to the authenticated user's organization. **Example Response:** ```json { "id": "550e8400-e29b-41d4-a716-446655440001", "orgId": "org-123", "type": "outboundPhoneCall", "status": "ended", "createdAt": "2025-01-13T10:30:00Z", "updatedAt": "2025-01-13T10:35:00Z", "startedAt": "2025-01-13T10:30:30Z", "endedAt": "2025-01-13T10:35:00Z", "name": "Customer Support Call", "assistantId": "assistant-123", "phoneNumberId": "phone-456", "customerId": "customer-789", "cost": 0.25, "costBreakdown": { "transport": 0.10, "stt": 0.05, "llm": 0.08, "tts": 0.02, "total": 0.25 }, "artifact": { "recordingUrl": "https://recordings.example.com/call-123.mp3", "transcript": "Hello, how can I help you today?..." } } ```
+     *
+     * @tags calls
+     * @name GetCallEndpointCallCallIdGet
+     * @summary Get Call
+     * @request GET:/call/{call_id}
+     * @secure
+     */
+    getCallEndpointCallCallIdGet: (
+      callId: string,
+      params: RequestParams = {},
+    ) =>
+      this.request<CallResponse, void | HTTPValidationError>({
+        path: `/call/${callId}`,
+        method: "GET",
+        secure: true,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * @description Update an existing call's mutable properties. **Updatable Fields:** - **name**: Call display name (max 40 characters) - **metadata**: Free-form metadata dictionary **Immutable Fields:** The following fields cannot be updated after call creation: - id, orgId, type, status - createdAt, startedAt, endedAt - Configuration references (assistantId, phoneNumberId, customerId) - Cost and analytics data (managed by system) **Example Request:** ```json { "name": "Updated Call Name", "metadata": { "priority": "urgent", "notes": "Customer callback requested" } } ``` Only provided fields will be updated. The updatedAt timestamp is automatically set to the current time.
+     *
+     * @tags calls
+     * @name UpdateCallEndpointCallCallIdPatch
+     * @summary Update Call
+     * @request PATCH:/call/{call_id}
+     * @secure
+     */
+    updateCallEndpointCallCallIdPatch: (
+      callId: string,
+      data: UpdateCallDTO,
+      params: RequestParams = {},
+    ) =>
+      this.request<CallResponse, void | HTTPValidationError>({
+        path: `/call/${callId}`,
+        method: "PATCH",
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * @description Delete a call permanently. The call must belong to the authenticated user's organization. This operation cannot be undone and will remove: - Call record and all associated metadata - References to artifacts (recordings, transcripts, logs) - Cost and analytics data **Note:** This operation does not delete the actual artifact files (recordings, transcripts) from storage. Those may need to be cleaned up separately based on retention policies. **Organization Isolation:** Only calls belonging to the authenticated user's organization can be deleted.
+     *
+     * @tags calls
+     * @name DeleteCallEndpointCallCallIdDelete
+     * @summary Delete Call
+     * @request DELETE:/call/{call_id}
+     * @secure
+     */
+    deleteCallEndpointCallCallIdDelete: (
+      callId: string,
+      params: RequestParams = {},
+    ) =>
+      this.request<void, void | HTTPValidationError>({
+        path: `/call/${callId}`,
+        method: "DELETE",
+        secure: true,
+        ...params,
+      }),
+  };
+  phoneNumber = {
     /**
      * @description Create a new phone number. Creates a new phone number with Twilio provider credentials. Credentials are encrypted before storage. Args: data: Phone number creation data org_id: Organization ID from auth middleware service: Phone number service dependency Returns: Created phone number response Raises: HTTPException: - 400 if validation fails - 422 if input data is invalid
      *
      * @tags phone-numbers
-     * @name CreatePhoneNumberApiV1PhoneNumbersPost
+     * @name CreatePhoneNumberPhoneNumberPost
      * @summary Create Phone Number
-     * @request POST:/api/v1/phone-numbers
+     * @request POST:/phone-number
      * @secure
      */
-    createPhoneNumberApiV1PhoneNumbersPost: (
+    createPhoneNumberPhoneNumberPost: (
       data: PhoneNumberCreate,
       params: RequestParams = {},
     ) =>
       this.request<PhoneNumberResponse, HTTPValidationError>({
-        path: `/api/v1/phone-numbers`,
+        path: `/phone-number`,
         method: "POST",
         body: data,
         secure: true,
@@ -2522,12 +2948,12 @@ export class Api<
      * @description List phone numbers for the organization. Returns a paginated list of phone numbers belonging to the authenticated organization. Args: current_user: Authenticated user from Authorization header pagination: Pagination parameters (limit and next_token) Returns: PaginationResponse with list of phone numbers
      *
      * @tags phone-numbers
-     * @name ListPhoneNumbersApiV1PhoneNumbersGet
+     * @name ListPhoneNumbersPhoneNumberGet
      * @summary List Phone Numbers
-     * @request GET:/api/v1/phone-numbers
+     * @request GET:/phone-number
      * @secure
      */
-    listPhoneNumbersApiV1PhoneNumbersGet: (
+    listPhoneNumbersPhoneNumberGet: (
       query?: {
         /**
          * Limit
@@ -2563,7 +2989,7 @@ export class Api<
       params: RequestParams = {},
     ) =>
       this.request<PaginationResponsePhoneNumberResponse, HTTPValidationError>({
-        path: `/api/v1/phone-numbers`,
+        path: `/phone-number`,
         method: "GET",
         query: query,
         secure: true,
@@ -2575,17 +3001,17 @@ export class Api<
      * @description Get a phone number by ID. Retrieves a phone number by its ID. Only returns phone numbers that belong to the authenticated organization. Args: phone_id: Phone number ID org_id: Organization ID from auth middleware service: Phone number service dependency Returns: Phone number response Raises: HTTPException: - 404 if phone number not found or doesn't belong to org
      *
      * @tags phone-numbers
-     * @name GetPhoneNumberApiV1PhoneNumbersPhoneIdGet
+     * @name GetPhoneNumberPhoneNumberPhoneIdGet
      * @summary Get Phone Number
-     * @request GET:/api/v1/phone-numbers/{phone_id}
+     * @request GET:/phone-number/{phone_id}
      * @secure
      */
-    getPhoneNumberApiV1PhoneNumbersPhoneIdGet: (
+    getPhoneNumberPhoneNumberPhoneIdGet: (
       phoneId: string,
       params: RequestParams = {},
     ) =>
       this.request<PhoneNumberResponse, HTTPValidationError>({
-        path: `/api/v1/phone-numbers/${phoneId}`,
+        path: `/phone-number/${phoneId}`,
         method: "GET",
         secure: true,
         format: "json",
@@ -2596,18 +3022,18 @@ export class Api<
      * @description Update a phone number. Updates an existing phone number. Only phone numbers belonging to the authenticated organization can be updated. Args: phone_id: Phone number ID data: Update data org_id: Organization ID from auth middleware service: Phone number service dependency Returns: Updated phone number response Raises: HTTPException: - 400 if validation fails - 404 if phone number not found or doesn't belong to org
      *
      * @tags phone-numbers
-     * @name UpdatePhoneNumberApiV1PhoneNumbersPhoneIdPatch
+     * @name UpdatePhoneNumberPhoneNumberPhoneIdPatch
      * @summary Update Phone Number
-     * @request PATCH:/api/v1/phone-numbers/{phone_id}
+     * @request PATCH:/phone-number/{phone_id}
      * @secure
      */
-    updatePhoneNumberApiV1PhoneNumbersPhoneIdPatch: (
+    updatePhoneNumberPhoneNumberPhoneIdPatch: (
       phoneId: string,
       data: PhoneNumberUpdate,
       params: RequestParams = {},
     ) =>
       this.request<PhoneNumberResponse, HTTPValidationError>({
-        path: `/api/v1/phone-numbers/${phoneId}`,
+        path: `/phone-number/${phoneId}`,
         method: "PATCH",
         body: data,
         secure: true,
@@ -2620,38 +3046,38 @@ export class Api<
      * @description Delete a phone number. Deletes a phone number. Only phone numbers belonging to the authenticated organization can be deleted. Args: phone_id: Phone number ID org_id: Organization ID from auth middleware service: Phone number service dependency Raises: HTTPException: - 404 if phone number not found or doesn't belong to org
      *
      * @tags phone-numbers
-     * @name DeletePhoneNumberApiV1PhoneNumbersPhoneIdDelete
+     * @name DeletePhoneNumberPhoneNumberPhoneIdDelete
      * @summary Delete Phone Number
-     * @request DELETE:/api/v1/phone-numbers/{phone_id}
+     * @request DELETE:/phone-number/{phone_id}
      * @secure
      */
-    deletePhoneNumberApiV1PhoneNumbersPhoneIdDelete: (
+    deletePhoneNumberPhoneNumberPhoneIdDelete: (
       phoneId: string,
       params: RequestParams = {},
     ) =>
       this.request<void, HTTPValidationError>({
-        path: `/api/v1/phone-numbers/${phoneId}`,
+        path: `/phone-number/${phoneId}`,
         method: "DELETE",
         secure: true,
         ...params,
       }),
   };
-  tools = {
+  tool = {
     /**
      * @description Create a new API request tool with complex configuration. **Configuration Options:** - **Method**: HTTP method (GET, POST, PUT, PATCH, DELETE) - **URL**: API endpoint URL for external service integration - **Headers**: HTTP headers configuration with key-value pairs - **Body**: Request body schema for POST/PUT/PATCH requests - **Timeout**: Request timeout in seconds (1-300) - **Credentials**: Optional credential ID for authentication - **Messages**: Tool message configurations for different states **Example Request:** ```json { "type": "apiRequest", "name": "Weather API Tool", "description": "Fetches weather data from external API", "method": "GET", "url": "https://api.weather.com/v1/current", "headers": { "headers": { "Authorization": "Bearer {{api_key}}", "Content-Type": "application/json" } }, "body": { "schema": { "type": "object", "properties": { "query": { "type": "string" } } } }, "timeoutSeconds": 30, "credentialId": "550e8400-e29b-41d4-a716-446655440000", "messages": [ { "type": "request-start", "content": "Fetching weather data...", "blocking": false }, { "type": "request-complete", "content": "Weather data retrieved successfully", "role": "assistant", "endCallAfterSpokenEnabled": false } ], "metadata": { "category": "weather", "version": "1.0" } } ```
      *
      * @tags tools
-     * @name CreateToolEndpointToolsPost
+     * @name CreateToolEndpointToolPost
      * @summary Create Tool
-     * @request POST:/tools/
+     * @request POST:/tool/
      * @secure
      */
-    createToolEndpointToolsPost: (
+    createToolEndpointToolPost: (
       data: CreateToolDTO,
       params: RequestParams = {},
     ) =>
       this.request<ToolResponse, void | HTTPValidationError>({
-        path: `/tools/`,
+        path: `/tool/`,
         method: "POST",
         body: data,
         secure: true,
@@ -2664,12 +3090,12 @@ export class Api<
      * @description List all tools in the organization with pagination. Returns a paginated list of all API request tools belonging to the authenticated user's organization. Results are sorted by creation time for consistent ordering. **Pagination Support:** - Use `limit` parameter to control page size (1-1000, default: 100) - Use `next_token` from previous response to get next page - Use `ascending` parameter to control sort order (default: newest first) **Date Filtering:** - Filter by creation date using `created_at_*` parameters - Filter by update date using `updated_at_*` parameters - Support both inclusive and exclusive date boundaries **Example Response:** ```json { "items": [ { "id": "123e4567-e89b-12d3-a456-426614174000", "orgId": "org-123", "type": "apiRequest", "name": "Weather API Tool", "description": "Fetches weather data", "createdAt": "2025-01-13T10:30:00Z", "updatedAt": "2025-01-13T15:45:00Z", "method": "GET", "url": "https://api.weather.com/v1/current", "timeoutSeconds": 30, "metadata": { "category": "weather" } } ], "next_token": "eyJwayI6InRvbCIsInNrIjoiMTIzZTQ1NjcifQ==", "total_count": null } ```
      *
      * @tags tools
-     * @name ListToolsEndpointToolsGet
+     * @name ListToolsEndpointToolGet
      * @summary List Tools
-     * @request GET:/tools/
+     * @request GET:/tool/
      * @secure
      */
-    listToolsEndpointToolsGet: (
+    listToolsEndpointToolGet: (
       query?: {
         /**
          * Limit
@@ -2705,7 +3131,7 @@ export class Api<
       params: RequestParams = {},
     ) =>
       this.request<PaginationResponseToolResponse, void | HTTPValidationError>({
-        path: `/tools/`,
+        path: `/tool/`,
         method: "GET",
         query: query,
         secure: true,
@@ -2717,17 +3143,17 @@ export class Api<
      * @description Retrieve a specific tool by its unique identifier. Returns the complete tool configuration including: - Basic information (name, description, creation/update timestamps) - HTTP configuration (method, URL, headers, body schema) - Timeout and credential settings - Tool message configurations for different states - Custom metadata **Organization Isolation:** Only returns tools that belong to the authenticated user's organization. **Example Response:** ```json { "id": "123e4567-e89b-12d3-a456-426614174000", "orgId": "org-123", "type": "apiRequest", "name": "Weather API Tool", "description": "Fetches weather data from external API", "createdAt": "2025-01-13T10:30:00Z", "updatedAt": "2025-01-13T15:45:00Z", "method": "GET", "url": "https://api.weather.com/v1/current", "headers": { "headers": { "Authorization": "Bearer {{api_key}}", "Content-Type": "application/json" } }, "body": { "schema": { "type": "object", "properties": { "query": { "type": "string" } } } }, "timeoutSeconds": 30, "credentialId": "550e8400-e29b-41d4-a716-446655440000", "messages": [ { "type": "request-start", "content": "Fetching weather data...", "blocking": false }, { "type": "request-complete", "content": "Weather data retrieved successfully", "role": "assistant", "endCallAfterSpokenEnabled": false } ], "metadata": { "category": "weather", "version": "1.0" } } ```
      *
      * @tags tools
-     * @name GetToolEndpointToolsToolIdGet
+     * @name GetToolEndpointToolToolIdGet
      * @summary Get Tool
-     * @request GET:/tools/{tool_id}
+     * @request GET:/tool/{tool_id}
      * @secure
      */
-    getToolEndpointToolsToolIdGet: (
+    getToolEndpointToolToolIdGet: (
       toolId: string,
       params: RequestParams = {},
     ) =>
       this.request<ToolResponse, void | HTTPValidationError>({
-        path: `/tools/${toolId}`,
+        path: `/tool/${toolId}`,
         method: "GET",
         secure: true,
         format: "json",
@@ -2738,18 +3164,18 @@ export class Api<
      * @description Update an existing tool's configuration with partial updates. Only provided fields will be updated. Complex configurations (headers, body schema, messages) can be updated independently. **Updatable Fields:** - Basic information: name, description - HTTP configuration: method, url, headers, body - Settings: timeoutSeconds, credentialId - Messages: tool message configurations - Metadata: custom metadata storage **Example Request:** ```json { "name": "Updated Weather Tool", "description": "Enhanced weather data fetching tool", "timeoutSeconds": 60, "headers": { "headers": { "Authorization": "Bearer {{new_api_key}}", "Content-Type": "application/json", "User-Agent": "NexAgent/1.0" } }, "messages": [ { "type": "request-start", "content": "Fetching updated weather data...", "blocking": false } ], "metadata": { "category": "weather", "version": "2.0", "updated": true } } ```
      *
      * @tags tools
-     * @name UpdateToolEndpointToolsToolIdPatch
+     * @name UpdateToolEndpointToolToolIdPatch
      * @summary Update Tool
-     * @request PATCH:/tools/{tool_id}
+     * @request PATCH:/tool/{tool_id}
      * @secure
      */
-    updateToolEndpointToolsToolIdPatch: (
+    updateToolEndpointToolToolIdPatch: (
       toolId: string,
       data: UpdateToolDTO,
       params: RequestParams = {},
     ) =>
       this.request<ToolResponse, void | HTTPValidationError>({
-        path: `/tools/${toolId}`,
+        path: `/tool/${toolId}`,
         method: "PATCH",
         body: data,
         secure: true,
@@ -2762,17 +3188,17 @@ export class Api<
      * @description Delete a tool permanently. The tool must belong to the authenticated user's organization. This operation cannot be undone. **Security:** - Organization isolation enforced - Audit logging for compliance tracking - Authorization verification before deletion **Response:** - 204 No Content: Tool deleted successfully - 404 Not Found: Tool not found or not accessible - 401 Unauthorized: Authentication required
      *
      * @tags tools
-     * @name DeleteToolEndpointToolsToolIdDelete
+     * @name DeleteToolEndpointToolToolIdDelete
      * @summary Delete Tool
-     * @request DELETE:/tools/{tool_id}
+     * @request DELETE:/tool/{tool_id}
      * @secure
      */
-    deleteToolEndpointToolsToolIdDelete: (
+    deleteToolEndpointToolToolIdDelete: (
       toolId: string,
       params: RequestParams = {},
     ) =>
       this.request<void, void | HTTPValidationError>({
-        path: `/tools/${toolId}`,
+        path: `/tool/${toolId}`,
         method: "DELETE",
         secure: true,
         ...params,

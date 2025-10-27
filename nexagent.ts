@@ -12,14 +12,7 @@ import DailyIframe, {
 } from '@daily-co/daily-js';
 import EventEmitter from 'events';
 
-import {
-  Call,
-  CreateSquadDTO,
-  CreateAssistantDTO,
-  AssistantOverrides,
-  CreateWorkflowDTO,
-  WorkflowOverrides,
-} from './api';
+import type { CreateAssistantDTO, WebCallResponse } from './api';
 import { client } from './client';
 import {
   createSafeDailyConfig,
@@ -118,40 +111,25 @@ type NexAgentEventListeners = {
 
 type StartCallOptions = {
   /**
-   * This determines whether the daily room will be deleted and all participants will be kicked once the user leaves the room.
-   * If set to `false`, the room will be kept alive even after the user leaves, allowing clients to reconnect to the same room.
-   * If set to `true`, the room will be deleted and reconnection will not be allowed.
-   *
-   * Defaults to `true`.
-   * @example true
+   * Optional display name stored alongside the call record.
    */
-  roomDeleteOnUserLeaveEnabled?: boolean;
-}
+  name?: string | null;
+  /**
+   * Arbitrary metadata persisted on the call record.
+   */
+  metadata?: Record<string, any> | null;
+};
 
-type WebCall = {
+type WebCall = WebCallResponse & {
   /**
-   * The NexAgent WebCall URL. This is the URL that the call will be joined on.
-   * 
-   * call.webCallUrl or call.transport.callUrl
-   */
-  webCallUrl: string;
-  /**
-   * The NexAgent WebCall ID. This is the ID of the call.
-   * 
-   * call.id
-   */
-  id?: string;
-  /**
-   * The NexAgent WebCall artifact plan. This is the artifact plan of the call.
+   * Present when the API returns artifact information for the call.
    */
   artifactPlan?: { videoRecordingEnabled?: boolean };
   /**
-   * The NexAgent WebCall assistant. This is the assistant of the call.
-   * 
-   * call.assistant
+   * Present when the API returns assistant information for the call.
    */
   assistant?: { voice?: { provider?: string } };
-}
+};
 
 async function startAudioPlayer(
   player: HTMLAudioElement,
@@ -283,23 +261,18 @@ export default class NexAgent extends NexAgentEventEmitter {
   }
 
   async start(
-    assistant?: CreateAssistantDTO | string,
-    assistantOverrides?: AssistantOverrides,
-    squad?: CreateSquadDTO | string,
-    workflow?: CreateWorkflowDTO | string,
-    workflowOverrides?: WorkflowOverrides,
-    options?: StartCallOptions
-  ): Promise<Call | null> {
+    assistant: CreateAssistantDTO | string,
+    options: StartCallOptions = {},
+  ): Promise<WebCall | null> {
     const startTime = Date.now();
-    
-    // Input validation with detailed error messages
-    if (!assistant && !squad && !workflow) {
-      const error = new Error('Assistant or Squad or Workflow must be provided.');
-      this.emit('error', { 
-        type: 'validation-error', 
+
+    if (!assistant) {
+      const error = new Error('Assistant must be provided.');
+      this.emit('error', {
+        type: 'validation-error',
         stage: 'input-validation',
         message: error.message,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
       });
       throw error;
     }
@@ -320,15 +293,71 @@ export default class NexAgent extends NexAgentEventEmitter {
       timestamp: new Date().toISOString(),
       metadata: {
         hasAssistant: !!assistant,
-        hasSquad: !!squad,
-        hasWorkflow: !!workflow
-      }
+        callName: options?.name ?? null,
+      },
     });
     
     this.started = true;
 
     try {
-            // Stage 1: Create web call
+      let assistantId: string | undefined;
+
+      if (typeof assistant === 'string') {
+        assistantId = assistant;
+      } else {
+        this.emit('call-start-progress', {
+          stage: 'assistant-preparation',
+          status: 'started',
+          timestamp: new Date().toISOString(),
+        });
+
+        const assistantStartTime = Date.now();
+        try {
+          const createdAssistant = (
+            await client.assistant.createAssistantEndpointAssistantPost(
+              assistant,
+            )
+          ).data;
+          assistantId = createdAssistant?.id;
+          const assistantDuration = Date.now() - assistantStartTime;
+          this.emit('call-start-progress', {
+            stage: 'assistant-preparation',
+            status: 'completed',
+            duration: assistantDuration,
+            timestamp: new Date().toISOString(),
+            metadata: { assistantId },
+          });
+        } catch (error) {
+          const assistantDuration = Date.now() - assistantStartTime;
+          this.emit('call-start-progress', {
+            stage: 'assistant-preparation',
+            status: 'failed',
+            duration: assistantDuration,
+            timestamp: new Date().toISOString(),
+            metadata: { error: error instanceof Error ? error.message : String(error) },
+          });
+          this.emit('error', {
+            type: 'assistant-preparation-error',
+            stage: 'assistant-preparation',
+            error,
+            timestamp: new Date().toISOString(),
+          });
+          throw error;
+        }
+      }
+
+      if (!assistantId) {
+        const error = new Error('Unable to resolve assistant ID.');
+        this.emit('error', {
+          type: 'validation-error',
+          stage: 'assistant-preparation',
+          message: error.message,
+          timestamp: new Date().toISOString(),
+        });
+        throw error;
+      }
+
+      // Stage 1: Create web call
       this.emit('call-start-progress', {
         stage: 'web-call-creation',
         status: 'started',
@@ -337,20 +366,36 @@ export default class NexAgent extends NexAgentEventEmitter {
       
       const webCallStartTime = Date.now();
       
-      const webCall = (
-        await client.call.callControllerCreateWebCall({
-          assistant: typeof assistant === 'string' ? undefined : assistant,
-          assistantId: typeof assistant === 'string' ? assistant : undefined,
-          assistantOverrides,
-          squad: typeof squad === 'string' ? undefined : squad,
-          squadId: typeof squad === 'string' ? squad : undefined,
-          workflow: typeof workflow === 'string' ? undefined : workflow,
-          workflowId: typeof workflow === 'string' ? workflow : undefined,
-          workflowOverrides,
-          roomDeleteOnUserLeaveEnabled: options?.roomDeleteOnUserLeaveEnabled,
-        })
-      ).data;
-      
+      let webCall: WebCall;
+      try {
+        webCall = (
+          await client.call.createWebCallEndpointCallWebPost({
+            assistantId,
+            name: options?.name ?? undefined,
+            metadata: options?.metadata ?? undefined,
+          })
+        ).data as WebCall;
+      } catch (error) {
+        const webCallDuration = Date.now() - webCallStartTime;
+        this.emit('call-start-progress', {
+          stage: 'web-call-creation',
+          status: 'failed',
+          duration: webCallDuration,
+          timestamp: new Date().toISOString(),
+          metadata: {
+            assistantId,
+            error: error instanceof Error ? error.message : String(error),
+          },
+        });
+        this.emit('error', {
+          type: 'web-call-creation-error',
+          stage: 'web-call-creation',
+          error,
+          timestamp: new Date().toISOString(),
+        });
+        throw error;
+      }
+
       const webCallDuration = Date.now() - webCallStartTime;
       this.emit('call-start-progress', {
         stage: 'web-call-creation',
@@ -358,10 +403,13 @@ export default class NexAgent extends NexAgentEventEmitter {
         duration: webCallDuration,
         timestamp: new Date().toISOString(),
         metadata: {
+          assistantId,
           callId: webCall?.id || 'unknown',
-          videoRecordingEnabled: webCall?.artifactPlan?.videoRecordingEnabled ?? false,
-          voiceProvider: webCall?.assistant?.voice?.provider || 'unknown'
-        }
+          videoRecordingEnabled:
+            webCall?.artifactPlan?.videoRecordingEnabled ?? false,
+          voiceProvider: webCall?.assistant?.voice?.provider || 'unknown',
+          callName: options?.name ?? null,
+        },
       });
 
       if (this.call) {
@@ -546,8 +594,8 @@ export default class NexAgent extends NexAgentEventEmitter {
       
       try {
         await this.call.join({
-          // @ts-expect-error This exists
           url: webCall.webCallUrl,
+          token: (webCall as any)?.webCallToken,
           subscribeToTracksAutomatically: false,
         });
         
@@ -768,10 +816,9 @@ export default class NexAgent extends NexAgentEventEmitter {
         timestamp: new Date().toISOString(),
         context: {
           hasAssistant: !!assistant,
-          hasSquad: !!squad,
-          hasWorkflow: !!workflow,
-          isMobile: this.isMobileDevice()
-        }
+          callName: options?.name ?? null,
+          isMobile: this.isMobileDevice(),
+        },
       });
       
       // Also emit the generic error event for backward compatibility
@@ -783,10 +830,9 @@ export default class NexAgent extends NexAgentEventEmitter {
         timestamp: new Date().toISOString(),
         context: {
           hasAssistant: !!assistant,
-          hasSquad: !!squad,
-          hasWorkflow: !!workflow,
-          isMobile: this.isMobileDevice()
-        }
+          callName: options?.name ?? null,
+          isMobile: this.isMobileDevice(),
+        },
       });
       
       await this.cleanup();
@@ -847,10 +893,7 @@ export default class NexAgent extends NexAgentEventEmitter {
   }
 
   /**
-   * Stops the call by destroying the Daily call object.
-   * 
-   * If `roomDeleteOnUserLeaveEnabled` is set to `false`, the NexAgent call will be kept alive, allowing reconnections to the same call using the `reconnect` method.
-   * If `roomDeleteOnUserLeaveEnabled` is set to `true`, the NexAgent call will also be destroyed, preventing any reconnections.
+   * Stops the call by destroying the Daily call object and clearing local state.
    */
   async stop(): Promise<void> {
     this.started = false;
@@ -893,9 +936,7 @@ export default class NexAgent extends NexAgentEventEmitter {
   }
 
   /**
-   * Ends the call immediately by sending a `end-call` message using Live Call Control, and destroys the Daily call object.
-   * 
-   * This method always ends the call, regardless of the `roomDeleteOnUserLeaveEnabled` option.
+   * Ends the call immediately by sending an `end-call` message using Live Call Control, then destroys the Daily call object.
    */
   public end() {
     this.send({
@@ -1177,6 +1218,7 @@ export default class NexAgent extends NexAgentEventEmitter {
       const joinStartTime = Date.now();
       await this.call.join({
         url: webCall.webCallUrl,
+        token: (webCall as any)?.webCallToken,
         subscribeToTracksAutomatically: false,
       });
       
