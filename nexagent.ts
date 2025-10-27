@@ -9,6 +9,7 @@ import DailyIframe, {
   DailyEventObjectRemoteParticipantsAudioLevel,
   DailyParticipant,
   DailyVideoSendSettings,
+  DailyCallOptions,
 } from '@daily-co/daily-js';
 import EventEmitter from 'events';
 
@@ -129,6 +130,10 @@ type WebCall = WebCallResponse & {
    * Present when the API returns assistant information for the call.
    */
   assistant?: { voice?: { provider?: string } };
+  /**
+   * Authentication token required to join Daily rooms.
+   */
+  webCallToken?: string | null;
 };
 
 async function startAudioPlayer(
@@ -244,6 +249,67 @@ export default class NexAgent extends NexAgentEventEmitter {
       this.call = null;
     }
     this.speakingTimeout = null;
+  }
+
+  private buildJoinOptions(webCall: WebCall): DailyCallOptions {
+    const joinOptions: DailyCallOptions = {
+      url: webCall.webCallUrl,
+      subscribeToTracksAutomatically: false,
+    };
+
+    if (webCall.webCallToken) {
+      joinOptions.token = webCall.webCallToken;
+
+      try {
+        const url = new URL(webCall.webCallUrl);
+        url.searchParams.set('t', webCall.webCallToken);
+        joinOptions.url = url.toString();
+      } catch {
+        const separator = webCall.webCallUrl.includes('?') ? '&' : '?';
+        joinOptions.url = `${webCall.webCallUrl}${separator}t=${encodeURIComponent(
+          webCall.webCallToken,
+        )}`;
+      }
+    }
+
+    return joinOptions;
+  }
+
+  private async preAuthIfNeeded(
+    joinOptions: DailyCallOptions,
+    stage: 'daily-call-preauth' | 'reconnect-preauth',
+  ) {
+    if (!joinOptions.token || !joinOptions.url || !this.call?.preAuth) {
+      return;
+    }
+
+    const preAuthStartTime = Date.now();
+    this.emit('call-start-progress', {
+      stage,
+      status: 'started',
+      timestamp: new Date().toISOString(),
+    });
+
+    try {
+      await this.call.preAuth({
+        url: joinOptions.url,
+        token: joinOptions.token,
+      });
+      this.emit('call-start-progress', {
+        stage,
+        status: 'completed',
+        duration: Date.now() - preAuthStartTime,
+        timestamp: new Date().toISOString(),
+      });
+    } catch (error) {
+      this.emit('call-start-progress', {
+        stage,
+        status: 'failed',
+        duration: Date.now() - preAuthStartTime,
+        timestamp: new Date().toISOString(),
+        metadata: { error: error instanceof Error ? error.message : String(error) },
+      });
+    }
   }
 
   private isMobileDevice() {
@@ -592,12 +658,11 @@ export default class NexAgent extends NexAgentEventEmitter {
       
       const joinStartTime = Date.now();
       
+      const joinOptions = this.buildJoinOptions(webCall);
+      await this.preAuthIfNeeded(joinOptions, 'daily-call-preauth');
+
       try {
-        await this.call.join({
-          url: webCall.webCallUrl,
-          token: (webCall as any)?.webCallToken,
-          subscribeToTracksAutomatically: false,
-        });
+        await this.call.join(joinOptions);
         
         const joinDuration = Date.now() - joinStartTime;
         this.emit('call-start-progress', {
@@ -1216,11 +1281,9 @@ export default class NexAgent extends NexAgentEventEmitter {
       });
       
       const joinStartTime = Date.now();
-      await this.call.join({
-        url: webCall.webCallUrl,
-        token: (webCall as any)?.webCallToken,
-        subscribeToTracksAutomatically: false,
-      });
+      const joinOptions = this.buildJoinOptions(webCall);
+      await this.preAuthIfNeeded(joinOptions, 'reconnect-preauth');
+      await this.call.join(joinOptions);
       
       const joinDuration = Date.now() - joinStartTime;
       this.emit('call-start-progress', {

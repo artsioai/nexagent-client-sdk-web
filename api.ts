@@ -2097,6 +2097,11 @@ export interface WebCallResponse {
    * Web call url
    */
   webCallUrl: string;
+  /**
+   * Webcalltoken
+   * Web call token
+   */
+  webCallToken: string;
 }
 
 export type QueryParamsType = Record<string | number, any>;
@@ -3201,6 +3206,30 @@ export class Api<
         path: `/tool/${toolId}`,
         method: "DELETE",
         secure: true,
+        ...params,
+      }),
+  };
+  webhook = {
+    /**
+     * @description Handle Twilio voice webhook for starting calls with assistants. This endpoint receives Twilio webhook calls when a phone number is dialed. It processes the call and initiates the appropriate assistant conversation. Args: request: FastAPI request object assistant_id: Assistant ID from query parameter Returns: TwiML response to control the call
+     *
+     * @tags webhooks
+     * @name StartTwilioWebhookWebhookTwilioPost
+     * @summary Start Twilio Webhook
+     * @request POST:/webhook/twilio
+     */
+    startTwilioWebhookWebhookTwilioPost: (
+      query?: {
+        /** Assistant Id */
+        assistant_id?: string | null;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<any, HTTPValidationError>({
+        path: `/webhook/twilio`,
+        method: "POST",
+        query: query,
+        format: "json",
         ...params,
       }),
   };
