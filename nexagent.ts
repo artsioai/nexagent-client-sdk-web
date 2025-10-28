@@ -661,6 +661,11 @@ export default class NexAgent extends NexAgentEventEmitter {
         await this.call.join(joinOptions);
         
         const joinDuration = Date.now() - joinStartTime;
+        try {
+          safeSetLocalAudio(this.call, true);
+        } catch (audioError) {
+          console.error('Failed to enable local audio:', audioError);
+        }
         this.emit('call-start-progress', {
           stage: 'daily-call-join',
           status: 'completed',
@@ -908,16 +913,48 @@ export default class NexAgent extends NexAgentEventEmitter {
     try {
       if (e.data === 'listening') {
         return this.emit('call-start');
-      } else {
-        try {
-          const parsedMessage = JSON.parse(e.data);
-          this.emit('message', parsedMessage);
-          if (parsedMessage && 'type' in parsedMessage && 'status' in parsedMessage && parsedMessage.type === 'status-update' && parsedMessage.status === 'ended') {
-            this.hasEmittedCallEndedStatus = true;
-          }
-        } catch (parseError) {
-          console.log('Error parsing message data: ', parseError);
+      }
+
+      if (typeof e.data === 'object' && e.data !== null) {
+        this.emit('message', e.data);
+        if (
+          'type' in e.data &&
+          'status' in e.data &&
+          e.data.type === 'status-update' &&
+          e.data.status === 'ended'
+        ) {
+          this.hasEmittedCallEndedStatus = true;
         }
+        return;
+      }
+
+      if (typeof e.data === 'string') {
+        const trimmed = e.data.trim();
+        if (trimmed.startsWith('{') || trimmed.startsWith('[')) {
+          try {
+            const parsedMessage = JSON.parse(trimmed);
+            this.emit('message', parsedMessage);
+            if (
+              parsedMessage &&
+              typeof parsedMessage === 'object' &&
+              'type' in parsedMessage &&
+              'status' in parsedMessage &&
+              parsedMessage.type === 'status-update' &&
+              parsedMessage.status === 'ended'
+            ) {
+              this.hasEmittedCallEndedStatus = true;
+            }
+          } catch (parseError) {
+            console.warn('[NexAgent] Unable to parse app-message:', parseError);
+          }
+          return;
+        }
+
+        this.emit('message', {
+          type: 'raw-app-message',
+          data: e.data,
+        });
+        return;
       }
     } catch (e) {
       console.error(e);
@@ -1280,6 +1317,11 @@ export default class NexAgent extends NexAgentEventEmitter {
       const joinOptions = this.buildJoinOptions(webCall);
       await this.preAuthIfNeeded(joinOptions, 'reconnect-preauth');
       await this.call.join(joinOptions);
+      try {
+        safeSetLocalAudio(this.call, true);
+      } catch (audioError) {
+        console.error('Failed to enable local audio on reconnect:', audioError);
+      }
       
       const joinDuration = Date.now() - joinStartTime;
       this.emit('call-start-progress', {
