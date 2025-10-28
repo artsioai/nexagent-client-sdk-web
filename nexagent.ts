@@ -130,10 +130,6 @@ type WebCall = WebCallResponse & {
    * Present when the API returns assistant information for the call.
    */
   assistant?: { voice?: { provider?: string } };
-  /**
-   * Authentication token required to join Daily rooms.
-   */
-  webCallToken?: string | null;
 };
 
 async function startAudioPlayer(
