@@ -138,9 +138,14 @@ async function startAudioPlayer(
 ) {
   player.muted = false;
   player.autoplay = true;
+  player.setAttribute('playsinline', '');
   if (track != null) {
     player.srcObject = new MediaStream([track]);
-    await player.play();
+    try {
+      await player.play();
+    } catch (error) {
+      console.warn('[NexAgent] Audio playback was blocked or failed', error);
+    }
   }
 }
 
@@ -267,6 +272,11 @@ export default class NexAgent extends NexAgentEventEmitter {
         )}`;
       }
     }
+
+    console.log('[NexAgent] Built join options', {
+      url: joinOptions.url,
+      hasToken: Boolean(joinOptions.token),
+    });
 
     return joinOptions;
   }
@@ -437,6 +447,12 @@ export default class NexAgent extends NexAgentEventEmitter {
             metadata: options?.metadata ?? undefined,
           })
         ).data as WebCall;
+        console.log('[NexAgent] Created web call', {
+          callId: webCall?.id,
+          hasToken: Boolean((webCall as any)?.webCallToken),
+          webCallUrl: webCall?.webCallUrl,
+          transportUrl: (webCall as any)?.transport?.callUrl,
+        });
       } catch (error) {
         const webCallDuration = Date.now() - webCallStartTime;
         this.emit('call-start-progress', {
@@ -574,20 +590,56 @@ export default class NexAgent extends NexAgentEventEmitter {
       });
 
       this.call.on('track-started', async (e) => {
+        console.log('[NexAgent] track-started event', {
+          participantName: e?.participant?.user_name,
+          participantId: e?.participant?.session_id,
+          kind: e?.track?.kind,
+          isLocal: e?.participant?.local ?? null,
+        });
         if (!e || !e.participant) {
           return;
         }
         if (e.participant?.local) {
+          console.log('[NexAgent] Ignoring local participant track', {
+            participantId: e.participant.session_id,
+            kind: e.track?.kind,
+          });
           return;
         }
-        if (e.participant?.user_name !== 'NexAgent Speaker') {
+        const assistantNames = new Set([
+          'NexAgent Speaker',
+          'Vapi Speaker',
+          'rtvi-ai',
+          'Pipecat Bot',
+        ]);
+        const participantName = e.participant?.user_name;
+        if (
+          participantName != null &&
+          participantName.length > 0 &&
+          !assistantNames.has(participantName)
+        ) {
+          console.log('[NexAgent] Ignoring track from non-assistant participant', {
+            participantName,
+            participantId: e.participant.session_id,
+          });
           return;
         }
         if (e.track.kind === 'video') {
           this.emit('video', e.track);
         }
         if (e.track.kind === 'audio') {
-          await buildAudioPlayer(e.track, e.participant.session_id);
+          console.log('[NexAgent] Attaching audio track from participant', {
+            participantId: e.participant.session_id,
+            userName: participantName,
+          });
+          try {
+            await buildAudioPlayer(e.track, e.participant.session_id);
+            console.log('[NexAgent] Audio player started successfully', {
+              participantId: e.participant.session_id,
+            });
+          } catch (error) {
+            console.warn('[NexAgent] Failed to start audio player', error);
+          }
         }
         this.call?.sendAppMessage('playable');
       });
@@ -910,12 +962,18 @@ export default class NexAgent extends NexAgentEventEmitter {
     if (!e) {
       return;
     }
+    console.log('[NexAgent] app-message event received', {
+      raw: e.data,
+      dataType: typeof e.data,
+      fromId: e.fromId,
+    });
     try {
       if (e.data === 'listening') {
         return this.emit('call-start');
       }
 
       if (typeof e.data === 'object' && e.data !== null) {
+        this.emitVapiCompatibleTranscriptIfPossible(e.data);
         this.emit('message', e.data);
         if (
           'type' in e.data &&
@@ -933,6 +991,7 @@ export default class NexAgent extends NexAgentEventEmitter {
         if (trimmed.startsWith('{') || trimmed.startsWith('[')) {
           try {
             const parsedMessage = JSON.parse(trimmed);
+            this.emitVapiCompatibleTranscriptIfPossible(parsedMessage);
             this.emit('message', parsedMessage);
             if (
               parsedMessage &&
@@ -945,7 +1004,12 @@ export default class NexAgent extends NexAgentEventEmitter {
               this.hasEmittedCallEndedStatus = true;
             }
           } catch (parseError) {
-            console.warn('[NexAgent] Unable to parse app-message:', parseError);
+            console.warn(
+              '[NexAgent] Unable to parse app-message:',
+              parseError,
+              'raw payload:',
+              e.data,
+            );
           }
           return;
         }
@@ -956,9 +1020,100 @@ export default class NexAgent extends NexAgentEventEmitter {
         });
         return;
       }
+      console.log('[NexAgent] Received unhandled app-message data type', {
+        value: e.data,
+        dataType: typeof e.data,
+      });
     } catch (e) {
       console.error(e);
     }
+  }
+  private emitVapiCompatibleTranscriptIfPossible(message: any) {
+    if (!message || typeof message !== 'object') {
+      return false;
+    }
+
+    const messageType: string | undefined = message?.type;
+    const data = message?.data ?? message;
+    const text: string | undefined =
+      typeof data?.text === 'string'
+        ? data.text
+        : typeof data?.transcript === 'string'
+          ? data.transcript
+          : undefined;
+
+    if (!messageType || !text) {
+      return false;
+    }
+
+    let role: 'assistant' | 'user' | null = null;
+    let transcriptType: 'partial' | 'final' = 'partial';
+
+    switch (messageType) {
+      case 'bot-llm-text':
+      case 'bot-tts-text':
+        role = 'assistant';
+        transcriptType = 'partial';
+        break;
+      case 'bot-transcription':
+        role = 'assistant';
+        transcriptType = 'final';
+        break;
+      case 'user-llm-text':
+      case 'user-tts-text':
+        role = 'user';
+        transcriptType = 'partial';
+        break;
+      case 'user-transcription':
+        role = 'user';
+        transcriptType = 'final';
+        break;
+      default:
+        if (typeof data?.role === 'string') {
+          if (data.role === 'assistant' || data.role === 'model') {
+            role = 'assistant';
+          } else if (data.role === 'user' || data.role === 'customer') {
+            role = 'user';
+          }
+        }
+        if (!role) {
+          return false;
+        }
+        if (data?.isFinal === true || data?.final === true) {
+          transcriptType = 'final';
+        }
+    }
+
+    if (!role) {
+      return false;
+    }
+
+    const transcriptMessage = {
+      id:
+        (typeof message?.id === 'string' && message.id.length > 0
+          ? message.id
+          : undefined) ??
+        (typeof data?.id === 'string' && data.id.length > 0
+          ? data.id
+          : undefined) ??
+        null,
+      type:
+        transcriptType === 'final'
+          ? "transcript[transcriptType='final']"
+          : 'transcript',
+      transcriptType,
+      transcript: text,
+      role,
+      timestamp:
+        typeof message?.timestamp === 'number'
+          ? message.timestamp
+          : Date.now(),
+      isFiltered: data?.isFiltered ?? false,
+      originalMessage: message,
+    };
+
+    this.emit('message', transcriptMessage);
+    return true;
   }
 
   private handleRemoteParticipantsAudioLevel(
