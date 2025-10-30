@@ -1112,6 +1112,14 @@ export default class NexAgent extends NexAgentEventEmitter {
       originalMessage: message,
     };
 
+    console.log('[NexAgent] Emitting Vapi-style transcript message', {
+      type: transcriptMessage.type,
+      transcriptType: transcriptMessage.transcriptType,
+      role: transcriptMessage.role,
+      transcript: transcriptMessage.transcript,
+      id: transcriptMessage.id,
+    });
+
     this.emit('message', transcriptMessage);
     return true;
   }
