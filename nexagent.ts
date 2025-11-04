@@ -22,6 +22,83 @@ import {
   safeSetInputDevicesAsync,
 } from './daily-guards';
 
+type AppMessageLogSource = 'NexAgent' | 'Vapi';
+
+type AppMessageLogEntry = {
+  timestamp: string;
+  source: AppMessageLogSource;
+  fromId?: string;
+  dataType: string;
+  raw: any;
+  parsed?: any;
+  note?: string;
+};
+
+type AppMessageLogger = {
+  entries: AppMessageLogEntry[];
+  download: () => void;
+  clear: () => void;
+};
+
+function getAppMessageLogger(): AppMessageLogger | null {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+  const win = window as any;
+  if (!win.__dailyAppMessageLogger) {
+    const logger: AppMessageLogger = {
+      entries: [],
+      download() {
+        if (this.entries.length === 0) {
+          console.log(
+            '[DailyAppMessageLogger] No app-message entries captured yet.',
+          );
+          return;
+        }
+        const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+        const blob = new Blob(
+          [JSON.stringify(this.entries, null, 2)],
+          {
+            type: 'application/json',
+          },
+        );
+        const url = URL.createObjectURL(blob);
+        const anchor = document.createElement('a');
+        anchor.href = url;
+        anchor.download = `daily-app-messages-${timestamp}.json`;
+        anchor.click();
+        setTimeout(() => URL.revokeObjectURL(url), 0);
+      },
+      clear() {
+        this.entries.length = 0;
+      },
+    };
+    win.__dailyAppMessageLogger = logger;
+    win.downloadDailyAppMessages = () => logger.download();
+    win.clearDailyAppMessageLogs = () => logger.clear();
+    console.log(
+      '[DailyAppMessageLogger] Ready. Call window.downloadDailyAppMessages() to ' +
+        'download captured Daily app-message logs.',
+    );
+  }
+  return win.__dailyAppMessageLogger as AppMessageLogger;
+}
+
+function recordAppMessageLog(
+  source: AppMessageLogSource,
+  entry: Omit<AppMessageLogEntry, 'timestamp' | 'source'>,
+) {
+  const logger = getAppMessageLogger();
+  if (!logger) {
+    return;
+  }
+  logger.entries.push({
+    timestamp: new Date().toISOString(),
+    source,
+    ...entry,
+  });
+}
+
 export interface EndCallMessage {
   type: 'end-call';
 }
@@ -610,7 +687,7 @@ export default class NexAgent extends NexAgentEventEmitter {
           'NexAgent Speaker',
           'Vapi Speaker',
           'rtvi-ai',
-          'Pipecat Bot',
+          'Nexagent Bot',
         ]);
         const participantName = e.participant?.user_name;
         if (
@@ -967,6 +1044,11 @@ export default class NexAgent extends NexAgentEventEmitter {
       dataType: typeof e.data,
       fromId: e.fromId,
     });
+    recordAppMessageLog('NexAgent', {
+      fromId: e.fromId,
+      dataType: typeof e.data,
+      raw: e.data,
+    });
     try {
       if (e.data === 'listening') {
         return this.emit('call-start');
@@ -993,6 +1075,13 @@ export default class NexAgent extends NexAgentEventEmitter {
             const parsedMessage = JSON.parse(trimmed);
             this.emitVapiCompatibleTranscriptIfPossible(parsedMessage);
             this.emit('message', parsedMessage);
+            recordAppMessageLog('NexAgent', {
+              fromId: e.fromId,
+              dataType: 'json-string',
+              raw: e.data,
+              parsed: parsedMessage,
+              note: 'parsed-json',
+            });
             if (
               parsedMessage &&
               typeof parsedMessage === 'object' &&
@@ -1121,6 +1210,12 @@ export default class NexAgent extends NexAgentEventEmitter {
     });
 
     this.emit('message', transcriptMessage);
+    recordAppMessageLog('NexAgent', {
+      dataType: 'generated-transcript',
+      raw: transcriptMessage,
+      parsed: transcriptMessage,
+      note: 'emitted-vapi-compatible-transcript',
+    });
     return true;
   }
 

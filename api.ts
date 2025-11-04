@@ -63,11 +63,11 @@ export type UpdateToolDTO = {
 /** PhoneNumberCreate */
 export type PhoneNumberCreate =
   | ({
-      provider: "twilio";
-    } & CreateTwilioPhoneNumber)
+      provider: "sip";
+    } & CreateNexagentSIP)
   | ({
-      provider: "vapi";
-    } & CreateVapiPhoneNumber);
+      provider: "twilio";
+    } & CreateTwilioPhoneNumber);
 
 /**
  * CreateToolDTO
@@ -804,6 +804,32 @@ export interface CreateCallDTO {
 }
 
 /**
+ * CreateNexagentSIP
+ * DTO for creating a Vapi phone number.
+ */
+export interface CreateNexagentSIP {
+  /**
+   * Provider
+   * @default "sip"
+   */
+  provider?: "sip";
+  /**
+   * Sipidentifier
+   * Will be used as: sip:identifier@None,SIP identifier can only contain letters, numbers, underscores, and hyphens
+   */
+  sipIdentifier?: string | null;
+  /** Name */
+  name?: string | null;
+  /**
+   * Authentication
+   * SIP authentication details
+   */
+  authentication?: Record<string, any> | null;
+  /** Assistantid */
+  assistantId?: string | null;
+}
+
+/**
  * CreateTwilioPhoneNumber
  * DTO for creating a Twilio phone number.
  */
@@ -836,37 +862,6 @@ export interface CreateTwilioPhoneNumber {
    * @default true
    */
   smsEnabled?: boolean;
-  /** Name */
-  name?: string | null;
-  /** Assistantid */
-  assistantId?: string | null;
-}
-
-/**
- * CreateVapiPhoneNumber
- * DTO for creating a Vapi phone number.
- */
-export interface CreateVapiPhoneNumber {
-  /**
-   * Provider
-   * @default "vapi"
-   */
-  provider?: "vapi";
-  /**
-   * Sipuri
-   * SIP URI - You can SIP INVITE this
-   */
-  sipUri?: string | null;
-  /**
-   * Numberdesiredareacode
-   * Area code of the phone number to purchase
-   */
-  numberDesiredAreaCode?: string | null;
-  /**
-   * Authentication
-   * SIP authentication details
-   */
-  authentication?: Record<string, any> | null;
   /** Name */
   name?: string | null;
   /** Assistantid */
@@ -1598,6 +1593,8 @@ export interface PhoneNumberResponse {
   twilioAccountSid?: string | null;
   /** Smsenabled */
   smsEnabled?: boolean | null;
+  /** Sipidentifier */
+  sipIdentifier: string | null;
   /** Sipuri */
   sipUri?: string | null;
   /** Numberdesiredareacode */
@@ -3214,11 +3211,11 @@ export class Api<
      * @description Handle Twilio voice webhook for starting calls with assistants. This endpoint receives Twilio webhook calls when a phone number is dialed. It processes the call and initiates the appropriate assistant conversation. Args: request: FastAPI request object assistant_id: Assistant ID from query parameter Returns: TwiML response to control the call
      *
      * @tags webhooks
-     * @name StartTwilioWebhookWebhookTwilioPost
+     * @name StartTwilioWebhookWebhookTwilioPhonePost
      * @summary Start Twilio Webhook
-     * @request POST:/webhook/twilio
+     * @request POST:/webhook/twilio-phone
      */
-    startTwilioWebhookWebhookTwilioPost: (
+    startTwilioWebhookWebhookTwilioPhonePost: (
       query?: {
         /** Assistant Id */
         assistant_id?: string | null;
@@ -3226,10 +3223,25 @@ export class Api<
       params: RequestParams = {},
     ) =>
       this.request<any, HTTPValidationError>({
-        path: `/webhook/twilio`,
+        path: `/webhook/twilio-phone`,
         method: "POST",
         query: query,
         format: "json",
+        ...params,
+      }),
+
+    /**
+     * @description Handle incoming Twilio call webhook. This endpoint: 1. Receives Twilio webhook data for incoming calls 2. Creates a Daily room with SIP capabilities 3. Starts the bot (locally or via Pipecat Cloud based on ENV) 4. Returns TwiML to put caller on hold while bot connects Returns: TwiML response with hold music for the caller
+     *
+     * @tags webhooks
+     * @name HandleCallWebhookTwilioSipPost
+     * @summary Handle Call
+     * @request POST:/webhook/twilio-sip
+     */
+    handleCallWebhookTwilioSipPost: (params: RequestParams = {}) =>
+      this.request<string, any>({
+        path: `/webhook/twilio-sip`,
+        method: "POST",
         ...params,
       }),
   };
