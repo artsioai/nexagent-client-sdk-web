@@ -22,7 +22,11 @@ import {
   safeSetInputDevicesAsync,
 } from './daily-guards';
 
-type AppMessageLogSource = 'NexAgent' | 'Vapi';
+type AppMessageLogSource =
+  | 'NexAgent'
+  | 'Vapi'
+  | 'NexAgentEmitted'
+  | 'VapiEmitted';
 
 type AppMessageLogEntry = {
   timestamp: string;
@@ -40,46 +44,98 @@ type AppMessageLogger = {
   clear: () => void;
 };
 
+type UtteranceRole = 'assistant' | 'user';
+
+interface UtteranceBuffer {
+  id: string;
+  fragments: string[];
+}
+
 function getAppMessageLogger(): AppMessageLogger | null {
   if (typeof window === 'undefined') {
     return null;
   }
   const win = window as any;
+  const ensureLoggerHelpers = (logger: AppMessageLogger) => {
+    const downloadEntries = (
+      entries: AppMessageLogEntry[],
+      filenamePrefix: string,
+    ) => {
+      if (entries.length === 0) {
+        console.log(
+          `[DailyAppMessageLogger] No ${filenamePrefix} entries captured yet.`,
+        );
+        return;
+      }
+      const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+      const blob = new Blob(
+        [JSON.stringify(entries, null, 2)],
+        {
+          type: 'application/json',
+        },
+      );
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement('a');
+      anchor.href = url;
+      anchor.download = `${filenamePrefix}-${timestamp}.json`;
+      anchor.click();
+      setTimeout(() => URL.revokeObjectURL(url), 0);
+    };
+
+    logger.download = () => downloadEntries(logger.entries, 'daily-app-messages');
+    logger.clear = () => {
+      logger.entries.length = 0;
+    };
+
+    if (!win.downloadDailyAppMessages) {
+      win.downloadDailyAppMessages = () => logger.download();
+    }
+    if (!win.downloadNexAgentReceivedMessages) {
+      win.downloadNexAgentReceivedMessages = () =>
+        downloadEntries(
+          logger.entries.filter((entry: AppMessageLogEntry) => entry.source === 'NexAgent'),
+          'nexagent-received-app-messages',
+        );
+    }
+    if (!win.downloadNexAgentEmittedMessages) {
+      win.downloadNexAgentEmittedMessages = () =>
+        downloadEntries(
+          logger.entries.filter((entry: AppMessageLogEntry) => entry.source === 'NexAgentEmitted'),
+          'nexagent-emitted-app-messages',
+        );
+    }
+    if (!win.clearDailyAppMessageLogs) {
+      win.clearDailyAppMessageLogs = () => logger.clear();
+    }
+    if (!win.downloadVapiReceivedMessages) {
+      win.downloadVapiReceivedMessages = () =>
+        downloadEntries(
+          logger.entries.filter((entry: AppMessageLogEntry) => entry.source === 'Vapi'),
+          'vapi-received-app-messages',
+        );
+    }
+    if (!win.downloadVapiEmittedMessages) {
+      win.downloadVapiEmittedMessages = () =>
+        downloadEntries(
+          logger.entries.filter((entry: AppMessageLogEntry) => entry.source === 'VapiEmitted'),
+          'vapi-emitted-app-messages',
+        );
+    }
+  };
+
   if (!win.__dailyAppMessageLogger) {
     const logger: AppMessageLogger = {
       entries: [],
-      download() {
-        if (this.entries.length === 0) {
-          console.log(
-            '[DailyAppMessageLogger] No app-message entries captured yet.',
-          );
-          return;
-        }
-        const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-        const blob = new Blob(
-          [JSON.stringify(this.entries, null, 2)],
-          {
-            type: 'application/json',
-          },
-        );
-        const url = URL.createObjectURL(blob);
-        const anchor = document.createElement('a');
-        anchor.href = url;
-        anchor.download = `daily-app-messages-${timestamp}.json`;
-        anchor.click();
-        setTimeout(() => URL.revokeObjectURL(url), 0);
-      },
-      clear() {
-        this.entries.length = 0;
-      },
+      download: () => {},
+      clear: () => {},
     };
+    ensureLoggerHelpers(logger);
     win.__dailyAppMessageLogger = logger;
-    win.downloadDailyAppMessages = () => logger.download();
-    win.clearDailyAppMessageLogs = () => logger.clear();
     console.log(
-      '[DailyAppMessageLogger] Ready. Call window.downloadDailyAppMessages() to ' +
-        'download captured Daily app-message logs.',
+      '[DailyAppMessageLogger] Ready. Use window.downloadDailyAppMessages(), window.downloadNexAgentReceivedMessages(), window.downloadNexAgentEmittedMessages(), window.downloadVapiReceivedMessages(), or window.downloadVapiEmittedMessages() to download captured logs.',
     );
+  } else {
+    ensureLoggerHelpers(win.__dailyAppMessageLogger);
   }
   return win.__dailyAppMessageLogger as AppMessageLogger;
 }
@@ -302,6 +358,11 @@ export default class NexAgent extends NexAgentEventEmitter {
   private dailyCallObject: DailyFactoryOptions = {};
 
   private hasEmittedCallEndedStatus: boolean = false;
+  private utteranceBuffers: Record<UtteranceRole, UtteranceBuffer | null> = {
+    assistant: null,
+    user: null,
+  };
+  private utteranceCounter = 0;
 
   constructor(
     apiToken: string,
@@ -322,6 +383,7 @@ export default class NexAgent extends NexAgentEventEmitter {
   private async cleanup() {
     this.started = false;
     this.hasEmittedCallEndedStatus = false;
+    this.resetAllUtteranceBuffers();
     if (this.call) {
       await this.call.destroy();
       this.call = null;
@@ -634,10 +696,16 @@ export default class NexAgent extends NexAgentEventEmitter {
       this.call.on('left-meeting', () => {
         this.emit('call-end');
         if (!this.hasEmittedCallEndedStatus) {
-          this.emit('message', {
+          const statusMessage = {
             type: 'status-update',
             status: 'ended',
             'endedReason': 'customer-ended-call',
+          };
+          this.emit('message', statusMessage);
+          recordAppMessageLog('NexAgentEmitted', {
+            dataType: 'sdk-message',
+            raw: statusMessage,
+            note: 'status-update',
           });
           this.hasEmittedCallEndedStatus = true;
         }
@@ -1050,13 +1118,24 @@ export default class NexAgent extends NexAgentEventEmitter {
       raw: e.data,
     });
     try {
-      if (e.data === 'listening') {
+      const callStartTrigger = this.shouldEmitCallStart(e.data);
+      if (callStartTrigger) {
+        recordAppMessageLog('NexAgent', {
+          dataType: 'call-start',
+          raw: { trigger: callStartTrigger, message: e.data },
+        });
         return this.emit('call-start');
       }
 
       if (typeof e.data === 'object' && e.data !== null) {
         this.emitVapiCompatibleTranscriptIfPossible(e.data);
         this.emit('message', e.data);
+        recordAppMessageLog('NexAgentEmitted', {
+          fromId: e.fromId,
+          dataType: 'sdk-message',
+          raw: e.data,
+          parsed: e.data,
+        });
         if (
           'type' in e.data &&
           'status' in e.data &&
@@ -1075,6 +1154,13 @@ export default class NexAgent extends NexAgentEventEmitter {
             const parsedMessage = JSON.parse(trimmed);
             this.emitVapiCompatibleTranscriptIfPossible(parsedMessage);
             this.emit('message', parsedMessage);
+            recordAppMessageLog('NexAgentEmitted', {
+              fromId: e.fromId,
+              dataType: 'sdk-message',
+              raw: parsedMessage,
+              parsed: parsedMessage,
+              note: 'parsed-json',
+            });
             recordAppMessageLog('NexAgent', {
               fromId: e.fromId,
               dataType: 'json-string',
@@ -1107,6 +1193,14 @@ export default class NexAgent extends NexAgentEventEmitter {
           type: 'raw-app-message',
           data: e.data,
         });
+        recordAppMessageLog('NexAgentEmitted', {
+          fromId: e.fromId,
+          dataType: 'sdk-message',
+          raw: {
+            type: 'raw-app-message',
+            data: e.data,
+          },
+        });
         return;
       }
       console.log('[NexAgent] Received unhandled app-message data type', {
@@ -1117,6 +1211,117 @@ export default class NexAgent extends NexAgentEventEmitter {
       console.error(e);
     }
   }
+
+  private shouldEmitCallStart(message: any): string | null {
+    const normalized =
+      typeof message === 'string' ? message.trim().toLowerCase() : null;
+    if (normalized && normalized === 'listening') {
+      return 'listening-string';
+    }
+
+    if (message && typeof message === 'object' && message.type) {
+      const messageType = String(message.type).toLowerCase();
+      const callStartTypes = new Set([
+        'bot-started-speaking',
+        'call-started',
+        'assistant-started-speaking',
+      ]);
+      if (callStartTypes.has(messageType)) {
+        return `message-type:${messageType}`;
+      }
+      if (
+        messageType === 'status-update' &&
+        typeof message.status === 'string' &&
+        message.status.toLowerCase() === 'started'
+      ) {
+        return 'status-update:started';
+      }
+    }
+    return null;
+  }
+
+  private getOrCreateUtteranceBuffer(role: UtteranceRole): UtteranceBuffer {
+    let buffer = this.utteranceBuffers[role];
+    if (!buffer) {
+      this.utteranceCounter += 1;
+      buffer = {
+        id: `${role}-utterance-${this.utteranceCounter}`,
+        fragments: [],
+      };
+      this.utteranceBuffers[role] = buffer;
+    }
+    return buffer;
+  }
+
+  private appendToUtteranceBuffer(
+    role: UtteranceRole,
+    fragment: string,
+    replaceExisting = false,
+  ) {
+    const buffer = this.getOrCreateUtteranceBuffer(role);
+    if (replaceExisting) {
+      buffer.fragments = [];
+    }
+    const normalized = fragment?.trim();
+    if (normalized) {
+      buffer.fragments.push(normalized);
+    }
+    return {
+      id: buffer.id,
+      text: this.buildUtteranceText(buffer.fragments),
+    };
+  }
+
+  private finalizeUtteranceBuffer(
+    role: UtteranceRole,
+    finalText?: string,
+  ): { id: string; text: string } {
+    const buffer = this.getOrCreateUtteranceBuffer(role);
+    const normalized = finalText?.trim();
+    if (normalized) {
+      if (role === 'user') {
+        buffer.fragments = [normalized];
+      } else if (buffer.fragments.length === 0) {
+        buffer.fragments = [normalized];
+      }
+    }
+    const text = this.buildUtteranceText(buffer.fragments);
+    const result = { id: buffer.id, text };
+    this.utteranceBuffers[role] = null;
+    return result;
+  }
+
+  private buildUtteranceText(fragments: string[]): string {
+    let output = '';
+    for (const fragment of fragments) {
+      const piece = fragment.trim();
+      if (!piece) {
+        continue;
+      }
+      if (!output) {
+        output = piece;
+        continue;
+      }
+      if (/^[,.;!?)]/.test(piece)) {
+        output += piece;
+      } else if (/^['"]/.test(piece) && output.endsWith(' ')) {
+        output = output.trimEnd() + piece;
+      } else {
+        output += ` ${piece}`;
+      }
+    }
+    return output;
+  }
+
+  private resetUtteranceBuffer(role: UtteranceRole) {
+    this.utteranceBuffers[role] = null;
+  }
+
+  private resetAllUtteranceBuffers() {
+    this.utteranceBuffers.assistant = null;
+    this.utteranceBuffers.user = null;
+  }
+
   private emitVapiCompatibleTranscriptIfPossible(message: any) {
     if (!message || typeof message !== 'object') {
       return false;
@@ -1124,7 +1329,7 @@ export default class NexAgent extends NexAgentEventEmitter {
 
     const messageType: string | undefined = message?.type;
     const data = message?.data ?? message;
-    const text: string | undefined =
+    let text: string | undefined =
       typeof data?.text === 'string'
         ? data.text
         : typeof data?.transcript === 'string'
@@ -1135,27 +1340,42 @@ export default class NexAgent extends NexAgentEventEmitter {
       return false;
     }
 
-    let role: 'assistant' | 'user' | null = null;
+    let role: UtteranceRole | null = null;
     let transcriptType: 'partial' | 'final' = 'partial';
+    let bufferedResult:
+      | { id: string; text: string; type: 'partial' | 'final' }
+      | null = null;
+    const dataFinalFlag = data?.isFinal === true || data?.final === true;
+    let shouldBufferPartial = false;
+    let shouldFlushFinal = false;
 
     switch (messageType) {
       case 'bot-llm-text':
       case 'bot-tts-text':
         role = 'assistant';
         transcriptType = 'partial';
+        shouldBufferPartial = true;
         break;
       case 'bot-transcription':
         role = 'assistant';
         transcriptType = 'final';
+        shouldFlushFinal = true;
         break;
       case 'user-llm-text':
       case 'user-tts-text':
         role = 'user';
         transcriptType = 'partial';
+        shouldBufferPartial = true;
         break;
       case 'user-transcription':
         role = 'user';
-        transcriptType = 'final';
+        if (dataFinalFlag) {
+          transcriptType = 'final';
+          shouldFlushFinal = true;
+        } else {
+          transcriptType = 'partial';
+          shouldBufferPartial = true;
+        }
         break;
       default:
         if (typeof data?.role === 'string') {
@@ -1168,8 +1388,12 @@ export default class NexAgent extends NexAgentEventEmitter {
         if (!role) {
           return false;
         }
-        if (data?.isFinal === true || data?.final === true) {
+        if (dataFinalFlag) {
           transcriptType = 'final';
+          shouldFlushFinal = true;
+        } else {
+          transcriptType = 'partial';
+          shouldBufferPartial = true;
         }
     }
 
@@ -1177,39 +1401,67 @@ export default class NexAgent extends NexAgentEventEmitter {
       return false;
     }
 
-    const transcriptMessage = {
-      id:
-        (typeof message?.id === 'string' && message.id.length > 0
-          ? message.id
-          : undefined) ??
-        (typeof data?.id === 'string' && data.id.length > 0
-          ? data.id
-          : undefined) ??
-        null,
-      type:
-        transcriptType === 'final'
-          ? "transcript[transcriptType='final']"
-          : 'transcript',
+    const shouldReplaceBuffer =
+      role === 'user' &&
+      (messageType === 'user-tts-text' || messageType === 'user-llm-text');
+
+    if (shouldBufferPartial) {
+      bufferedResult = {
+        ...this.appendToUtteranceBuffer(role, text, shouldReplaceBuffer),
+        type: 'partial',
+      };
+      text = bufferedResult.text;
+      transcriptType = 'partial';
+    } else if (shouldFlushFinal) {
+      bufferedResult = {
+        ...this.finalizeUtteranceBuffer(role, text),
+        type: 'final',
+      };
+      text = bufferedResult.text || text;
+      transcriptType = 'final';
+    } else {
+      this.resetUtteranceBuffer(role);
+    }
+
+    const transcriptMessage: {
+      id?: string | null;
+      type: 'transcript';
+      transcriptType: 'partial' | 'final';
+      transcript: string;
+      role: UtteranceRole;
+    } = {
+      type: 'transcript',
       transcriptType,
       transcript: text,
       role,
-      timestamp:
-        typeof message?.timestamp === 'number'
-          ? message.timestamp
-          : Date.now(),
-      isFiltered: data?.isFiltered ?? false,
-      originalMessage: message,
     };
+
+    const candidateId =
+      (typeof message?.id === 'string' && message.id.length > 0
+        ? message.id
+        : undefined) ??
+      (typeof data?.id === 'string' && data.id.length > 0
+        ? data.id
+        : undefined);
+    if (candidateId) {
+      transcriptMessage.id = candidateId;
+    }
 
     console.log('[NexAgent] Emitting Vapi-style transcript message', {
       type: transcriptMessage.type,
       transcriptType: transcriptMessage.transcriptType,
       role: transcriptMessage.role,
       transcript: transcriptMessage.transcript,
-      id: transcriptMessage.id,
+      id: transcriptMessage.id ?? null,
     });
 
     this.emit('message', transcriptMessage);
+    recordAppMessageLog('NexAgentEmitted', {
+      dataType: 'sdk-message',
+      raw: transcriptMessage,
+      parsed: transcriptMessage,
+      note: 'emitted-vapi-compatible-transcript',
+    });
     recordAppMessageLog('NexAgent', {
       dataType: 'generated-transcript',
       raw: transcriptMessage,
@@ -1253,6 +1505,7 @@ export default class NexAgent extends NexAgentEventEmitter {
    */
   async stop(): Promise<void> {
     this.started = false;
+    this.resetAllUtteranceBuffers();
     if (this.call) {
       await this.call.destroy();
       this.call = null;
@@ -1437,10 +1690,16 @@ export default class NexAgent extends NexAgentEventEmitter {
       this.call.on('left-meeting', () => {
         this.emit('call-end');
         if (!this.hasEmittedCallEndedStatus) {
-          this.emit('message', {
+          const statusMessage = {
             type: 'status-update',
             status: 'ended',
             'endedReason': 'customer-ended-call',
+          };
+          this.emit('message', statusMessage);
+          recordAppMessageLog('NexAgentEmitted', {
+            dataType: 'sdk-message',
+            raw: statusMessage,
+            note: 'status-update',
           });
           this.hasEmittedCallEndedStatus = true;
         }

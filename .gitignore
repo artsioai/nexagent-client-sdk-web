@@ -136,3 +136,4 @@ dist
 dist/
 example/dist/
 api-extended-json.json
+.npm-cache
