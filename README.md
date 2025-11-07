@@ -7,7 +7,7 @@ This package lets you start NexAgent calls directly in your webapp.
 You can install the package via npm:
 
 ```bash
-npm install @nexagent/web
+npm install @newcast/nexagent-sdk-web
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npm install @nexagent/web
 First, import the NexAgent class from the package:
 
 ```javascript
-import NexAgent from '@nexagent/web';
+import NexAgent from '@newcast/nexagent-sdk-web';
 ```
 
 Then, create a new instance of the NexAgent class, passing your Public Key as a parameter to the constructor:
@@ -104,6 +104,26 @@ The `say(message: string, endCallAfterSpoken?: boolean)` can be used to invoke s
 ```javascript
 nexAgent.say("Our time's up, goodbye!", true)
 ```
+
+## Example Web App
+
+This repository contains a minimal Next.js demo under `example/` that exercises the SDK end-to-end.
+
+1. Install dependencies:
+   ```bash
+   cd example
+   yarn install
+   ```
+2. Copy the sample env file and provide your keys:
+   ```bash
+   cp .env.example .env
+   # fill in NEXT_PUBLIC_NEXAGENT_PUBLIC_KEY and NEXT_PUBLIC_NEXAGENT_ASSISTANT_ID
+   ```
+3. Start the dev server:
+   ```bash
+   yarn dev
+   ```
+   Use `yarn build && yarn start` to verify the production build.
 
 ## Events
 

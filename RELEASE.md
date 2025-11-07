@@ -113,7 +113,7 @@ npm publish --access public
 If a release has issues:
 
 1. Delete the problematic release from GitHub
-2. Use `npm unpublish @nexagent/web@{VERSION}` (within 72 hours)
+2. Use `npm unpublish @newcast/nexagent-sdk-web@{VERSION}` (within 72 hours)
 3. Fix the issues
 4. Run update workflow with patch version bump
 5. Create new release

@@ -18,9 +18,10 @@
     dequal "^2.0.3"
     events "^3.1.0"
 
-"@nexagent/web@file:../nexagent-web-latest.tgz":
-  version "2.5.0"
-  resolved "file:../nexagent-web-latest.tgz#8ab26dafb472e459b2526940c0328011149bfe5d"
+"@newcast/nexagent-sdk-web@latest":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@newcast/nexagent-sdk-web/-/nexagent-sdk-web-0.0.1.tgz#111967792f06959b094f06546986e8585fa51c86"
+  integrity sha512-z4wpOtXbCZ4o4HbwrU7EzXww0dxU9xV7AwrZuL0lE93iLQbeLcGHXOiijpJmnivemXcEh1AEUIjW1mR5JHGfkA==
   dependencies:
     "@daily-co/daily-js" "^0.84.0"
     events "^3.3.0"

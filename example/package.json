@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@nexagent/web": "file:../nexagent-web-latest.tgz",
+    "@newcast/nexagent-sdk-web": "latest",
     "next": "14.2.13",
     "react": "18.2.0",
     "react-dom": "18.2.0"

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import NexAgent from "@nexagent/web";
+import NexAgent from "@newcast/nexagent-sdk-web";
 
 import { useAudioDevices } from "../hooks/useAudioDevices";
 import SessionView from "./SessionView";
