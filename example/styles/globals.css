@@ -1,0 +1,239 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #f6f7f9;
+  color: #111827;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  gap: 2rem;
+}
+
+.card {
+  width: min(960px, 100%);
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.device-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.select {
+  flex: 1 1 250px;
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #111827;
+}
+
+.button {
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.button.primary {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+}
+
+.button.primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.button.secondary {
+  background: #f3f4f6;
+  color: #1f2937;
+  border: 1px solid #e5e7eb;
+}
+
+.microphone-status {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.error-text {
+  color: #dc2626;
+}
+
+.level-meter {
+  height: 10px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.level-meter__fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #34d399, #22c55e);
+  transition: width 0.16s ease;
+}
+
+.transcript {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.transcript-empty {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+
+.bubble {
+  max-width: 75%;
+  padding: 1rem 1.25rem;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  box-shadow: 0 6px 12px rgba(15, 23, 42, 0.1);
+}
+
+.bubble.assistant {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  border-bottom-left-radius: 6px;
+}
+
+.bubble.user {
+  background: linear-gradient(135deg, #e5e7eb, #f3f4f6);
+  color: #111827;
+  align-self: flex-end;
+  border-bottom-right-radius: 6px;
+}
+
+.bubble.system {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.bubble.live {
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+.transcript-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.transcript-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.transcript-label.assistant {
+  color: #2563eb;
+}
+
+.transcript-label.user {
+  color: #6b7280;
+  text-align: right;
+}
+
+.transcript-label.system {
+  color: #92400e;
+}
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.subtitle {
+  margin: 0 auto;
+  max-width: 600px;
+  color: #6b7280;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}

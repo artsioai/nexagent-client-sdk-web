@@ -1,23 +1,22 @@
 {
-    "name": "example-app",
-    "version": "1.0.0",
-    "type": "module",
-    "scripts": {
-      "dev": "vite",
-      "build": "tsc && vite build",
-      "preview": "vite preview"
-    },
-    "dependencies": {
-        "@nexagent/web": "file:../nexagent-web-latest.tgz",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0"
-      },
-    "devDependencies": {
-      "@types/node": "^22.12.0",
-      "@types/react": "^18.2.0",
-      "@types/react-dom": "^18.2.0",
-      "@vitejs/plugin-react": "^4.2.0",
-      "typescript": "^5.0.0",
-      "vite": "^6.3.5"
-    }
+  "name": "nexagent-web-example",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@nexagent/web": "file:../nexagent-web-latest.tgz",
+    "next": "14.2.13",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.28",
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
+    "typescript": "5.8.3"
   }
+}

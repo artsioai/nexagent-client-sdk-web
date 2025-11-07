@@ -1279,11 +1279,7 @@ export default class NexAgent extends NexAgentEventEmitter {
     const buffer = this.getOrCreateUtteranceBuffer(role);
     const normalized = finalText?.trim();
     if (normalized) {
-      if (role === 'user') {
-        buffer.fragments = [normalized];
-      } else if (buffer.fragments.length === 0) {
-        buffer.fragments = [normalized];
-      }
+      buffer.fragments = [normalized];
     }
     const text = this.buildUtteranceText(buffer.fragments);
     const result = { id: buffer.id, text };
@@ -1320,7 +1316,20 @@ export default class NexAgent extends NexAgentEventEmitter {
   private resetAllUtteranceBuffers() {
     this.utteranceBuffers.assistant = null;
     this.utteranceBuffers.user = null;
+    this.lastAssistantLLMText = null;
+    this.pendingAssistantTranscription = null;
+    this.pendingAssistantTranscriptionFragments = null;
+    this.pendingUserTranscription = null;
+    this.pendingUserTranscriptionActive = null;
+    this.pendingUserTranscriptionSegments = null;
   }
+
+  private lastAssistantLLMText: string | null = null;
+  private pendingAssistantTranscription: string | null = null;
+  private pendingAssistantTranscriptionFragments: string[] | null = null;
+  private pendingUserTranscription: string | null = null;
+  private pendingUserTranscriptionActive: string | null = null;
+  private pendingUserTranscriptionSegments: string[] | null = null;
 
   private emitVapiCompatibleTranscriptIfPossible(message: any) {
     if (!message || typeof message !== 'object') {
@@ -1336,7 +1345,22 @@ export default class NexAgent extends NexAgentEventEmitter {
           ? data.transcript
           : undefined;
 
-    if (!messageType || !text) {
+    const allowsEmptyText =
+      messageType === 'bot-stopped-speaking' ||
+      messageType === 'user-stopped-speaking';
+
+    if (!messageType) {
+      return false;
+    }
+
+    if (messageType === 'bot-llm-text') {
+      if (text && text.length > 0) {
+        this.lastAssistantLLMText = text;
+      }
+      return false;
+    }
+
+    if (!text && !allowsEmptyText) {
       return false;
     }
 
@@ -1350,31 +1374,150 @@ export default class NexAgent extends NexAgentEventEmitter {
     let shouldFlushFinal = false;
 
     switch (messageType) {
-      case 'bot-llm-text':
       case 'bot-tts-text':
         role = 'assistant';
         transcriptType = 'partial';
         shouldBufferPartial = true;
         break;
       case 'bot-transcription':
+        {
+          const transcriptText =
+            typeof text === 'string' ? text.trim() : '';
+          if (!transcriptText) {
+            return false;
+          }
+          if (!this.pendingAssistantTranscriptionFragments) {
+            this.pendingAssistantTranscriptionFragments = [];
+          }
+          const fragments = this.pendingAssistantTranscriptionFragments;
+          const currentCombined =
+            this.pendingAssistantTranscription ??
+            (fragments.length > 0
+              ? this.buildUtteranceText(fragments)
+              : '');
+          const lastFragment = fragments[fragments.length - 1];
+          if (
+            currentCombined &&
+            transcriptText.length >= currentCombined.length &&
+            transcriptText.startsWith(currentCombined)
+          ) {
+            fragments.splice(0, fragments.length, transcriptText);
+          } else if (lastFragment !== transcriptText) {
+            fragments.push(transcriptText);
+          }
+          const combinedTranscript = this.buildUtteranceText(fragments);
+          this.pendingAssistantTranscription =
+            combinedTranscript.length > 0 ? combinedTranscript : null;
+          if (
+            combinedTranscript.length > 0 &&
+            (!this.lastAssistantLLMText ||
+              combinedTranscript.length >= this.lastAssistantLLMText.length)
+          ) {
+            this.lastAssistantLLMText = combinedTranscript;
+          }
+        }
+        return false;
+      case 'bot-stopped-speaking':
         role = 'assistant';
         transcriptType = 'final';
         shouldFlushFinal = true;
+        if (!text) {
+          if (
+            this.pendingAssistantTranscription &&
+            this.pendingAssistantTranscription.length > 0
+          ) {
+            text = this.pendingAssistantTranscription;
+          } else if (this.lastAssistantLLMText) {
+            text = this.lastAssistantLLMText;
+          }
+        }
         break;
       case 'user-llm-text':
+        role = 'user';
+        transcriptType = 'final';
+        shouldFlushFinal = true;
+        {
+          const llmText =
+            typeof data?.text === 'string' ? data.text.trim() : '';
+          if (llmText.length > 0) {
+            text = llmText;
+            this.pendingUserTranscription = llmText;
+          } else if (
+            this.pendingUserTranscription &&
+            this.pendingUserTranscription.length > 0
+          ) {
+            text = this.pendingUserTranscription;
+          }
+        }
+        break;
       case 'user-tts-text':
         role = 'user';
         transcriptType = 'partial';
         shouldBufferPartial = true;
         break;
       case 'user-transcription':
-        role = 'user';
-        if (dataFinalFlag) {
+        {
+          const transcriptText =
+            typeof text === 'string' ? text.trim() : '';
+          if (!transcriptText) {
+            return false;
+          }
+          if (!this.pendingUserTranscriptionSegments) {
+            this.pendingUserTranscriptionSegments = [];
+          }
+          let active = this.pendingUserTranscriptionActive;
+          if (!active) {
+            active = transcriptText;
+          } else if (
+            transcriptText.startsWith(active) ||
+            active.startsWith(transcriptText)
+          ) {
+            active = transcriptText;
+          } else {
+            const segments = this.pendingUserTranscriptionSegments;
+            if (
+              !segments.length ||
+              segments[segments.length - 1] !== active
+            ) {
+              segments.push(active);
+            }
+            active = transcriptText;
+          }
+          if (dataFinalFlag) {
+            const segments = this.pendingUserTranscriptionSegments;
+            if (
+              !segments.length ||
+              segments[segments.length - 1] !== active
+            ) {
+              segments.push(active);
+            }
+            active = null;
+          }
+          this.pendingUserTranscriptionActive = active;
+          const pieces = [
+            ...(this.pendingUserTranscriptionSegments ?? []),
+            ...(active ? [active] : []),
+          ];
+          const combined = this.buildUtteranceText(pieces);
+          this.pendingUserTranscription =
+            combined.length > 0 ? combined : transcriptText;
+          text = this.pendingUserTranscription;
+          role = 'user';
+          transcriptType = 'partial';
+          shouldBufferPartial = true;
+        }
+        break;
+      case 'user-stopped-speaking':
+        if (
+          this.pendingUserTranscription &&
+          this.pendingUserTranscription.length > 0
+        ) {
+          text = this.pendingUserTranscription;
+          role = 'user';
           transcriptType = 'final';
           shouldFlushFinal = true;
         } else {
-          transcriptType = 'partial';
-          shouldBufferPartial = true;
+          return false;
         }
         break;
       default:
@@ -1403,22 +1546,46 @@ export default class NexAgent extends NexAgentEventEmitter {
 
     const shouldReplaceBuffer =
       role === 'user' &&
-      (messageType === 'user-tts-text' || messageType === 'user-llm-text');
+      (messageType === 'user-tts-text' ||
+        messageType === 'user-llm-text' ||
+        messageType === 'user-transcription');
 
     if (shouldBufferPartial) {
+      const chunk = text ?? '';
       bufferedResult = {
-        ...this.appendToUtteranceBuffer(role, text, shouldReplaceBuffer),
+        ...this.appendToUtteranceBuffer(role, chunk, shouldReplaceBuffer),
         type: 'partial',
       };
       text = bufferedResult.text;
       transcriptType = 'partial';
     } else if (shouldFlushFinal) {
+      if (!text && role === 'assistant' && this.lastAssistantLLMText) {
+        text = this.lastAssistantLLMText;
+      }
+      const finalText = text ?? '';
       bufferedResult = {
-        ...this.finalizeUtteranceBuffer(role, text),
+        ...this.finalizeUtteranceBuffer(role, finalText),
         type: 'final',
       };
       text = bufferedResult.text || text;
       transcriptType = 'final';
+      if (
+        role === 'assistant' &&
+        this.lastAssistantLLMText &&
+        this.lastAssistantLLMText.length > (text?.length ?? 0)
+      ) {
+        bufferedResult.text = this.lastAssistantLLMText;
+        text = this.lastAssistantLLMText;
+      }
+      if (role === 'assistant') {
+        this.lastAssistantLLMText = null;
+        this.pendingAssistantTranscription = null;
+        this.pendingAssistantTranscriptionFragments = null;
+      } else if (role === 'user') {
+        this.pendingUserTranscription = null;
+        this.pendingUserTranscriptionActive = null;
+        this.pendingUserTranscriptionSegments = null;
+      }
     } else {
       this.resetUtteranceBuffer(role);
     }
@@ -1432,7 +1599,7 @@ export default class NexAgent extends NexAgentEventEmitter {
     } = {
       type: 'transcript',
       transcriptType,
-      transcript: text,
+      transcript: text ?? '',
       role,
     };
 
@@ -1455,17 +1622,18 @@ export default class NexAgent extends NexAgentEventEmitter {
       id: transcriptMessage.id ?? null,
     });
 
-    this.emit('message', transcriptMessage);
+    const emittedMessage = {
+      type: 'transcript',
+      role: transcriptMessage.role,
+      transcriptType: transcriptMessage.transcriptType,
+      transcript: transcriptMessage.transcript,
+    };
+
+    this.emit('message', emittedMessage);
     recordAppMessageLog('NexAgentEmitted', {
       dataType: 'sdk-message',
-      raw: transcriptMessage,
-      parsed: transcriptMessage,
-      note: 'emitted-vapi-compatible-transcript',
-    });
-    recordAppMessageLog('NexAgent', {
-      dataType: 'generated-transcript',
-      raw: transcriptMessage,
-      parsed: transcriptMessage,
+      raw: emittedMessage,
+      parsed: emittedMessage,
       note: 'emitted-vapi-compatible-transcript',
     });
     return true;
