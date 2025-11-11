@@ -52,23 +52,6 @@ nexAgent.start('your-assistant-id');
 
 The `start` method will initiate a new call.
 
-You can override existing assistant parameters or set variables with the `assistant_overrides` parameter.
-Assume the first message is `Hey, {{name}} how are you?` and you want to set the value of `name` to `John`:
-
-```javascript
-const assistantOverrides = {
-  recordingEnabled: false,
-  variableValues: {
-    name: 'John',
-  },
-};
-
-nexAgent.start(
-  'your-assistant-id',
-  assistantOverrides,
-);
-```
-
 You can send text messages to the assistant aside from the audio input using the `send` method and passing appropriate `role` and `content`.
 
 ```javascript
