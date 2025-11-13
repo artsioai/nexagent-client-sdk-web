@@ -1317,16 +1317,12 @@ export default class NexAgent extends NexAgentEventEmitter {
     this.utteranceBuffers.assistant = null;
     this.utteranceBuffers.user = null;
     this.lastAssistantLLMText = null;
-    this.pendingAssistantTranscription = null;
-    this.pendingAssistantTranscriptionFragments = null;
     this.pendingUserTranscription = null;
     this.pendingUserTranscriptionActive = null;
     this.pendingUserTranscriptionSegments = null;
   }
 
   private lastAssistantLLMText: string | null = null;
-  private pendingAssistantTranscription: string | null = null;
-  private pendingAssistantTranscriptionFragments: string[] | null = null;
   private pendingUserTranscription: string | null = null;
   private pendingUserTranscriptionActive: string | null = null;
   private pendingUserTranscriptionSegments: string[] | null = null;
@@ -1380,54 +1376,19 @@ export default class NexAgent extends NexAgentEventEmitter {
         shouldBufferPartial = true;
         break;
       case 'bot-transcription':
-        {
-          const transcriptText =
-            typeof text === 'string' ? text.trim() : '';
-          if (!transcriptText) {
-            return false;
-          }
-          if (!this.pendingAssistantTranscriptionFragments) {
-            this.pendingAssistantTranscriptionFragments = [];
-          }
-          const fragments = this.pendingAssistantTranscriptionFragments;
-          const currentCombined =
-            this.pendingAssistantTranscription ??
-            (fragments.length > 0
-              ? this.buildUtteranceText(fragments)
-              : '');
-          const lastFragment = fragments[fragments.length - 1];
-          if (
-            currentCombined &&
-            transcriptText.length >= currentCombined.length &&
-            transcriptText.startsWith(currentCombined)
-          ) {
-            fragments.splice(0, fragments.length, transcriptText);
-          } else if (lastFragment !== transcriptText) {
-            fragments.push(transcriptText);
-          }
-          const combinedTranscript = this.buildUtteranceText(fragments);
-          this.pendingAssistantTranscription =
-            combinedTranscript.length > 0 ? combinedTranscript : null;
-          if (
-            combinedTranscript.length > 0 &&
-            (!this.lastAssistantLLMText ||
-              combinedTranscript.length >= this.lastAssistantLLMText.length)
-          ) {
-            this.lastAssistantLLMText = combinedTranscript;
-          }
+        role = 'assistant';
+        transcriptType = 'final';
+        shouldFlushFinal = true;
+        if (text && text.length > 0) {
+          this.lastAssistantLLMText = text;
         }
-        return false;
+        break;
       case 'bot-stopped-speaking':
         role = 'assistant';
         transcriptType = 'final';
         shouldFlushFinal = true;
         if (!text) {
-          if (
-            this.pendingAssistantTranscription &&
-            this.pendingAssistantTranscription.length > 0
-          ) {
-            text = this.pendingAssistantTranscription;
-          } else if (this.lastAssistantLLMText) {
+          if (this.lastAssistantLLMText) {
             text = this.lastAssistantLLMText;
           }
         }
@@ -1579,8 +1540,6 @@ export default class NexAgent extends NexAgentEventEmitter {
       }
       if (role === 'assistant') {
         this.lastAssistantLLMText = null;
-        this.pendingAssistantTranscription = null;
-        this.pendingAssistantTranscriptionFragments = null;
       } else if (role === 'user') {
         this.pendingUserTranscription = null;
         this.pendingUserTranscriptionActive = null;

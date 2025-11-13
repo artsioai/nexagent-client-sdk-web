@@ -1,18 +1,17 @@
-# Step 1: Manually download the Swagger JSON file
-curl -o ./api-extended-json.json https://nexagent.api.next.newcast.ai/openapi.json
+#!/usr/bin/env bash
+set -euo pipefail
 
-# Step 2: Find and replace transcript[transcriptType=\"final\"] with transcript[transcriptType='final']
-# Use different sed syntax for Linux vs macOS compatibility
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  # macOS
-  sed -i '' 's/transcript\[transcriptType=\\"final\\"\]/transcript[transcriptType='\''final'\'']/g' ./api-extended-json.json
+API_JSON="./api-extended-json.json"
+SWAGGER_URL="https://nexagent.api.next.newcast.ai/openapi.json"
+
+curl -fSL "$SWAGGER_URL" -o "$API_JSON"
+
+if [[ "${OSTYPE:-}" == darwin* ]]; then
+  sed -i '' 's/transcript\[transcriptType=\\"final\\"\]/transcript[transcriptType='\''final'\'']/g' "$API_JSON"
 else
-  # Linux (GitHub Actions)
-  sed -i 's/transcript\[transcriptType=\\"final\\"\]/transcript[transcriptType='\''final'\'']/g' ./api-extended-json.json
+  sed -i 's/transcript\[transcriptType=\\"final\\"\]/transcript[transcriptType='\''final'\'']/g' "$API_JSON"
 fi
 
-# Step 3: Generate TypeScript API using the edited JSON file
-npx swagger-typescript-api generate -p ./api-extended-json.json -o . -n api.ts
+npx swagger-typescript-api generate -p "$API_JSON" -o . -n api.ts
 
-# Step 4: Remove the edited JSON file
-rm ./api-extended-json.json
+rm -f "$API_JSON"

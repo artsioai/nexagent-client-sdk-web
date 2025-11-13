@@ -225,12 +225,12 @@ export interface ApiKeyResponse {
    * Createdat
    * ISO 8601 creation timestamp
    */
-  createdAt: string;
+  createdAt?: string | null;
   /**
    * Updatedat
    * ISO 8601 last update timestamp
    */
-  updatedAt: string;
+  updatedAt?: string | null;
 }
 
 /**
@@ -299,15 +299,13 @@ export interface AssistantResponse {
   /**
    * Createdat
    * Creation timestamp in ISO 8601 format
-   * @format date-time
    */
-  createdAt: string;
+  createdAt?: string | null;
   /**
    * Updatedat
    * Last update timestamp in ISO 8601 format
-   * @format date-time
    */
-  updatedAt: string;
+  updatedAt?: string | null;
   /**
    * Name
    * Assistant name
@@ -504,15 +502,13 @@ export interface CallResponse {
   /**
    * Createdat
    * Creation timestamp
-   * @format date-time
    */
-  createdAt: string;
+  createdAt?: string | null;
   /**
    * Updatedat
    * Last update timestamp
-   * @format date-time
    */
-  updatedAt: string;
+  updatedAt?: string | null;
   /**
    * Startedat
    * Call start timestamp
@@ -976,15 +972,13 @@ export interface CredentialResponse {
   /**
    * Createdat
    * Creation timestamp
-   * @format date-time
    */
-  createdAt: string;
+  createdAt?: string | null;
   /**
    * Updatedat
    * Last update timestamp
-   * @format date-time
    */
-  updatedAt: string;
+  updatedAt?: string | null;
 }
 
 /**
@@ -1449,7 +1443,7 @@ export interface OpenAIVoice {
 
 /**
  * PaginationResponse[AssistantResponse]
- * @example {"items":[],"next_token":"eyJwayI6InVzcjEyMyIsInNrIjoiYXNzaXN0YW50XzQ1NiJ9","total_count":250}
+ * @example {"items":[],"next_token":"eyJwayI6InVzcjEyMyIsInNrIjoiYXNzaXN0YW50XzQ1NiJ9"}
  */
 export interface PaginationResponseAssistantResponse {
   /**
@@ -1462,16 +1456,11 @@ export interface PaginationResponseAssistantResponse {
    * Token for retrieving the next page of results
    */
   next_token?: string | null;
-  /**
-   * Total Count
-   * Total number of items available (if known)
-   */
-  total_count?: number | null;
 }
 
 /**
  * PaginationResponse[CallResponse]
- * @example {"items":[],"next_token":"eyJwayI6InVzcjEyMyIsInNrIjoiYXNzaXN0YW50XzQ1NiJ9","total_count":250}
+ * @example {"items":[],"next_token":"eyJwayI6InVzcjEyMyIsInNrIjoiYXNzaXN0YW50XzQ1NiJ9"}
  */
 export interface PaginationResponseCallResponse {
   /**
@@ -1484,16 +1473,11 @@ export interface PaginationResponseCallResponse {
    * Token for retrieving the next page of results
    */
   next_token?: string | null;
-  /**
-   * Total Count
-   * Total number of items available (if known)
-   */
-  total_count?: number | null;
 }
 
 /**
  * PaginationResponse[CredentialResponse]
- * @example {"items":[],"next_token":"eyJwayI6InVzcjEyMyIsInNrIjoiYXNzaXN0YW50XzQ1NiJ9","total_count":250}
+ * @example {"items":[],"next_token":"eyJwayI6InVzcjEyMyIsInNrIjoiYXNzaXN0YW50XzQ1NiJ9"}
  */
 export interface PaginationResponseCredentialResponse {
   /**
@@ -1506,16 +1490,11 @@ export interface PaginationResponseCredentialResponse {
    * Token for retrieving the next page of results
    */
   next_token?: string | null;
-  /**
-   * Total Count
-   * Total number of items available (if known)
-   */
-  total_count?: number | null;
 }
 
 /**
  * PaginationResponse[PhoneNumberResponse]
- * @example {"items":[],"next_token":"eyJwayI6InVzcjEyMyIsInNrIjoiYXNzaXN0YW50XzQ1NiJ9","total_count":250}
+ * @example {"items":[],"next_token":"eyJwayI6InVzcjEyMyIsInNrIjoiYXNzaXN0YW50XzQ1NiJ9"}
  */
 export interface PaginationResponsePhoneNumberResponse {
   /**
@@ -1528,16 +1507,11 @@ export interface PaginationResponsePhoneNumberResponse {
    * Token for retrieving the next page of results
    */
   next_token?: string | null;
-  /**
-   * Total Count
-   * Total number of items available (if known)
-   */
-  total_count?: number | null;
 }
 
 /**
  * PaginationResponse[ToolResponse]
- * @example {"items":[],"next_token":"eyJwayI6InVzcjEyMyIsInNrIjoiYXNzaXN0YW50XzQ1NiJ9","total_count":250}
+ * @example {"items":[],"next_token":"eyJwayI6InVzcjEyMyIsInNrIjoiYXNzaXN0YW50XzQ1NiJ9"}
  */
 export interface PaginationResponseToolResponse {
   /**
@@ -1550,11 +1524,6 @@ export interface PaginationResponseToolResponse {
    * Token for retrieving the next page of results
    */
   next_token?: string | null;
-  /**
-   * Total Count
-   * Total number of items available (if known)
-   */
-  total_count?: number | null;
 }
 
 /**
@@ -1562,24 +1531,13 @@ export interface PaginationResponseToolResponse {
  * Response model for phone numbers - excludes sensitive credentials.
  */
 export interface PhoneNumberResponse {
-  /**
-   * Pk
-   * @default "pho"
-   */
-  pk?: string;
   /** Id */
   id: string;
   /** Orgid */
   orgId: string;
-  /**
-   * Createdat
-   * @format date-time
-   */
+  /** Createdat */
   createdAt: string;
-  /**
-   * Updatedat
-   * @format date-time
-   */
+  /** Updatedat */
   updatedAt: string;
   /** Number */
   number: string;
@@ -1599,12 +1557,6 @@ export interface PhoneNumberResponse {
   sipUri?: string | null;
   /** Numberdesiredareacode */
   numberDesiredAreaCode?: string | null;
-  /** Lsi1 */
-  lsi1?: string | null;
-  /** Lsi2 */
-  lsi2?: string | null;
-  /** Lsi3 */
-  lsi3?: string | null;
 }
 
 /**
@@ -1779,15 +1731,13 @@ export interface ToolResponse {
   /**
    * Createdat
    * Creation timestamp
-   * @format date-time
    */
-  createdAt: string;
+  createdAt?: string | null;
   /**
    * Updatedat
    * Last update timestamp
-   * @format date-time
    */
-  updatedAt: string;
+  updatedAt?: string | null;
   /**
    * Name
    * Tool name
@@ -2045,15 +1995,13 @@ export interface WebCallResponse {
   /**
    * Createdat
    * Creation timestamp
-   * @format date-time
    */
-  createdAt: string;
+  createdAt?: string | null;
   /**
    * Updatedat
    * Last update timestamp
-   * @format date-time
    */
-  updatedAt: string;
+  updatedAt?: string | null;
   /**
    * Startedat
    * Call start timestamp
@@ -2389,7 +2337,7 @@ export class Api<
      * @tags api-keys
      * @name CreateApiKeyEndpointApiKeyPost
      * @summary Create new API key
-     * @request POST:/api-key/
+     * @request POST:/api-key
      * @secure
      */
     createApiKeyEndpointApiKeyPost: (
@@ -2400,7 +2348,7 @@ export class Api<
         ApiKeyOperationResponse,
         ApiKeyErrorResponse | HTTPValidationError
       >({
-        path: `/api-key/`,
+        path: `/api-key`,
         method: "POST",
         body: data,
         secure: true,
@@ -2461,7 +2409,7 @@ export class Api<
      * @tags credentials
      * @name CreateCredentialEndpointCredentialPost
      * @summary Create new credential
-     * @request POST:/credential/
+     * @request POST:/credential
      * @secure
      */
     createCredentialEndpointCredentialPost: (
@@ -2469,7 +2417,7 @@ export class Api<
       params: RequestParams = {},
     ) =>
       this.request<CredentialResponse, HTTPValidationError>({
-        path: `/credential/`,
+        path: `/credential`,
         method: "POST",
         body: data,
         secure: true,
@@ -2484,7 +2432,7 @@ export class Api<
      * @tags credentials
      * @name ListCredentialsEndpointCredentialGet
      * @summary List credentials
-     * @request GET:/credential/
+     * @request GET:/credential
      * @secure
      */
     listCredentialsEndpointCredentialGet: (
@@ -2533,7 +2481,7 @@ export class Api<
       params: RequestParams = {},
     ) =>
       this.request<PaginationResponseCredentialResponse, HTTPValidationError>({
-        path: `/credential/`,
+        path: `/credential`,
         method: "GET",
         query: query,
         secure: true,
@@ -2614,7 +2562,7 @@ export class Api<
      * @tags assistants
      * @name CreateAssistantEndpointAssistantPost
      * @summary Create Assistant
-     * @request POST:/assistant/
+     * @request POST:/assistant
      * @secure
      */
     createAssistantEndpointAssistantPost: (
@@ -2622,7 +2570,7 @@ export class Api<
       params: RequestParams = {},
     ) =>
       this.request<AssistantResponse, void | HTTPValidationError>({
-        path: `/assistant/`,
+        path: `/assistant`,
         method: "POST",
         body: data,
         secure: true,
@@ -2637,7 +2585,7 @@ export class Api<
      * @tags assistants
      * @name ListAssistantsEndpointAssistantGet
      * @summary List Assistants
-     * @request GET:/assistant/
+     * @request GET:/assistant
      * @secure
      */
     listAssistantsEndpointAssistantGet: (
@@ -2676,7 +2624,7 @@ export class Api<
       params: RequestParams = {},
     ) =>
       this.request<PaginationResponseAssistantResponse, HTTPValidationError>({
-        path: `/assistant/`,
+        path: `/assistant`,
         method: "GET",
         query: query,
         secure: true,
@@ -2756,7 +2704,7 @@ export class Api<
      * @tags calls
      * @name CreateCallEndpointCallPost
      * @summary Create Call
-     * @request POST:/call/
+     * @request POST:/call
      * @secure
      */
     createCallEndpointCallPost: (
@@ -2764,7 +2712,7 @@ export class Api<
       params: RequestParams = {},
     ) =>
       this.request<CallResponse, void | HTTPValidationError>({
-        path: `/call/`,
+        path: `/call`,
         method: "POST",
         body: data,
         secure: true,
@@ -2779,7 +2727,7 @@ export class Api<
      * @tags calls
      * @name ListCallsEndpointCallGet
      * @summary List Calls
-     * @request GET:/call/
+     * @request GET:/call
      * @secure
      */
     listCallsEndpointCallGet: (
@@ -2826,7 +2774,7 @@ export class Api<
       params: RequestParams = {},
     ) =>
       this.request<PaginationResponseCallResponse, void | HTTPValidationError>({
-        path: `/call/`,
+        path: `/call`,
         method: "GET",
         query: query,
         secure: true,
@@ -3071,7 +3019,7 @@ export class Api<
      * @tags tools
      * @name CreateToolEndpointToolPost
      * @summary Create Tool
-     * @request POST:/tool/
+     * @request POST:/tool
      * @secure
      */
     createToolEndpointToolPost: (
@@ -3079,7 +3027,7 @@ export class Api<
       params: RequestParams = {},
     ) =>
       this.request<ToolResponse, void | HTTPValidationError>({
-        path: `/tool/`,
+        path: `/tool`,
         method: "POST",
         body: data,
         secure: true,
@@ -3094,7 +3042,7 @@ export class Api<
      * @tags tools
      * @name ListToolsEndpointToolGet
      * @summary List Tools
-     * @request GET:/tool/
+     * @request GET:/tool
      * @secure
      */
     listToolsEndpointToolGet: (
@@ -3133,7 +3081,7 @@ export class Api<
       params: RequestParams = {},
     ) =>
       this.request<PaginationResponseToolResponse, void | HTTPValidationError>({
-        path: `/tool/`,
+        path: `/tool`,
         method: "GET",
         query: query,
         secure: true,
@@ -3208,24 +3156,17 @@ export class Api<
   };
   webhook = {
     /**
-     * @description Handle Twilio voice webhook for starting calls with assistants. This endpoint receives Twilio webhook calls when a phone number is dialed. It processes the call and initiates the appropriate assistant conversation. Args: request: FastAPI request object assistant_id: Assistant ID from query parameter Returns: TwiML response to control the call
+     * @description Handle Twilio voice webhook for starting calls with assistants. This endpoint receives Twilio webhook calls when a phone number is dialed. It processes the call and initiates the appropriate assistant conversation. Args: request: FastAPI request object call_data: Twilio call data Returns: TwiML response to control the call Raises: HTTPException: If assistant_id is missing or assistant not found
      *
      * @tags webhooks
      * @name StartTwilioWebhookWebhookTwilioPhonePost
      * @summary Start Twilio Webhook
      * @request POST:/webhook/twilio-phone
      */
-    startTwilioWebhookWebhookTwilioPhonePost: (
-      query?: {
-        /** Assistant Id */
-        assistant_id?: string | null;
-      },
-      params: RequestParams = {},
-    ) =>
-      this.request<any, HTTPValidationError>({
+    startTwilioWebhookWebhookTwilioPhonePost: (params: RequestParams = {}) =>
+      this.request<any, any>({
         path: `/webhook/twilio-phone`,
         method: "POST",
-        query: query,
         format: "json",
         ...params,
       }),
