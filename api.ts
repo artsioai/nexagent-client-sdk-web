@@ -801,7 +801,7 @@ export interface CreateCallDTO {
 
 /**
  * CreateNexagentSIP
- * DTO for creating a Vapi phone number.
+ * DTO for creating a phone number.
  */
 export interface CreateNexagentSIP {
   /**
@@ -854,7 +854,7 @@ export interface CreateTwilioPhoneNumber {
   twilioApiSecret?: string | null;
   /**
    * Smsenabled
-   * Controls whether Vapi sets the messaging webhook URL
+   * Controls whether the platform sets the messaging webhook URL
    * @default true
    */
   smsEnabled?: boolean;

@@ -22,11 +22,7 @@ import {
   safeSetInputDevicesAsync,
 } from './daily-guards';
 
-type AppMessageLogSource =
-  | 'NexAgent'
-  | 'Vapi'
-  | 'NexAgentEmitted'
-  | 'VapiEmitted';
+type AppMessageLogSource = 'NexAgent' | 'NexAgentEmitted';
 
 type AppMessageLogEntry = {
   timestamp: string;
@@ -36,7 +32,6 @@ type AppMessageLogEntry = {
   raw: any;
   parsed?: any;
   note?: string;
-  reason?: Record<string, any> | string;
 };
 
 type AppMessageLogger = {
@@ -108,20 +103,6 @@ function getAppMessageLogger(): AppMessageLogger | null {
     if (!win.clearDailyAppMessageLogs) {
       win.clearDailyAppMessageLogs = () => logger.clear();
     }
-    if (!win.downloadVapiReceivedMessages) {
-      win.downloadVapiReceivedMessages = () =>
-        downloadEntries(
-          logger.entries.filter((entry: AppMessageLogEntry) => entry.source === 'Vapi'),
-          'vapi-received-app-messages',
-        );
-    }
-    if (!win.downloadVapiEmittedMessages) {
-      win.downloadVapiEmittedMessages = () =>
-        downloadEntries(
-          logger.entries.filter((entry: AppMessageLogEntry) => entry.source === 'VapiEmitted'),
-          'vapi-emitted-app-messages',
-        );
-    }
   };
 
   if (!win.__dailyAppMessageLogger) {
@@ -133,7 +114,7 @@ function getAppMessageLogger(): AppMessageLogger | null {
     ensureLoggerHelpers(logger);
     win.__dailyAppMessageLogger = logger;
     console.log(
-      '[DailyAppMessageLogger] Ready. Use window.downloadDailyAppMessages(), window.downloadNexAgentReceivedMessages(), window.downloadNexAgentEmittedMessages(), window.downloadVapiReceivedMessages(), or window.downloadVapiEmittedMessages() to download captured logs.',
+      '[DailyAppMessageLogger] Ready. Use window.downloadDailyAppMessages(), window.downloadNexAgentReceivedMessages(), or window.downloadNexAgentEmittedMessages() to download captured logs.',
     );
   } else {
     ensureLoggerHelpers(win.__dailyAppMessageLogger);
@@ -754,7 +735,6 @@ export default class NexAgent extends NexAgentEventEmitter {
         }
         const assistantNames = new Set([
           'NexAgent Speaker',
-          'Vapi Speaker',
           'rtvi-ai',
           'Nexagent Bot',
         ]);
@@ -1129,7 +1109,7 @@ export default class NexAgent extends NexAgentEventEmitter {
       }
 
       if (typeof e.data === 'object' && e.data !== null) {
-        this.emitVapiCompatibleTranscriptIfPossible(e.data);
+        this.emitTranscriptIfPossible(e.data);
         this.emit('message', e.data);
         recordAppMessageLog('NexAgentEmitted', {
           fromId: e.fromId,
@@ -1153,7 +1133,7 @@ export default class NexAgent extends NexAgentEventEmitter {
         if (trimmed.startsWith('{') || trimmed.startsWith('[')) {
           try {
             const parsedMessage = JSON.parse(trimmed);
-            this.emitVapiCompatibleTranscriptIfPossible(parsedMessage);
+            this.emitTranscriptIfPossible(parsedMessage);
             this.emit('message', parsedMessage);
             recordAppMessageLog('NexAgentEmitted', {
               fromId: e.fromId,
@@ -1351,7 +1331,7 @@ export default class NexAgent extends NexAgentEventEmitter {
     }
   }
 
-  private emitVapiCompatibleTranscriptIfPossible(message: any) {
+  private emitTranscriptIfPossible(message: any) {
     if (!message || typeof message !== 'object') {
       return false;
     }
@@ -1653,16 +1633,12 @@ export default class NexAgent extends NexAgentEventEmitter {
       this.lastAssistantPartialTranscript = null;
     }
 
-    console.log('[NexAgent] Emitting Vapi-style transcript message', {
+    console.log('[NexAgent] Emitting transcript message', {
       type: transcriptMessage.type,
       transcriptType: transcriptMessage.transcriptType,
       role: transcriptMessage.role,
       transcript: transcriptMessage.transcript,
       id: transcriptMessage.id ?? null,
-      reason: bufferedResult?.type
-        ? `${messageType}:${bufferedResult.type}`
-        : `${messageType}:direct`,
-      assistantUsesTtsInCurrentUtterance: this.assistantUsesTtsInCurrentUtterance,
     });
 
     const emittedMessage = {
@@ -1677,12 +1653,7 @@ export default class NexAgent extends NexAgentEventEmitter {
       dataType: 'sdk-message',
       raw: emittedMessage,
       parsed: emittedMessage,
-      note: 'emitted-vapi-compatible-transcript',
-      reason: {
-        sourceMessageType: messageType,
-        bufferType: bufferedResult?.type ?? null,
-        assistantUsesTts: this.assistantUsesTtsInCurrentUtterance,
-      },
+      note: 'emitted-transcript',
     });
     return true;
   }

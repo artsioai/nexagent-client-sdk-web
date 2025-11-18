@@ -19,9 +19,9 @@
     events "^3.1.0"
 
 "@newcast/nexagent-sdk-web@file:../newcast-nexagent-sdk-web-latest.tgz":
-  version "0.0.6"
+  version "0.0.7"
   resolved "file:../newcast-nexagent-sdk-web-latest.tgz"
-  integrity sha512-MfTrwqaWHK/PImo2Rwmh0a6LW3k70SCLq685ptJBIE3b82RS02ekK12boJ4uM6Ba25dCEJTco+EgsKgScaHjMw==
+  integrity sha512-pGRSqijxh1eIGd8i1fZlFExxngspmaE7Bd+ZWKcSZOAhJfhvsBr1S/3IsSx2Rr3pG8EXXKlnoAIe/xyiWh8tEw==
   dependencies:
     "@daily-co/daily-js" "^0.84.0"
     events "^3.3.0"
