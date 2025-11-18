@@ -36,6 +36,7 @@ type AppMessageLogEntry = {
   raw: any;
   parsed?: any;
   note?: string;
+  reason?: Record<string, any> | string;
 };
 
 type AppMessageLogger = {
@@ -1266,9 +1267,13 @@ export default class NexAgent extends NexAgentEventEmitter {
     if (normalized) {
       buffer.fragments.push(normalized);
     }
+    const combinedText = this.buildUtteranceText(buffer.fragments);
+    if (role === 'assistant') {
+      this.lastAssistantBufferedTranscript = combinedText;
+    }
     return {
       id: buffer.id,
-      text: this.buildUtteranceText(buffer.fragments),
+      text: combinedText,
     };
   }
 
@@ -1282,6 +1287,9 @@ export default class NexAgent extends NexAgentEventEmitter {
       buffer.fragments = [normalized];
     }
     const text = this.buildUtteranceText(buffer.fragments);
+    if (role === 'assistant') {
+      this.lastAssistantBufferedTranscript = text;
+    }
     const result = { id: buffer.id, text };
     this.utteranceBuffers[role] = null;
     return result;
@@ -1311,6 +1319,9 @@ export default class NexAgent extends NexAgentEventEmitter {
 
   private resetUtteranceBuffer(role: UtteranceRole) {
     this.utteranceBuffers[role] = null;
+    if (role === 'assistant') {
+      this.lastAssistantBufferedTranscript = null;
+    }
   }
 
   private resetAllUtteranceBuffers() {
@@ -1321,6 +1332,8 @@ export default class NexAgent extends NexAgentEventEmitter {
     this.pendingUserTranscriptionActive = null;
     this.pendingUserTranscriptionSegments = null;
     this.assistantUsesTtsInCurrentUtterance = false;
+    this.lastAssistantBufferedTranscript = null;
+    this.lastAssistantPartialTranscript = null;
   }
 
   private lastAssistantLLMText: string | null = null;
@@ -1328,6 +1341,8 @@ export default class NexAgent extends NexAgentEventEmitter {
   private pendingUserTranscriptionActive: string | null = null;
   private pendingUserTranscriptionSegments: string[] | null = null;
   private assistantUsesTtsInCurrentUtterance = false;
+  private lastAssistantBufferedTranscript: string | null = null;
+  private lastAssistantPartialTranscript: string | null = null;
 
   private markAssistantTtsUsage() {
     if (!this.assistantUsesTtsInCurrentUtterance) {
@@ -1394,10 +1409,14 @@ export default class NexAgent extends NexAgentEventEmitter {
         if (normalized.length > 0) {
           this.lastAssistantLLMText = normalized;
         }
+        this.markAssistantTtsUsage();
         // Ignore NexAgent bot-transcription payloads so we emit only TTS-driven transcripts.
         return false;
       }
       case 'bot-stopped-speaking':
+        if (!this.assistantUsesTtsInCurrentUtterance) {
+          return false;
+        }
         role = 'assistant';
         transcriptType = 'final';
         shouldFlushFinal = true;
@@ -1411,12 +1430,15 @@ export default class NexAgent extends NexAgentEventEmitter {
         if (this.assistantUsesTtsInCurrentUtterance) {
           return false;
         }
-        role = 'assistant';
-        transcriptType = 'final';
-        shouldFlushFinal = true;
         if (!text && this.lastAssistantLLMText) {
           text = this.lastAssistantLLMText;
         }
+        if (!text) {
+          return false;
+        }
+        role = 'assistant';
+        transcriptType = 'final';
+        shouldFlushFinal = true;
         break;
       case 'user-llm-text':
         role = 'user';
@@ -1555,6 +1577,16 @@ export default class NexAgent extends NexAgentEventEmitter {
       };
       text = bufferedResult.text || text;
       transcriptType = 'final';
+      if (role === 'assistant') {
+        const bufferedTranscript = this.lastAssistantBufferedTranscript;
+        if (
+          bufferedTranscript &&
+          bufferedTranscript.length > (text?.length ?? 0)
+        ) {
+          bufferedResult.text = bufferedTranscript;
+          text = bufferedTranscript;
+        }
+      }
       if (
         role === 'assistant' &&
         this.lastAssistantLLMText &&
@@ -1566,6 +1598,7 @@ export default class NexAgent extends NexAgentEventEmitter {
       if (role === 'assistant') {
         this.lastAssistantLLMText = null;
         this.assistantUsesTtsInCurrentUtterance = false;
+        this.lastAssistantBufferedTranscript = null;
       } else if (role === 'user') {
         this.pendingUserTranscription = null;
         this.pendingUserTranscriptionActive = null;
@@ -1599,12 +1632,37 @@ export default class NexAgent extends NexAgentEventEmitter {
       transcriptMessage.id = candidateId;
     }
 
+    if (
+      transcriptMessage.role === 'assistant' &&
+      transcriptMessage.transcriptType === 'partial'
+    ) {
+      this.lastAssistantPartialTranscript = transcriptMessage.transcript;
+    }
+
+    if (
+      transcriptMessage.role === 'assistant' &&
+      transcriptMessage.transcriptType === 'final'
+    ) {
+      if (
+        this.lastAssistantPartialTranscript &&
+        this.lastAssistantPartialTranscript.length >
+          (transcriptMessage.transcript?.length ?? 0)
+      ) {
+        transcriptMessage.transcript = this.lastAssistantPartialTranscript;
+      }
+      this.lastAssistantPartialTranscript = null;
+    }
+
     console.log('[NexAgent] Emitting Vapi-style transcript message', {
       type: transcriptMessage.type,
       transcriptType: transcriptMessage.transcriptType,
       role: transcriptMessage.role,
       transcript: transcriptMessage.transcript,
       id: transcriptMessage.id ?? null,
+      reason: bufferedResult?.type
+        ? `${messageType}:${bufferedResult.type}`
+        : `${messageType}:direct`,
+      assistantUsesTtsInCurrentUtterance: this.assistantUsesTtsInCurrentUtterance,
     });
 
     const emittedMessage = {
@@ -1620,6 +1678,11 @@ export default class NexAgent extends NexAgentEventEmitter {
       raw: emittedMessage,
       parsed: emittedMessage,
       note: 'emitted-vapi-compatible-transcript',
+      reason: {
+        sourceMessageType: messageType,
+        bufferType: bufferedResult?.type ?? null,
+        assistantUsesTts: this.assistantUsesTtsInCurrentUtterance,
+      },
     });
     return true;
   }
