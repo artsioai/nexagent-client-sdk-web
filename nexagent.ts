@@ -1320,12 +1320,21 @@ export default class NexAgent extends NexAgentEventEmitter {
     this.pendingUserTranscription = null;
     this.pendingUserTranscriptionActive = null;
     this.pendingUserTranscriptionSegments = null;
+    this.assistantUsesTtsInCurrentUtterance = false;
   }
 
   private lastAssistantLLMText: string | null = null;
   private pendingUserTranscription: string | null = null;
   private pendingUserTranscriptionActive: string | null = null;
   private pendingUserTranscriptionSegments: string[] | null = null;
+  private assistantUsesTtsInCurrentUtterance = false;
+
+  private markAssistantTtsUsage() {
+    if (!this.assistantUsesTtsInCurrentUtterance) {
+      this.assistantUsesTtsInCurrentUtterance = true;
+      this.resetUtteranceBuffer('assistant');
+    }
+  }
 
   private emitVapiCompatibleTranscriptIfPossible(message: any) {
     if (!message || typeof message !== 'object') {
@@ -1343,7 +1352,8 @@ export default class NexAgent extends NexAgentEventEmitter {
 
     const allowsEmptyText =
       messageType === 'bot-stopped-speaking' ||
-      messageType === 'user-stopped-speaking';
+      messageType === 'user-stopped-speaking' ||
+      messageType === 'bot-llm-stopped';
 
     if (!messageType) {
       return false;
@@ -1371,18 +1381,22 @@ export default class NexAgent extends NexAgentEventEmitter {
 
     switch (messageType) {
       case 'bot-tts-text':
+        this.markAssistantTtsUsage();
         role = 'assistant';
         transcriptType = 'partial';
         shouldBufferPartial = true;
         break;
-      case 'bot-transcription':
-        role = 'assistant';
-        transcriptType = 'final';
-        shouldFlushFinal = true;
-        if (text && text.length > 0) {
-          this.lastAssistantLLMText = text;
+      case 'bot-tts-started':
+        this.markAssistantTtsUsage();
+        return false;
+      case 'bot-transcription': {
+        const normalized = typeof text === 'string' ? text.trim() : '';
+        if (normalized.length > 0) {
+          this.lastAssistantLLMText = normalized;
         }
-        break;
+        // Ignore NexAgent bot-transcription payloads so we emit only TTS-driven transcripts.
+        return false;
+      }
       case 'bot-stopped-speaking':
         role = 'assistant';
         transcriptType = 'final';
@@ -1391,6 +1405,17 @@ export default class NexAgent extends NexAgentEventEmitter {
           if (this.lastAssistantLLMText) {
             text = this.lastAssistantLLMText;
           }
+        }
+        break;
+      case 'bot-llm-stopped':
+        if (this.assistantUsesTtsInCurrentUtterance) {
+          return false;
+        }
+        role = 'assistant';
+        transcriptType = 'final';
+        shouldFlushFinal = true;
+        if (!text && this.lastAssistantLLMText) {
+          text = this.lastAssistantLLMText;
         }
         break;
       case 'user-llm-text':
@@ -1540,6 +1565,7 @@ export default class NexAgent extends NexAgentEventEmitter {
       }
       if (role === 'assistant') {
         this.lastAssistantLLMText = null;
+        this.assistantUsesTtsInCurrentUtterance = false;
       } else if (role === 'user') {
         this.pendingUserTranscription = null;
         this.pendingUserTranscriptionActive = null;
