@@ -13,8 +13,8 @@ echo "📦 Packing library..."
 npm pack
 
 echo "🔄 Setting up latest build..."
-rm -f nexagent-web-latest.tgz
-LATEST_TARBALL=$(ls nexagent-web-*.tgz | grep -v latest | tail -1)
-cp "$LATEST_TARBALL" nexagent-web-latest.tgz
+rm -f newcast-nexagent-sdk-web-latest.tgz
+LATEST_TARBALL=$(ls newcast-nexagent-sdk-web-*.tgz | grep -v latest | tail -1)
+cp "$LATEST_TARBALL" newcast-nexagent-sdk-web-latest.tgz
 
-echo "✅ Created nexagent-web-latest.tgz from $LATEST_TARBALL"
+echo "✅ Created newcast-nexagent-sdk-web-latest.tgz from $LATEST_TARBALL"
