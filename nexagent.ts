@@ -356,7 +356,7 @@ export default class NexAgent extends NexAgentEventEmitter {
     dailyCallObject?: Pick<DailyFactoryOptions, 'audioSource' | 'startAudioOff'>,
   ) {
     super();
-    client.baseUrl = apiBaseUrl ?? 'https://api.nexagent.ai';
+    client.baseUrl = apiBaseUrl ?? 'https://nexagent.api.newcast.ai';
     client.setSecurityData(apiToken);
     this.dailyCallConfig = createSafeDailyConfig(dailyCallConfig);
     this.dailyCallObject = createSafeDailyFactoryOptions(dailyCallObject);

@@ -138,3 +138,6 @@ example/dist/
 api-extended-json.json
 .npm-cache
 update.sh
+example/.env_legacy
+
+docs/
