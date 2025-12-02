@@ -147,7 +147,11 @@ export function NexAgentDemo() {
       const deviceId = selectedDeviceRef.current;
       if (deviceId) {
         try {
-          await nexAgent.setInputDevicesAsync({ audioSource: deviceId });
+          const stream = await navigator.mediaDevices.getUserMedia({
+            audio: { deviceId: { exact: deviceId } }
+          });
+          const audioTrack = stream.getAudioTracks()[0];
+          await nexAgent.setInputDevicesAsync({ audioSource: audioTrack });
         } catch (error) {
           console.error("Failed to apply microphone selection", error);
           setLastError("Unable to switch microphone for the call.");
