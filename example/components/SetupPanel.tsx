@@ -1,27 +1,49 @@
 import { useEffect, useMemo, useState } from "react";
 import type { CreateAssistantDTOInput, Language } from "../../api";
 import DeviceSelector from "./DeviceSelector";
-import voicesData from "../voices.json";
+import voiceCatalog from "../voice_catalog.json";
+
+const SYSTEM_PROMPT_STORAGE_KEY = "nexagent_demo_system_prompt";
 
 const STT_PROVIDERS = [
   { value: "deepgram", label: "Deepgram (placeholder)" },
   { value: "cartesia", label: "Cartesia (placeholder)" },
   { value: "soniox", label: "Soniox (placeholder)" },
-];
+] as const;
 
-type VoiceOption = { value: string; label: string; language?: string };
+type VoiceOption = { value: string; label: string; language?: string; gender?: string; provider: string };
 
-const parsedProviders = (voicesData as { provider: string; voices: unknown }[]).map((p) => ({
-  value: p.provider.toLowerCase(),
-  label: p.provider,
-  rawProvider: p.provider,
-  voices: p.voices,
-}));
+const parsedCatalog = (voiceCatalog as Array<{
+  voice_provider: string;
+  voice_id: string;
+  name?: string | null;
+  language?: string | null;
+  gender?: string | null;
+}>).reduce<Record<string, VoiceOption[]>>((acc, voice) => {
+  const providerKey = (voice.voice_provider || "").toLowerCase();
+  if (!acc[providerKey]) acc[providerKey] = [];
+  acc[providerKey].push({
+    provider: providerKey,
+    value: voice.voice_id,
+    label: voice.name || voice.voice_id,
+    language: voice.language || undefined,
+    gender: voice.gender || undefined,
+  });
+  return acc;
+}, {});
 
 const TTS_LANGUAGE_OPTIONS = [
   { value: "en", label: "English" },
   { value: "ja", label: "Japanese" },
+] as const;
+const TTS_GENDER_OPTIONS = [
+  { value: "all", label: "Any" },
+  { value: "female", label: "Female" },
+  { value: "male", label: "Male" },
 ];
+
+type SttProvider = (typeof STT_PROVIDERS)[number]["value"];
+type TtsLanguage = (typeof TTS_LANGUAGE_OPTIONS)[number]["value"];
 
 interface SetupPanelProps {
   selectedDeviceId: string | null;
@@ -46,9 +68,12 @@ export function SetupPanel({
   callState,
   disabled,
 }: SetupPanelProps) {
-  const [sttProvider, setSttProvider] = useState<string>(STT_PROVIDERS[0].value);
-  const ttsProviders = parsedProviders.length
-    ? parsedProviders.map(({ value, label }) => ({ value, label }))
+  const [sttProvider, setSttProvider] = useState<SttProvider>(STT_PROVIDERS[0].value);
+  const ttsProviders = Object.keys(parsedCatalog).length
+    ? Object.keys(parsedCatalog).map((key) => ({
+        value: key,
+        label: key.charAt(0).toUpperCase() + key.slice(1),
+      }))
     : [
         { value: "cartesia", label: "Cartesia" },
         { value: "azure", label: "Azure Speech" },
@@ -56,54 +81,35 @@ export function SetupPanel({
       ];
 
   const [ttsProvider, setTtsProvider] = useState<string>(ttsProviders[0]?.value ?? "");
-  const [ttsLanguage, setTtsLanguage] = useState<string>(TTS_LANGUAGE_OPTIONS[0].value);
+  const [ttsLanguage, setTtsLanguage] = useState<TtsLanguage>(TTS_LANGUAGE_OPTIONS[0].value);
+  const [ttsGender, setTtsGender] = useState<string>("all");
+  const [showSystemPrompt, setShowSystemPrompt] = useState(false);
+  const [systemPrompt, setSystemPrompt] = useState("");
 
-  const voicesByProvider = useMemo(() => {
-    const map: Record<string, VoiceOption[]> = {};
-    parsedProviders.forEach(({ value, rawProvider, voices }) => {
-      if (rawProvider.toLowerCase() === "cartesia" && Array.isArray(voices)) {
-        map[value] = voices.map((v: any) => ({
-          value: v.id ?? v.voice_id ?? v.ShortName ?? v.Name ?? "",
-          label: v.name ?? v.voice_name ?? v.DisplayName ?? v.LocalName ?? v.ShortName ?? v.id ?? "Voice",
-          language: v.language_normalized ?? v.language,
-        }));
-      } else if (rawProvider.toLowerCase() === "azure" && Array.isArray(voices)) {
-        map[value] = voices.map((v: any) => ({
-          value: v.ShortName ?? v.LocalName ?? v.Name ?? "",
-          label:
-            v.DisplayName ||
-            v.LocalName ||
-            v.ShortName ||
-            v.Name ||
-            "Voice",
-          language: v.language_normalized ?? v.language ?? v.Locale,
-        }));
-      } else if (rawProvider.toLowerCase() === "minimax" && typeof voices === "object" && voices) {
-        const all = [
-          ...(voices as any).system_voice ?? [],
-          ...(voices as any).voice_cloning ?? [],
-          ...(voices as any).voice_generation ?? [],
-        ];
-        map[value] = all.map((v: any) => ({
-          value: v.voice_id ?? v.id ?? "",
-          label: v.voice_name ?? v.name ?? v.voice_id ?? "Voice",
-          language: v.language_normalized ?? v.language,
-        }));
-      }
-    });
-    return map;
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const saved = window.localStorage.getItem(SYSTEM_PROMPT_STORAGE_KEY);
+    if (saved && saved.trim()) {
+      setSystemPrompt(saved);
+      setShowSystemPrompt(true);
+    }
   }, []);
+
+  const voicesByProvider = useMemo(() => parsedCatalog, []);
 
   const voicesForProvider = useMemo(() => voicesByProvider[ttsProvider] ?? [], [ttsProvider, voicesByProvider]);
 
   const filteredVoices = useMemo(() => {
-    if (!ttsLanguage) return voicesForProvider;
     const lang = ttsLanguage.toLowerCase();
+    const gender = ttsGender.toLowerCase();
     return voicesForProvider.filter((v) => {
       const voiceLang = (v.language || "").toLowerCase();
-      return voiceLang === lang || voiceLang.startsWith(`${lang}-`);
+      const languageMatch = voiceLang === lang || voiceLang.startsWith(`${lang}-`);
+      const genderValue = (v.gender || "").toLowerCase();
+      const genderMatch = gender === "all" || genderValue === gender;
+      return languageMatch && genderMatch;
     });
-  }, [ttsLanguage, voicesForProvider]);
+  }, [ttsLanguage, ttsGender, voicesForProvider]);
 
   const [voiceSelection, setVoiceSelection] = useState<string>(filteredVoices[0]?.value ?? "");
 
@@ -112,7 +118,7 @@ export function SetupPanel({
   }, [ttsProvider, filteredVoices]);
 
   const handleSttChange = (value: string) => {
-    setSttProvider(value);
+    setSttProvider(value as SttProvider);
     console.info(`[placeholder] STT provider selected: ${value}`);
   };
 
@@ -147,7 +153,7 @@ export function SetupPanel({
       };
     })();
 
-    const transcriber = (() => {
+    const transcriber: CreateAssistantDTOInput["transcriber"] = (() => {
       if (sttProvider === "deepgram") {
         return {
           provider: "deepgram" as const,
@@ -181,6 +187,16 @@ export function SetupPanel({
       model: {
         provider: "openai",
         model: "gpt-4o",
+        ...(systemPrompt.trim()
+          ? {
+              messages: [
+                {
+                  role: "system" as const,
+                  content: systemPrompt.trim(),
+                },
+              ],
+            }
+          : {}),
       },
       voice,
     };
@@ -208,7 +224,7 @@ export function SetupPanel({
       label: string;
       value: string;
       onChange: (value: string) => void;
-      options: { value: string; label: string }[];
+      options: ReadonlyArray<{ value: string; label: string }>;
       disabled?: boolean;
     },
   ) => (
@@ -260,8 +276,15 @@ export function SetupPanel({
         id: "tts-language",
         label: "TTS Language",
         value: ttsLanguage,
-        onChange: setTtsLanguage,
+        onChange: (value) => setTtsLanguage(value as TtsLanguage),
         options: TTS_LANGUAGE_OPTIONS,
+      })}
+      {renderSelectRow({
+        id: "tts-gender",
+        label: "TTS Gender",
+        value: ttsGender,
+        onChange: setTtsGender,
+        options: TTS_GENDER_OPTIONS,
       })}
       {renderSelectRow({
         id: "tts-voice",
@@ -271,10 +294,32 @@ export function SetupPanel({
         options: filteredVoices,
         disabled: filteredVoices.length === 0,
       })}
-      <div className="microphone-status">
-        {filteredVoices.length === 0
-          ? "No voices available for this provider."
-          : `Showing ${filteredVoices.length} voices for ${ttsProviders.find((p) => p.value === ttsProvider)?.label ?? "provider"} (${TTS_LANGUAGE_OPTIONS.find((l) => l.value === ttsLanguage)?.label ?? ttsLanguage}).`}
+      <div className="card-section card-section--compact">
+        <button
+          type="button"
+          className="button"
+          onClick={() => setShowSystemPrompt((prev) => !prev)}
+        >
+          {showSystemPrompt ? "Hide system prompt" : "Add system prompt"}
+        </button>
+        {showSystemPrompt && (
+          <div style={{ marginTop: 8 }}>
+            <label className="label" htmlFor="system-prompt">
+              System Prompt
+            </label>
+            <div className="device-row device-row--tight">
+              <textarea
+                id="system-prompt"
+                className="input"
+                rows={6}
+                value={systemPrompt}
+                onChange={(event) => setSystemPrompt(event.currentTarget.value)}
+                placeholder="Describe how the assistant should behave."
+                style={{ width: "100%" }}
+              />
+            </div>
+          </div>
+        )}
       </div>
       <DeviceSelector
         selectedDeviceId={selectedDeviceId}
@@ -289,6 +334,14 @@ export function SetupPanel({
           className="button primary"
           onClick={() => {
             const assistantConfig = buildAssistantConfig();
+            const trimmedPrompt = systemPrompt.trim();
+            if (typeof window !== "undefined") {
+              if (trimmedPrompt) {
+                window.localStorage.setItem(SYSTEM_PROMPT_STORAGE_KEY, trimmedPrompt);
+              } else {
+                window.localStorage.removeItem(SYSTEM_PROMPT_STORAGE_KEY);
+              }
+            }
             onStart(assistantConfig).catch(() => {
               /* error handled upstream */
             });

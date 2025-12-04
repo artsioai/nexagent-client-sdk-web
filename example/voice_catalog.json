@@ -1,0 +1,4916 @@
+[
+  {
+    "id": "019ae85b-b283-71af-9a16-75f2fe08608d",
+    "voice_provider": "minimax",
+    "voice_id": "English_expressive_narrator",
+    "name": "Expressive Narrator",
+    "description": "An expressive adult male voice with a British accent, perfect for engaging audiobook narration.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b284-703f-9ce6-02518513d6d2",
+    "voice_provider": "minimax",
+    "voice_id": "English_radiant_girl",
+    "name": "Radiant Girl",
+    "description": "A radiant and lively young adult female voice with a general American accent, full of energy and brightness.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b285-7151-b110-cc267c1f3cbf",
+    "voice_provider": "minimax",
+    "voice_id": "English_magnetic_voiced_man",
+    "name": "Magnetic-voiced Male",
+    "description": "A magnetic and persuasive adult male voice with a general American accent, ideal for advertisements and promotions.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b286-7f08-91dc-b04dcdab1aa3",
+    "voice_provider": "minimax",
+    "voice_id": "English_compelling_lady1",
+    "name": "Compelling Lady",
+    "description": "A compelling adult female voice with a British accent, suitable for broadcast and formal announcements. Clear and authoritative.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b287-7fff-9304-dc43b22e146c",
+    "voice_provider": "minimax",
+    "voice_id": "English_Aussie_Bloke",
+    "name": "Aussie Bloke",
+    "description": "A friendly, bright adult male voice with a distinct Australian accent, conveying a cheerful and approachable tone.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b288-7e18-a471-d8e89b2631a4",
+    "voice_provider": "minimax",
+    "voice_id": "English_captivating_female1",
+    "name": "Captivating Female",
+    "description": "A captivating adult female voice with a general American accent, ideal for news reporting and documentary narration.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b289-7cda-b00d-8a7aaa367be6",
+    "voice_provider": "minimax",
+    "voice_id": "English_Upbeat_Woman",
+    "name": "Upbeat Woman",
+    "description": "An upbeat and bright adult female voice with a general American accent, perfect for energetic and positive messaging.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b28a-7bf5-8938-31f200a8aea0",
+    "voice_provider": "minimax",
+    "voice_id": "English_Trustworth_Man",
+    "name": "Trustworthy Man",
+    "description": "A trustworthy and resonant adult male voice with a general American accent, conveying sincerity and reliability.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b28b-7437-ba56-c55b5ebba912",
+    "voice_provider": "minimax",
+    "voice_id": "English_CalmWoman",
+    "name": "Calm Woman",
+    "description": "A calm and soothing adult female voice with a general American accent, excellent for audiobooks and meditation guides.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b28c-7c52-9907-5398ea8e5f9b",
+    "voice_provider": "minimax",
+    "voice_id": "English_UpsetGirl",
+    "name": "Upset Girl",
+    "description": "A young adult female voice with a British accent, effectively conveying sadness and distress.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b28d-7573-bf58-fa22826211c0",
+    "voice_provider": "minimax",
+    "voice_id": "English_Gentle-voiced_man",
+    "name": "Gentle-voiced Man",
+    "description": "A gentle and resonant adult male voice with a general American accent, warm and reassuring.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b28e-7078-9d6e-e31e043fa0c3",
+    "voice_provider": "minimax",
+    "voice_id": "English_Whispering_girl",
+    "name": "Whispering girl",
+    "description": null,
+    "gender": null,
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b28f-716a-9f06-ec82dc016ed3",
+    "voice_provider": "minimax",
+    "voice_id": "English_Diligent_Man",
+    "name": "Diligent Man",
+    "description": "A diligent and sincere adult male voice with an Indian accent, conveying honesty and hard work.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b290-75ef-a4c6-bab696b39e97",
+    "voice_provider": "minimax",
+    "voice_id": "English_Graceful_Lady",
+    "name": "Graceful Lady",
+    "description": "A graceful and elegant middle-aged female voice with a classic British accent, exuding sophistication.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b291-722c-89c6-acb62ef8940a",
+    "voice_provider": "minimax",
+    "voice_id": "English_ReservedYoungMan",
+    "name": "Reserved Young Man",
+    "description": "A reserved and cold adult male voice with a general American accent, conveying distance and introspection.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b292-7b38-9195-50346291a5b3",
+    "voice_provider": "minimax",
+    "voice_id": "English_PlayfulGirl",
+    "name": "Playful Girl",
+    "description": "A playful female youth voice with a general American accent, ideal for cartoons and children's entertainment.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b293-733c-bf41-382f8ad673de",
+    "voice_provider": "minimax",
+    "voice_id": "English_ManWithDeepVoice",
+    "name": "Man With Deep Voice",
+    "description": "An adult male with a deep, commanding voice and a general American accent, projecting authority and strength.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b294-7067-945a-913bc0f8e928",
+    "voice_provider": "minimax",
+    "voice_id": "English_MaturePartner",
+    "name": "Mature Partner",
+    "description": "A mature, gentle middle-aged male voice with a British accent, suitable for a caring and supportive partner role.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b295-77d1-b98a-394c3e079894",
+    "voice_provider": "minimax",
+    "voice_id": "English_FriendlyPerson",
+    "name": "Friendly Guy",
+    "description": "A friendly and natural-sounding adult male voice with a general American accent, like an approachable guy-next-door.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b296-7aef-a61a-37b46f5a08b4",
+    "voice_provider": "minimax",
+    "voice_id": "English_MatureBoss",
+    "name": "Bossy Lady",
+    "description": "A mature, middle-aged female voice with a general American accent, conveying authority and a commanding presence.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b297-714c-9c54-565e49f99740",
+    "voice_provider": "minimax",
+    "voice_id": "English_Debator",
+    "name": "Male Debater",
+    "description": "A tough, middle-aged male voice with a general American accent, perfect for debates and assertive arguments.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b298-7691-bad9-bdf8a7480713",
+    "voice_provider": "minimax",
+    "voice_id": "English_LovelyGirl",
+    "name": "Lovely Girl",
+    "description": "A lovely and sweet female youth voice with a British accent, full of charm and innocence.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b299-7192-a299-34380451efdc",
+    "voice_provider": "minimax",
+    "voice_id": "English_Steadymentor",
+    "name": "Reliable Man",
+    "description": "A young adult male voice with a general American accent, projecting an air of arrogant reliability.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b29a-70b4-b563-72831295a7f2",
+    "voice_provider": "minimax",
+    "voice_id": "English_Deep-VoicedGentleman",
+    "name": "Deep-voiced Gentleman",
+    "description": "A deep-voiced and wise adult male gentleman with a classic British accent, sounding experienced and thoughtful.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b29b-71ec-9a5b-80bc6606deb6",
+    "voice_provider": "minimax",
+    "voice_id": "English_Wiselady",
+    "name": "Wise Lady",
+    "description": "A wise and genial middle-aged female voice with a British accent, offering kind and insightful words.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b29c-75a8-ae91-4d4a3e5376b3",
+    "voice_provider": "minimax",
+    "voice_id": "English_CaptivatingStoryteller",
+    "name": "Captivating Storyteller",
+    "description": "A captivating senior male storyteller with a cold, detached tone and a general American accent.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b29d-7bf6-9c45-2e8610e3a052",
+    "voice_provider": "minimax",
+    "voice_id": "English_DecentYoungMan",
+    "name": "Decent Young Man",
+    "description": "A decent and respectable adult male voice with a British accent, sounding polite and well-mannered.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b29e-7b66-a617-064873ab91b0",
+    "voice_provider": "minimax",
+    "voice_id": "English_SentimentalLady",
+    "name": "Sentimental Lady",
+    "description": "A sentimental and elegant middle-aged female voice with a British accent, perfect for nostalgic or emotional readings.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b29f-7cf8-aacd-4ac31ffef59a",
+    "voice_provider": "minimax",
+    "voice_id": "English_ImposingManner",
+    "name": "Imposing Queen",
+    "description": "The imposing voice of an adult queen with a powerful British accent, commanding respect and authority.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b2a0-7922-aab9-54e6ae9d658d",
+    "voice_provider": "minimax",
+    "voice_id": "English_SadTeen",
+    "name": "Teen Boy",
+    "description": "A frustrated young adult male voice with a British accent, perfect for a teen character expressing annoyance.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b2a1-7efd-be77-b1604debcb0d",
+    "voice_provider": "minimax",
+    "voice_id": "English_PassionateWarrior",
+    "name": "Passionate Warrior",
+    "description": "An energetic and passionate young adult male warrior voice with a general American accent, ready for battle.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b2a2-79f3-9631-343e060c5202",
+    "voice_provider": "minimax",
+    "voice_id": "English_WiseScholar",
+    "name": "Wise Scholar",
+    "description": "A wise, conversational young adult scholar with a British accent, making complex topics accessible and engaging.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b2a3-7818-864c-d8ce5668d020",
+    "voice_provider": "minimax",
+    "voice_id": "English_Soft-spokenGirl",
+    "name": "Soft-Spoken Girl",
+    "description": "An adorable, soft-spoken female youth voice with a general American accent, gentle and sweet.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b2a4-7df3-960f-cd14e58db4c3",
+    "voice_provider": "minimax",
+    "voice_id": "English_SereneWoman",
+    "name": "Serene Woman",
+    "description": "A serene and friendly young adult female voice with a general American accent, calm and welcoming.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b2a5-72e7-bbe2-5baa9aa2202a",
+    "voice_provider": "minimax",
+    "voice_id": "English_ConfidentWoman",
+    "name": "Confident Woman",
+    "description": "A confident and firm young adult female voice with a general American accent, assertive and clear.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b2a6-7719-b74d-76a96503e2df",
+    "voice_provider": "minimax",
+    "voice_id": "English_PatientMan",
+    "name": "Patient Man",
+    "description": "A patient adult male voice with a British accent, speaking in a calm and understanding manner.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b2a7-7f25-8e29-26fa6decbceb",
+    "voice_provider": "minimax",
+    "voice_id": "English_Comedian",
+    "name": "Comedian",
+    "description": "A breezy young adult male comedian with a British accent, delivering lines with a light and humorous touch.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b2a8-713d-8621-809b959c2192",
+    "voice_provider": "minimax",
+    "voice_id": "English_BossyLeader",
+    "name": "Bossy Leader",
+    "description": "A bossy adult male leader with a general American accent, speaking unconcernedly with an air of command.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b2a9-75b4-afdc-78a8dc11e0c5",
+    "voice_provider": "minimax",
+    "voice_id": "English_Strong-WilledBoy",
+    "name": "Strong-Willed Boy",
+    "description": "A mature-sounding and strong-willed young adult male with a British accent, showing determination beyond his years.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b2aa-72f0-8294-e423a6738421",
+    "voice_provider": "minimax",
+    "voice_id": "English_StressedLady",
+    "name": "Stressed Lady",
+    "description": "An unsure, stressed middle-aged female voice with a general American accent, conveying anxiety and uncertainty.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b2ab-70f7-8d02-488288e4e0ff",
+    "voice_provider": "minimax",
+    "voice_id": "English_AssertiveQueen",
+    "name": "Assertive Queen",
+    "description": "An assertive yet guarded young adult queen with a general American accent, projecting authority while remaining cautious.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b2ac-7f7e-ba7d-dc4e35c200f4",
+    "voice_provider": "minimax",
+    "voice_id": "English_AnimeCharacter",
+    "name": "Female Narrator",
+    "description": "A sincere middle-aged female narrator with a British accent, perfect for trustworthy and heartfelt storytelling.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b2ad-71e3-af1a-0c9173df9b8a",
+    "voice_provider": "minimax",
+    "voice_id": "English_Jovialman",
+    "name": "Jovial Man",
+    "description": "A jovial and mature middle-aged male voice with a general American accent, cheerful and good-natured.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b2ae-7d1c-967b-822b4f4047e1",
+    "voice_provider": "minimax",
+    "voice_id": "English_WhimsicalGirl",
+    "name": "Whimsical Girl",
+    "description": "A whimsical yet wary young adult female voice with a general American accent, combining playfulness with caution.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b2af-7a26-ae6b-d918ff75cdd9",
+    "voice_provider": "minimax",
+    "voice_id": "English_Kind-heartedGirl",
+    "name": "Kind-Hearted Girl",
+    "description": "A kind-hearted and calm young adult female with a general American accent, speaking with gentle warmth.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b2b4-77c4-ad3f-ca6402b125be",
+    "voice_provider": "minimax",
+    "voice_id": "Arrogant_Miss",
+    "name": "Arrogant Miss",
+    "description": "An arrogant adult female voice in Standard Mandarin, projecting confidence and superiority.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b2b5-7fcd-b628-5e54cb798ea9",
+    "voice_provider": "minimax",
+    "voice_id": "Robot_Armor",
+    "name": "Robot Armor",
+    "description": "An electronic, robotic adult male voice, suitable for sci-fi or futuristic content in Standard Mandarin.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b2d2-7387-846c-26759c93b4d1",
+    "voice_provider": "minimax",
+    "voice_id": "Japanese_IntellectualSenior",
+    "name": "Intellectual Senior",
+    "description": "A mature and intellectual young adult male voice in Japanese, sounding older than his age.",
+    "gender": "Male",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b2d3-7316-be3c-31f06208780c",
+    "voice_provider": "minimax",
+    "voice_id": "Japanese_DecisivePrincess",
+    "name": "Decisive Princess",
+    "description": "A firm and decisive adult princess's voice in Japanese.",
+    "gender": "Female",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b2d4-7b27-a8c7-50ff0a25cfe0",
+    "voice_provider": "minimax",
+    "voice_id": "Japanese_LoyalKnight",
+    "name": "Loyal Knight",
+    "description": "A youthful and loyal adult male knight's voice in Japanese.",
+    "gender": "Male",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b2d5-7cdd-92e3-01ed49393eaf",
+    "voice_provider": "minimax",
+    "voice_id": "Japanese_DominantMan",
+    "name": "Dominant Man",
+    "description": "A mature and dominant middle-aged male voice in Japanese.",
+    "gender": "Male",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b2d6-7d29-935e-38d50eaa270e",
+    "voice_provider": "minimax",
+    "voice_id": "Japanese_SeriousCommander",
+    "name": "Serious Commander",
+    "description": "A serious and reliable adult male commander's voice in Japanese.",
+    "gender": "Male",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b2d7-72e4-9f22-f013c8b12542",
+    "voice_provider": "minimax",
+    "voice_id": "Japanese_ColdQueen",
+    "name": "Cold Queen",
+    "description": "A distant and cold adult queen's voice in Japanese.",
+    "gender": "Female",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b2d8-718c-9198-801d045595ed",
+    "voice_provider": "minimax",
+    "voice_id": "Japanese_DependableWoman",
+    "name": "Dependable Woman",
+    "description": "A steady and dependable adult female voice in Japanese.",
+    "gender": "Female",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b2d9-7019-9147-0ce2f3c9eb67",
+    "voice_provider": "minimax",
+    "voice_id": "Japanese_GentleButler",
+    "name": "Gentle Butler",
+    "description": "A charming and gentle adult male butler's voice in Japanese.",
+    "gender": "Male",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b2da-70e3-82c4-c4eab73c6073",
+    "voice_provider": "minimax",
+    "voice_id": "Japanese_KindLady",
+    "name": "Kind Lady",
+    "description": "A charming and kind adult female voice in Japanese.",
+    "gender": "Female",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b2db-73f7-9f69-6c3ba06a182b",
+    "voice_provider": "minimax",
+    "voice_id": "Japanese_CalmLady",
+    "name": "Calm Lady",
+    "description": "A calm and charming adult female voice in Japanese.",
+    "gender": "Female",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b2dc-732c-901e-b4f779be9a03",
+    "voice_provider": "minimax",
+    "voice_id": "Japanese_OptimisticYouth",
+    "name": "Optimistic Youth",
+    "description": "A cheerful and optimistic adult male youth's voice in Japanese.",
+    "gender": "Male",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b2dd-7317-bb3b-1f8e708f4b72",
+    "voice_provider": "minimax",
+    "voice_id": "Japanese_GenerousIzakayaOwner",
+    "name": "Generous Izakaya Owner",
+    "description": "A playful and generous middle-aged male izakaya owner's voice in Standard Japanese.",
+    "gender": "Male",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b2de-7768-8319-8129c2ed102d",
+    "voice_provider": "minimax",
+    "voice_id": "Japanese_SportyStudent",
+    "name": "Sporty Student",
+    "description": "An inviting and sporty adult male student's voice in Standard Japanese.",
+    "gender": "Male",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b2df-7d23-83dc-3dfbc4b5b0d3",
+    "voice_provider": "minimax",
+    "voice_id": "Japanese_InnocentBoy",
+    "name": "Innocent Boy",
+    "description": "An inviting and innocent adult male voice in Standard Japanese.",
+    "gender": "Male",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b2e0-7f73-b160-643398f2fdd8",
+    "voice_provider": "minimax",
+    "voice_id": "Japanese_GracefulMaiden",
+    "name": "Graceful Maiden",
+    "description": "A sweet and graceful adult maiden's voice in Standard Japanese.",
+    "gender": "Female",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b3cf-752f-afaf-434164035199",
+    "voice_provider": "cartesia",
+    "voice_id": "6ccbfb76-1fc6-48f7-b71d-91ac6298247b",
+    "name": "Tessa - Kind Companion",
+    "description": "Friendly female voice with a warm, conversational tone that feels like chatting with a close friend",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3d0-7a78-8a29-c842cab9b907",
+    "voice_provider": "cartesia",
+    "voice_id": "228fca29-3a0a-435c-8728-5cb483251068",
+    "name": "Kiefer - Assured Tone",
+    "description": "Confident voice with strong clarity and composed delivery, ideal for presentations and customer interactions",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3d1-789b-b794-ca32725b6eaf",
+    "voice_provider": "cartesia",
+    "voice_id": "e07c00bc-4134-4eae-9ea4-1a55fb45746b",
+    "name": "Brooke - Big Sister",
+    "description": "Approachable adult female for casual conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3d2-7942-940e-8411c5fae272",
+    "voice_provider": "cartesia",
+    "voice_id": "f786b574-daa5-4673-aa0c-cbe3e8534c02",
+    "name": "Katie - Friendly Fixer",
+    "description": "Enunciating young adult female for conversational support use cases",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3d3-7c8d-b90f-1cff63cf37d9",
+    "voice_provider": "cartesia",
+    "voice_id": "9626c31c-bec5-4cca-baa8-f8ba9e84c8bc",
+    "name": "Jacqueline - Reassuring Agent",
+    "description": "Confident, young adult female for empathic customer support",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3d4-7ca3-af95-815f51a6242e",
+    "voice_provider": "cartesia",
+    "voice_id": "f9836c6e-a0bd-460e-9d3c-f7299fa60f94",
+    "name": "Caroline - Southern Guide",
+    "description": "Friendly, inviting, slow young adult female for conversation support",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3d5-78d4-85b9-bda7072599e6",
+    "voice_provider": "cartesia",
+    "voice_id": "5ee9feff-1265-424a-9d7f-8e4d431a12c7",
+    "name": "Ronald - Thinker",
+    "description": "Intense, deep young adult male for casual conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3d6-7229-9b80-35e313ae8e22",
+    "voice_provider": "cartesia",
+    "voice_id": "829ccd10-f8b3-43cd-b8a0-4aeaa81f3b30",
+    "name": "Linda - Conversational Guide",
+    "description": "Clear, confident mature female for conversational use cases",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3d7-7b21-9bfb-fd3b49ab2a8e",
+    "voice_provider": "cartesia",
+    "voice_id": "5cad89c9-d88a-4832-89fb-55f2f16d13d3",
+    "name": "Brandon - Confident Guy",
+    "description": "Confident voice with strong clarity and composed tone, perfect for persuasive and professional delivery",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3d8-749f-935b-d8aba7ddee17",
+    "voice_provider": "cartesia",
+    "voice_id": "ec1e269e-9ca0-402f-8a18-58e0e022355a",
+    "name": "Ariana - Kind Friend",
+    "description": "Friendly and approachable female voice with a warm, welcoming tone that builds instant connection",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3d9-78c1-a19c-ae23dbe99013",
+    "voice_provider": "cartesia",
+    "voice_id": "66c6b81c-ddb7-4892-bdd5-19b5a7be38e7",
+    "name": "Dorothy -  Easy Charm",
+    "description": "Casual female voice with a relaxed and natural tone, perfect for everyday conversations and relatable content",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3da-73b3-ba9a-4e35b6a9af79",
+    "voice_provider": "cartesia",
+    "voice_id": "a7b8d8fa-f6e5-4908-900e-0c11d1d82519",
+    "name": "Joanie - Vibrant Speaker",
+    "description": "Upbeat matured female voice with lively warmth and confidence, perfect for natural and engaging conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3db-79b6-83d4-5ac298d2f7e3",
+    "voice_provider": "cartesia",
+    "voice_id": "999df508-4de5-40a7-8bd3-8c12f678c284",
+    "name": "Layla - Casual Friend",
+    "description": "Chill voice with a smooth, easygoing tone that feels relaxed and effortlessly cool",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3dc-7db4-bf92-944c5b0c7218",
+    "voice_provider": "cartesia",
+    "voice_id": "26403c37-80c1-4a1a-8692-540551ca2ae5",
+    "name": "Marian - Poised Narrator",
+    "description": "Matured female voice with calm authority and smooth pacing, perfect for narrations and storytelling",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3dd-7ee4-a138-1a96bc098d75",
+    "voice_provider": "cartesia",
+    "voice_id": "41468051-3a85-4b68-92ad-64add250d369",
+    "name": "Cory - Relaxed Voice",
+    "description": "Casual male voice with a friendly, easygoing tone that feels natural and approachable",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3de-7fab-9de7-cc7a1c508bc9",
+    "voice_provider": "cartesia",
+    "voice_id": "c961b81c-a935-4c17-bfb3-ba2239de8c2f",
+    "name": "Kyle - Approachable Friend",
+    "description": "Friendly male voice with a warm, conversational tone that builds instant connection and trust",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3df-7c39-8080-0754aa1c3e17",
+    "voice_provider": "cartesia",
+    "voice_id": "694f9389-aac1-45b6-b726-9d9369183238",
+    "name": "Sarah - Mindful Woman",
+    "description": "Soothing female for meditations and calming conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3e0-7100-ac23-8ee32d6298dd",
+    "voice_provider": "cartesia",
+    "voice_id": "248be419-c632-4f23-adf1-5324ed7dbf1d",
+    "name": "Elizabeth - Manager",
+    "description": "Enunicating young female for providing guidance and instructions",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3e1-7283-b478-df305f92bb18",
+    "voice_provider": "cartesia",
+    "voice_id": "a167e0f3-df7e-4d52-a9c3-f949145efdab",
+    "name": "Blake - Helpful Agent",
+    "description": "Energetic adult male for engaging customer support",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3e3-7701-b48e-46df49dbeea4",
+    "voice_provider": "cartesia",
+    "voice_id": "bf0a246a-8642-498a-9950-80c35e9276b5",
+    "name": "Sophie - Teacher",
+    "description": "Mature female for natural conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3e4-7e03-80eb-4a0ab7e6d325",
+    "voice_provider": "cartesia",
+    "voice_id": "57dcab65-68ac-45a6-8480-6c4c52ec1cd1",
+    "name": "Kira - Trusted Confidant",
+    "description": "Emotive, young adult female for empathetic conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3e5-7243-a6b9-b84ac1be705e",
+    "voice_provider": "cartesia",
+    "voice_id": "78ab82d5-25be-4f7d-82b3-7ad64e5b85b2",
+    "name": "Savannah - Magnolia Belle",
+    "description": "Adult female for casual, authentic conservations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3e6-7f66-b806-67f6eb4f4b49",
+    "voice_provider": "cartesia",
+    "voice_id": "794f9389-aac1-45b6-b726-9d9369183238",
+    "name": "Sarah - Curious Mindful Woman",
+    "description": "Soothing female for meditations and calming conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3e8-7646-9499-aa32e84ee132",
+    "voice_provider": "cartesia",
+    "voice_id": "03496517-369a-4db1-8236-3d3ae459ddf7",
+    "name": "Calypso - ASMR Lady",
+    "description": "Soothing female for meditations and other calming use cases",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3e9-7c75-8a12-63f79e667393",
+    "voice_provider": "cartesia",
+    "voice_id": "e8e5fffb-252c-436d-b842-8879b84445b6",
+    "name": "Cathy - Coworker",
+    "description": "Nice, young adult female for casual conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3ea-7c7f-a5b0-db59c32ced09",
+    "voice_provider": "cartesia",
+    "voice_id": "b7d50908-b17c-442d-ad8d-810c63997ed9",
+    "name": "Sierra - California Girl",
+    "description": "Slow, chill young adult female for casual conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3eb-7666-979e-08a6c8d425ae",
+    "voice_provider": "cartesia",
+    "voice_id": "32b3f3c5-7171-46aa-abe7-b598964aa793",
+    "name": "Daisy - Reading Girl",
+    "description": "Very young female for children's book narrations and young animated personas",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3ed-7e94-b17d-cb819e1bfd3e",
+    "voice_provider": "cartesia",
+    "voice_id": "00a77add-48d5-4ef6-8157-71e5437b282d",
+    "name": "Callie - Encourager",
+    "description": "Smooth, young adult female for empathetic conversation",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3ee-7b12-91e1-cde167908bd1",
+    "voice_provider": "cartesia",
+    "voice_id": "4af7c703-f2a9-45dd-a7fd-724cf7efc371",
+    "name": "Lila - Meditation Guide",
+    "description": "Melodic female for gentle and empathetic conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3ef-714d-aa01-becd3ab8e67a",
+    "voice_provider": "cartesia",
+    "voice_id": "156fb8d2-335b-4950-9cb3-a2d33befec77",
+    "name": "Sunny - Pep Talker",
+    "description": "Upbeat female for engaging conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3f1-7d70-ac01-db9a92472e0e",
+    "voice_provider": "cartesia",
+    "voice_id": "8d8ce8c9-44a4-46c4-b10f-9a927b99a853",
+    "name": "Connie - Candid Conversationalist",
+    "description": "Natural, cheery young adult female for authentic conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3f2-7298-80d3-2e9abaac66e1",
+    "voice_provider": "cartesia",
+    "voice_id": "c2ac25f9-ecc4-4f56-9095-651354df60c0",
+    "name": "Renee - Commander",
+    "description": "Firm adult female fit for broadcasts and narrations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3f3-77ba-aef3-f7713dbbb65e",
+    "voice_provider": "cartesia",
+    "voice_id": "5c42302c-194b-4d0c-ba1a-8cb485c84ab9",
+    "name": "Mary - Nurse",
+    "description": "Mature adult female for instructional videos and empathetic conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3f4-7082-9188-0350a00aa806",
+    "voice_provider": "cartesia",
+    "voice_id": "79f8b5fb-2cc8-479a-80df-29f7a7cf1a3e",
+    "name": "Theo - Modern Narrator",
+    "description": "Steady, enunciating, confident young male for narrations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3f6-7409-879e-08b9ecadbe6a",
+    "voice_provider": "cartesia",
+    "voice_id": "146485fd-8736-41c7-88a8-7cdd0da34d84",
+    "name": "Tim - Pal",
+    "description": "Nasal-y male for casual conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3f7-743a-a9d6-ed5994b53ffd",
+    "voice_provider": "cartesia",
+    "voice_id": "3b554273-4299-48b9-9aaf-eefd438e3941",
+    "name": "Simi - Support Specialist",
+    "description": "Firm, young accented female for customer support use cases",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3f8-7672-aaf9-adcb47d23520",
+    "voice_provider": "cartesia",
+    "voice_id": "71a7ad14-091c-4e8e-a314-022ece01c121",
+    "name": "Charlotte - Heiress",
+    "description": "Elegant, young adult female for narrations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3fa-762e-88d9-bba6472fb48f",
+    "voice_provider": "cartesia",
+    "voice_id": "565510e8-6b45-45de-8758-13588fbaec73",
+    "name": "Ray - Conversationalist",
+    "description": "Approachable male voice with a laid-back, natural delivery for everyday conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3fd-73ac-9dad-b8b7cf176589",
+    "voice_provider": "cartesia",
+    "voice_id": "e3827ec5-697a-4b7c-9704-1a23041bbc51",
+    "name": "Dottie - Sweet Gal",
+    "description": "High pitched, earnest, very young female for character narrations for children",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3fe-7b3e-8345-aa711fe03d8c",
+    "voice_provider": "cartesia",
+    "voice_id": "98a34ef2-2140-4c28-9c71-663dc4dd7022",
+    "name": "Clyde - Calm Narrator",
+    "description": "Gentle, measured male voice with warmth and clarity for storytelling and informative reads",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b3ff-7158-90cf-1094086e2c10",
+    "voice_provider": "cartesia",
+    "voice_id": "8f091740-3df1-4795-8bd9-dc62d88e5131",
+    "name": "Aurora - Fairy Princess",
+    "description": "Fairy like female for character use cases in entertainment",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b400-78f7-8bbf-a4d8b86faa7f",
+    "voice_provider": "cartesia",
+    "voice_id": "1463a4e1-56a1-4b41-b257-728d56e93605",
+    "name": "Hugo - Teatime Friend",
+    "description": "Expressive, young adult male for characters and natural conversation",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b401-7577-a389-55e66671f385",
+    "voice_provider": "cartesia",
+    "voice_id": "ed81fd13-2016-4a49-8fe3-c0d2761695fc",
+    "name": "Zack - Sportsman",
+    "description": "Firm, energetic male for lively announcing",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b402-79f2-aad8-8ee12add3842",
+    "voice_provider": "cartesia",
+    "voice_id": "34575e71-908f-4ab6-ab54-b08c95d6597d",
+    "name": "Joey - Neighborhood Guy",
+    "description": "Casual, friendly male for natural conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b403-7606-8340-a018717e5c2d",
+    "voice_provider": "cartesia",
+    "voice_id": "00967b2f-88a6-4a31-8153-110a92134b9f",
+    "name": "Asher - Podcaster",
+    "description": "Firm adult male for audiobooks and clear communication",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b404-7ae2-becf-4f5f0e86913c",
+    "voice_provider": "cartesia",
+    "voice_id": "5abd2130-146a-41b1-bcdb-974ea8e19f56",
+    "name": "Jo - Go to Gal",
+    "description": "Young adult female for casual conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b405-7fa8-945d-3e32ed10a2f6",
+    "voice_provider": "cartesia",
+    "voice_id": "91b4cf29-5166-44eb-8054-30d40ecc8081",
+    "name": "Tina - Customer Ally",
+    "description": "Natural, firm adult female for authentic conversation and customer support",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b406-70f1-9841-1f4cbc64b622",
+    "voice_provider": "cartesia",
+    "voice_id": "729651dc-c6c3-4ee5-97fa-350da1f88600",
+    "name": "Jake - Sidekick",
+    "description": "Friendly, young adult male for welcoming and engaging conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b407-7c8d-93ae-9c216ef22802",
+    "voice_provider": "cartesia",
+    "voice_id": "f6ff7c0c-e396-40a9-a70b-f7607edb6937",
+    "name": "Emma - Customer Care Line",
+    "description": "Casual adult female for natural conversations and customer support",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b408-7db3-97d1-e9f463e7c14b",
+    "voice_provider": "cartesia",
+    "voice_id": "11af83e2-23eb-452f-956e-7fee218ccb5c",
+    "name": "Ruth - Manager",
+    "description": "Firm, authoritative female for providing guidance",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b409-7183-9971-7ebfb3cc4b3b",
+    "voice_provider": "cartesia",
+    "voice_id": "820a3788-2b37-4d21-847a-b65d8a68c99a",
+    "name": "Tyler - Friendly Salesman",
+    "description": "Direct and confidence inspiring adult male for sales and friendly interpersonal conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b40a-766f-9810-34188e6a84cc",
+    "voice_provider": "cartesia",
+    "voice_id": "a0e99841-438c-4a64-b679-ae501e7d6091",
+    "name": "Greg - Supporter",
+    "description": "Neutral, deep male for conversational support",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b40b-75a2-942c-68c26027b4b6",
+    "voice_provider": "cartesia",
+    "voice_id": "c99d36f3-5ffd-4253-803a-535c1bc9c306",
+    "name": "Griffin - Narrator",
+    "description": "Elderly male for narrations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b40d-7c96-acb1-33bd511615ca",
+    "voice_provider": "cartesia",
+    "voice_id": "e13cae5c-ec59-4f71-b0a6-266df3c9bb8e",
+    "name": "Lulu - Madame Mischief",
+    "description": "Squeaky, young female for media and entertainment for kids",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b40e-79c4-a495-3d214e06ad06",
+    "voice_provider": "cartesia",
+    "voice_id": "9fa83ce3-c3a8-4523-accc-173904582ced",
+    "name": "Keith - Easygoing Friend",
+    "description": "Chill, young adult male for casual conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b40f-7a45-9725-5d04bbc076ab",
+    "voice_provider": "cartesia",
+    "voice_id": "d46abd1d-2d02-43e8-819f-51fb652c1c61",
+    "name": "Grant - Friendly Support",
+    "description": "Reliable, clear male voice with neutral American accent for customer support interactions",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b410-7c71-b407-109aee7511cc",
+    "voice_provider": "cartesia",
+    "voice_id": "6adbb439-0865-468c-9e68-adbb0eb2e71c",
+    "name": "Sally - Soft Spoken Guide",
+    "description": "Gentle female for calm conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b411-70fb-8c49-89207e7d0697",
+    "voice_provider": "cartesia",
+    "voice_id": "a01c369f-6d2d-4185-bc20-b32c225eab70",
+    "name": "Fiona - Witty Woman",
+    "description": "Chirpy and energetic British female voice with a bright tone, great for lively and engaging conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b414-7296-a0ab-b82b66ca895c",
+    "voice_provider": "cartesia",
+    "voice_id": "7ea5e9c2-b719-4dc3-b870-5ba5f14d31d8",
+    "name": "Janvi - Steady Agent",
+    "description": "Calm and neutral female voice with a slow, steady delivery, ideal for customer support scenarios",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b415-7576-a71a-847f040dfb74",
+    "voice_provider": "cartesia",
+    "voice_id": "638efaaa-4d0c-442e-b701-3fae16aad012",
+    "name": "Sameer - Problem Solver",
+    "description": "Friendly male for customer support use cases",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b417-760a-baf5-6772c0b53196",
+    "voice_provider": "cartesia",
+    "voice_id": "f8f5f1b2-f02d-4d8e-a40d-fd850a487b3d",
+    "name": "Kiara - Joyful Woman",
+    "description": "Upbeat, enunciating Indian accented mature adult female for happy conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b418-73f3-8f7d-67901498678a",
+    "voice_provider": "cartesia",
+    "voice_id": "d7e54830-4754-4b17-952c-bcdb7e80a2fb",
+    "name": "Mabel - Grandma",
+    "description": "Friendly, grandmotherly female for empathetic conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b419-76be-9a39-46b8d49d7c29",
+    "voice_provider": "cartesia",
+    "voice_id": "e00d0e4c-a5c8-443f-a8a3-473eb9a62355",
+    "name": "Zeke - Friendly Sidekick",
+    "description": "High pitched, friendly, young adult male for gaming and entertainment characters",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b41a-7cde-aaaa-fbbdbc8845df",
+    "voice_provider": "cartesia",
+    "voice_id": "42b39f37-515f-4eee-8546-73e841679c1d",
+    "name": "James - Navigator",
+    "description": "Very deep, authoritative male for providing guidance and instruction",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b41b-71b2-ba0b-46a8b8662833",
+    "voice_provider": "cartesia",
+    "voice_id": "a38e4e85-e815-43ab-acf1-907c4688dd6c",
+    "name": "Lindsey - Relaxed Rep",
+    "description": "Happy adult female with a laidback affect for casual conversations and customer support",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b41c-7036-b29d-4596dace9c7c",
+    "voice_provider": "cartesia",
+    "voice_id": "41534e16-2966-4c6b-9670-111411def906",
+    "name": "Clarence - Newsman",
+    "description": "Firm, deep male with old time radio like acoustics for 20th century historical reenactments",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b41d-79e8-8b03-6ee423d304ed",
+    "voice_provider": "cartesia",
+    "voice_id": "f31cc6a7-c1e8-4764-980c-60a361443dd1",
+    "name": "Olivia - Sunny Woman",
+    "description": "Friendly, happy adult female for engaging conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b41e-7eee-8dbd-341b5cfc0f29",
+    "voice_provider": "cartesia",
+    "voice_id": "21b81c14-f85b-436d-aff5-43f2e788ecf8",
+    "name": "Riley - Chill Friend",
+    "description": "Casual, young female for authentic and everyday conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b41f-78d1-8ec2-c936284ca9e0",
+    "voice_provider": "cartesia",
+    "voice_id": "1259b7e3-cb8a-43df-9446-30971a46b8b0",
+    "name": "Devansh - Warm Support Agent",
+    "description": "Warm, conversational Indian male adult voice for casual chats, everyday interactions, and friendly user engagement",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b421-7daf-ad02-08728f0c08ac",
+    "voice_provider": "cartesia",
+    "voice_id": "4df027cb-2920-4a1f-8c34-f21529d5c3fe",
+    "name": "Carson - Friendly Support",
+    "description": "Friendly, young adult male for customer support conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b423-7bf3-bb24-031fa96068a6",
+    "voice_provider": "cartesia",
+    "voice_id": "1fc31370-81b1-4588-9c1a-f93793c6e01d",
+    "name": "Carlo - Roman Guide",
+    "description": "Inviting, young accented male for tourism use cases",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b424-764b-908a-8072236a6bfc",
+    "voice_provider": "cartesia",
+    "voice_id": "87bc56aa-ab01-4baa-9071-77d497064686",
+    "name": "Jordan - Chill Pal",
+    "description": "Welcoming adult male for engaging conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b426-79af-bca7-5f859d830717",
+    "voice_provider": "cartesia",
+    "voice_id": "f6141af3-5f94-418c-80ed-a45d450e7e2e",
+    "name": "Priya - Trusted Operator",
+    "description": "Authoritative, adult female for customer support",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b427-70de-a5d2-00e4840900ad",
+    "voice_provider": "cartesia",
+    "voice_id": "8985388c-1332-4ce7-8d55-789628aa3df4",
+    "name": "Robyn - Storycrafter",
+    "description": "Neutral, mature female for narrations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b42a-712b-b9a9-f4977434acbd",
+    "voice_provider": "cartesia",
+    "voice_id": "043cfc81-d69f-4bee-ae1e-7862cb358650",
+    "name": "Amelia - Instructor",
+    "description": "Strong, composed female voice suited for giving instructions with clarity and authority",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b42b-7397-a0c7-87f7e6e43cce",
+    "voice_provider": "cartesia",
+    "voice_id": "1d3ba41a-96e6-44ad-aabb-9817c56caa68",
+    "name": "Mia - Agent",
+    "description": "Firm, young female for customer support and casual, natural conversation",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b42e-73e4-8ace-0e02c63554b5",
+    "voice_provider": "cartesia",
+    "voice_id": "c8605446-247c-4d39-acd4-8f4c28aa363c",
+    "name": "Edith - Matriarch",
+    "description": "Elderly, confident female for narrations and wise characters",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b42f-7b50-a8fa-8c52e7c43a63",
+    "voice_provider": "cartesia",
+    "voice_id": "f114a467-c40a-4db8-964d-aaba89cd08fa",
+    "name": "Miles - Yogi",
+    "description": "Deep, soothing mature male for providing guidance",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b430-7ba3-8b64-1cc426c267f4",
+    "voice_provider": "cartesia",
+    "voice_id": "607167f6-9bf2-473c-accc-ac7b3b66b30b",
+    "name": "Brenda - Host",
+    "description": "Cheerful, friendly female voice that creates a positive, helpful experience for customer interactions",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b432-7edb-aca1-646860a1ea5c",
+    "voice_provider": "cartesia",
+    "voice_id": "cccc21e8-5bcf-4ff0-bc7f-be4e40afc544",
+    "name": "Avery - Gaming Girl",
+    "description": "High pitched, energetic young female for animated characters and gaming and entertainment use cases",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b434-7393-bef7-287a66903111",
+    "voice_provider": "cartesia",
+    "voice_id": "55deba52-bc73-4481-ab69-9c8831c8a7c3",
+    "name": "Camille - Friendly Expert",
+    "description": "Calm, neutral female for customer support and instructional videos",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b435-7f3b-aff4-16c9ddfd09ef",
+    "voice_provider": "cartesia",
+    "voice_id": "bd9120b6-7761-47a6-a446-77ca49132781",
+    "name": "Owen - Tutorial Man",
+    "description": "Elevated, mature adult male for providing guidance and instruction",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b436-774f-bd3f-3d80993bb108",
+    "voice_provider": "cartesia",
+    "voice_id": "701a96e1-7fdd-4a6c-a81e-a4a450403599",
+    "name": "Rowan - Team Leader",
+    "description": "Confident male for narrations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b43a-7d74-83fb-acaabe754a88",
+    "voice_provider": "cartesia",
+    "voice_id": "3e1ed423-17e5-4773-b87c-25b031106e41",
+    "name": "Paul - Straight Talker",
+    "description": "Deep and firm male voice with a relaxed, conversational delivery",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b43d-76cb-bef3-7a593feb9420",
+    "voice_provider": "cartesia",
+    "voice_id": "996a8b96-4804-46f0-8e05-3fd4ef1a87cd",
+    "name": "Darla - Resolution Agent",
+    "description": "Firm and confident female voice with a calm, supportive tone - ideal for customer support roles",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b43e-7752-aeb5-b93909db5244",
+    "voice_provider": "cartesia",
+    "voice_id": "da4a4eff-3b7e-4846-8f70-f075ff61222c",
+    "name": "Callum - Brand Spokesperson",
+    "description": "Neutral, confident young adult male fit for voiceovers and customer interactions",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b43f-7afa-887f-4ee509ea4b8c",
+    "voice_provider": "cartesia",
+    "voice_id": "fb26447f-308b-471e-8b00-8e9f04284eb5",
+    "name": "Thistle - Troublemaker",
+    "description": "Cheery, expressive gender neutral character for whimsical personas in entertainment content",
+    "gender": null,
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b440-7451-a70b-ec1a72918a14",
+    "voice_provider": "cartesia",
+    "voice_id": "bf991597-6c13-47e4-8411-91ec2de5c466",
+    "name": "Carol - Task Coach",
+    "description": "Authortative, mature female for giving instructions",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b444-7149-885d-22c3e159a35f",
+    "voice_provider": "cartesia",
+    "voice_id": "23e9e50a-4ea2-447b-b589-df90dbb848a2",
+    "name": "Dallas - Fireside Friend",
+    "description": "Kind male for inviting and authentic conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b445-778a-a8be-b6fdf5ab9e93",
+    "voice_provider": "cartesia",
+    "voice_id": "ee7ea9f8-c0c1-498c-9279-764d6b56d189",
+    "name": "Oliver - Customer Chap",
+    "description": "Polite, young adult male for customer facing use cases",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b446-713a-a8ea-47b017e367ad",
+    "voice_provider": "cartesia",
+    "voice_id": "97f4b8fb-f2fe-444b-bb9a-c109783a857a",
+    "name": "Nathan - Easy Talker",
+    "description": "Confident, firm young adult male with a slight edge for conversational use cases",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b448-7f02-8d65-705118110f34",
+    "voice_provider": "cartesia",
+    "voice_id": "0cd0cde2-3b93-42b5-bcb9-f214a591aa29",
+    "name": "Sayuri - Peppy Colleague",
+    "description": "Clear and bright female with a gentle tone of politeness and a naturally inquisitive cadence for dialogue, narration, or assistant-style roles",
+    "gender": "Female",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b44b-75cc-8e4d-3a0c1feb67c1",
+    "voice_provider": "cartesia",
+    "voice_id": "4f7f1324-1853-48a6-b294-4e78e8036a83",
+    "name": "Casper - Gentle Narrator",
+    "description": "Wistful, young male for emotional narrations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b44c-72a7-aaa2-86f58abb7965",
+    "voice_provider": "cartesia",
+    "voice_id": "daf747c6-6bc2-4083-bd59-aa94dce23f5d",
+    "name": "Yasmin - Dialogue Anchor",
+    "description": "Firm adult female for conversational use cases",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b44f-7624-a3c3-a0582396e4e9",
+    "voice_provider": "cartesia",
+    "voice_id": "7cf0e2b1-8daf-4fe4-89ad-f6039398f359",
+    "name": "Benedict - Royal Narrator",
+    "description": "Confident, firm male for narrations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b450-7799-8ea7-bbc9d4a001a9",
+    "voice_provider": "cartesia",
+    "voice_id": "87748186-23bb-4158-a1eb-332911b0b708",
+    "name": "Alaric - Wizard",
+    "description": "Wistful, wise, elderly male for entertainment and fun characters",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b451-7746-a43b-1d04ec89680b",
+    "voice_provider": "cartesia",
+    "voice_id": "c9440d34-5641-427b-bbb7-80ef7462576d",
+    "name": "Joan - Messenger",
+    "description": "Young adult female for casual conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b453-7e77-94f8-8e2d608264ec",
+    "voice_provider": "cartesia",
+    "voice_id": "5c9e800f-2a92-4720-969b-99c4ab8fbc87",
+    "name": "Ellen - Welcome Agent",
+    "description": "Authentic female voice with balanced warmth and clarity for both casual and support-driven contexts",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b454-755c-9e3b-f8daa6ad4d74",
+    "voice_provider": "cartesia",
+    "voice_id": "13524ffb-a918-499a-ae97-c98c7c4408c4",
+    "name": "Barry - Helper",
+    "description": "Inviting, friendly male for customer support and product videos",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b455-7638-addd-e87b6dcaf6db",
+    "voice_provider": "cartesia",
+    "voice_id": "7e19344f-9f17-47d7-a13a-4366ad06ebf3",
+    "name": "Silas - Nighttime Narrator",
+    "description": "Gentle and steady male voice with a nurturing tone for calm conversations and serene narration",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b458-7bd4-aba8-724b45fd7d35",
+    "voice_provider": "cartesia",
+    "voice_id": "3246e36c-ac8c-418d-83cd-4eaad5a3b887",
+    "name": "Carson - Sad Friendly Support",
+    "description": "Friendly young adult male for customer support conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b459-725e-99a9-54b59a5fbdea",
+    "voice_provider": "cartesia",
+    "voice_id": "6d287143-8db3-434a-959c-df147192da27",
+    "name": "Stacy - Mentor",
+    "description": "Mature-sounding female voice with kindness and ease, perfect for natural interactions",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b45a-7256-8526-9c5f0d8d0863",
+    "voice_provider": "cartesia",
+    "voice_id": "2a4d065a-ac91-4203-a015-eb3fc3ee3365",
+    "name": "Wes - Customer Companion",
+    "description": "Kind male for engaging with customers",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b45b-7404-9eb6-5271ec1047cb",
+    "voice_provider": "cartesia",
+    "voice_id": "40104aff-a015-4da1-9912-af950fbec99e",
+    "name": "Travis - How To Guide",
+    "description": "Firm, young male for instructional videos and customer support",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b45d-720d-85f0-37eaaf302a5a",
+    "voice_provider": "cartesia",
+    "voice_id": "56b87df1-594d-4135-992c-1112bb504c59",
+    "name": "Lexi - Fun Friend",
+    "description": "Cheery, young female for entertainment, media, and gaming use cases",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b460-701f-b531-b98975392962",
+    "voice_provider": "cartesia",
+    "voice_id": "86e30c1d-714b-4074-a1f2-1cb6b552fb49",
+    "name": "Carson - Curious Conversationalist",
+    "description": "Friendly young adult male for customer support conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b461-7795-8e7f-b8b9e1b230e6",
+    "voice_provider": "cartesia",
+    "voice_id": "50d6beb4-80ea-4802-8387-6c948fe84208",
+    "name": "Alfred - Cheeky Person",
+    "description": "Playful, elderly male for media and entertainment",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b462-7efd-945b-264b2de03221",
+    "voice_provider": "cartesia",
+    "voice_id": "0c8ed86e-6c64-40f0-b252-b773911de6bb",
+    "name": "Doris - Friend",
+    "description": "Warm and relatable female voice suited for casual, natural conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b463-70b3-a9a6-cc2d82c5b380",
+    "voice_provider": "cartesia",
+    "voice_id": "63ff761f-c1e8-414b-b969-d1833d1c870c",
+    "name": "Malcom - Talk Show Host",
+    "description": "Lively and experienced male voice ideal for natural, engaging conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b464-70e8-8b80-17ccd95a5d68",
+    "voice_provider": "cartesia",
+    "voice_id": "ab109683-f31f-40d7-b264-9ec3e26fb85e",
+    "name": "Russell - Mentor",
+    "description": "Friendly, deep mature adult male for providing instructions and guidance",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b468-7e17-9a31-94dfa33d0262",
+    "voice_provider": "cartesia",
+    "voice_id": "41f3c367-e0a8-4a85-89e0-c27bae9c9b6d",
+    "name": "Liam - Guy Next Door",
+    "description": "Casual, friendly young male for authentic and engaging conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b46a-73ee-900c-93dc2411878b",
+    "voice_provider": "cartesia",
+    "voice_id": "573e3144-a684-4e72-ac2b-9b2063a50b53",
+    "name": "Sylvia - Librarian",
+    "description": "Firm female for instructions and guidance",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b46c-7def-8d8a-7d5459c42d20",
+    "voice_provider": "cartesia",
+    "voice_id": "c7eafe22-8b71-40cd-850b-c5a3bbd8f8d2",
+    "name": "Emi - Soft-Spoken Friend",
+    "description": "Soft and delicate female with a gentle, timid tone for female game characters and children's book narrations",
+    "gender": "Female",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b46d-72ef-8364-bc3841bfdbaf",
+    "voice_provider": "cartesia",
+    "voice_id": "c45bc5ec-dc68-4feb-8829-6e6b2748095d",
+    "name": "Trevor - Movieman",
+    "description": "Deep, elderly male for narrations and entertainment use cases",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b46e-78ed-b211-9f885ec86661",
+    "voice_provider": "cartesia",
+    "voice_id": "7fe6faca-172f-4fd9-a193-25642b8fdb07",
+    "name": "Victor - Voiceover Man",
+    "description": "Versatile, engaging adult male for professional use cases, narrations, and voiceovers",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b46f-706e-87df-e62f06139ae1",
+    "voice_provider": "cartesia",
+    "voice_id": "ec58877e-44ae-4581-9078-a04225d42bd4",
+    "name": "Charles - Heroic Man",
+    "description": "Very deep, adult male for characters that embody strength and determination",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b473-7fd4-98b6-cb9a15b40931",
+    "voice_provider": "cartesia",
+    "voice_id": "3dcaa773-fb1a-47f7-82a4-1bf756c4e1fb",
+    "name": "Harry - Service Advisor",
+    "description": "Seasoned male for friendly conversation and customer support",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b474-74b1-bb5e-2064db3ea5a0",
+    "voice_provider": "cartesia",
+    "voice_id": "59d4fd2f-f5eb-4410-8105-58db7661144f",
+    "name": "Yuki - Calm Woman",
+    "description": "Calm, more serious female for news narration and formal customer service",
+    "gender": "Female",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b475-77da-bc76-9c56fe52df5e",
+    "voice_provider": "cartesia",
+    "voice_id": "e8a863c6-22c7-4671-86ca-91cacffc038d",
+    "name": "Daisuke - Businessman",
+    "description": "Business-like, clear male for professional use cases",
+    "gender": "Male",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b476-70e2-a2d6-b603ad11960c",
+    "voice_provider": "cartesia",
+    "voice_id": "726d5ae5-055f-4c3d-8355-d9677de68937",
+    "name": "Troy - Fix It Man",
+    "description": "Strong, dependable male voice designed for trust-building in customer-facing interactions",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b477-735a-907c-6f3d16cf88e2",
+    "voice_provider": "cartesia",
+    "voice_id": "96c64eb5-a945-448f-9710-980abe7a514c",
+    "name": "Carson - Friendly Support",
+    "description": "Friendly, young adult male for customer support conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b478-7832-967e-8b68b6cbbee8",
+    "voice_provider": "cartesia",
+    "voice_id": "15a9cd88-84b0-4a8b-95f2-5d583b54c72e",
+    "name": "Claire - Storyteller",
+    "description": "Soothing, neutral female for narrations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b47b-70c1-bf99-2013ff80b3af",
+    "voice_provider": "cartesia",
+    "voice_id": "39b376fc-488e-4d0c-8b37-e00b72059fdd",
+    "name": "Sheldon - Help Desk Man",
+    "description": "Enunciating male for customer support use cases",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b47c-7b57-bad9-e63351a29304",
+    "voice_provider": "cartesia",
+    "voice_id": "f4e8781b-a420-4080-81cf-576331238efa",
+    "name": "Samantha - Support Leader",
+    "description": "Firm, confident adult female for conversational support",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b47d-79d3-a749-f76496bde2bb",
+    "voice_provider": "cartesia",
+    "voice_id": "a8136a0c-9642-497a-882d-8d591bdcb2fa",
+    "name": "Diane - Service Assistant",
+    "description": "Firm, mature adult female for customer support use cases",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b47e-7837-b922-57ffa417e700",
+    "voice_provider": "cartesia",
+    "voice_id": "57b6bf63-c7a1-4ffc-8e10-23bf45152dd6",
+    "name": "Rebecca - Counselor",
+    "description": "Soft-spoken, empathetic female voice suited for thoughtful, calming dialogue",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b481-7779-a169-0a2e762c8403",
+    "voice_provider": "cartesia",
+    "voice_id": "7360f116-6306-4e9a-b487-1235f35a0f21",
+    "name": "Marty - Commercial King",
+    "description": "Bold and enthusiastic male voice suited for energetic, attention-grabbing ads",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b482-7dcc-96c1-4e1c6082215d",
+    "voice_provider": "cartesia",
+    "voice_id": "bbee10a8-4f08-4c5c-8282-e69299115055",
+    "name": "Ben - Helpful Man",
+    "description": "slightly raspy voiced middle aged man for friendly and natural conversational support",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b484-7930-9ddd-95efaad9d9ea",
+    "voice_provider": "cartesia",
+    "voice_id": "5e10a334-7fa5-46d4-a64b-5ae6185da3fd",
+    "name": "Samantha - Sad Support Leader",
+    "description": "Firm, confident adult female for conversational support",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b486-793d-be71-f765961402ec",
+    "voice_provider": "cartesia",
+    "voice_id": "0b32066b-2bcc-44b9-89ab-0223a09d1606",
+    "name": "Carson - Angry Friendly Support",
+    "description": "Friendly young adult male for customer support conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b487-7bf7-ac8b-fbb7f0aa2783",
+    "voice_provider": "cartesia",
+    "voice_id": "761afc95-bef5-44dd-aa07-d3c678912e43",
+    "name": "Samantha - Happy Support Leader",
+    "description": "Firm, confident adult female for conversational support",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b48d-7541-95e6-63c77744a1cd",
+    "voice_provider": "cartesia",
+    "voice_id": "f9fc912e-52f0-448a-8bfa-47e9ca75f25a",
+    "name": "Marilyn - Explainer",
+    "description": "smooth and supportive young adult woman great for natural conversations and explaining",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b48f-7391-adcf-ea716f7211fc",
+    "voice_provider": "cartesia",
+    "voice_id": "2b568345-1d48-4047-b25f-7baccf842eb0",
+    "name": "Yumiko - Friendly Agent",
+    "description": "Friendly, professional and upbeat woman for casual conversations",
+    "gender": "Female",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b490-7f7a-bc5e-854fd1fb2725",
+    "voice_provider": "cartesia",
+    "voice_id": "bfd3644b-d561-4b1c-a01f-d9af98cb67c0",
+    "name": "Matt - Goofy Friend",
+    "description": "High pitched, silly male for fun characters and entertainment use cases",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b491-73d0-a72d-b79c85127574",
+    "voice_provider": "cartesia",
+    "voice_id": "2747b6cf-fa34-460c-97db-267566918881",
+    "name": "Allie - Natural Conversationalist",
+    "description": "Confident, approachable young adult woman for natural conversational support",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b492-7a7d-91ad-1fa2e53dbf3a",
+    "voice_provider": "cartesia",
+    "voice_id": "6b92f628-be90-497c-8f4c-3b035002df71",
+    "name": "Kenji - Calm Man",
+    "description": "Calm, deep male for news narration and formal customer service",
+    "gender": "Male",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b493-71b3-9d3a-0a490cc2af1e",
+    "voice_provider": "cartesia",
+    "voice_id": "8d110413-2f14-44a2-8203-2104db4340e9",
+    "name": "Darren - Friendly Barritone",
+    "description": "Deep, friendly adult male for happy voiceovers",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b495-739d-bb4a-42948487ffc4",
+    "voice_provider": "cartesia",
+    "voice_id": "af346552-54bf-4c2b-a4d4-9d2820f51b6c",
+    "name": "Valerie - Support Authority",
+    "description": "Authoritative mature female for frontline customer support use cases",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b498-7477-b9fa-161b098eda9c",
+    "voice_provider": "cartesia",
+    "voice_id": "06950fa3-534d-46b3-93bb-f852770ea0b5",
+    "name": "Takeshi - Hero",
+    "description": "Smooth, expressive male with a warm mid-range and dynamic emotional range for dramatic storytelling",
+    "gender": "Male",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b499-7683-aaa5-d8bd10c7d8b8",
+    "voice_provider": "cartesia",
+    "voice_id": "5619d38c-cf51-4d8e-9575-48f61a280413",
+    "name": "Mark - Promotion Lead",
+    "description": "Deep, confident male voice with strong presence - ideal for commercials, promos, and broadcast narration",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b49a-7d18-8241-4f5c501ec901",
+    "voice_provider": "cartesia",
+    "voice_id": "34d923aa-c3b5-4f21-aac7-2c1f12730d4b",
+    "name": "Griffin - Excited Narrator",
+    "description": "Elderly male for narrations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b49f-75c9-8cf7-e5e27d8fdf36",
+    "voice_provider": "cartesia",
+    "voice_id": "64462aed-aafc-45d4-84cd-ecb4b3763a0a",
+    "name": "Shawn - Ad Reader",
+    "description": "Upbeat male for commercials, announcements, and promotions",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4a0-784d-b3e7-5874428d35cc",
+    "voice_provider": "cartesia",
+    "voice_id": "5c43e078-5ba4-4e1f-9639-8d85a403f76a",
+    "name": "Carson - Scared Friendly Support",
+    "description": "Friendly young adult male for customer support conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4a6-78db-961a-9de02e199fe3",
+    "voice_provider": "cartesia",
+    "voice_id": "36b42fcb-60c5-4bec-b077-cb1a00a92ec6",
+    "name": "Gordon - Pilot",
+    "description": "Male, simulating the acoustics over an intercom, for entertainment use cases",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4ac-74f5-aa8a-c09156e5f597",
+    "voice_provider": "cartesia",
+    "voice_id": "d7862948-75c3-4c7c-ae28-2959fe166f49",
+    "name": "Caspian - Oracle",
+    "description": "Echo-y, mystical male for characters with gravitas",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4ae-7ecd-ae77-28ff6b66f997",
+    "voice_provider": "cartesia",
+    "voice_id": "446f922f-c43a-4aad-9a8b-ad2af568e882",
+    "name": "Akira - Professional Colleague",
+    "description": "Clear and professional male for news announcements and business conversations",
+    "gender": "Male",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b4b0-7710-9054-14a80b35874e",
+    "voice_provider": "cartesia",
+    "voice_id": "9e7ef2cf-b69c-46ac-9e35-bbfd73ba82af",
+    "name": "Ren - High-Energy Character",
+    "description": "Bold and lively male with high energy for fictional characters, dynamic narration, and expressive dialogue",
+    "gender": "Male",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b4b1-7898-80fb-a85d5bb01bc0",
+    "voice_provider": "cartesia",
+    "voice_id": "6a176356-ada1-4b48-b2ae-3a3fdd485680",
+    "name": "Elias - Night Warden",
+    "description": "Deep male for entertainment and gaming characters",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4b2-7c87-ba3f-ca356d2f9755",
+    "voice_provider": "cartesia",
+    "voice_id": "586b6832-1ca1-43ad-b974-527dc13c2532",
+    "name": "Dorian - Director",
+    "description": "Welcoming male for providing instructions and guidance",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4b3-7434-af23-fe380a966ed3",
+    "voice_provider": "cartesia",
+    "voice_id": "66f5935b-af2e-4ec9-bb3e-59112e9ddc93",
+    "name": "Carson - Surprised Friendly Support",
+    "description": "Friendly young adult male for customer support conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4b4-72ba-99a1-adcdf5dbf189",
+    "voice_provider": "cartesia",
+    "voice_id": "236bb1fb-dc41-4a2b-84d6-d22d2a2aaae1",
+    "name": "Franklin - Old Time Radio Host",
+    "description": "Elderly man speaking over a crackling 20th century radio for historical reenactments",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4b6-7559-84de-6534d5de536d",
+    "voice_provider": "cartesia",
+    "voice_id": "ee8b13e7-98af-4b15-89d1-8d402be10c94",
+    "name": "Carson - Disgusted Friendly Support",
+    "description": "Friendly young adult male for customer support conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4bb-77e7-bc73-58a555b27338",
+    "voice_provider": "cartesia",
+    "voice_id": "a759ecc5-ac21-487e-88c7-288bdfe76999",
+    "name": "Daichi - Baritone Narrator",
+    "description": "Low pitched, intense male with a mysterious and brooding tone for villains, anti-heroes, and enigmatic characters",
+    "gender": "Male",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b4bc-7682-a8dd-1296bbae838c",
+    "voice_provider": "cartesia",
+    "voice_id": "44863732-e415-4084-8ba1-deabe34ce3d2",
+    "name": "Kaori - Friendly Narrator",
+    "description": "Upbeat, positive, and gentle female for commercials and audiobooks",
+    "gender": "Female",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b4be-781f-a279-c7fcac72e72a",
+    "voice_provider": "cartesia",
+    "voice_id": "97e7d7a9-dfaa-4758-a936-f5f844ac34cc",
+    "name": "Fuji - Positive Colleague",
+    "description": "Positive and gentle male for conversational settings",
+    "gender": "Male",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b4c1-7022-bd3d-a6f0f48db411",
+    "voice_provider": "cartesia",
+    "voice_id": "d3e03deb-5439-4203-add1-ca9a7501eaa7",
+    "name": "Samantha - Yelling Support Leader",
+    "description": "Firm, confident adult female for conversational support",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4c2-7b8e-a7d2-e4663da17875",
+    "voice_provider": "cartesia",
+    "voice_id": "04bfd756-4fd4-42c2-9ccf-37f647c5bf54",
+    "name": "Samantha - Angry Support Leader",
+    "description": "Firm, confident adult female for conversational support",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4c4-7e21-9a0a-7f233fa9d435",
+    "voice_provider": "cartesia",
+    "voice_id": "39d518b7-fd0b-4676-9b8b-29d64ff31e12",
+    "name": "Aarav - Old Time Storyteller",
+    "description": "Warm adult male voice with a slight Indian accent and a vintage tone for nostalgic storytelling, retro-style media, and historical narration",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4cb-7a9f-9134-5f6e5ab0e76a",
+    "voice_provider": "cartesia",
+    "voice_id": "63d6f469-8c2c-489d-b53f-d36f0bbdcd4b",
+    "name": "Ayako",
+    "description": "Friendly and calm adult female for providing instructions and conversational support",
+    "gender": "Female",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b4d6-7856-a0c2-c0d2db8ffb6c",
+    "voice_provider": "cartesia",
+    "voice_id": "4fb26a05-57de-4d21-855a-f51adae44f38",
+    "name": "Barry 2.0 - Helper",
+    "description": "Inviting, friendly male for customer support and product videos",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4d7-7cf8-bdc3-f0dc3e10675b",
+    "voice_provider": "cartesia",
+    "voice_id": "fbf7d2ec-ebea-49f2-8889-a482b9b0a7ed",
+    "name": "Wade 2.0 - Southern Soul",
+    "description": "Country-sounding male voice with a warm drawl and genuine charm, perfect for friendly storytelling",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4e2-7ed1-a2e5-cb3e1e96edc5",
+    "voice_provider": "cartesia",
+    "voice_id": "9436e723-612d-4114-aeb0-fa00d4d639bf",
+    "name": "Katsuya - Promo Host",
+    "description": "Lively confident male for advertising and announcing",
+    "gender": "Male",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b4e3-79b2-ba08-5d5b90ab849c",
+    "voice_provider": "cartesia",
+    "voice_id": "49e02441-83ea-4c77-bda8-79fdd7f07e92",
+    "name": "Tohru - Career Coach",
+    "description": "Young professional male for providing guidance and instruction",
+    "gender": "Male",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b4e9-76fb-bc6d-b06b60e6d03a",
+    "voice_provider": "cartesia",
+    "voice_id": "1cb5b8bc-77c9-4e7c-a251-da02348e2727",
+    "name": "Sean - Steady Companion",
+    "description": "Casual voice with an easy, relaxed tone that feels natural and effortlessly approachable",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4ea-7931-a76d-dc40b87ed8a1",
+    "voice_provider": "cartesia",
+    "voice_id": "f24ae0b7-a3d2-4dd1-89df-959bdc4ab179",
+    "name": "Ross - Reliable Partner",
+    "description": "Steady voice with balanced tone and clear delivery, ideal for customer support and service",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4eb-7476-8576-8c25a239229a",
+    "voice_provider": "cartesia",
+    "voice_id": "db69127a-dbaf-4fa9-b425-2fe67680c348",
+    "name": "Clint - Rugged Actor",
+    "description": "Raspy voice with rugged tone, perfect for voice acting and dramatic narration",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4ec-7cbc-8fe6-75738e9eabe0",
+    "voice_provider": "cartesia",
+    "voice_id": "ca566b43-944e-4474-b494-7d9f0695f307",
+    "name": "Celine - Soothing Presence",
+    "description": "Relaxed voice with smooth tone and gentle warmth, ideal for calm conversations and easy listening",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4ed-789b-a035-feaf8eaaca81",
+    "voice_provider": "cartesia",
+    "voice_id": "4d3d2e9c-14e4-4802-a8d8-bd5268a73fde",
+    "name": "Judith - Poised Strength",
+    "description": "Confident voice with clear articulation and composed tone, perfect for presentations and professional dialogue",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4ee-7bfe-8cc3-2acbaab0b0b6",
+    "voice_provider": "cartesia",
+    "voice_id": "8634bd27-0acf-4056-b014-4fea0385ed9e",
+    "name": "Suzanne - Laidback Aunt",
+    "description": "Matured voice with a natural, conversational tone that feels warm, relatable, and approachable",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4ef-7342-9f22-7848036481e2",
+    "voice_provider": "cartesia",
+    "voice_id": "5fb68a42-0ed7-46fa-8a8f-ad4b332fbf6f",
+    "name": "Edward - Persuasive Promoter",
+    "description": "Confident voice with clarity and persuasive tone, perfect for advertisements and promotional content",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4f0-71d5-be88-22ac05a55c1f",
+    "voice_provider": "cartesia",
+    "voice_id": "b56c6aac-f35f-46f7-9361-e8f078cec72e",
+    "name": "Tabitha - Smooth Energy",
+    "description": "Smooth voice with easy warmth and relaxed tone, perfect for casual conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4f1-799a-97ee-d54b7869f792",
+    "voice_provider": "cartesia",
+    "voice_id": "f0377496-2708-4cc9-b2f8-1b7fdb5e1a2a",
+    "name": "Elaine - Confident Guide",
+    "description": "Assured voice with calm confidence and clear tone, ideal for professional, informative, or guiding narration",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4f2-7b84-9955-8bd1359a8712",
+    "voice_provider": "cartesia",
+    "voice_id": "b134c304-d095-4d2b-a77a-914f5e8e84e7",
+    "name": "Sterling - Monarch",
+    "description": "Deep voice with commanding presence and dignified tone, perfect for narrations and authoritative storytelling",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4f3-7544-99f2-1583e6c43c73",
+    "voice_provider": "cartesia",
+    "voice_id": "74f42072-6245-4fe2-b5dc-3dc9b56fdbd0",
+    "name": "Regis - News Anchor",
+    "description": "Authoritative voice with polished clarity and balanced tone, perfect for news delivery and formal announcements",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4f4-77f7-9e6d-d60acca2533d",
+    "voice_provider": "cartesia",
+    "voice_id": "373e661a-f0ef-4e34-a09e-183184a443e6",
+    "name": "Tanner - Laidback Spirit",
+    "description": "Laidback voice with smooth tone and easy rhythm, great for conversational and approachable content",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4f5-7d87-afa1-ede0a4dc5d1c",
+    "voice_provider": "cartesia",
+    "voice_id": "9301949d-b7cd-40d9-a246-5a4430992d6b",
+    "name": "Marcus - Reliable Guy",
+    "description": "Composed voice with approachable warmth, perfect for customer service and support",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4f6-7d0b-9c1b-cf4d23ca20f3",
+    "voice_provider": "cartesia",
+    "voice_id": "e39b9fc0-23f5-4616-962a-da99c8ccb1dc",
+    "name": "Colin - Assured Guide",
+    "description": "Confident voice with clear articulation and reassuring tone, ideal for professional and customer service use",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4f7-76cb-abac-a02e1ad4a14b",
+    "voice_provider": "cartesia",
+    "voice_id": "01fd7d67-d2a0-4e4e-8c48-42611c71a926",
+    "name": "Skyler - Laidback Partner",
+    "description": "Easygoing voice with effortless tone that feels natural and approachable",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4f8-7c7f-bc28-f014bfd93405",
+    "voice_provider": "cartesia",
+    "voice_id": "df872fcd-da17-4b01-a49f-a80d7aaee95e",
+    "name": "Cameron - Chill Companion",
+    "description": "Laidback voice with a natural, conversational tone that feels friendly and easy to engage with",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4f9-7740-883c-5168f9f8c92f",
+    "voice_provider": "cartesia",
+    "voice_id": "0a9a5903-0a30-4d2e-b6b6-891f73d4b4e0",
+    "name": "Sabrina - Casual Ally",
+    "description": "Relaxed female voice with an easy, conversational tone that feels approachable and genuine",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4fa-7822-919c-0a85f1ad58fb",
+    "voice_provider": "cartesia",
+    "voice_id": "f6ce3444-478b-4ce4-982e-bcb72dffe7aa",
+    "name": "Emily - Easygoing Pal",
+    "description": "Cheerful voice with warm and welcoming tone that feels natural and easy to connect with",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4fb-751b-a3fb-969184056cd9",
+    "voice_provider": "cartesia",
+    "voice_id": "0d2162c2-2fe9-40a7-b3c1-43eab576a64b",
+    "name": "Shelly - Warm Companion",
+    "description": "Friendly voice with a bright, approachable tone that feels natural and welcoming in any setting",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4fc-76d3-b423-ff7eca3b9ea5",
+    "voice_provider": "cartesia",
+    "voice_id": "cb6a8744-41b0-4cdc-b643-fabeb545c6a9",
+    "name": "Laurel - Caring Sister",
+    "description": "Warm voice with gentle empathy and clarity, perfect for heartfelt conversations and customer support",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4fd-7fe9-962c-ae71a30defca",
+    "voice_provider": "cartesia",
+    "voice_id": "6cb8801d-259a-4bdc-978f-b45808d58cd3",
+    "name": "Jeremy - Energetic Promoter",
+    "description": "High energy voice with clear and engaging tone, perfect for advertisements and promotions",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4fe-7936-890a-745538f66df6",
+    "voice_provider": "cartesia",
+    "voice_id": "efa653e5-314d-46ca-9f90-70ac7d6ca71e",
+    "name": "Kurt - Phone Support",
+    "description": "Engaging male voice with expressive tone and natural warmth, ideal for customer service",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b4ff-79e4-b2d5-b373bae741b1",
+    "voice_provider": "cartesia",
+    "voice_id": "afb19d1b-4044-4f34-a962-f4aef640a002",
+    "name": "Zander - Energetic Announcer",
+    "description": "Enthusiastic voice with energetic delivery and bold tone, perfect for advertisements and high-energy narrations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b500-723f-b5e0-48d5ba8290a0",
+    "voice_provider": "cartesia",
+    "voice_id": "e4d5f4c4-6601-4779-bee1-b3c14d629dc6",
+    "name": "Jillian - Happy Spirit",
+    "description": "Cheerful voice with lively warmth and friendly tone, perfect for upbeat conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b501-73e8-8ab3-55e8f206212a",
+    "voice_provider": "cartesia",
+    "voice_id": "c58bda25-abd5-4c72-97a2-4dbe049b368d",
+    "name": "Garrett - Enthusiastic Pal",
+    "description": "Upbeat voice with bright energy and confident tone, perfect for lively conversations and engaging content",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b502-7026-aee3-b654b9d99524",
+    "voice_provider": "cartesia",
+    "voice_id": "f688c0a6-dddd-48ba-8246-c099d494a162",
+    "name": "Romeo - Calm Narrator",
+    "description": "Relaxing voice with smooth depth and calm pacing, perfect for storytelling and immersive narrations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b503-76af-bbe0-f1f7a15a8507",
+    "voice_provider": "cartesia",
+    "voice_id": "3d9b50f9-10c5-4026-9ae1-c4a698f67fc5",
+    "name": "Marjorie - Encouraging Aunt",
+    "description": "Encouraging matured voice with warm reassurance and steady tone, perfect for motivational and supportive messages",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b504-7bb4-bc98-d4e749e407c0",
+    "voice_provider": "cartesia",
+    "voice_id": "a924b0e6-9253-4711-8fc3-5cb8e0188c94",
+    "name": "Noah - Calming Presence",
+    "description": "Slow-paced voice with gentle warmth and soothing tone, perfect for ASMR and relaxation content",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b505-7ea0-a215-51ae3304b549",
+    "voice_provider": "cartesia",
+    "voice_id": "eb649460-7e23-43bc-ad20-0a7a2749b938",
+    "name": "Kim - Cheerful Pal",
+    "description": "Friendly voice with a smooth, easygoing tone",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b506-7b47-a7ae-1186fd6ab6c1",
+    "voice_provider": "cartesia",
+    "voice_id": "1f575487-6f3d-40e0-862a-814f55b5fb15",
+    "name": "Ariane - Captivating Tone",
+    "description": "Engaging voice with expressive warmth and clarity, perfect for drawing listeners into any conversation",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b507-77ea-96b5-4647f7712e45",
+    "voice_provider": "cartesia",
+    "voice_id": "050f5a7a-9d2b-4b76-84e3-2d056a0a3eb0",
+    "name": "Kelsey - Ball of energy",
+    "description": "Upbeat voice with lively energy and friendly warmth, perfect for energetic and engaging conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b508-7292-8448-d0625b77c4d3",
+    "voice_provider": "cartesia",
+    "voice_id": "6fbca103-0f7f-4e49-97ed-49a53b4f3534",
+    "name": "Maxine - Relaxed Energy",
+    "description": "Smooth voice with a calm, laid-back tone that brings an easy sense of comfort to any conversation",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b509-7677-ad89-ce3c73b7422e",
+    "voice_provider": "cartesia",
+    "voice_id": "87041166-c212-4838-9028-05d7437df750",
+    "name": "Aubrey - Easygoing Pal",
+    "description": "Warm voice with a relaxed, natural tone that feels friendly and effortlessly relatable",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b50a-740f-8071-957e02d0d695",
+    "voice_provider": "cartesia",
+    "voice_id": "6fccb471-26f7-4f7a-93dd-542935db6c20",
+    "name": "Wesley - Chill Flow",
+    "description": "Casual voice with a relaxed, friendly tone that feels natural and easy to listen to",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b50b-727b-9592-b1eaf7a92974",
+    "voice_provider": "cartesia",
+    "voice_id": "9329fbdb-e285-4fba-95ec-592e15f14476",
+    "name": "Rory - Maternal Vibe",
+    "description": "Motherlike female voice with a calm, nurturing tone that brings warmth and reassurance to any conversation",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b50c-79a8-8949-e98ccf0cb153",
+    "voice_provider": "cartesia",
+    "voice_id": "eef47c0d-cb49-4160-a4a0-6b97ed4c81e6",
+    "name": "Isla - Serene Flow",
+    "description": "Calm voice with gentle warmth and steady rhythm, perfect for yoga, meditation, and relaxation",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b50d-77ea-8997-27dd8d3637d1",
+    "voice_provider": "cartesia",
+    "voice_id": "69092565-1c93-4a88-9f2c-ac8cddaf9f65",
+    "name": "Janice - Engaging Tone",
+    "description": "Engaging voice with a casual, friendly tone that draws listeners in and keeps conversations lively",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b50e-778c-97cc-803e83d57bf9",
+    "voice_provider": "cartesia",
+    "voice_id": "17488b72-f815-44d8-bdd9-869971c3ec06",
+    "name": "Steven - Big Brother",
+    "description": "Conversational voice with a relaxed, natural tone that feels genuine and easy to engage with",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b50f-70cb-9c04-1f24df1c632b",
+    "voice_provider": "cartesia",
+    "voice_id": "d6b0c62a-c7ff-477c-9a1f-eadd64b94360",
+    "name": "Melina - Bright Spirit",
+    "description": "Outgoing voice with lively warmth and friendly tone, perfect for casual chats and everyday conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b510-7a1f-94cf-ce27bb8bb0b0",
+    "voice_provider": "cartesia",
+    "voice_id": "59697755-8cfb-4ccf-9da4-f2201d06b067",
+    "name": "Dominic - Sportscaster",
+    "description": "Strong voice with commanding projection and energetic tone, perfect for sports commentary and live announcements",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b511-7adc-b1a4-65c5706752b3",
+    "voice_provider": "cartesia",
+    "voice_id": "80c81aee-b6ad-4d12-9af8-a9c79c2e141d",
+    "name": "Aina - Meditation Guru",
+    "description": "Calm voice with soothing balance and gentle rhythm, ideal for meditation, mindfulness, and relaxation",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b512-74c9-b686-b001d605b026",
+    "voice_provider": "cartesia",
+    "voice_id": "ca31ce53-ebf6-4e51-b87d-2f65d5d1f7f8",
+    "name": "Vivian - Fierce Narrator",
+    "description": "Voice with rich emotion and expressive depth, perfect for dramatic readings and heartfelt narratio",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b513-77cb-9919-3e7b9a8fc1ac",
+    "voice_provider": "cartesia",
+    "voice_id": "aef96ff9-4578-4b5d-9744-7fb347cbe4d4",
+    "name": "Holly - Joyful Presence",
+    "description": "Cheerful voice with bright warmth and friendly energy, perfect for engaging conversations and upbeat content",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b514-7a16-8b9e-62923ae36950",
+    "voice_provider": "cartesia",
+    "voice_id": "b58b6b46-1a27-46ba-8648-bc203a5d394e",
+    "name": "Mason - Calm Vibe",
+    "description": "Chill voice with a smooth, conversational tone that feels relaxed and genuine",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b515-75ce-a980-5638452cd79f",
+    "voice_provider": "cartesia",
+    "voice_id": "3bf35adc-bcc4-464b-b834-c90c88cf6492",
+    "name": "Spencer - Chill Gentleman",
+    "description": "Casual voice with an engaging, upbeat tone that feels friendly and effortlessly conversational",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b516-7933-8ecc-2606e1ef9e42",
+    "voice_provider": "cartesia",
+    "voice_id": "9c8880b2-ccf9-4730-b805-cea23df247d7",
+    "name": "Conrad - Seasoned Support",
+    "description": "Mature, confident voice with composed authority and clear tone, perfect for professional or narrative use",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b517-7b0c-93e1-ddba7a5b29f4",
+    "voice_provider": "cartesia",
+    "voice_id": "5cf0e4d9-ca2b-4fd5-81fa-89db3b645539",
+    "name": "Derrick - Professional Man",
+    "description": "No-nonsense voice with steady confidence and clear tone, ideal for customer service and tech support",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b518-78a5-acdd-f2a469479e4c",
+    "voice_provider": "cartesia",
+    "voice_id": "c0f43c66-9f21-4034-b485-8f1d3340d759",
+    "name": "Clarkson - Executive Tone",
+    "description": "Businesslike voice with confident tone and professional delivery, perfect for corporate and formal settings",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b519-7744-ab30-806831fc67f4",
+    "voice_provider": "cartesia",
+    "voice_id": "643f5eee-459d-4b41-b4fc-0b8407139be6",
+    "name": "Vicky - Businesswoman",
+    "description": "Clear and crisp voice with precise delivery and bright tone, ideal for professional and instructional content",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b51a-7d8e-8992-cb7007394de5",
+    "voice_provider": "cartesia",
+    "voice_id": "dcc82bcd-647e-4478-955f-8232d5122f8b",
+    "name": "Melanie - Lively Spirit",
+    "description": "Enthusiastic voice with bright, engaging energy that brings excitement to any conversation",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b51b-73a5-a47c-52b3f589e0d0",
+    "voice_provider": "cartesia",
+    "voice_id": "045f0292-0731-4a4c-971d-64594fc2c35a",
+    "name": "Quinn - Calm Authority",
+    "description": "Confident voice with clear articulation and poised tone, perfect for presentations and customer interactions",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b51c-781f-a0bf-2c4d94470114",
+    "voice_provider": "cartesia",
+    "voice_id": "2948c301-9211-4112-8f36-4c3fc836ef12",
+    "name": "Bryce - Clear Explainer",
+    "description": "Confident voice with clear enunciation and strong delivery, ideal for professional and instructional use",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b51d-7ec5-8f89-077220f41bf7",
+    "voice_provider": "cartesia",
+    "voice_id": "49808e4c-998a-40a8-b2ea-8ac8e8ce779e",
+    "name": "Marvin - Steady Ally",
+    "description": "Deep, comforting voice with calm authority and warmth, perfect for reassuring and professional customer service",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b51e-77e8-8872-47b4a2f14f17",
+    "voice_provider": "cartesia",
+    "voice_id": "86600680-b836-41e1-9916-8475728dcc14",
+    "name": "Tiffany - Dynamic Presence",
+    "description": "Engaging voice with lively clarity and confident warmth, ideal for keeping listeners interested and connected",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b51f-7b16-8f4a-2e9713caee54",
+    "voice_provider": "cartesia",
+    "voice_id": "7a8ae0b6-504a-49af-92d3-4e7e2eb84ca1",
+    "name": "Eliott - Positive Spirit",
+    "description": "Approachable and cheerful voice with bright warmth that instantly connects and uplifts listeners",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b520-73b4-8595-eeb987596d14",
+    "voice_provider": "cartesia",
+    "voice_id": "b5c1bab5-f036-481f-9295-4db6f06f6443",
+    "name": "Jamie - Comforting Presence",
+    "description": "Casual voice with a warm, friendly tone that feels like chatting with a close friend",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b521-75a3-944e-b3385cdcb94a",
+    "voice_provider": "cartesia",
+    "voice_id": "cd6256ef-2b2a-41f6-a8d8-c1307af5061f",
+    "name": "Preston - Relatable Pal",
+    "description": "Confident voice with expressive tone and charismatic delivery, great for engaging conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b522-7d39-9639-4a6f329b7010",
+    "voice_provider": "cartesia",
+    "voice_id": "3ccc4544-84f7-45e3-ae57-5c52b5a1fac6",
+    "name": "Aiden - Yogi",
+    "description": "Soothing voice with calm depth and gentle pacing, perfect for peaceful narrations and relaxation content",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b523-72b6-8f1a-97ba4e36dd75",
+    "voice_provider": "cartesia",
+    "voice_id": "4b1e0bf9-53a0-4e9e-8664-ba1314dbcb38",
+    "name": "Kelly - Friendly Spirit",
+    "description": "Casual voice with a friendly, natural tone that feels easygoing and approachable",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b524-7955-a7a5-bb0e8f823e83",
+    "voice_provider": "cartesia",
+    "voice_id": "e5a6cd18-d552-4192-9533-82a08cac8f23",
+    "name": "Patricia - Veteran Support",
+    "description": "Matured voice with lively warmth and enthusiasm, perfect for engaging and energetic customer service",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b525-7380-a652-24ce8a023a7e",
+    "voice_provider": "cartesia",
+    "voice_id": "ea93f57f-7c71-4d79-aeaa-0a39b150f6ca",
+    "name": "Diana - Gentle Mom",
+    "description": "Matured voice with a casual, friendly tone that feels warm, relatable, and easy to connect with",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b526-7c40-9cbe-598880b162ff",
+    "voice_provider": "cartesia",
+    "voice_id": "18f8d87b-0da9-4efa-b504-4580e303f7db",
+    "name": "Colby - Lively Guy",
+    "description": "Casual voice with an engaging, upbeat tone that brings energy and friendliness to any conversation",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b527-7d9b-a642-603c159d5191",
+    "voice_provider": "cartesia",
+    "voice_id": "fdf6303b-4cfa-4f8e-b7ae-acb398984cf9",
+    "name": "Harley - Comforting Voice",
+    "description": "Casual voice with a relaxed, natural tone that feels approachable and genuine",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b528-7df1-879c-8c37b8e5cdd2",
+    "voice_provider": "cartesia",
+    "voice_id": "ea7c252f-6cb1-45f5-8be9-b4f6ac282242",
+    "name": "Logan - Approachable Friend",
+    "description": "Casual voice with an easy, conversational tone that feels natural and approachable",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b529-73ea-8948-00152d642178",
+    "voice_provider": "cartesia",
+    "voice_id": "63927f41-9616-4ac2-89cf-f3afa346e0ef",
+    "name": "Selene - Soothing Aura",
+    "description": "Relaxing and calm voice with gentle flow and serene tone, ideal for meditation and mindfulness content",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b52a-73b9-a0e5-d51e676a70e9",
+    "voice_provider": "cartesia",
+    "voice_id": "3308b492-50cc-417e-89dd-1f446c574546",
+    "name": "Tara - Confident Ally",
+    "description": "Confident voice with clear, composed tone, perfect for professional and customer service settings",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b52b-71ba-a515-c3284e346c96",
+    "voice_provider": "cartesia",
+    "voice_id": "320f7211-3dc3-4292-89b1-3661e8cac27c",
+    "name": "Evelyn - Peaceful Whisper",
+    "description": "Calm voice with soft warmth and gentle pacing, ideal for soothing narrations and ASMR",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b52c-7068-972b-324e45199484",
+    "voice_provider": "cartesia",
+    "voice_id": "a2364c9d-1fe3-4553-9eff-100c4fe5ffc8",
+    "name": "Marge - Seasoned Grace",
+    "description": "Wise matured voice with expressive warmth and character, perfect for storytelling and entertainment",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b52d-7615-af21-27b11b9447bb",
+    "voice_provider": "cartesia",
+    "voice_id": "2d5b8c3a-116c-4741-acaf-ba4fa289eba2",
+    "name": "Benji - Joyful Spirit",
+    "description": "Excited and cheerful voice with bright energy and lively tone, perfect for upbeat chats and engaging content",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b52e-731e-a5d4-a79574e223e6",
+    "voice_provider": "cartesia",
+    "voice_id": "48369ca9-0645-40de-9821-0d55e18a03c2",
+    "name": "Zoey - Bright Voice",
+    "description": "Upbeat female voice with lively energy and warmth, perfect for energetic and engaging conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b532-7a7b-a122-d6eef51939d0",
+    "voice_provider": "cartesia",
+    "voice_id": "356f4a89-d056-4e2e-8c73-865fa4d3af0a",
+    "name": "Chandler - Easygoing Pal",
+    "description": "Casual male voice with a warm, natural tone that feels friendly and effortlessly relatable",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b533-78f1-9b47-094e95d9987b",
+    "voice_provider": "cartesia",
+    "voice_id": "d6905573-8e91-4e32-b103-fd4d1205cd87",
+    "name": "Mindy - Spirited Ally",
+    "description": "Enthusiastic female voice with bright energy and cheerful tone, great for lively conversations and upbeat content",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b534-7227-aec4-e95fe752d6aa",
+    "voice_provider": "cartesia",
+    "voice_id": "23112795-d54e-4560-9568-791a87c30201",
+    "name": "Darius - Engaging Narrator",
+    "description": "Husky matured male voice with rich texture and commanding tone, ideal for engaging story telling and narrations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b535-7236-956b-e0a1286f5685",
+    "voice_provider": "cartesia",
+    "voice_id": "1ac31ebd-9113-405b-9d80-4a4bbbeea91c",
+    "name": "Kayla - Easygoing Pal",
+    "description": "Casual female voice with a friendly, natural tone that feels effortless and engaging in conversation",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b536-73eb-924e-1d02248c5fd9",
+    "voice_provider": "cartesia",
+    "voice_id": "1628cfcd-a161-4e47-98ff-46bffa4ab290",
+    "name": "Graham - Assured Helper",
+    "description": "Confident male voice with a clear, reassuring tone, perfect for professional and customer service interactions",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b537-7e44-832a-a11ad7016717",
+    "voice_provider": "cartesia",
+    "voice_id": "a892d232-f705-40d7-bc8d-e368b295ec2a",
+    "name": "Harlan - Vintage Tone",
+    "description": "Deep male voice with classic resonance and smooth authority, reminiscent of an old radio announcer",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b538-7400-ae48-919f309aa0c8",
+    "voice_provider": "cartesia",
+    "voice_id": "3d83e30f-c31b-4f26-b442-7075feafa53a",
+    "name": "Wade - Southern Soul",
+    "description": "Country-sounding male voice with a warm drawl and genuine charm, perfect for friendly storytelling",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b539-7821-b646-765c452776c1",
+    "voice_provider": "cartesia",
+    "voice_id": "87a983d8-3471-4c4b-9ade-f1d10a4110ac",
+    "name": "Devin - Relaxed Spirit",
+    "description": "Laidback male voice with a smooth, easygoing tone that feels relaxed and effortlessly cool.",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b53a-72eb-9758-a4a025b74235",
+    "voice_provider": "cartesia",
+    "voice_id": "3f38cbe2-ce6a-4051-b5dc-2b2ee20b9bc1",
+    "name": "Sasha - Cool Friend",
+    "description": "Chill female voice with a smooth, laid-back tone that brings ease and calm to any conversation",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b53b-7788-91da-ede249696668",
+    "voice_provider": "cartesia",
+    "voice_id": "b2222537-1561-4425-8c3c-e1aca96ad853",
+    "name": "Dylan - Chill Companion",
+    "description": "Casual male voice with an easy, conversational tone that feels friendly and down-to-earth",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b53c-7406-9419-c242121a2ca7",
+    "voice_provider": "cartesia",
+    "voice_id": "8cbfe3ab-8364-4e72-b606-93f749519c66",
+    "name": "Shane - Helpful Guide",
+    "description": "Casual male voice with clear, steady delivery that makes troubleshooting steps easy to follow and understand",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b53d-78c8-be42-d93bb2d0515b",
+    "voice_provider": "cartesia",
+    "voice_id": "d2c66146-c1c8-4c3a-9870-38e5a6b72442",
+    "name": "Lawson - Suave Storyteller",
+    "description": "Charming matured male voice with smooth delivery and refined tone, perfect for narrations and advertisements",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b53e-7e17-b500-937ac9e9f2ca",
+    "voice_provider": "cartesia",
+    "voice_id": "083de431-6b5c-4b18-a2dc-264eafa205f2",
+    "name": "Diana - Animated Narrator",
+    "description": "Chirpy matured female voice with expressive warmth and lively cadence, perfect for engaging storytelling",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b53f-76ce-b355-81022108dfa1",
+    "voice_provider": "cartesia",
+    "voice_id": "cec7cae1-ac8b-4a59-9eac-ec48366f37ae",
+    "name": "Haley - Engaging Friend",
+    "description": "Casual female voice with a relaxed, friendly tone that feels natural and easy to engage with",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b540-719e-829f-356b90af0672",
+    "voice_provider": "cartesia",
+    "voice_id": "5319c0b1-3dd1-4c00-b721-bfd2ec88ef56",
+    "name": "Julian - Vibrant Voice",
+    "description": "Friendly and cheerful male voice with uplifting warmth, great for feel-good narrations and advertisements",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b541-78c5-a7d0-a7a570df825f",
+    "voice_provider": "cartesia",
+    "voice_id": "f4a3a8e4-694c-4c45-9ca0-27caf97901b5",
+    "name": "Gavin - Friendly Vibe",
+    "description": "Casual male voice with a relaxed, conversational tone that feels approachable and genuine",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b542-7a14-9458-09554b7917c8",
+    "voice_provider": "cartesia",
+    "voice_id": "8a1b8af0-c4f6-423f-a268-5507fd4aefdf",
+    "name": "Denise - Professional Woman",
+    "description": "Professional female voice with confident clarity and polished tone, ideal for corporate and business settings",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b543-712a-a7fa-42307d826909",
+    "voice_provider": "cartesia",
+    "voice_id": "ed82c17b-4704-4d34-be43-5d19065acdf1",
+    "name": "Carl - Steady Storyteller",
+    "description": "Matured male voice with calm depth and measured pacing, perfect for narrations and documentaries",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b544-7146-9275-73d169068b05",
+    "voice_provider": "cartesia",
+    "voice_id": "bbc5d060-50e1-45a3-87ff-191b8cea3092",
+    "name": "Jett - Helpful Pal",
+    "description": "Casual male voice with an easygoing rhythm and friendly tone that feels natural and relatable",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b545-75be-9d9f-2a716029149b",
+    "voice_provider": "cartesia",
+    "voice_id": "19e399df-5b30-4fba-9d1d-99434f993614",
+    "name": "Edna - Graceful Veteran",
+    "description": "Matured female voice with gentle wisdom and poise, perfect for thoughtful narration and reflective dialogue",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b546-74ca-9149-22d60951761b",
+    "voice_provider": "cartesia",
+    "voice_id": "b9cf5ec3-eaa4-46a5-a5b2-b0d0f22395a2",
+    "name": "Caleb - Seasoned Pro",
+    "description": "Confident male voice with authoritative clarity, perfect for delivering expert insights and professional guidance",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b547-7530-a516-aa48a144ae17",
+    "voice_provider": "cartesia",
+    "voice_id": "4c2dcd38-5608-45ca-8f11-51c88208d01c",
+    "name": "Orin - Velvet Gentleman",
+    "description": "Deep, silky male voice that delivers authority and allure, perfect for impactful ads and promos",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b548-707b-b5b7-a7d211af45b2",
+    "voice_provider": "cartesia",
+    "voice_id": "90c896fa-aaa1-41af-a612-5267636440a3",
+    "name": "Dean - Laidback Pal",
+    "description": "Casual male voice with a relaxed, natural tone that feels easy to listen to and effortlessly genuine",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b549-776e-94d5-2923f630f6e4",
+    "voice_provider": "cartesia",
+    "voice_id": "efc5488b-5429-4e72-aaa2-570981cf47d9",
+    "name": "Lacey - Sunny Soul",
+    "description": "Cheerful and friendly female voice with bright energy that uplifts and engages listeners instantly",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b54a-75ec-869a-753089e7b4bc",
+    "voice_provider": "cartesia",
+    "voice_id": "cc00e582-ed66-4004-8336-0175b85c85f6",
+    "name": "Dana - Balanced Spirit",
+    "description": "Neutral female voice with clear articulation and calm tone, ideal for versatile conversational or professional use",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b54b-777c-b869-38559f3bac2d",
+    "voice_provider": "cartesia",
+    "voice_id": "3af40927-948e-429b-b92d-e2158f79fb9f",
+    "name": "Cera - Lighthearted Muse",
+    "description": "Casual female voice with an easy, conversational flow that feels natural and friendly",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b54c-71a2-beda-d22a7d53c51f",
+    "voice_provider": "cartesia",
+    "voice_id": "d709a7e8-9495-4247-aef0-01b3207d11bf",
+    "name": "Donny - Steady Presence",
+    "description": "Neutral male voice with balanced tone and clarity, adaptable for a wide range of casual speaking contexts",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b54d-72a0-97a0-a870cb5af5ab",
+    "voice_provider": "cartesia",
+    "voice_id": "64b2a604-f0de-449f-9d90-255602357c05",
+    "name": "Elise - Helpful Voice",
+    "description": "Casual female voice with a smooth, approachable tone that feels effortless and natural in conversation",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b54e-71a2-b192-5af3e3e65d25",
+    "voice_provider": "cartesia",
+    "voice_id": "c7c790c5-2bf4-47e4-bc83-5f43e61f3803",
+    "name": "Reese - Warm Companion",
+    "description": "Casual, friendly female voice with a bright and welcoming tone suited for everyday conversations.",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b54f-7745-ad7b-1c67886bf306",
+    "voice_provider": "cartesia",
+    "voice_id": "1ce291a1-0771-4732-a3f7-8cca29bf055f",
+    "name": "Ralph - Dynamic Commentator",
+    "description": "Matured male voice with powerful projection and crisp delivery, perfect for announcements and sports commentary",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b550-7519-a123-58911253ee42",
+    "voice_provider": "cartesia",
+    "voice_id": "dbfa416f-d5c3-4006-854b-235ef6bdf4fd",
+    "name": "Damon - Commanding Narrator",
+    "description": "Deep and serious male voice with steady gravitas, ideal for documentaries and impactful storytelling",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b551-7f25-8ed3-1d6b72f00c68",
+    "voice_provider": "cartesia",
+    "voice_id": "6776173b-fd72-460d-89b3-d85812ee518d",
+    "name": "Jace - Cool Conversationalist",
+    "description": "Friendly and chill male voice with an easygoing tone that feels relaxed and natural",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b552-7ed2-a041-00964249fe2a",
+    "voice_provider": "cartesia",
+    "voice_id": "921034a2-aace-4ef7-87b1-b9bc455c9a15",
+    "name": "Edric - Refined Mentor",
+    "description": "Matured male voice with steady pacing and clear intonation, delivering messages with poise and clarity",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b553-7ef3-9e8b-451f2266abcd",
+    "voice_provider": "cartesia",
+    "voice_id": "c78dd7ae-6692-4c44-a2a2-834e365afe60",
+    "name": "Clark - Trustworthy Expert",
+    "description": "Approachable male voice with a confident, knowledgeable tone ideal for customer service and support",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b554-7167-9a88-8b3184473d12",
+    "voice_provider": "cartesia",
+    "voice_id": "0834f3df-e650-4766-a20c-5a93a43aa6e3",
+    "name": "Leo - Genuine Companion",
+    "description": "Friendly and approachable male voice that brings warmth and ease to any interaction",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b555-7bd7-ba33-d628aea0de03",
+    "voice_provider": "cartesia",
+    "voice_id": "4cf80313-54dc-4ca9-a17c-3e5b8f68a78c",
+    "name": "Hugh - Confident Veteran",
+    "description": "Seasoned male voice with rich character and charisma, great for lively ads and engaging conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b556-7863-89eb-d9b70186e81c",
+    "voice_provider": "cartesia",
+    "voice_id": "8d7d11ff-d985-48a2-a737-1da0b6fedc8b",
+    "name": "Ronan - Warm Buddy",
+    "description": "Friendly male voice with an easygoing tone that feels natural and inviting in any context",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b557-7de4-beff-38a2875be61e",
+    "voice_provider": "cartesia",
+    "voice_id": "3f04e815-3260-4f50-8fd9-af9c657be4c2",
+    "name": "Arvin - Reliable Guide",
+    "description": "Clear, steady male voice that communicates instructions and troubleshooting steps with confidence and ease",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b558-7514-ae5c-252b5c77d8e9",
+    "voice_provider": "cartesia",
+    "voice_id": "f4c1a0b2-669d-403f-b440-4b34b34856aa",
+    "name": "Nora - Calm Companion",
+    "description": "Balanced, neutral female voice that sounds natural and approachable for everyday conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b559-74dc-9513-001f82962796",
+    "voice_provider": "cartesia",
+    "voice_id": "cbaf8084-f009-4838-a096-07ee2e6612b1",
+    "name": "Maya - Easygoing Ally",
+    "description": "Friendly, casual female voice with clear articulation, ideal for natural conversations and customer support",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b55a-73df-8440-d7b79f05a391",
+    "voice_provider": "cartesia",
+    "voice_id": "c1b9a03e-747f-40ad-8e7b-18caf8aaac0b",
+    "name": "Lira - Tranquil Voice",
+    "description": "Soothing female voice with gentle warmth, ideal for calm narrations and ASMR",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b56d-7fe6-ab0a-584229db2f27",
+    "voice_provider": "cartesia",
+    "voice_id": "e2d08065-b658-466b-ad52-cef8ee21d307",
+    "name": "Natasha - Upbeat Guide",
+    "description": "English female adult voice with a lively, upbeat tone for energetic conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b56e-700e-ba58-a18fe2877c5c",
+    "voice_provider": "cartesia",
+    "voice_id": "9a0894a9-28f0-436e-9a1d-e92bccbce4dd",
+    "name": "Albert - Firm Guide",
+    "description": "English male adult voice with a firm and authoritative tone for providing clear instructions and guidance",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b56f-72c7-9508-dda5936c2b40",
+    "voice_provider": "cartesia",
+    "voice_id": "710feaa3-b550-42f3-b3eb-6f37f2a7cc0a",
+    "name": "Tanner - Upbeat Assistant",
+    "description": "English male adult voice with an upbeat and energetic tone",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b570-74bc-999b-ba5b2172bdb2",
+    "voice_provider": "cartesia",
+    "voice_id": "f762e181-ddc7-486e-9a48-636bd7e229d4",
+    "name": "Chloe - Persuasive Lady",
+    "description": "English female adult voice with a confident and persuasive tone, able to influence and engage listeners with clarity and conviction",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b571-7414-99f7-199f38f457a8",
+    "voice_provider": "cartesia",
+    "voice_id": "3ef78ba6-9aaa-46a2-b5b5-f9ded76a2370",
+    "name": "Serena - Laidback Girl",
+    "description": "Female adult voice with a relaxed, easygoing tone and laid-back delivery",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b572-7167-863e-ea7196ed0f99",
+    "voice_provider": "cartesia",
+    "voice_id": "0d42f0f6-c019-4082-b250-1c16133d1c82",
+    "name": "Howard - Approachable Man",
+    "description": "Male adult voice with a clear, approachable tone and steady delivery",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b573-7d81-acf7-cb4b3b5b7035",
+    "voice_provider": "cartesia",
+    "voice_id": "a7a59115-2425-4192-844c-1e98ec7d6877",
+    "name": "Amber - Warm Support Agent",
+    "description": "English female adult voice with a cheerful yet deeper tone, striking a balance of warmth and authority for customer service use",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b574-7be3-96d8-ebf22fb3e7b9",
+    "voice_provider": "cartesia",
+    "voice_id": "f39d8500-0d9b-4b8b-a080-38f5188f5892",
+    "name": "Jewel - Commercial Announcer",
+    "description": "Smooth, confident, and engaging female voice for advertising, promos, and high-impact brand messaging",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b575-783b-87cc-f7ef1603185f",
+    "voice_provider": "cartesia",
+    "voice_id": "3d808d23-cb09-4c39-8afd-528e209cba4f",
+    "name": "Brent - Steady Conversationalist",
+    "description": "English male adult voice with a calm, steady, and composed delivery",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b576-72bc-b5f9-b111a7424e77",
+    "voice_provider": "cartesia",
+    "voice_id": "1b4ea5fb-b1c0-43ee-a7be-4e315878c2b1",
+    "name": "Monica - Emotive Voice",
+    "description": "English female adult voice with rich emotional range and expressive delivery",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b577-7a8c-b5c4-3968ec31f9a5",
+    "voice_provider": "cartesia",
+    "voice_id": "efd255c7-f030-43d3-b5d8-c7b72063be70",
+    "name": "Todd - Matter of Fact Salesman",
+    "description": "English male adult voice with a direct, matter-of-fact delivery",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b578-785e-8ee9-d1be5964e918",
+    "voice_provider": "cartesia",
+    "voice_id": "7edf9efb-58fc-46ba-a648-3a00a86b111b",
+    "name": "Elliott - Reflective Storyteller",
+    "description": "English male adult voice with a soft, melancholic tone and a questioning inflection for storytelling and emotional dialogue",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b579-79a6-ad32-878b91e20291",
+    "voice_provider": "cartesia",
+    "voice_id": "01eaafa9-308a-4276-a017-6ab0cf061b1f",
+    "name": "Clara - Instructor",
+    "description": "Middle-aged American female voice with a clear tone and precise enunciation for instructions, customer support, and professional presentations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b57a-7966-8b9d-d601836de7db",
+    "voice_provider": "cartesia",
+    "voice_id": "03b1c65d-4b7f-4c09-91a8-e2f6f78cb2c9",
+    "name": "Molly - Upbeat Conversationalist",
+    "description": "Bright and cheerful American-accented female voice for upbeat conversations, advertisements, and lively interactions",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b57b-7155-a6eb-f98a9aed63a6",
+    "voice_provider": "cartesia",
+    "voice_id": "92c41dd4-04aa-45de-8504-a92b40cb8818",
+    "name": "Connor - Grateful Person",
+    "description": "Expressive American adult male voice with a grateful yet firm tone for speeches, storytelling, and professional communication",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b57c-7585-8571-7498323c485e",
+    "voice_provider": "cartesia",
+    "voice_id": "2f22b9bc-b0eb-4cb6-b5ae-0c099a0fdfad",
+    "name": "Scott - Sportscaster",
+    "description": "Energetic American adult male voice with the excitement of a sportscaster for live commentary, sports content, and high-energy announcements",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b57d-7255-bd2a-6b0f691f0a07",
+    "voice_provider": "cartesia",
+    "voice_id": "4e41a434-85fc-4614-b203-af79ba44d473",
+    "name": "Sienna - Encourager",
+    "description": "Soft-spoken American-accented female voice with a motivating and reassuring tone for guidance, support, and uplifting conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b57e-757e-9d85-015b7050811f",
+    "voice_provider": "cartesia",
+    "voice_id": "09ed0318-2f4a-41b1-abe5-d11da7537c31",
+    "name": "Daphne - Excited Woman",
+    "description": "Expressive and upbeat American-accented female voice with an exciting tone for ads, presentations, and lively storytelling",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b57f-7a5a-92c5-6cb279d540fb",
+    "voice_provider": "cartesia",
+    "voice_id": "79bfcec0-720c-41f2-a33a-f12383e9627f",
+    "name": "Wang - Guide",
+    "description": "Clear and firm adult male voice with an authoritative tone for customer support, giving instructions and professional communication",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b580-7169-a16e-c2c3c78f6085",
+    "voice_provider": "cartesia",
+    "voice_id": "8918ddfe-2ad4-4cc8-a573-e020ca13f3f5",
+    "name": "Erin - Joyful Guide",
+    "description": "Cheerful and optimistic adult female voice for upbeat conversations, advertisements, and positive customer interactions",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b595-7ab6-8a51-de8d37fe838e",
+    "voice_provider": "cartesia",
+    "voice_id": "31c55968-a9f4-4115-8831-3a16952179c8",
+    "name": "Ayumi - Sales Guide",
+    "description": "Upbeat and enthusiastic adult female voice for sales, promotions, and engaging customer interactions",
+    "gender": "Female",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b597-7da6-96b1-ff4ba4ea6941",
+    "voice_provider": "cartesia",
+    "voice_id": "b8e1169c-f16a-4064-a6e0-95054169e553",
+    "name": "Takashi - Professional Conversationalist",
+    "description": "Serious adult male voice with a steady but approachable tone for casual conversations and professional dialogue",
+    "gender": "Male",
+    "language": "ja"
+  },
+  {
+    "id": "019ae85b-b5cd-74b9-a899-4619040f5fba",
+    "voice_provider": "cartesia",
+    "voice_id": "46788d8e-cdf9-4d5c-9125-094eb2e4d44c",
+    "name": "Brittany - Intense Performer",
+    "description": "Strong and aggressive American-accented female voice for intense dialogue, dramatic roles, or high-energy commercials",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5ce-721a-bf46-d1afd0c02929",
+    "voice_provider": "cartesia",
+    "voice_id": "e2d48e7b-cd73-4c4c-bc1e-f232580e8709",
+    "name": "Adrian - Explorer",
+    "description": "Deep American adult male voice with a curious and engaging tone for explorations, documentaries, and storytelling",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5cf-75e1-9220-5cf90ebeb9f3",
+    "voice_provider": "cartesia",
+    "voice_id": "c63361f8-d142-4c62-8da7-8f8149d973d6",
+    "name": "Krishna - Friendly Pal",
+    "description": "Easygoing adult male voice with a slight Indian accent for casual conversations, approachable dialogue, and friendly interactions",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5d0-7444-9e49-fc17a91bf5d1",
+    "voice_provider": "cartesia",
+    "voice_id": "9287676d-f0cc-423f-ac03-3b3c7242f091",
+    "name": "Allen - Modern Voice",
+    "description": "Confident young adult male voice with a neutral American accent for presentations, ads, and engaging everyday conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5d1-7931-a7ea-8b2b322c09ac",
+    "voice_provider": "cartesia",
+    "voice_id": "f80e7298-93f5-46d0-86f2-b8f29cfc88bd",
+    "name": "Claudia - Welcoming Lady",
+    "description": "Friendly, calm young adult female for casual conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5d2-7ca5-8e37-7aa6b668f58d",
+    "voice_provider": "cartesia",
+    "voice_id": "1242fb95-7ddd-44ac-8a05-9e8a22a6137d",
+    "name": "Cindy - Receptionist",
+    "description": "Smooth, welcoming adult female for frontline customer interactions",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5d3-78f5-bc34-34a0a5f191bc",
+    "voice_provider": "cartesia",
+    "voice_id": "02fe5732-a072-4767-83e3-a91d41d274ca",
+    "name": "Madison - Best Friend",
+    "description": "Enthusiastic, young adult female for emotive discussions",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5d4-75f3-84f4-40a211710e86",
+    "voice_provider": "cartesia",
+    "voice_id": "da69d796-4603-4419-8a95-293bfc5679eb",
+    "name": "David - Greeter",
+    "description": "Engaging adult male for advertising and upbeat conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5d7-7177-9bdd-020bdba5c81d",
+    "voice_provider": "cartesia",
+    "voice_id": "fb78f09f-f998-4061-ad51-d71f90388f0e",
+    "name": "Lori - Scared Cheerleader",
+    "description": "Female with clear enunciation for upbeat, emotive conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5d8-78a6-a7ea-0488064be6bc",
+    "voice_provider": "cartesia",
+    "voice_id": "c2da2a3e-b0d6-46bf-a09a-68562617a50a",
+    "name": "Lori - Surprised Cheerleader",
+    "description": "Female with clear enunciation for upbeat, emotive conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5d9-74f2-82f5-ebb80145633c",
+    "voice_provider": "cartesia",
+    "voice_id": "ba0add52-783c-4ec0-8b9c-7a6b60f99d1c",
+    "name": "Lori - Curious Cheerleader",
+    "description": "Female with clear enunciation for upbeat, emotive conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5da-79b4-bb77-5ca042bf7e98",
+    "voice_provider": "cartesia",
+    "voice_id": "8843adfb-77d3-455a-86f9-de0651555ec6",
+    "name": "Lori - Happy Cheerleader",
+    "description": "Female with clear enunciation for upbeat, emotive conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5db-79f4-9cbc-8dfbe07403e2",
+    "voice_provider": "cartesia",
+    "voice_id": "5cc54223-ec0c-4c50-87e9-b9947264e1f4",
+    "name": "Lori - Cheerleader",
+    "description": "Female with clear enunciation for upbeat, emotive conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5dc-7100-94e3-8217d98afd81",
+    "voice_provider": "cartesia",
+    "voice_id": "57c63422-d911-4666-815b-0c332e4d7d6a",
+    "name": "Lori - Cheerleader",
+    "description": "Female with clear enunciation for upbeat, emotive conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5dd-7c08-afa2-01246ad326e8",
+    "voice_provider": "cartesia",
+    "voice_id": "414da90b-16b3-4e88-86f5-3c3945e8fa4b",
+    "name": "Lori - Disgusted Cheerleader",
+    "description": "Female with clear enunciation for upbeat, emotive conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5de-7c34-bd74-77fedb18e3ec",
+    "voice_provider": "cartesia",
+    "voice_id": "2d01710c-7c77-4cf1-b0d0-5902a25f6e17",
+    "name": "Lori - Sad Cheerleader",
+    "description": "Female with clear enunciation for upbeat, emotive conversations",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5df-768f-8db3-178e5c755ff7",
+    "voice_provider": "cartesia",
+    "voice_id": "f96dc0b1-7900-4894-a339-81fb46d515a7",
+    "name": "Steve - Disgusted Baritone",
+    "description": "Deep, firm adult male for narrations and voiceovers",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5e0-721c-b32b-5bd81a57db87",
+    "voice_provider": "cartesia",
+    "voice_id": "c1c65fc2-528a-4dde-a2c4-f822785c2704",
+    "name": "Steve - Curious Baritone",
+    "description": "Deep, firm adult male for narrations and voiceovers",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5e1-7c05-b859-29e19cb1278e",
+    "voice_provider": "cartesia",
+    "voice_id": "b1ce5126-4d08-42c3-adef-d3eb39e90c7a",
+    "name": "Steve - Scared Baritone",
+    "description": "Deep, firm adult male for narrations and voiceovers",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5e2-7865-9da4-20bfa0fc67db",
+    "voice_provider": "cartesia",
+    "voice_id": "adde00e9-c98f-42ae-a94d-fc9f92f11c76",
+    "name": "Steve - Happy Baritone",
+    "description": "Deep, firm adult male for narrations and voiceovers",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5e3-79fa-9375-ef3ae820ded5",
+    "voice_provider": "cartesia",
+    "voice_id": "9fb269e7-70fe-4cbe-aa3f-28bdb67e3e84",
+    "name": "Steve - Baritone",
+    "description": "Deep, firm adult male for narrations and voiceovers",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5e4-7739-af85-6f5b44c30044",
+    "voice_provider": "cartesia",
+    "voice_id": "80713a53-e484-4f69-9852-7891096016ac",
+    "name": "Steve - Sad Baritone",
+    "description": "Deep, firm adult male for narrations and voiceovers",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5e5-7386-b3ab-a90d5c9e8666",
+    "voice_provider": "cartesia",
+    "voice_id": "7c8ba972-4960-4c43-bea0-8178e2205696",
+    "name": "Steve - Angry Baritone",
+    "description": "Deep, firm adult male for narrations and voiceovers",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5e6-7abb-9cdb-0092e1b11df0",
+    "voice_provider": "cartesia",
+    "voice_id": "6fd4f468-0345-4f41-81d0-3f48ebc295e0",
+    "name": "Steve - Surprised Baritone",
+    "description": "Deep, firm adult male for narrations and voiceovers",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5e7-7874-9e29-1ac0d3eef0ed",
+    "voice_provider": "cartesia",
+    "voice_id": "fd098a10-ba9e-445e-b144-be2a9f3dac02",
+    "name": "David - Angry Greeter",
+    "description": "Engaging adult male for advertising and upbeat conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5e8-72eb-ac85-cdade7c7e18c",
+    "voice_provider": "cartesia",
+    "voice_id": "c4e848dc-d4fd-4bc8-90ea-8525563ec0e5",
+    "name": "David - Sad Greeter",
+    "description": "Engaging adult male for advertising and upbeat conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5e9-7f04-b333-fc73bff8563e",
+    "voice_provider": "cartesia",
+    "voice_id": "b08c966e-2146-4592-99eb-3171a714a43c",
+    "name": "David - Curious Greeter",
+    "description": "Engaging adult male for advertising and upbeat conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5ea-7eb6-8266-30a2e58b800a",
+    "voice_provider": "cartesia",
+    "voice_id": "a3a4fe2a-d402-41d1-be7d-28f71eda755f",
+    "name": "David - Scared Greeter",
+    "description": "Engaging adult male for advertising and upbeat conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5eb-7204-aeb7-2dab4bdc0760",
+    "voice_provider": "cartesia",
+    "voice_id": "9d2b4a7f-7ced-4fb8-b570-9ce21fb931c8",
+    "name": "David - Disgusted Greeter",
+    "description": "Engaging adult male for advertising and upbeat conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5ec-7c04-9fd6-02b52d8f90bf",
+    "voice_provider": "cartesia",
+    "voice_id": "6b622a1d-906f-44af-b60c-7bef365bf124",
+    "name": "David - Happy Greeter",
+    "description": "Engaging adult male for advertising and upbeat conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5ed-7f24-9073-e703c53d8b91",
+    "voice_provider": "cartesia",
+    "voice_id": "10d17ae0-8f64-472a-be00-f00a98c729e0",
+    "name": "David - Surprised Greeter",
+    "description": "Engaging adult male for advertising and upbeat conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5ee-7c75-8ac3-f4610a69cb19",
+    "voice_provider": "cartesia",
+    "voice_id": "8e14933d-ecd7-402b-9505-795130d69b35",
+    "name": "Luke - Broadway Voice",
+    "description": "Seasoned male voice for casual, authentic conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5ef-77f0-8fa5-65540c5435f5",
+    "voice_provider": "cartesia",
+    "voice_id": "7b2c0a2e-3dd3-4a44-b16b-26ecd8134279",
+    "name": "Luke - Broadway Voice",
+    "description": "Seasoned male voice for casual, authentic conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5f0-74af-8ab8-f3c55fcd2018",
+    "voice_provider": "cartesia",
+    "voice_id": "79b8126f-c5d9-4a73-8585-ba5e1a077ed6",
+    "name": "Luke - Disgusted Broadway Voice",
+    "description": "Seasoned male voice for casual, authentic conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5f1-7b5b-b056-cb420a709dd5",
+    "voice_provider": "cartesia",
+    "voice_id": "725d43d6-1196-480e-bd87-728ae5eff9e1",
+    "name": "Luke - Surprised Broadway Voice",
+    "description": "Seasoned male voice for casual, authentic conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5f2-7669-a07f-673f5c32b1b7",
+    "voice_provider": "cartesia",
+    "voice_id": "63426c82-a0c9-4f23-a175-50eb64c95ec1",
+    "name": "Luke - Scared Broadway Voice",
+    "description": "Seasoned male voice for casual, authentic conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5f3-7452-89fd-c86f73e7f61f",
+    "voice_provider": "cartesia",
+    "voice_id": "61001bc6-9064-40a4-b8b2-29178e0fa558",
+    "name": "Luke - Angry Broadway Voice",
+    "description": "Seasoned male voice for casual, authentic conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5f4-7e57-8b34-4e8e81c95759",
+    "voice_provider": "cartesia",
+    "voice_id": "5c7b66c2-3b58-464d-8a12-093410a269c5",
+    "name": "Luke - Sad Broadway Voice",
+    "description": "Seasoned male voice for casual, authentic conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5f5-7cf0-93c9-518ce9f69fa3",
+    "voice_provider": "cartesia",
+    "voice_id": "3d79b1fd-daaa-439c-bff3-903dc18e7684",
+    "name": "Luke - Happy Broadway Voice",
+    "description": "Seasoned male voice for casual, authentic conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5f6-7205-ae60-a52deab3f290",
+    "voice_provider": "cartesia",
+    "voice_id": "cf14fdcd-24a0-4d63-958a-c784f33d8e7c",
+    "name": "Kenneth - Curious Friendly Rep",
+    "description": "Well-paced male voice with clear enunciation, great for approachable and informative conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5f7-750a-adc9-ec9c5c90116f",
+    "voice_provider": "cartesia",
+    "voice_id": "cb605424-d682-48e9-94db-34cc567cf1c6",
+    "name": "Kenneth - Sad Friendly Rep",
+    "description": "Well-paced male voice with clear enunciation, great for approachable and informative conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5f8-7725-bb2f-ce9694ecad2c",
+    "voice_provider": "cartesia",
+    "voice_id": "abe7dee1-6051-43d3-9a9f-1ac1312497a7",
+    "name": "Kenneth - Surprised Friendly Rep",
+    "description": "Well-paced male voice with clear enunciation, great for approachable and informative conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5f9-7dfd-a4f9-97da58866be4",
+    "voice_provider": "cartesia",
+    "voice_id": "aa086107-101b-4182-a628-c51186d74166",
+    "name": "Kenneth - Angry Friendly Rep",
+    "description": "Well-paced male voice with clear enunciation, great for approachable and informative conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5fa-720f-945d-5d6ce2853b66",
+    "voice_provider": "cartesia",
+    "voice_id": "911b8b22-887f-4caf-bf87-85d834c08708",
+    "name": "Kenneth - Friendly Rep",
+    "description": "Well-paced male voice with clear enunciation, great for approachable and informative conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5fb-798f-b26a-f30fdeaef8d4",
+    "voice_provider": "cartesia",
+    "voice_id": "876c39e1-9ecd-42cd-b0c1-8b3906f0be19",
+    "name": "Kenneth - Disgusted Friendly Rep",
+    "description": "Well-paced male voice with clear enunciation, great for approachable and informative conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5fc-732e-8bfb-3acf8912297a",
+    "voice_provider": "cartesia",
+    "voice_id": "83e45f18-fac4-40db-a43b-03257883b437",
+    "name": "Kenneth - Happy Friendly Rep",
+    "description": "Well-paced male voice with clear enunciation, great for approachable and informative conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5fd-749b-880c-663ac9c78d15",
+    "voice_provider": "cartesia",
+    "voice_id": "64875a07-f57e-4a70-b702-4e3fb25efeda",
+    "name": "Kenneth - Scared Friendly Rep",
+    "description": "Well-paced male voice with clear enunciation, great for approachable and informative conversations",
+    "gender": "Male",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5fe-7695-ac82-aee5027fb659",
+    "voice_provider": "cartesia",
+    "voice_id": "a5def41e-2e73-433f-92f7-5f1d99fef05d",
+    "name": "Madison - Surprised Best Friend",
+    "description": "Enthusiastic, young adult female for emotive discussions",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b5ff-7753-a319-cb832eb9cb2e",
+    "voice_provider": "cartesia",
+    "voice_id": "98c87826-dba2-44f4-b123-4c7e3c8a2647",
+    "name": "Madison - Curious Best Friend",
+    "description": "Enthusiastic, young adult female for emotive discussions",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b600-7425-8c82-fa2b3b2dd04b",
+    "voice_provider": "cartesia",
+    "voice_id": "62305e79-9d39-4643-b003-5e0b096fe4f4",
+    "name": "Madison - Happy Best Friend",
+    "description": "Enthusiastic young adult female for emotive discussions",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b601-77c3-b57f-b59e8829da74",
+    "voice_provider": "cartesia",
+    "voice_id": "5993c2c9-5d59-403e-b459-946c8b302086",
+    "name": "Madison - Disgusted Best Friend",
+    "description": "Enthusiastic young adult female for emotive discussions",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b602-757c-88a6-f7047a4ed86c",
+    "voice_provider": "cartesia",
+    "voice_id": "30236d07-62d0-4c63-abf7-df46aa45e473",
+    "name": "Madison - Scared Best Friend",
+    "description": "Enthusiastic, young adult female for emotive discussions",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b603-7a4e-b83d-cd6bec14a908",
+    "voice_provider": "cartesia",
+    "voice_id": "27c12970-3efb-4f39-a78a-2fbb7bddc941",
+    "name": "Madison - Sad Best Friend",
+    "description": "Enthusiastic young adult female for emotive discussions",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b604-7677-b081-ccfa26b9567a",
+    "voice_provider": "cartesia",
+    "voice_id": "134838f5-ce7e-4876-ac32-6367b99daf83",
+    "name": "Madison - Best Friend",
+    "description": "Enthusiastic, young adult female for emotive discussions",
+    "gender": "Female",
+    "language": "en"
+  },
+  {
+    "id": "019ae85b-b655-70c8-a13e-126fc2d848b4",
+    "voice_provider": "azure",
+    "voice_id": "en-AU-NatashaNeural",
+    "name": "Natasha",
+    "description": "English (Australia)",
+    "gender": "Female",
+    "language": "en-AU"
+  },
+  {
+    "id": "019ae85b-b656-76d0-a18f-237af7f4a408",
+    "voice_provider": "azure",
+    "voice_id": "en-AU-WilliamNeural",
+    "name": "William",
+    "description": "English (Australia)",
+    "gender": "Male",
+    "language": "en-AU"
+  },
+  {
+    "id": "019ae85b-b657-7760-91b3-d9622be410d0",
+    "voice_provider": "azure",
+    "voice_id": "en-AU-WilliamMultilingualNeural",
+    "name": "William Multilingual",
+    "description": "English (Australia)",
+    "gender": "Male",
+    "language": "en-AU"
+  },
+  {
+    "id": "019ae85b-b658-705f-978b-3fd86690f1ac",
+    "voice_provider": "azure",
+    "voice_id": "en-AU-AnnetteNeural",
+    "name": "Annette",
+    "description": "English (Australia)",
+    "gender": "Female",
+    "language": "en-AU"
+  },
+  {
+    "id": "019ae85b-b659-764c-abfd-239befc85627",
+    "voice_provider": "azure",
+    "voice_id": "en-AU-CarlyNeural",
+    "name": "Carly",
+    "description": "English (Australia)",
+    "gender": "Female",
+    "language": "en-AU"
+  },
+  {
+    "id": "019ae85b-b65a-7dd5-97ec-c3e192d289af",
+    "voice_provider": "azure",
+    "voice_id": "en-AU-DarrenNeural",
+    "name": "Darren",
+    "description": "English (Australia)",
+    "gender": "Male",
+    "language": "en-AU"
+  },
+  {
+    "id": "019ae85b-b65b-7a0b-aa06-53ff7cf9a9b3",
+    "voice_provider": "azure",
+    "voice_id": "en-AU-DuncanNeural",
+    "name": "Duncan",
+    "description": "English (Australia)",
+    "gender": "Male",
+    "language": "en-AU"
+  },
+  {
+    "id": "019ae85b-b65c-745d-89a1-9a26fd048e68",
+    "voice_provider": "azure",
+    "voice_id": "en-AU-ElsieNeural",
+    "name": "Elsie",
+    "description": "English (Australia)",
+    "gender": "Female",
+    "language": "en-AU"
+  },
+  {
+    "id": "019ae85b-b65d-7d87-a19d-75effc5a9744",
+    "voice_provider": "azure",
+    "voice_id": "en-AU-FreyaNeural",
+    "name": "Freya",
+    "description": "English (Australia)",
+    "gender": "Female",
+    "language": "en-AU"
+  },
+  {
+    "id": "019ae85b-b65e-74c0-a1d9-342d14e1a059",
+    "voice_provider": "azure",
+    "voice_id": "en-AU-JoanneNeural",
+    "name": "Joanne",
+    "description": "English (Australia)",
+    "gender": "Female",
+    "language": "en-AU"
+  },
+  {
+    "id": "019ae85b-b65f-7d80-b4ee-3f3a9c495d2c",
+    "voice_provider": "azure",
+    "voice_id": "en-AU-KenNeural",
+    "name": "Ken",
+    "description": "English (Australia)",
+    "gender": "Male",
+    "language": "en-AU"
+  },
+  {
+    "id": "019ae85b-b660-772f-a6f3-cce168edd7b6",
+    "voice_provider": "azure",
+    "voice_id": "en-AU-KimNeural",
+    "name": "Kim",
+    "description": "English (Australia)",
+    "gender": "Female",
+    "language": "en-AU"
+  },
+  {
+    "id": "019ae85b-b661-7a63-be30-ac0bd9ed6be6",
+    "voice_provider": "azure",
+    "voice_id": "en-AU-NeilNeural",
+    "name": "Neil",
+    "description": "English (Australia)",
+    "gender": "Male",
+    "language": "en-AU"
+  },
+  {
+    "id": "019ae85b-b662-77a6-9e2a-53bbbe0acd84",
+    "voice_provider": "azure",
+    "voice_id": "en-AU-TimNeural",
+    "name": "Tim",
+    "description": "English (Australia)",
+    "gender": "Male",
+    "language": "en-AU"
+  },
+  {
+    "id": "019ae85b-b663-7ad8-b218-34ad9b75477f",
+    "voice_provider": "azure",
+    "voice_id": "en-AU-TinaNeural",
+    "name": "Tina",
+    "description": "English (Australia)",
+    "gender": "Female",
+    "language": "en-AU"
+  },
+  {
+    "id": "019ae85b-b664-79b8-b3ed-58cef49ce16b",
+    "voice_provider": "azure",
+    "voice_id": "en-CA-ClaraNeural",
+    "name": "Clara",
+    "description": "English (Canada)",
+    "gender": "Female",
+    "language": "en-CA"
+  },
+  {
+    "id": "019ae85b-b665-767a-8434-5d21e24c3646",
+    "voice_provider": "azure",
+    "voice_id": "en-CA-LiamNeural",
+    "name": "Liam",
+    "description": "English (Canada)",
+    "gender": "Male",
+    "language": "en-CA"
+  },
+  {
+    "id": "019ae85b-b666-715b-b82c-6ead7775d807",
+    "voice_provider": "azure",
+    "voice_id": "en-GB-SoniaNeural",
+    "name": "Sonia",
+    "description": "English (United Kingdom)",
+    "gender": "Female",
+    "language": "en-GB"
+  },
+  {
+    "id": "019ae85b-b667-7240-8f31-ce3b27ffded0",
+    "voice_provider": "azure",
+    "voice_id": "en-GB-RyanNeural",
+    "name": "Ryan",
+    "description": "English (United Kingdom)",
+    "gender": "Male",
+    "language": "en-GB"
+  },
+  {
+    "id": "019ae85b-b668-76ba-b360-9835f6ced0a7",
+    "voice_provider": "azure",
+    "voice_id": "en-GB-LibbyNeural",
+    "name": "Libby",
+    "description": "English (United Kingdom)",
+    "gender": "Female",
+    "language": "en-GB"
+  },
+  {
+    "id": "019ae85b-b669-7f5e-82f7-584424c11faa",
+    "voice_provider": "azure",
+    "voice_id": "en-GB-AdaMultilingualNeural",
+    "name": "Ada Multilingual",
+    "description": "English (United Kingdom)",
+    "gender": "Female",
+    "language": "en-GB"
+  },
+  {
+    "id": "019ae85b-b66a-7aba-b17b-576cf9f7f018",
+    "voice_provider": "azure",
+    "voice_id": "en-GB-OllieMultilingualNeural",
+    "name": "Ollie Multilingual",
+    "description": "English (United Kingdom)",
+    "gender": "Male",
+    "language": "en-GB"
+  },
+  {
+    "id": "019ae85b-b66b-77f6-ae32-42c7226272da",
+    "voice_provider": "azure",
+    "voice_id": "en-GB-AbbiNeural",
+    "name": "Abbi",
+    "description": "English (United Kingdom)",
+    "gender": "Female",
+    "language": "en-GB"
+  },
+  {
+    "id": "019ae85b-b66c-73c3-a043-3f1c3b7eb901",
+    "voice_provider": "azure",
+    "voice_id": "en-GB-AlfieNeural",
+    "name": "Alfie",
+    "description": "English (United Kingdom)",
+    "gender": "Male",
+    "language": "en-GB"
+  },
+  {
+    "id": "019ae85b-b66d-7535-81c7-a22d815ea2ee",
+    "voice_provider": "azure",
+    "voice_id": "en-GB-BellaNeural",
+    "name": "Bella",
+    "description": "English (United Kingdom)",
+    "gender": "Female",
+    "language": "en-GB"
+  },
+  {
+    "id": "019ae85b-b66e-73c8-8a1c-48f16a334cec",
+    "voice_provider": "azure",
+    "voice_id": "en-GB-ElliotNeural",
+    "name": "Elliot",
+    "description": "English (United Kingdom)",
+    "gender": "Male",
+    "language": "en-GB"
+  },
+  {
+    "id": "019ae85b-b66f-75c0-9d8b-64082c958b72",
+    "voice_provider": "azure",
+    "voice_id": "en-GB-EthanNeural",
+    "name": "Ethan",
+    "description": "English (United Kingdom)",
+    "gender": "Male",
+    "language": "en-GB"
+  },
+  {
+    "id": "019ae85b-b670-7f40-a056-9f230b751757",
+    "voice_provider": "azure",
+    "voice_id": "en-GB-HollieNeural",
+    "name": "Hollie",
+    "description": "English (United Kingdom)",
+    "gender": "Female",
+    "language": "en-GB"
+  },
+  {
+    "id": "019ae85b-b671-7320-b188-c3e1a6dc6c77",
+    "voice_provider": "azure",
+    "voice_id": "en-GB-MaisieNeural",
+    "name": "Maisie",
+    "description": "English (United Kingdom)",
+    "gender": "Female",
+    "language": "en-GB"
+  },
+  {
+    "id": "019ae85b-b672-7fb4-9ae2-89379a0d1add",
+    "voice_provider": "azure",
+    "voice_id": "en-GB-NoahNeural",
+    "name": "Noah",
+    "description": "English (United Kingdom)",
+    "gender": "Male",
+    "language": "en-GB"
+  },
+  {
+    "id": "019ae85b-b673-7eb9-be7d-454071e39d51",
+    "voice_provider": "azure",
+    "voice_id": "en-GB-OliverNeural",
+    "name": "Oliver",
+    "description": "English (United Kingdom)",
+    "gender": "Male",
+    "language": "en-GB"
+  },
+  {
+    "id": "019ae85b-b674-7ca6-adb2-dfaab0070660",
+    "voice_provider": "azure",
+    "voice_id": "en-GB-OliviaNeural",
+    "name": "Olivia",
+    "description": "English (United Kingdom)",
+    "gender": "Female",
+    "language": "en-GB"
+  },
+  {
+    "id": "019ae85b-b675-789b-8a6f-6b925f3d4da0",
+    "voice_provider": "azure",
+    "voice_id": "en-GB-ThomasNeural",
+    "name": "Thomas",
+    "description": "English (United Kingdom)",
+    "gender": "Male",
+    "language": "en-GB"
+  },
+  {
+    "id": "019ae85b-b676-7564-9bc2-646ac25bc859",
+    "voice_provider": "azure",
+    "voice_id": "en-GB-MiaNeural",
+    "name": "Mia",
+    "description": "English (United Kingdom)",
+    "gender": "Female",
+    "language": "en-GB"
+  },
+  {
+    "id": "019ae85b-b677-7448-b990-a33a381c4990",
+    "voice_provider": "azure",
+    "voice_id": "en-HK-YanNeural",
+    "name": "Yan",
+    "description": "English (Hong Kong SAR)",
+    "gender": "Female",
+    "language": "en-HK"
+  },
+  {
+    "id": "019ae85b-b678-7e07-8254-36069b89173f",
+    "voice_provider": "azure",
+    "voice_id": "en-HK-SamNeural",
+    "name": "Sam",
+    "description": "English (Hong Kong SAR)",
+    "gender": "Male",
+    "language": "en-HK"
+  },
+  {
+    "id": "019ae85b-b679-7fc9-bf7e-c5a63238f976",
+    "voice_provider": "azure",
+    "voice_id": "en-IE-EmilyNeural",
+    "name": "Emily",
+    "description": "English (Ireland)",
+    "gender": "Female",
+    "language": "en-IE"
+  },
+  {
+    "id": "019ae85b-b67a-7424-ba13-bb8fc9f82c79",
+    "voice_provider": "azure",
+    "voice_id": "en-IE-ConnorNeural",
+    "name": "Connor",
+    "description": "English (Ireland)",
+    "gender": "Male",
+    "language": "en-IE"
+  },
+  {
+    "id": "019ae85b-b67b-7404-86ef-fdb349ff128c",
+    "voice_provider": "azure",
+    "voice_id": "en-IN-AartiIndicNeural",
+    "name": "Aarti Indic",
+    "description": "English (India)",
+    "gender": "Female",
+    "language": "en-IN"
+  },
+  {
+    "id": "019ae85b-b67c-776d-98d9-c23d4f845981",
+    "voice_provider": "azure",
+    "voice_id": "en-IN-ArjunIndicNeural",
+    "name": "Arjun Indic",
+    "description": "English (India)",
+    "gender": "Male",
+    "language": "en-IN"
+  },
+  {
+    "id": "019ae85b-b67d-7a3c-a944-1f2795510c6d",
+    "voice_provider": "azure",
+    "voice_id": "en-IN-NeerjaIndicNeural",
+    "name": "Neerja Indic",
+    "description": "English (India)",
+    "gender": "Female",
+    "language": "en-IN"
+  },
+  {
+    "id": "019ae85b-b67e-7aa6-86cf-494587a28cff",
+    "voice_provider": "azure",
+    "voice_id": "en-IN-PrabhatIndicNeural",
+    "name": "Prabhat Indic",
+    "description": "English (India)",
+    "gender": "Male",
+    "language": "en-IN"
+  },
+  {
+    "id": "019ae85b-b67f-7429-a3aa-480384fb5ea6",
+    "voice_provider": "azure",
+    "voice_id": "en-IN-AaravNeural",
+    "name": "Aarav",
+    "description": "English (India)",
+    "gender": "Male",
+    "language": "en-IN"
+  },
+  {
+    "id": "019ae85b-b680-79ef-a892-ec88eb69d77b",
+    "voice_provider": "azure",
+    "voice_id": "en-IN-AashiNeural",
+    "name": "Aashi",
+    "description": "English (India)",
+    "gender": "Female",
+    "language": "en-IN"
+  },
+  {
+    "id": "019ae85b-b681-7945-a5a8-d1221170aeb4",
+    "voice_provider": "azure",
+    "voice_id": "en-IN-AartiNeural",
+    "name": "Aarti",
+    "description": "English (India)",
+    "gender": "Female",
+    "language": "en-IN"
+  },
+  {
+    "id": "019ae85b-b682-7420-b50e-252f9a436807",
+    "voice_provider": "azure",
+    "voice_id": "en-IN-ArjunNeural",
+    "name": "Arjun",
+    "description": "English (India)",
+    "gender": "Male",
+    "language": "en-IN"
+  },
+  {
+    "id": "019ae85b-b683-7897-aed9-4de9e1ff8cc0",
+    "voice_provider": "azure",
+    "voice_id": "en-IN-AnanyaNeural",
+    "name": "Ananya",
+    "description": "English (India)",
+    "gender": "Female",
+    "language": "en-IN"
+  },
+  {
+    "id": "019ae85b-b684-7c7e-80e0-8b8198016550",
+    "voice_provider": "azure",
+    "voice_id": "en-IN-KavyaNeural",
+    "name": "Kavya",
+    "description": "English (India)",
+    "gender": "Female",
+    "language": "en-IN"
+  },
+  {
+    "id": "019ae85b-b685-796e-8db2-eaf3bbbdceb5",
+    "voice_provider": "azure",
+    "voice_id": "en-IN-KunalNeural",
+    "name": "Kunal",
+    "description": "English (India)",
+    "gender": "Male",
+    "language": "en-IN"
+  },
+  {
+    "id": "019ae85b-b686-749a-a68c-4ebb96638aaf",
+    "voice_provider": "azure",
+    "voice_id": "en-IN-NeerjaNeural",
+    "name": "Neerja",
+    "description": "English (India)",
+    "gender": "Female",
+    "language": "en-IN"
+  },
+  {
+    "id": "019ae85b-b687-71c2-8ffe-0f6280ff704b",
+    "voice_provider": "azure",
+    "voice_id": "en-IN-PrabhatNeural",
+    "name": "Prabhat",
+    "description": "English (India)",
+    "gender": "Male",
+    "language": "en-IN"
+  },
+  {
+    "id": "019ae85b-b688-7194-80ef-9e3b1b729c99",
+    "voice_provider": "azure",
+    "voice_id": "en-IN-RehaanNeural",
+    "name": "Rehaan",
+    "description": "English (India)",
+    "gender": "Male",
+    "language": "en-IN"
+  },
+  {
+    "id": "019ae85b-b689-77c1-af18-1cf8c9db098f",
+    "voice_provider": "azure",
+    "voice_id": "en-KE-AsiliaNeural",
+    "name": "Asilia",
+    "description": "English (Kenya)",
+    "gender": "Female",
+    "language": "en-KE"
+  },
+  {
+    "id": "019ae85b-b68a-786c-a061-e4fb7f35d178",
+    "voice_provider": "azure",
+    "voice_id": "en-KE-ChilembaNeural",
+    "name": "Chilemba",
+    "description": "English (Kenya)",
+    "gender": "Male",
+    "language": "en-KE"
+  },
+  {
+    "id": "019ae85b-b68b-7c53-a496-185a13e35099",
+    "voice_provider": "azure",
+    "voice_id": "en-NG-EzinneNeural",
+    "name": "Ezinne",
+    "description": "English (Nigeria)",
+    "gender": "Female",
+    "language": "en-NG"
+  },
+  {
+    "id": "019ae85b-b68c-76a8-9da6-c46953c14d7a",
+    "voice_provider": "azure",
+    "voice_id": "en-NG-AbeoNeural",
+    "name": "Abeo",
+    "description": "English (Nigeria)",
+    "gender": "Male",
+    "language": "en-NG"
+  },
+  {
+    "id": "019ae85b-b68d-7f0f-b824-1755295f1166",
+    "voice_provider": "azure",
+    "voice_id": "en-NZ-MollyNeural",
+    "name": "Molly",
+    "description": "English (New Zealand)",
+    "gender": "Female",
+    "language": "en-NZ"
+  },
+  {
+    "id": "019ae85b-b68e-7060-80c6-8ad679d5730a",
+    "voice_provider": "azure",
+    "voice_id": "en-NZ-MitchellNeural",
+    "name": "Mitchell",
+    "description": "English (New Zealand)",
+    "gender": "Male",
+    "language": "en-NZ"
+  },
+  {
+    "id": "019ae85b-b68f-75ae-9419-3d6134ae5b69",
+    "voice_provider": "azure",
+    "voice_id": "en-PH-RosaNeural",
+    "name": "Rosa",
+    "description": "English (Philippines)",
+    "gender": "Female",
+    "language": "en-PH"
+  },
+  {
+    "id": "019ae85b-b690-7edd-9dd4-1d605edc51dc",
+    "voice_provider": "azure",
+    "voice_id": "en-PH-JamesNeural",
+    "name": "James",
+    "description": "English (Philippines)",
+    "gender": "Male",
+    "language": "en-PH"
+  },
+  {
+    "id": "019ae85b-b691-72dc-b902-f85b9aec5811",
+    "voice_provider": "azure",
+    "voice_id": "en-SG-LunaNeural",
+    "name": "Luna",
+    "description": "English (Singapore)",
+    "gender": "Female",
+    "language": "en-SG"
+  },
+  {
+    "id": "019ae85b-b692-786e-a1fd-8a22276e2ce3",
+    "voice_provider": "azure",
+    "voice_id": "en-SG-WayneNeural",
+    "name": "Wayne",
+    "description": "English (Singapore)",
+    "gender": "Male",
+    "language": "en-SG"
+  },
+  {
+    "id": "019ae85b-b693-70ae-a1d1-ec3471608042",
+    "voice_provider": "azure",
+    "voice_id": "en-TZ-ImaniNeural",
+    "name": "Imani",
+    "description": "English (Tanzania)",
+    "gender": "Female",
+    "language": "en-TZ"
+  },
+  {
+    "id": "019ae85b-b694-735c-903b-23fe45a04eff",
+    "voice_provider": "azure",
+    "voice_id": "en-TZ-ElimuNeural",
+    "name": "Elimu",
+    "description": "English (Tanzania)",
+    "gender": "Male",
+    "language": "en-TZ"
+  },
+  {
+    "id": "019ae85b-b695-7ee7-8bd8-4fc657537756",
+    "voice_provider": "azure",
+    "voice_id": "en-US-AvaMultilingualNeural",
+    "name": "Ava Multilingual",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b696-72b8-bd5a-0c16b748c6a7",
+    "voice_provider": "azure",
+    "voice_id": "en-US-AndrewMultilingualNeural",
+    "name": "Andrew Multilingual",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b697-74db-af91-cd8828648f60",
+    "voice_provider": "azure",
+    "voice_id": "en-US-AmandaMultilingualNeural",
+    "name": "Amanda Multilingual",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b698-7fdb-82e3-c120015b07c4",
+    "voice_provider": "azure",
+    "voice_id": "en-US-AdamMultilingualNeural",
+    "name": "Adam Multilingual",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b699-7b61-8647-615ee159ea29",
+    "voice_provider": "azure",
+    "voice_id": "en-US-EmmaMultilingualNeural",
+    "name": "Emma Multilingual",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b69a-79a7-80d3-9c759fadc96a",
+    "voice_provider": "azure",
+    "voice_id": "en-US-PhoebeMultilingualNeural",
+    "name": "Phoebe Multilingual",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b69b-7c08-b431-cc1b0cccc674",
+    "voice_provider": "azure",
+    "voice_id": "en-US-AlloyTurboMultilingualNeural",
+    "name": "Alloy Turbo Multilingual",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b69c-7f17-a862-9c379521836a",
+    "voice_provider": "azure",
+    "voice_id": "en-US-EchoTurboMultilingualNeural",
+    "name": "Echo Turbo Multilingual",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b69d-7836-9a6a-d5bd8a41edc1",
+    "voice_provider": "azure",
+    "voice_id": "en-US-FableTurboMultilingualNeural",
+    "name": "Fable Turbo Multilingual",
+    "description": "English (United States)",
+    "gender": null,
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b69e-7137-89a1-a1a59e497247",
+    "voice_provider": "azure",
+    "voice_id": "en-US-OnyxTurboMultilingualNeural",
+    "name": "Onyx Turbo Multilingual",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b69f-7f37-9d03-4894a0aec7be",
+    "voice_provider": "azure",
+    "voice_id": "en-US-NovaTurboMultilingualNeural",
+    "name": "Nova Turbo Multilingual",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6a0-7bc9-9040-095233c95900",
+    "voice_provider": "azure",
+    "voice_id": "en-US-ShimmerTurboMultilingualNeural",
+    "name": "Shimmer Turbo Multilingual",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6a1-7045-918a-a71da3a95b58",
+    "voice_provider": "azure",
+    "voice_id": "en-US-BrianMultilingualNeural",
+    "name": "Brian Multilingual",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6a2-74f9-922d-cdd6a6df443d",
+    "voice_provider": "azure",
+    "voice_id": "en-US-AvaNeural",
+    "name": "Ava",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6a3-78ac-9577-4c944c664137",
+    "voice_provider": "azure",
+    "voice_id": "en-US-AndrewNeural",
+    "name": "Andrew",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6a4-7f27-9da8-b0b876debf90",
+    "voice_provider": "azure",
+    "voice_id": "en-US-EmmaNeural",
+    "name": "Emma",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6a5-7f19-ad6b-8f264e3a3bea",
+    "voice_provider": "azure",
+    "voice_id": "en-US-BrianNeural",
+    "name": "Brian",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6a6-7b45-82a7-ae4380787049",
+    "voice_provider": "azure",
+    "voice_id": "en-US-JennyNeural",
+    "name": "Jenny",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6a7-7b59-af23-7a0a120b29f8",
+    "voice_provider": "azure",
+    "voice_id": "en-US-GuyNeural",
+    "name": "Guy",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6a8-733d-869d-3feced6b9830",
+    "voice_provider": "azure",
+    "voice_id": "en-US-AriaNeural",
+    "name": "Aria",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6a9-7727-b7e7-80264d127baf",
+    "voice_provider": "azure",
+    "voice_id": "en-US-DavisNeural",
+    "name": "Davis",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6aa-78b7-b213-44a98360c4f3",
+    "voice_provider": "azure",
+    "voice_id": "en-US-JaneNeural",
+    "name": "Jane",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6ab-7ed4-9d14-c72b05636899",
+    "voice_provider": "azure",
+    "voice_id": "en-US-JasonNeural",
+    "name": "Jason",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6ac-7d4e-ace2-223a2bcb7100",
+    "voice_provider": "azure",
+    "voice_id": "en-US-KaiNeural",
+    "name": "Kai",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6ad-7150-a594-09098a67a39e",
+    "voice_provider": "azure",
+    "voice_id": "en-US-LunaNeural",
+    "name": "Luna",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6ae-768c-8498-7e51a2347c8d",
+    "voice_provider": "azure",
+    "voice_id": "en-US-SaraNeural",
+    "name": "Sara",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6af-7f52-8469-af6ae880e225",
+    "voice_provider": "azure",
+    "voice_id": "en-US-TonyNeural",
+    "name": "Tony",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6b0-7b85-9b2c-ec95dc84688d",
+    "voice_provider": "azure",
+    "voice_id": "en-US-NancyNeural",
+    "name": "Nancy",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6b1-79ed-be08-1f03bab2c2bd",
+    "voice_provider": "azure",
+    "voice_id": "en-US-CoraMultilingualNeural",
+    "name": "Cora Multilingual",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6b2-71e8-8015-cb3053a79e7b",
+    "voice_provider": "azure",
+    "voice_id": "en-US-ChristopherMultilingualNeural",
+    "name": "Christopher Multilingual",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6b3-7108-b804-fe5651362609",
+    "voice_provider": "azure",
+    "voice_id": "en-US-BrandonMultilingualNeural",
+    "name": "Brandon Multilingual",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6b4-7ecb-9989-6d513182d9b7",
+    "voice_provider": "azure",
+    "voice_id": "en-US-AmberNeural",
+    "name": "Amber",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6b5-781c-9d61-0637457e74f0",
+    "voice_provider": "azure",
+    "voice_id": "en-US-AnaNeural",
+    "name": "Ana",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6b6-7af2-980e-8b3b627607cf",
+    "voice_provider": "azure",
+    "voice_id": "en-US-AshleyNeural",
+    "name": "Ashley",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6b7-7507-895d-3b58b12ec1e5",
+    "voice_provider": "azure",
+    "voice_id": "en-US-BrandonNeural",
+    "name": "Brandon",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6b8-7925-9f00-382013b8a4af",
+    "voice_provider": "azure",
+    "voice_id": "en-US-ChristopherNeural",
+    "name": "Christopher",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6b9-727e-9a52-c80eb4b18623",
+    "voice_provider": "azure",
+    "voice_id": "en-US-CoraNeural",
+    "name": "Cora",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6ba-7add-a1ba-d9c7ed31324c",
+    "voice_provider": "azure",
+    "voice_id": "en-US-DavisMultilingualNeural",
+    "name": "Davis Multilingual",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6bb-7cc3-a640-7fff5d2e5368",
+    "voice_provider": "azure",
+    "voice_id": "en-US-DerekMultilingualNeural",
+    "name": "Derek Multilingual",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6bc-71cb-951b-7c16d99d702e",
+    "voice_provider": "azure",
+    "voice_id": "en-US-DustinMultilingualNeural",
+    "name": "Dustin Multilingual",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6bd-7532-bfec-4464f3653714",
+    "voice_provider": "azure",
+    "voice_id": "en-US-ElizabethNeural",
+    "name": "Elizabeth",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6be-744a-ac57-7f0c1ca5de65",
+    "voice_provider": "azure",
+    "voice_id": "en-US-EricNeural",
+    "name": "Eric",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6bf-7c49-aac9-9381dbbcb7c3",
+    "voice_provider": "azure",
+    "voice_id": "en-US-JacobNeural",
+    "name": "Jacob",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6c0-77eb-b817-aaf979a73ef6",
+    "voice_provider": "azure",
+    "voice_id": "en-US-JennyMultilingualNeural",
+    "name": "Jenny Multilingual",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6c1-75fd-8e15-ef92712b3f1b",
+    "voice_provider": "azure",
+    "voice_id": "en-US-LewisMultilingualNeural",
+    "name": "Lewis Multilingual",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6c2-7d45-b59b-dc3778d74c73",
+    "voice_provider": "azure",
+    "voice_id": "en-US-LolaMultilingualNeural",
+    "name": "Lola Multilingual",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6c3-7229-993f-72fc6df3f314",
+    "voice_provider": "azure",
+    "voice_id": "en-US-MichelleNeural",
+    "name": "Michelle",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6c4-7baa-b318-897131a906a8",
+    "voice_provider": "azure",
+    "voice_id": "en-US-MonicaNeural",
+    "name": "Monica",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6c5-71ca-807d-a005cfca11ec",
+    "voice_provider": "azure",
+    "voice_id": "en-US-NancyMultilingualNeural",
+    "name": "Nancy Multilingual",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6c6-7268-bf73-33b9ea222054",
+    "voice_provider": "azure",
+    "voice_id": "en-US-RogerNeural",
+    "name": "Roger",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6c7-71b9-b5b4-f161c8ebd903",
+    "voice_provider": "azure",
+    "voice_id": "en-US-RyanMultilingualNeural",
+    "name": "Ryan Multilingual",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6c8-7cd2-b012-5633cd5fe7f9",
+    "voice_provider": "azure",
+    "voice_id": "en-US-SamuelMultilingualNeural",
+    "name": "Samuel Multilingual",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6c9-7589-ae3a-6f9f6359d57b",
+    "voice_provider": "azure",
+    "voice_id": "en-US-SerenaMultilingualNeural",
+    "name": "Serena Multilingual",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6ca-7a75-af9c-62847d9cd8ef",
+    "voice_provider": "azure",
+    "voice_id": "en-US-SteffanMultilingualNeural",
+    "name": "Steffan Multilingual",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6cb-7bbd-8b40-a80759e74a87",
+    "voice_provider": "azure",
+    "voice_id": "en-US-SteffanNeural",
+    "name": "Steffan",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6cc-76ea-864e-ed059b7bfbc4",
+    "voice_provider": "azure",
+    "voice_id": "en-US-AIGenerate1Neural",
+    "name": "AIGenerate1",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6cd-7453-8e0b-a0aa3a584064",
+    "voice_provider": "azure",
+    "voice_id": "en-US-AIGenerate2Neural",
+    "name": "AIGenerate2",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6ce-7584-a2f8-71cdab60d7ae",
+    "voice_provider": "azure",
+    "voice_id": "en-US-AshTurboMultilingualNeural",
+    "name": "Ash Turbo Multilingual",
+    "description": "English (United States)",
+    "gender": "Male",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6cf-7af7-a715-6e1699dc7d50",
+    "voice_provider": "azure",
+    "voice_id": "en-US-BlueNeural",
+    "name": "Blue",
+    "description": "English (United States)",
+    "gender": null,
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6d0-7e7f-9e5b-738fc714a331",
+    "voice_provider": "azure",
+    "voice_id": "en-US-EvelynMultilingualNeural",
+    "name": "Evelyn Multilingual",
+    "description": "English (United States)",
+    "gender": "Female",
+    "language": "en-US"
+  },
+  {
+    "id": "019ae85b-b6d1-759a-9444-f84ea2683d17",
+    "voice_provider": "azure",
+    "voice_id": "en-ZA-LeahNeural",
+    "name": "Leah",
+    "description": "English (South Africa)",
+    "gender": "Female",
+    "language": "en-ZA"
+  },
+  {
+    "id": "019ae85b-b6d2-7bcb-a069-8255f11ecfb1",
+    "voice_provider": "azure",
+    "voice_id": "en-ZA-LukeNeural",
+    "name": "Luke",
+    "description": "English (South Africa)",
+    "gender": "Male",
+    "language": "en-ZA"
+  },
+  {
+    "id": "019ae85b-b777-77b1-9245-3575ace2c6b1",
+    "voice_provider": "azure",
+    "voice_id": "ja-JP-NanamiNeural",
+    "name": "Nanami",
+    "description": "Japanese (Japan)",
+    "gender": "Female",
+    "language": "ja-JP"
+  },
+  {
+    "id": "019ae85b-b778-7221-96b9-2989ead28ee2",
+    "voice_provider": "azure",
+    "voice_id": "ja-JP-KeitaNeural",
+    "name": "Keita",
+    "description": "Japanese (Japan)",
+    "gender": "Male",
+    "language": "ja-JP"
+  },
+  {
+    "id": "019ae85b-b779-79eb-bac6-5aa513ce82e5",
+    "voice_provider": "azure",
+    "voice_id": "ja-JP-AoiNeural",
+    "name": "Aoi",
+    "description": "Japanese (Japan)",
+    "gender": "Female",
+    "language": "ja-JP"
+  },
+  {
+    "id": "019ae85b-b77a-761f-9626-9d1adb713914",
+    "voice_provider": "azure",
+    "voice_id": "ja-JP-DaichiNeural",
+    "name": "Daichi",
+    "description": "Japanese (Japan)",
+    "gender": "Male",
+    "language": "ja-JP"
+  },
+  {
+    "id": "019ae85b-b77b-7295-b828-73edcd529e75",
+    "voice_provider": "azure",
+    "voice_id": "ja-JP-MayuNeural",
+    "name": "Mayu",
+    "description": "Japanese (Japan)",
+    "gender": "Female",
+    "language": "ja-JP"
+  },
+  {
+    "id": "019ae85b-b77c-723e-a340-8a899ce0a254",
+    "voice_provider": "azure",
+    "voice_id": "ja-JP-NaokiNeural",
+    "name": "Naoki",
+    "description": "Japanese (Japan)",
+    "gender": "Male",
+    "language": "ja-JP"
+  },
+  {
+    "id": "019ae85b-b77d-749d-9ed5-68eb760ac155",
+    "voice_provider": "azure",
+    "voice_id": "ja-JP-ShioriNeural",
+    "name": "Shiori",
+    "description": "Japanese (Japan)",
+    "gender": "Female",
+    "language": "ja-JP"
+  },
+  {
+    "id": "019ae85b-b77e-7a1b-b2d0-f1e2ac283d79",
+    "voice_provider": "azure",
+    "voice_id": "ja-JP-MasaruMultilingualNeural",
+    "name": "Masaru Multilingual",
+    "description": "Japanese (Japan)",
+    "gender": "Male",
+    "language": "ja-JP"
+  }
+]
