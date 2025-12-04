@@ -69,12 +69,12 @@ export function DeviceSelector({
             : "Speak to test your microphone level."}
       </div>
       {!error && (
-        <div className="level-meter">
-          <div
-            className="level-meter__fill"
-            style={{ width: `${Math.max(5, level * 100)}%` }}
-          />
-        </div>
+      <div className="level-meter">
+        <div
+          className="level-meter__fill"
+          style={{ width: `${Math.max(5, level * 100)}%`, maxWidth: "240px" }}
+        />
+      </div>
       )}
     </div>
   );

@@ -33,7 +33,7 @@ select {
 }
 
 .card {
-  width: min(960px, 100%);
+  width: min(760px, 90vw);
   background: #fff;
   border-radius: 16px;
   padding: 2rem;
@@ -48,6 +48,10 @@ select {
   flex-direction: column;
   gap: 0.75rem;
 }
+.card-section--compact {
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+}
 
 .label {
   font-size: 0.875rem;
@@ -60,14 +64,36 @@ select {
   gap: 0.75rem;
   flex-wrap: wrap;
 }
+.device-row--tight {
+  gap: 0.5rem;
+  align-items: center;
+}
+.device-row--meter {
+  width: 100%;
+}
 
 .select {
-  flex: 1 1 250px;
+  flex: 1 1 320px;
   padding: 0.65rem 0.75rem;
   border-radius: 10px;
   border: 1px solid #d1d5db;
   background: #fff;
   color: #111827;
+  height: 44px;
+  min-height: 44px;
+  max-width: none;
+  min-width: 0;
+}
+
+.select--compact {
+  max-width: 320px;
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  height: 36px;
+  min-height: 36px;
+}
+.select--meter {
+  max-width: none;
 }
 
 .button {
