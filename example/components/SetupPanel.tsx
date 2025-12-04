@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import type { CreateAssistantDTOInput, Language } from "../../api";
 import DeviceSelector from "./DeviceSelector";
 import voicesData from "../voices.json";
 
@@ -29,7 +30,7 @@ interface SetupPanelProps {
   devices: { deviceId: string; label: string }[];
   deviceLoading: boolean;
   deviceError: string | null;
-  onStart: () => Promise<void>;
+  onStart: (assistant: CreateAssistantDTOInput) => Promise<void>;
   callState: "idle" | "ready" | "starting" | "connected";
   disabled?: boolean;
 }
@@ -125,7 +126,68 @@ export function SetupPanel({
     console.info(`Voice selected: ${value}`);
   };
 
+  const buildAssistantConfig = (): CreateAssistantDTOInput => {
+    const voice = (() => {
+      if (ttsProvider === "cartesia") {
+        return {
+          provider: "cartesia" as const,
+          voiceId: voiceSelection,
+          language: ttsLanguage,
+        };
+      }
+      if (ttsProvider === "azure") {
+        return {
+          provider: "azure" as const,
+          voiceId: voiceSelection,
+        };
+      }
+      return {
+        provider: "minimax" as const,
+        voiceId: voiceSelection,
+      };
+    })();
+
+    const transcriber = (() => {
+      if (sttProvider === "deepgram") {
+        return {
+          provider: "deepgram" as const,
+          model: "nova-2",
+          language: ttsLanguage,
+        };
+      }
+      if (sttProvider === "cartesia") {
+        return {
+          provider: "cartesia" as const,
+          model: "ink-whisper",
+          language: ttsLanguage,
+        };
+      }
+      return {
+        provider: "soniox" as const,
+        model: "ink-whisper",
+        language: [ttsLanguage as Language],
+      };
+    })();
+
+    return {
+      name: "Web Demo Assistant",
+      firstMessage: "Hi there! I'm your NexAgent demo assistant. How can I help?",
+      metadata: {
+        source: "demo",
+        sttProvider,
+        ttsProvider,
+      },
+      transcriber,
+      model: {
+        provider: "openai",
+        model: "gpt-4o",
+      },
+      voice,
+    };
+  };
+
   const isStarting = callState === "starting";
+  const startButtonDisabled = disabled || isStarting || !voiceSelection;
   const startLabel =
     callState === "ready" || callState === "idle"
       ? "Start Call"
@@ -226,11 +288,12 @@ export function SetupPanel({
         <button
           className="button primary"
           onClick={() => {
-            onStart().catch(() => {
+            const assistantConfig = buildAssistantConfig();
+            onStart(assistantConfig).catch(() => {
               /* error handled upstream */
             });
           }}
-          disabled={disabled || isStarting}
+          disabled={startButtonDisabled}
         >
           {startLabel}
         </button>

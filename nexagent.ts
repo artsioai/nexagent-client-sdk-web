@@ -13,7 +13,7 @@ import DailyIframe, {
 } from '@daily-co/daily-js';
 import EventEmitter from 'events';
 
-import type { CreateAssistantDTO, WebCallResponse } from './api';
+import type { CreateAssistantDTOInput, WebCallResponse } from './api';
 import { client } from './client';
 import {
   createSafeDailyConfig,
@@ -454,7 +454,7 @@ export default class NexAgent extends NexAgentEventEmitter {
   }
 
   async start(
-    assistant: CreateAssistantDTO | string,
+    assistant: CreateAssistantDTOInput | string,
     options: StartCallOptions = {},
   ): Promise<WebCall | null> {
     const startTime = Date.now();
@@ -493,61 +493,25 @@ export default class NexAgent extends NexAgentEventEmitter {
     this.started = true;
 
     try {
-      let assistantId: string | undefined;
+      const isAssistantId = typeof assistant === 'string';
+      const assistantId: string | undefined = isAssistantId ? assistant : undefined;
+      const assistantPayload: CreateAssistantDTOInput | undefined = isAssistantId ? undefined : assistant;
 
-      if (typeof assistant === 'string') {
-        assistantId = assistant;
-      } else {
+      if (!isAssistantId) {
+        const assistantStartTime = Date.now();
         this.emit('call-start-progress', {
           stage: 'assistant-preparation',
           status: 'started',
           timestamp: new Date().toISOString(),
+          metadata: { mode: 'transient-assistant' },
         });
-
-        const assistantStartTime = Date.now();
-        try {
-          const createdAssistant = (
-            await client.assistant.createAssistantEndpointAssistantPost(
-              assistant,
-            )
-          ).data;
-          assistantId = createdAssistant?.id;
-          const assistantDuration = Date.now() - assistantStartTime;
-          this.emit('call-start-progress', {
-            stage: 'assistant-preparation',
-            status: 'completed',
-            duration: assistantDuration,
-            timestamp: new Date().toISOString(),
-            metadata: { assistantId },
-          });
-        } catch (error) {
-          const assistantDuration = Date.now() - assistantStartTime;
-          this.emit('call-start-progress', {
-            stage: 'assistant-preparation',
-            status: 'failed',
-            duration: assistantDuration,
-            timestamp: new Date().toISOString(),
-            metadata: { error: error instanceof Error ? error.message : String(error) },
-          });
-          this.emit('error', {
-            type: 'assistant-preparation-error',
-            stage: 'assistant-preparation',
-            error,
-            timestamp: new Date().toISOString(),
-          });
-          throw error;
-        }
-      }
-
-      if (!assistantId) {
-        const error = new Error('Unable to resolve assistant ID.');
-        this.emit('error', {
-          type: 'validation-error',
+        this.emit('call-start-progress', {
           stage: 'assistant-preparation',
-          message: error.message,
+          status: 'completed',
+          duration: Date.now() - assistantStartTime,
           timestamp: new Date().toISOString(),
+          metadata: { mode: 'transient-assistant' },
         });
-        throw error;
       }
 
       // Stage 1: Create web call
@@ -564,6 +528,7 @@ export default class NexAgent extends NexAgentEventEmitter {
         webCall = (
           await client.call.createWebCallEndpointCallWebPost({
             assistantId,
+            assistant: assistantPayload,
             name: options?.name ?? undefined,
             metadata: options?.metadata ?? undefined,
           })
@@ -623,8 +588,7 @@ export default class NexAgent extends NexAgentEventEmitter {
 
       const isVideoRecordingEnabled =
         webCall?.artifactPlan?.videoRecordingEnabled ?? false;
-
-      const isVideoEnabled = webCall?.assistant?.voice?.provider === 'tavus';
+      const isVideoEnabled = false;
 
       // Stage 2: Create Daily call object
       this.emit('call-start-progress', {
@@ -635,7 +599,6 @@ export default class NexAgent extends NexAgentEventEmitter {
           audioSource: this.dailyCallObject.audioSource ?? true,
           videoSource: this.dailyCallObject.videoSource ?? isVideoRecordingEnabled,
           isVideoRecordingEnabled,
-          isVideoEnabled
         }
       });
       
@@ -1841,7 +1804,7 @@ export default class NexAgent extends NexAgentEventEmitter {
       }
 
       const isVideoRecordingEnabled = webCall?.artifactPlan?.videoRecordingEnabled ?? false;
-      const isVideoEnabled = webCall?.assistant?.voice?.provider === 'tavus';
+      const isVideoEnabled = false;
 
       // Stage 1: Create Daily call object
       this.emit('call-start-progress', {
@@ -1852,7 +1815,6 @@ export default class NexAgent extends NexAgentEventEmitter {
           audioSource: this.dailyCallObject.audioSource ?? true,
           videoSource: this.dailyCallObject.videoSource ?? isVideoRecordingEnabled,
           isVideoRecordingEnabled,
-          isVideoEnabled
         }
       });
 

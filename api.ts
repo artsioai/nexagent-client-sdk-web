@@ -11,13 +11,302 @@
  */
 
 /**
- * CredentialStatus
- * Valid credential status values.
+ * Language
+ * Language codes for speech and text processing services.
+ *
+ * Provides comprehensive language code constants following ISO 639 and BCP 47
+ * standards. Includes both language-only codes (e.g., 'en') and language-region
+ * combinations (e.g., 'en-US') to support various speech synthesis, recognition,
+ * and translation services.
  */
-export enum CredentialStatus {
-  Active = "active",
-  Inactive = "inactive",
-  Expired = "expired",
+export enum Language {
+  Af = "af",
+  AfZA = "af-ZA",
+  Am = "am",
+  AmET = "am-ET",
+  Ar = "ar",
+  ArAE = "ar-AE",
+  ArBH = "ar-BH",
+  ArDZ = "ar-DZ",
+  ArEG = "ar-EG",
+  ArIQ = "ar-IQ",
+  ArJO = "ar-JO",
+  ArKW = "ar-KW",
+  ArLB = "ar-LB",
+  ArLY = "ar-LY",
+  ArMA = "ar-MA",
+  ArOM = "ar-OM",
+  ArQA = "ar-QA",
+  ArSA = "ar-SA",
+  ArSY = "ar-SY",
+  ArTN = "ar-TN",
+  ArYE = "ar-YE",
+  As = "as",
+  AsIN = "as-IN",
+  Ast = "ast",
+  Az = "az",
+  AzAZ = "az-AZ",
+  Ba = "ba",
+  Be = "be",
+  Bg = "bg",
+  BgBG = "bg-BG",
+  Bn = "bn",
+  BnBD = "bn-BD",
+  BnIN = "bn-IN",
+  Bo = "bo",
+  Br = "br",
+  Bs = "bs",
+  BsBA = "bs-BA",
+  Ca = "ca",
+  CaES = "ca-ES",
+  Ceb = "ceb",
+  Cmn = "cmn",
+  CmnCN = "cmn-CN",
+  Cs = "cs",
+  CsCZ = "cs-CZ",
+  Cy = "cy",
+  CyGB = "cy-GB",
+  Da = "da",
+  DaDK = "da-DK",
+  De = "de",
+  DeAT = "de-AT",
+  DeCH = "de-CH",
+  DeDE = "de-DE",
+  El = "el",
+  ElGR = "el-GR",
+  En = "en",
+  EnAU = "en-AU",
+  EnCA = "en-CA",
+  EnGB = "en-GB",
+  EnGH = "en-GH",
+  EnHK = "en-HK",
+  EnIE = "en-IE",
+  EnIN = "en-IN",
+  EnKE = "en-KE",
+  EnNG = "en-NG",
+  EnNZ = "en-NZ",
+  EnPH = "en-PH",
+  EnSG = "en-SG",
+  EnTZ = "en-TZ",
+  EnUS = "en-US",
+  EnZA = "en-ZA",
+  Eo = "eo",
+  Es = "es",
+  EsAR = "es-AR",
+  EsBO = "es-BO",
+  EsCL = "es-CL",
+  EsCO = "es-CO",
+  EsCR = "es-CR",
+  EsCU = "es-CU",
+  EsDO = "es-DO",
+  EsEC = "es-EC",
+  EsES = "es-ES",
+  EsGQ = "es-GQ",
+  EsGT = "es-GT",
+  EsHN = "es-HN",
+  EsMX = "es-MX",
+  EsNI = "es-NI",
+  EsPA = "es-PA",
+  EsPE = "es-PE",
+  EsPR = "es-PR",
+  EsPY = "es-PY",
+  EsSV = "es-SV",
+  EsUS = "es-US",
+  EsUY = "es-UY",
+  EsVE = "es-VE",
+  Et = "et",
+  EtEE = "et-EE",
+  Eu = "eu",
+  EuES = "eu-ES",
+  Fa = "fa",
+  FaIR = "fa-IR",
+  Ff = "ff",
+  Fi = "fi",
+  FiFI = "fi-FI",
+  Fil = "fil",
+  FilPH = "fil-PH",
+  Fo = "fo",
+  Fr = "fr",
+  FrBE = "fr-BE",
+  FrCA = "fr-CA",
+  FrCH = "fr-CH",
+  FrFR = "fr-FR",
+  Ga = "ga",
+  GaIE = "ga-IE",
+  Gd = "gd",
+  Gl = "gl",
+  GlES = "gl-ES",
+  Gu = "gu",
+  GuIN = "gu-IN",
+  Ha = "ha",
+  Haw = "haw",
+  He = "he",
+  HeIL = "he-IL",
+  Hi = "hi",
+  HiIN = "hi-IN",
+  Hr = "hr",
+  HrHR = "hr-HR",
+  Ht = "ht",
+  Hu = "hu",
+  HuHU = "hu-HU",
+  Hy = "hy",
+  HyAM = "hy-AM",
+  Id = "id",
+  IdID = "id-ID",
+  Ig = "ig",
+  Is = "is",
+  IsIS = "is-IS",
+  It = "it",
+  ItIT = "it-IT",
+  ItCH = "it-CH",
+  IuCans = "iu-Cans",
+  IuCansCA = "iu-Cans-CA",
+  IuLatn = "iu-Latn",
+  IuLatnCA = "iu-Latn-CA",
+  Ja = "ja",
+  JaJP = "ja-JP",
+  Jv = "jv",
+  JvID = "jv-ID",
+  Jw = "jw",
+  Ka = "ka",
+  KaGE = "ka-GE",
+  Kea = "kea",
+  Kk = "kk",
+  KkKZ = "kk-KZ",
+  Km = "km",
+  KmKH = "km-KH",
+  Kn = "kn",
+  KnIN = "kn-IN",
+  Ko = "ko",
+  KoKR = "ko-KR",
+  Ku = "ku",
+  Ky = "ky",
+  KyKG = "ky-KG",
+  La = "la",
+  Lb = "lb",
+  Ln = "ln",
+  Lo = "lo",
+  LoLA = "lo-LA",
+  Lt = "lt",
+  LtLT = "lt-LT",
+  Lg = "lg",
+  Luo = "luo",
+  Lv = "lv",
+  LvLV = "lv-LV",
+  Mg = "mg",
+  Mi = "mi",
+  Mk = "mk",
+  MkMK = "mk-MK",
+  Ml = "ml",
+  MlIN = "ml-IN",
+  Mn = "mn",
+  MnMN = "mn-MN",
+  Mr = "mr",
+  MrIN = "mr-IN",
+  Ms = "ms",
+  MsMY = "ms-MY",
+  Mt = "mt",
+  MtMT = "mt-MT",
+  My = "my",
+  MyMM = "my-MM",
+  Mymr = "mymr",
+  Nb = "nb",
+  NbNO = "nb-NO",
+  No = "no",
+  Nn = "nn",
+  Ne = "ne",
+  NeNP = "ne-NP",
+  Nl = "nl",
+  NlBE = "nl-BE",
+  NlNL = "nl-NL",
+  Nso = "nso",
+  Ny = "ny",
+  Oc = "oc",
+  Or = "or",
+  OrIN = "or-IN",
+  Pa = "pa",
+  PaIN = "pa-IN",
+  Pl = "pl",
+  PlPL = "pl-PL",
+  Ps = "ps",
+  PsAF = "ps-AF",
+  Pt = "pt",
+  PtBR = "pt-BR",
+  PtPT = "pt-PT",
+  Ro = "ro",
+  RoRO = "ro-RO",
+  Ru = "ru",
+  RuRU = "ru-RU",
+  Sa = "sa",
+  Sd = "sd",
+  Si = "si",
+  SiLK = "si-LK",
+  Sk = "sk",
+  SkSK = "sk-SK",
+  Sl = "sl",
+  SlSI = "sl-SI",
+  Sn = "sn",
+  So = "so",
+  SoSO = "so-SO",
+  Sq = "sq",
+  SqAL = "sq-AL",
+  Sr = "sr",
+  SrRS = "sr-RS",
+  SrLatn = "sr-Latn",
+  SrLatnRS = "sr-Latn-RS",
+  Su = "su",
+  SuID = "su-ID",
+  Sv = "sv",
+  SvSE = "sv-SE",
+  Sw = "sw",
+  SwKE = "sw-KE",
+  SwTZ = "sw-TZ",
+  Ta = "ta",
+  TaIN = "ta-IN",
+  TaLK = "ta-LK",
+  TaMY = "ta-MY",
+  TaSG = "ta-SG",
+  Te = "te",
+  TeIN = "te-IN",
+  Tg = "tg",
+  Th = "th",
+  ThTH = "th-TH",
+  Tk = "tk",
+  Tl = "tl",
+  Tr = "tr",
+  TrTR = "tr-TR",
+  Tt = "tt",
+  Ug = "ug",
+  Uk = "uk",
+  UkUA = "uk-UA",
+  Umb = "umb",
+  Ur = "ur",
+  UrIN = "ur-IN",
+  UrPK = "ur-PK",
+  Uz = "uz",
+  UzUZ = "uz-UZ",
+  Vi = "vi",
+  ViVN = "vi-VN",
+  Wo = "wo",
+  Wuu = "wuu",
+  WuuCN = "wuu-CN",
+  Yi = "yi",
+  Yo = "yo",
+  Yue = "yue",
+  YueCN = "yue-CN",
+  Zh = "zh",
+  ZhCN = "zh-CN",
+  ZhCNGuangxi = "zh-CN-guangxi",
+  ZhCNHenan = "zh-CN-henan",
+  ZhCNLiaoning = "zh-CN-liaoning",
+  ZhCNShaanxi = "zh-CN-shaanxi",
+  ZhCNShandong = "zh-CN-shandong",
+  ZhCNSichuan = "zh-CN-sichuan",
+  ZhHK = "zh-HK",
+  ZhTW = "zh-TW",
+  XhZA = "xh-ZA",
+  Zu = "zu",
+  ZuZA = "zu-ZA",
 }
 
 /**
@@ -27,6 +316,8 @@ export enum CredentialStatus {
 export enum CallType {
   InboundPhoneCall = "inboundPhoneCall",
   OutboundPhoneCall = "outboundPhoneCall",
+  InboundSipCall = "inboundSipCall",
+  OutboundSipCall = "outboundSipCall",
   WebCall = "webCall",
 }
 
@@ -42,24 +333,6 @@ export enum CallStatus {
   Ended = "ended",
 }
 
-/**
- * AuthenticationType
- * Valid authentication types for credentials.
- */
-export enum AuthenticationType {
-  Bearer = "bearer",
-  ApiKey = "api_key",
-  Basic = "basic",
-}
-
-/**
- * UpdateToolDTO
- * Update tool DTO using RootModel pattern with DirectAccess.
- */
-export type UpdateToolDTO = {
-  type: "apiRequest";
-} & UpdateApiRequestToolDTO;
-
 /** PhoneNumberCreate */
 export type PhoneNumberCreate =
   | ({
@@ -70,215 +343,111 @@ export type PhoneNumberCreate =
     } & CreateTwilioPhoneNumber);
 
 /**
- * CreateToolDTO
- * Create tool DTO using RootModel pattern with DirectAccess.
+ * AnalysisCost
+ * Cost for call analysis operations.
  */
-export type CreateToolDTO = {
-  type: "apiRequest";
-} & CreateApiRequestToolDTO;
-
-/**
- * AmazonVoice
- * Amazon Polly voice synthesis configuration.
- */
-export interface AmazonVoice {
+export interface AnalysisCost {
   /**
-   * Provider
-   * @default "amazon"
+   * Type
+   * Cost type identifier
+   * @default "analysis"
    */
-  provider?: "amazon";
+  type?: "analysis";
   /**
-   * Voiceid
-   * Amazon Polly voice ID
+   * Analysistype
+   * Analysis type (summary, structuredData, successEvaluation, structuredOutput)
    */
-  voiceId: string;
-  /**
-   * Engine
-   * Amazon Polly synthesis engine
-   * @default "neural"
-   */
-  engine?: "standard" | "neural" | null;
-}
-
-/**
- * AnthropicModel
- * Anthropic model configuration.
- */
-export interface AnthropicModel {
-  /**
-   * Messages
-   * This is the starting state for the conversation.
-   */
-  messages?: OpenAIMessage[] | null;
-  /**
-   * Provider
-   * @default "anthropic"
-   */
-  provider?: "anthropic";
+  analysisType: string;
   /**
    * Model
-   * Anthropic model identifier (e.g., claude-3-sonnet)
+   * Model used for analysis
    */
-  model: string;
+  model: Record<string, any>;
   /**
-   * Temperature
-   * Sampling temperature for response generation
-   * @default 0.7
+   * Prompttokens
+   * Number of prompt tokens
+   * @min 0
    */
-  temperature?: number | null;
+  promptTokens: number;
   /**
-   * Maxtokens
-   * Maximum number of tokens to generate
+   * Completiontokens
+   * Number of completion tokens
+   * @min 0
    */
-  maxTokens?: number | null;
+  completionTokens: number;
+  /**
+   * Cost
+   * Cost in USD
+   * @min 0
+   */
+  cost: number;
 }
 
 /**
- * ApiKeyCreate
- * Model for creating a new API key.
- *
- * Contains only the fields required for API key creation.
- * The system will automatically generate UUID values and timestamps.
- * @example {"name":"Production API Key","orgId":"org-123","tag":"private"}
+ * AnalysisCostBreakdown
+ * Cost breakdown for call analysis operations.
  */
-export interface ApiKeyCreate {
+export interface AnalysisCostBreakdown {
   /**
-   * Orgid
-   * Organization identifier
+   * Summary
+   * Cost to summarize the call
    */
-  orgId: string;
+  summary?: number | null;
   /**
-   * Name
-   * Human-readable API key name
+   * Summaryprompttokens
+   * Prompt tokens for summary
    */
-  name: string;
+  summaryPromptTokens?: number | null;
   /**
-   * Tag
-   * Key type: 'private' or 'public'
-   * @default "private"
+   * Summarycompletiontokens
+   * Completion tokens for summary
    */
-  tag?: string;
-}
-
-/**
- * ApiKeyErrorResponse
- * Model for API key error responses with structured error information.
- *
- * Provides consistent error response format across all API key endpoints.
- * @example {"error":{"code":"API_KEY_NOT_FOUND","details":{"keyId":"550e8400-e29b-41d4-a716-446655440001"},"message":"API key not found"}}
- */
-export interface ApiKeyErrorResponse {
+  summaryCompletionTokens?: number | null;
   /**
-   * Error
-   * Error information
+   * Structureddata
+   * Cost to extract structured data
    */
-  error: Record<string, any>;
-}
-
-/**
- * ApiKeyOperationResponse
- * Model for API key operation responses (create, update, delete).
- *
- * Provides consistent response format for API key management operations.
- * @example {"apiKey":{"createdAt":"2025-10-12T10:00:00Z","id":"550e8400-e29b-41d4-a716-446655440001","name":"Production API Key","orgId":"org-123","tag":"private","updatedAt":"2025-10-12T10:00:00Z"},"message":"API key created successfully"}
- */
-export interface ApiKeyOperationResponse {
+  structuredData?: number | null;
   /**
-   * Message
-   * Operation result message
+   * Structureddataprompttokens
+   * Prompt tokens for structured data
    */
-  message: string;
-  /** API key data (for create/update operations) */
-  apiKey?: ApiKeyResponse | null;
-}
-
-/**
- * ApiKeyResponse
- * Model for API key data in API responses.
- *
- * Excludes the sensitive 'value' field and includes only safe API key information.
- * Used when returning API key information to clients.
- * @example {"createdAt":"2025-10-12T10:00:00Z","id":"550e8400-e29b-41d4-a716-446655440001","name":"Production API Key","orgId":"org-123","tag":"private","updatedAt":"2025-10-12T10:00:00Z"}
- */
-export interface ApiKeyResponse {
+  structuredDataPromptTokens?: number | null;
   /**
-   * Id
-   * API key UUID identifier
+   * Structureddatacompletiontokens
+   * Completion tokens for structured data
    */
-  id: string;
+  structuredDataCompletionTokens?: number | null;
   /**
-   * Orgid
-   * Organization identifier
+   * Successevaluation
+   * Cost to evaluate call success
    */
-  orgId: string;
+  successEvaluation?: number | null;
   /**
-   * Name
-   * Human-readable API key name
+   * Successevaluationprompttokens
+   * Prompt tokens for success evaluation
    */
-  name: string;
+  successEvaluationPromptTokens?: number | null;
   /**
-   * Tag
-   * Key type: 'private' or 'public'
+   * Successevaluationcompletiontokens
+   * Completion tokens for success evaluation
    */
-  tag: string;
+  successEvaluationCompletionTokens?: number | null;
   /**
-   * Createdat
-   * ISO 8601 creation timestamp
+   * Structuredoutput
+   * Cost to evaluate structured outputs
    */
-  createdAt?: string | null;
+  structuredOutput?: number | null;
   /**
-   * Updatedat
-   * ISO 8601 last update timestamp
+   * Structuredoutputprompttokens
+   * Prompt tokens for structured outputs
    */
-  updatedAt?: string | null;
-}
-
-/**
- * ApiRequestBody
- * Request body schema for API requests.
- */
-export interface ApiRequestBody {
+  structuredOutputPromptTokens?: number | null;
   /**
-   * Body Schema
-   * JSON schema for request body validation
+   * Structuredoutputcompletiontokens
+   * Completion tokens for structured outputs
    */
-  body_schema: Record<string, any>;
-}
-
-/**
- * ApiRequestHeaders
- * HTTP headers configuration for API requests.
- */
-export interface ApiRequestHeaders {
-  /**
-   * Headers
-   * HTTP headers as key-value pairs
-   */
-  headers?: Record<string, string>;
-}
-
-/**
- * AssemblyAITranscriber
- * AssemblyAI transcriber configuration.
- */
-export interface AssemblyAITranscriber {
-  /**
-   * Provider
-   * @default "assembly-ai"
-   */
-  provider?: "assembly-ai";
-  /**
-   * Language
-   * Language code for transcription
-   * @default "en"
-   */
-  language?: string | null;
-  /**
-   * Confidencethreshold
-   * Minimum confidence threshold for transcription
-   * @default 0.4
-   */
-  confidenceThreshold?: number | null;
+  structuredOutputCompletionTokens?: number | null;
 }
 
 /**
@@ -314,42 +483,24 @@ export interface AssistantResponse {
   /** Transcriber */
   transcriber:
     | ({
-        provider: "assembly-ai";
-      } & AssemblyAITranscriber)
-    | ({
-        provider: "azure";
-      } & AzureSpeechTranscriber)
-    | ({
         provider: "cartesia";
       } & CartesiaTranscriber)
     | ({
         provider: "deepgram";
       } & DeepgramTranscriber)
     | ({
-        provider: "openai";
-      } & OpenAITranscriber)
-    | ({
         provider: "soniox";
       } & SonioxTranscriber);
   /** Model */
   model:
     | ({
-        provider: "anthropic";
-      } & AnthropicModel)
-    | ({
         provider: "custom-llm";
       } & CustomLLMModel)
-    | ({
-        provider: "google";
-      } & GoogleModel)
     | ({
         provider: "openai";
       } & OpenAIModel);
   /** Voice */
   voice:
-    | ({
-        provider: "amazon";
-      } & AmazonVoice)
     | ({
         provider: "azure";
       } & AzureVoice)
@@ -357,14 +508,8 @@ export interface AssistantResponse {
         provider: "cartesia";
       } & CartesiaVoice)
     | ({
-        provider: "elevenlabs";
-      } & ElevenLabsVoice)
-    | ({
         provider: "minimax";
-      } & MinimaxVoice)
-    | ({
-        provider: "openai";
-      } & OpenAIVoice);
+      } & MinimaxVoice);
   /**
    * Firstmessage
    * Initial message the assistant will say
@@ -375,81 +520,6 @@ export interface AssistantResponse {
    * Free-form metadata storage
    */
   metadata?: Record<string, any> | null;
-}
-
-/**
- * AuthenticationPlanCreate
- * Model for creating authentication plan configurations.
- *
- * Contains authentication plan data for credential creation requests.
- */
-export interface AuthenticationPlanCreate {
-  /** Authentication type */
-  type: AuthenticationType;
-  /**
-   * Headername
-   * HTTP header name for authentication
-   */
-  headerName: string;
-  /**
-   * Bearerprefixenabled
-   * Include Bearer prefix for bearer tokens
-   */
-  bearerPrefixEnabled?: boolean | null;
-  /**
-   * Token
-   * Bearer token (will be encrypted)
-   */
-  token?: string | null;
-  /**
-   * Apikey
-   * API key (will be encrypted)
-   */
-  apiKey?: string | null;
-  /**
-   * Username
-   * Username for basic authentication
-   */
-  username?: string | null;
-  /**
-   * Password
-   * Password (will be encrypted)
-   */
-  password?: string | null;
-}
-
-/**
- * AzureSpeechTranscriber
- * Azure Speech transcriber configuration.
- */
-export interface AzureSpeechTranscriber {
-  /**
-   * Provider
-   * @default "azure"
-   */
-  provider?: "azure";
-  /**
-   * Language
-   * Language code for transcription. The list of languages Azure supports can be found here: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=stt
-   * @default "en-US"
-   */
-  language?: string | null;
-  /**
-   * Segmentationstrategy
-   * Controls how phrase boundaries are detected, enabling either simple time/silence heuristics or more advanced semantic segmentation
-   * @default "Default"
-   */
-  segmentationStrategy?: "Default" | "Time" | "Semantic" | null;
-  /**
-   * Segmentationsilencetimeoutms
-   * Duration of detected silence after which the service finalizes a phrase. Configure to adjust sensitivity to pauses in speech
-   */
-  segmentationSilenceTimeoutMs?: number | null;
-  /**
-   * Segmentationmaximumtimems
-   * Maximum duration a segment can reach before being cut off when using time-based segmentation
-   */
-  segmentationMaximumTimeMs?: number | null;
 }
 
 /**
@@ -534,11 +604,52 @@ export interface CallResponse {
    * Assistant ID reference
    */
   assistantId?: string | null;
+  /** Transient assistant config */
+  assistant?: CreateAssistantDTOOutput | null;
   /**
    * Phonenumberid
    * Phone number ID reference
    */
   phoneNumberId?: string | null;
+  /**
+   * Cost
+   * Total call cost in USD
+   */
+  cost?: number | null;
+  /**
+   * Costs
+   * Detailed cost items by service component
+   */
+  costs?:
+    | (
+        | ({
+            type: "analysis";
+          } & AnalysisCost)
+        | ({
+            type: "knowledge-base";
+          } & KnowledgeBaseCost)
+        | ({
+            type: "model";
+          } & ModelCost)
+        | ({
+            type: "nexagent";
+          } & NexagentCost)
+        | ({
+            type: "transcriber";
+          } & TranscriberCost)
+        | ({
+            type: "transport";
+          } & TransportCost)
+        | ({
+            type: "voice";
+          } & VoiceCost)
+        | ({
+            type: "voicemail-detection";
+          } & VoicemailDetectionCost)
+      )[]
+    | null;
+  /** Detailed cost breakdown */
+  costBreakdown?: CostBreakdown | null;
   /**
    * Metadata
    * Free-form metadata
@@ -628,62 +739,109 @@ export interface CartesiaVoice {
 }
 
 /**
- * CreateApiRequestToolDTO
- * DTO for creating a new API request tool.
+ * CostBreakdown
+ * Detailed cost breakdown for different call components.
  */
-export interface CreateApiRequestToolDTO {
+export interface CostBreakdown {
   /**
-   * Type
-   * Tool type
-   * @default "apiRequest"
+   * Transport
+   * Transport provider cost (Twilio, Vonage, etc.)
    */
-  type?: "apiRequest";
+  transport?: number | null;
+  /**
+   * Stt
+   * Speech-to-text cost
+   */
+  stt?: number | null;
+  /**
+   * Llm
+   * Language model cost
+   */
+  llm?: number | null;
+  /**
+   * Tts
+   * Text-to-speech cost
+   */
+  tts?: number | null;
+  /**
+   * Nexagent
+   * Vapi platform cost
+   */
+  nexagent?: number | null;
+  /**
+   * Chat
+   * Chat interactions cost
+   */
+  chat?: number | null;
+  /**
+   * Total
+   * Total cost
+   */
+  total?: number | null;
+  /**
+   * Llmprompttokens
+   * LLM prompt tokens used
+   */
+  llmPromptTokens?: number | null;
+  /**
+   * Llmcompletiontokens
+   * LLM completion tokens used
+   */
+  llmCompletionTokens?: number | null;
+  /**
+   * Ttscharacters
+   * TTS characters used
+   */
+  ttsCharacters?: number | null;
+  /** Analysis cost breakdown */
+  analysisCostBreakdown?: AnalysisCostBreakdown | null;
+}
+
+/**
+ * CreateAssistantDTO
+ * DTO for creating a new assistant.
+ */
+export interface CreateAssistantDTOInput {
   /**
    * Name
-   * Tool name
+   * Assistant name
    */
   name?: string | null;
+  /** Transcriber */
+  transcriber:
+    | ({
+        provider: "cartesia";
+      } & CartesiaTranscriber)
+    | ({
+        provider: "deepgram";
+      } & DeepgramTranscriber)
+    | ({
+        provider: "soniox";
+      } & SonioxTranscriber);
+  /** Model */
+  model:
+    | ({
+        provider: "custom-llm";
+      } & CustomLLMModel)
+    | ({
+        provider: "openai";
+      } & OpenAIModel);
+  /** Voice */
+  voice:
+    | ({
+        provider: "azure";
+      } & AzureVoice)
+    | ({
+        provider: "cartesia";
+      } & CartesiaVoice)
+    | ({
+        provider: "minimax";
+      } & MinimaxVoice);
   /**
-   * Description
-   * Tool description
+   * Firstmessage
+   * Initial message the assistant will say
    */
-  description?: string | null;
-  /**
-   * Method
-   * HTTP method
-   */
-  method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
-  /**
-   * Url
-   * API endpoint URL
-   */
-  url: string;
-  /** HTTP headers configuration */
-  headers?: ApiRequestHeaders | null;
-  /** Request body schema */
-  body?: ApiRequestBody | null;
-  /**
-   * Timeoutseconds
-   * Request timeout
-   */
-  timeoutSeconds?: number | null;
-  /**
-   * Credentialid
-   * Credential identifier for authentication
-   */
-  credentialId?: string | null;
-  /**
-   * Messages
-   * Tool message configurations
-   */
-  messages?:
-    | (
-        | ToolMessageStart
-        | ToolMessageComplete
-        | ToolMessageFailed
-        | ToolMessageDelayed
-      )[]
-    | null;
+  firstMessage?: string | null;
   /**
    * Metadata
    * Free-form metadata storage
@@ -695,7 +853,7 @@ export interface CreateApiRequestToolDTO {
  * CreateAssistantDTO
  * DTO for creating a new assistant.
  */
-export interface CreateAssistantDTO {
+export interface CreateAssistantDTOOutput {
   /**
    * Name
    * Assistant name
@@ -704,42 +862,24 @@ export interface CreateAssistantDTO {
   /** Transcriber */
   transcriber:
     | ({
-        provider: "assembly-ai";
-      } & AssemblyAITranscriber)
-    | ({
-        provider: "azure";
-      } & AzureSpeechTranscriber)
-    | ({
         provider: "cartesia";
       } & CartesiaTranscriber)
     | ({
         provider: "deepgram";
       } & DeepgramTranscriber)
     | ({
-        provider: "openai";
-      } & OpenAITranscriber)
-    | ({
         provider: "soniox";
       } & SonioxTranscriber);
   /** Model */
   model:
     | ({
-        provider: "anthropic";
-      } & AnthropicModel)
-    | ({
         provider: "custom-llm";
       } & CustomLLMModel)
-    | ({
-        provider: "google";
-      } & GoogleModel)
     | ({
         provider: "openai";
       } & OpenAIModel);
   /** Voice */
   voice:
-    | ({
-        provider: "amazon";
-      } & AmazonVoice)
     | ({
         provider: "azure";
       } & AzureVoice)
@@ -747,14 +887,8 @@ export interface CreateAssistantDTO {
         provider: "cartesia";
       } & CartesiaVoice)
     | ({
-        provider: "elevenlabs";
-      } & ElevenLabsVoice)
-    | ({
         provider: "minimax";
-      } & MinimaxVoice)
-    | ({
-        provider: "openai";
-      } & OpenAIVoice);
+      } & MinimaxVoice);
   /**
    * Firstmessage
    * Initial message the assistant will say
@@ -774,9 +908,11 @@ export interface CreateAssistantDTO {
 export interface CreateCallDTO {
   /**
    * Assistantid
-   * Assistant ID reference
+   * This is the assistant lD that will be used for the call. To use a transient assistant, use assistant instead.
    */
   assistantId?: string | null;
+  /** This is the assistant that will be used for the cal. To use an existing assistant, use assistantId instead. */
+  assistant?: CreateAssistantDTOInput | null;
   /**
    * Phonenumberid
    * Phone number ID reference
@@ -801,7 +937,7 @@ export interface CreateCallDTO {
 
 /**
  * CreateNexagentSIP
- * DTO for creating a phone number.
+ * DTO for creating a Nexagent phone number.
  */
 export interface CreateNexagentSIP {
   /**
@@ -854,7 +990,7 @@ export interface CreateTwilioPhoneNumber {
   twilioApiSecret?: string | null;
   /**
    * Smsenabled
-   * Controls whether the platform sets the messaging webhook URL
+   * Controls whether Nexagent sets the messaging webhook URL
    * @default true
    */
   smsEnabled?: boolean;
@@ -873,7 +1009,9 @@ export interface CreateWebCallDTO {
    * Assistantid
    * Assistant ID reference
    */
-  assistantId: string;
+  assistantId?: string | null;
+  /** Transient assistant config */
+  assistant?: CreateAssistantDTOInput | null;
   /**
    * Name
    * Call name
@@ -882,130 +1020,6 @@ export interface CreateWebCallDTO {
   /**
    * Metadata
    * Free-form metadata
-   */
-  metadata?: Record<string, any> | null;
-}
-
-/**
- * CredentialCreate
- * Model for creating a new credential.
- *
- * Contains only the fields required for credential creation.
- * @example {"authenticationPlan":{"bearerPrefixEnabled":true,"headerName":"Authorization","token":"your_bearer_token_here","type":"bearer"},"description":"Authentication for external webhook","metadata":{"environment":"production"},"name":"Webhook Credential","provider":"webhook"}
- */
-export interface CredentialCreate {
-  /**
-   * Name
-   * Credential name
-   * @maxLength 100
-   */
-  name: string;
-  /**
-   * Provider
-   * Provider type (webhook, api, etc.)
-   */
-  provider: string;
-  /**
-   * Description
-   * Optional description
-   */
-  description?: string | null;
-  /** Authentication configuration */
-  authenticationPlan: AuthenticationPlanCreate;
-  /**
-   * Metadata
-   * Custom metadata
-   */
-  metadata?: Record<string, any>;
-}
-
-/**
- * CredentialResponse
- * Model for credential data in API responses.
- *
- * Excludes sensitive authentication data and includes only public credential information.
- * @example {"createdAt":"2025-10-08T03:33:00.971Z","description":"Authentication for external webhook","id":"83efa71e-fb60-4538-a417-773102172b89","lastUsedAt":"2025-10-17T01:56:27.449Z","metadata":{"environment":"production"},"name":"Webhook Credential","orgId":"da9e2770-d32c-43af-af95-1b11060fd31d","provider":"webhook","status":"active","updatedAt":"2025-10-17T01:56:27.449Z","usageCount":42}
- */
-export interface CredentialResponse {
-  /**
-   * Id
-   * Unique credential identifier (UUID)
-   */
-  id: string;
-  /**
-   * Orgid
-   * Organization identifier
-   */
-  orgId: string;
-  /**
-   * Name
-   * Credential name
-   */
-  name: string;
-  /**
-   * Provider
-   * Provider type
-   */
-  provider: string;
-  /**
-   * Description
-   * Optional description
-   */
-  description?: string | null;
-  /** Credential status */
-  status: CredentialStatus;
-  /**
-   * Lastusedat
-   * Last usage timestamp
-   */
-  lastUsedAt?: string | null;
-  /**
-   * Usagecount
-   * Number of times used
-   */
-  usageCount: number;
-  /**
-   * Metadata
-   * Custom metadata
-   */
-  metadata: Record<string, any>;
-  /**
-   * Createdat
-   * Creation timestamp
-   */
-  createdAt?: string | null;
-  /**
-   * Updatedat
-   * Last update timestamp
-   */
-  updatedAt?: string | null;
-}
-
-/**
- * CredentialUpdate
- * Model for updating credential information.
- *
- * All fields are optional to allow partial updates.
- * @example {"description":"Updated authentication for external webhook","metadata":{"environment":"staging"},"name":"Updated Webhook Credential","status":"active"}
- */
-export interface CredentialUpdate {
-  /**
-   * Name
-   * Credential name
-   */
-  name?: string | null;
-  /**
-   * Description
-   * Optional description
-   */
-  description?: string | null;
-  /** Credential status */
-  status?: CredentialStatus | null;
-  /** Authentication configuration */
-  authenticationPlan?: AuthenticationPlanCreate | null;
-  /**
-   * Metadata
-   * Custom metadata
    */
   metadata?: Record<string, any> | null;
 }
@@ -1021,6 +1035,20 @@ export interface CustomLLMModel {
    */
   messages?: OpenAIMessage[] | null;
   /**
+   * Temperature
+   * Temperature for calls. Default is 0 to leverage caching for lower latency
+   * @default 0
+   */
+  temperature?: number | null;
+  /**
+   * Maxtokens
+   * Max number of tokens the assistant will be allowed to generate in each turn
+   * @default 250
+   */
+  maxTokens?: number | null;
+  /** Extra */
+  extra?: Record<string, any> | null;
+  /**
    * Provider
    * @default "custom-llm"
    */
@@ -1035,18 +1063,6 @@ export interface CustomLLMModel {
    * The name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b
    */
   model: string;
-  /**
-   * Temperature
-   * Temperature for calls. Default is 0 to leverage caching for lower latency
-   * @default 0
-   */
-  temperature?: number | null;
-  /**
-   * Maxtokens
-   * Max number of tokens the assistant will be allowed to generate in each turn
-   * @default 250
-   */
-  maxTokens?: number | null;
   /**
    * Metadatasendmode
    * Whether metadata is sent in requests to the custom provider
@@ -1099,13 +1115,103 @@ export interface DeepgramTranscriber {
    * Deepgram transcription model
    * @default "nova-2"
    */
-  model?: string | null;
+  model?:
+    | "flux-general-en"
+    | "nova-3"
+    | "nova-3-general"
+    | "nova-3-medical"
+    | "nova-2"
+    | "nova-2-general"
+    | "nova-2-meeting"
+    | "nova-2-phonecall"
+    | "nova-2-finance"
+    | "nova-2-conversationalai"
+    | "nova-2-voicemail"
+    | "nova-2-video"
+    | "nova-2-medical"
+    | "nova-2-drivethru"
+    | "nova-2-automotive"
+    | "nova"
+    | "nova-general"
+    | "nova-phonecall"
+    | "nova-medical"
+    | "enhanced"
+    | "enhanced-general"
+    | "enhanced-meeting"
+    | "enhanced-phonecall"
+    | "enhanced-finance"
+    | "base"
+    | "base-general"
+    | "base-meeting"
+    | "base-phonecall"
+    | "base-finance"
+    | "base-conversationalai"
+    | "base-voicemail"
+    | "base-video"
+    | null;
   /**
    * Language
    * Language code for transcription
    * @default "en"
    */
-  language?: string | null;
+  language?:
+    | "bg"
+    | "ca"
+    | "cs"
+    | "da"
+    | "da-DK"
+    | "de"
+    | "de-CH"
+    | "el"
+    | "en"
+    | "en-AU"
+    | "en-GB"
+    | "en-IN"
+    | "en-NZ"
+    | "en-US"
+    | "es"
+    | "es-419"
+    | "es-LATAM"
+    | "et"
+    | "fi"
+    | "fr"
+    | "fr-CA"
+    | "hi"
+    | "hi-Latn"
+    | "hu"
+    | "id"
+    | "it"
+    | "ja"
+    | "ko"
+    | "ko-KR"
+    | "lt"
+    | "lv"
+    | "ms"
+    | "multi"
+    | "nl"
+    | "nl-BE"
+    | "no"
+    | "pl"
+    | "pt"
+    | "pt-BR"
+    | "ro"
+    | "ru"
+    | "sk"
+    | "sv"
+    | "sv-SE"
+    | "ta"
+    | "taq"
+    | "th"
+    | "th-TH"
+    | "tr"
+    | "uk"
+    | "vi"
+    | "zh"
+    | "zh-CN"
+    | "zh-Hans"
+    | "zh-Hant"
+    | "zh-TW"
+    | null;
   /**
    * Confidencethreshold
    * Minimum confidence threshold for transcription
@@ -1114,67 +1220,46 @@ export interface DeepgramTranscriber {
   confidenceThreshold?: number | null;
 }
 
-/**
- * ElevenLabsVoice
- * ElevenLabs voice synthesis configuration.
- */
-export interface ElevenLabsVoice {
-  /**
-   * Provider
-   * @default "elevenlabs"
-   */
-  provider?: "elevenlabs";
-  /**
-   * Voiceid
-   * ElevenLabs voice ID
-   */
-  voiceId: string;
-  /**
-   * Stability
-   * Voice stability setting
-   * @default 0.5
-   */
-  stability?: number | null;
-  /**
-   * Similarityboost
-   * Voice similarity boost setting
-   * @default 0.5
-   */
-  similarityBoost?: number | null;
-}
-
-/**
- * GoogleModel
- * Google model configuration.
- */
-export interface GoogleModel {
-  /**
-   * Messages
-   * This is the starting state for the conversation.
-   */
-  messages?: OpenAIMessage[] | null;
-  /**
-   * Provider
-   * @default "google"
-   */
-  provider?: "google";
-  /**
-   * Model
-   * Google model identifier (e.g., gemini-pro)
-   */
-  model: string;
-  /**
-   * Temperature
-   * Sampling temperature for response generation
-   * @default 0.7
-   */
-  temperature?: number | null;
-}
-
 /** HTTPValidationError */
 export interface HTTPValidationError {
   /** Detail */
   detail?: ValidationError[];
+}
+
+/**
+ * KnowledgeBaseCost
+ * Cost for knowledge base operations.
+ */
+export interface KnowledgeBaseCost {
+  /**
+   * Type
+   * Cost type identifier
+   * @default "knowledge-base"
+   */
+  type?: "knowledge-base";
+  /**
+   * Model
+   * Model used for knowledge base
+   */
+  model: Record<string, any>;
+  /**
+   * Prompttokens
+   * Number of prompt tokens
+   * @min 0
+   */
+  promptTokens: number;
+  /**
+   * Completiontokens
+   * Number of completion tokens
+   * @min 0
+   */
+  completionTokens: number;
+  /**
+   * Cost
+   * Cost in USD
+   * @min 0
+   */
+  cost: number;
 }
 
 /**
@@ -1251,6 +1336,78 @@ export interface MinimaxVoice {
 }
 
 /**
+ * ModelCost
+ * Cost for LLM/AI model services.
+ */
+export interface ModelCost {
+  /**
+   * Type
+   * Cost type identifier
+   * @default "model"
+   */
+  type?: "model";
+  /**
+   * Model
+   * Model configuration used
+   */
+  model:
+    | ({
+        provider: "custom-llm";
+      } & CustomLLMModel)
+    | ({
+        provider: "openai";
+      } & OpenAIModel);
+  /**
+   * Prompttokens
+   * Number of prompt tokens
+   * @min 0
+   */
+  promptTokens: number;
+  /**
+   * Completiontokens
+   * Number of completion tokens
+   * @min 0
+   */
+  completionTokens: number;
+  /**
+   * Cost
+   * Cost in USD
+   * @min 0
+   */
+  cost: number;
+}
+
+/**
+ * NexagentCost
+ * Cost for Nexagent platform services.
+ */
+export interface NexagentCost {
+  /**
+   * Type
+   * Cost type identifier
+   * @default "nexagent"
+   */
+  type?: "nexagent";
+  /**
+   * Subtype
+   * Sub type (normal, overage)
+   */
+  subType: string;
+  /**
+   * Minutes
+   * Minutes of Nexagent usage
+   * @min 0
+   */
+  minutes: number;
+  /**
+   * Cost
+   * Cost in USD
+   * @min 0
+   */
+  cost: number;
+}
+
+/**
  * OpenAIMessage
  * OpenAI message structure for conversation context.
  */
@@ -1274,6 +1431,20 @@ export interface OpenAIModel {
    * This is the starting state for the conversation.
    */
   messages?: OpenAIMessage[] | null;
+  /**
+   * Temperature
+   * Temperature for calls. Default is 0 to leverage caching for lower latency
+   * @default 0
+   */
+  temperature?: number | null;
+  /**
+   * Maxtokens
+   * Max number of tokens the assistant will be allowed to generate in each turn
+   * @default 250
+   */
+  maxTokens?: number | null;
+  /** Extra */
+  extra?: Record<string, any> | null;
   /**
    * Provider
    * @default "openai"
@@ -1381,64 +1552,6 @@ export interface OpenAIModel {
     | "gpt-3.5-turbo-0125:southcentralus"
     | "gpt-3.5-turbo-1106:canadaeast"
     | "gpt-3.5-turbo-1106:westus";
-  /**
-   * Temperature
-   * Sampling temperature for response generation
-   * @default 0.7
-   */
-  temperature?: number | null;
-  /**
-   * Maxtokens
-   * Maximum number of tokens to generate
-   */
-  maxTokens?: number | null;
-}
-
-/**
- * OpenAITranscriber
- * OpenAI transcriber configuration.
- */
-export interface OpenAITranscriber {
-  /**
-   * Provider
-   * @default "openai"
-   */
-  provider?: "openai";
-  /**
-   * Model
-   * OpenAI transcription model
-   * @default "whisper-1"
-   */
-  model?: string | null;
-  /**
-   * Language
-   * Language code for transcription
-   * @default "en"
-   */
-  language?: string | null;
-}
-
-/**
- * OpenAIVoice
- * OpenAI voice synthesis configuration.
- */
-export interface OpenAIVoice {
-  /**
-   * Provider
-   * @default "openai"
-   */
-  provider?: "openai";
-  /**
-   * Voice
-   * Voice identifier (e.g., alloy, echo, fable)
-   */
-  voice: string;
-  /**
-   * Speed
-   * Voice speed multiplier
-   * @default 1
-   */
-  speed?: number | null;
 }
 
 /**
@@ -1476,23 +1589,6 @@ export interface PaginationResponseCallResponse {
 }
 
 /**
- * PaginationResponse[CredentialResponse]
- * @example {"items":[],"next_token":"eyJwayI6InVzcjEyMyIsInNrIjoiYXNzaXN0YW50XzQ1NiJ9"}
- */
-export interface PaginationResponseCredentialResponse {
-  /**
-   * Items
-   * List of items in the current page
-   */
-  items: CredentialResponse[];
-  /**
-   * Next Token
-   * Token for retrieving the next page of results
-   */
-  next_token?: string | null;
-}
-
-/**
  * PaginationResponse[PhoneNumberResponse]
  * @example {"items":[],"next_token":"eyJwayI6InVzcjEyMyIsInNrIjoiYXNzaXN0YW50XzQ1NiJ9"}
  */
@@ -1502,23 +1598,6 @@ export interface PaginationResponsePhoneNumberResponse {
    * List of items in the current page
    */
   items: PhoneNumberResponse[];
-  /**
-   * Next Token
-   * Token for retrieving the next page of results
-   */
-  next_token?: string | null;
-}
-
-/**
- * PaginationResponse[ToolResponse]
- * @example {"items":[],"next_token":"eyJwayI6InVzcjEyMyIsInNrIjoiYXNzaXN0YW50XzQ1NiJ9"}
- */
-export interface PaginationResponseToolResponse {
-  /**
-   * Items
-   * List of items in the current page
-   */
-  items: ToolResponse[];
   /**
    * Next Token
    * Token for retrieving the next page of results
@@ -1600,259 +1679,83 @@ export interface SonioxTranscriber {
   model?: string | null;
   /**
    * Language
-   * Language code for transcription
-   * @default "en"
+   * Language code for transcription,
+   *     By default, you don't need to pre-select a language — the model automatically detects and transcribes any supported language. It also handles multilingual speech seamlessly, even when multiple languages are mixed within a single sentence or conversation.
+   *     When you already know which languages are most likely to appear in your audio, you should provide language hints to guide the model. This improves accuracy by biasing recognition toward the specified languages, while still allowing other languages to be detected if present.
+   *     https://soniox.com/docs/stt/concepts/language-hints#overview
+   *     Example: Hinting English and Spanish ["en", "es"]
+   *
    */
-  language?: string | null;
+  language?: Language[] | null;
 }
 
 /**
- * ToolMessageComplete
- * Tool message for request completion.
+ * TranscriberCost
+ * Cost for speech-to-text transcription services.
  */
-export interface ToolMessageComplete {
+export interface TranscriberCost {
   /**
    * Type
-   * @default "request-complete"
+   * Cost type identifier
+   * @default "transcriber"
    */
-  type?: "request-complete";
+  type?: "transcriber";
   /**
-   * Content
-   * Message content
-   * @maxLength 1000
+   * Transcriber
+   * Transcriber configuration used
    */
-  content: string;
+  transcriber:
+    | ({
+        provider: "cartesia";
+      } & CartesiaTranscriber)
+    | ({
+        provider: "deepgram";
+      } & DeepgramTranscriber)
+    | ({
+        provider: "soniox";
+      } & SonioxTranscriber);
   /**
-   * Role
-   * Message role
+   * Minutes
+   * Minutes of transcriber usage
+   * @min 0
    */
-  role?: "assistant" | "system" | null;
+  minutes: number;
   /**
-   * Endcallafterspokenenabled
-   * End call after message is spoken
-   * @default false
+   * Cost
+   * Cost in USD
+   * @min 0
    */
-  endCallAfterSpokenEnabled?: boolean;
+  cost: number;
 }
 
 /**
- * ToolMessageDelayed
- * Tool message for delayed response.
+ * TransportCost
+ * Cost for transport/telephony services.
  */
-export interface ToolMessageDelayed {
+export interface TransportCost {
   /**
    * Type
-   * @default "request-response-delayed"
+   * Cost type identifier
+   * @default "transport"
    */
-  type?: "request-response-delayed";
+  type?: "transport";
   /**
-   * Content
-   * Message content
-   * @maxLength 1000
+   * Provider
+   * Transport provider (daily, twilio, vonage, telnyx, etc.)
    */
-  content: string;
+  provider?: string | null;
   /**
-   * Timingmilliseconds
-   * Delay timing in milliseconds
-   * @min 100
-   * @max 120000
+   * Minutes
+   * Minutes of transport usage
+   * @min 0
    */
-  timingMilliseconds: number;
-}
-
-/**
- * ToolMessageFailed
- * Tool message for request failure.
- */
-export interface ToolMessageFailed {
+  minutes: number;
   /**
-   * Type
-   * @default "request-failed"
+   * Cost
+   * Cost in USD
+   * @min 0
    */
-  type?: "request-failed";
-  /**
-   * Content
-   * Message content
-   * @maxLength 1000
-   */
-  content: string;
-  /**
-   * Endcallafterspokenenabled
-   * End call after message is spoken
-   * @default false
-   */
-  endCallAfterSpokenEnabled?: boolean;
-}
-
-/**
- * ToolMessageStart
- * Tool message for request start.
- */
-export interface ToolMessageStart {
-  /**
-   * Type
-   * @default "request-start"
-   */
-  type?: "request-start";
-  /**
-   * Content
-   * Message content
-   * @maxLength 1000
-   */
-  content: string;
-  /**
-   * Blocking
-   * Whether message blocks execution
-   * @default false
-   */
-  blocking?: boolean;
-}
-
-/**
- * ToolResponse
- * Response DTO for tool data.
- */
-export interface ToolResponse {
-  /**
-   * Id
-   * Tool unique identifier
-   */
-  id: string;
-  /**
-   * Orgid
-   * Organization identifier
-   */
-  orgId: string;
-  /**
-   * Type
-   * Tool type
-   */
-  type: "apiRequest";
-  /**
-   * Createdat
-   * Creation timestamp
-   */
-  createdAt?: string | null;
-  /**
-   * Updatedat
-   * Last update timestamp
-   */
-  updatedAt?: string | null;
-  /**
-   * Name
-   * Tool name
-   */
-  name?: string | null;
-  /**
-   * Description
-   * Tool description
-   */
-  description?: string | null;
-  /**
-   * Method
-   * HTTP method
-   */
-  method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
-  /**
-   * Url
-   * API endpoint URL
-   */
-  url: string;
-  /** HTTP headers configuration */
-  headers?: ApiRequestHeaders | null;
-  /** Request body schema */
-  body?: ApiRequestBody | null;
-  /**
-   * Timeoutseconds
-   * Request timeout
-   */
-  timeoutSeconds?: number | null;
-  /**
-   * Credentialid
-   * Credential identifier for authentication
-   */
-  credentialId?: string | null;
-  /**
-   * Messages
-   * Tool message configurations
-   */
-  messages?:
-    | (
-        | ToolMessageStart
-        | ToolMessageComplete
-        | ToolMessageFailed
-        | ToolMessageDelayed
-      )[]
-    | null;
-  /**
-   * Metadata
-   * Free-form metadata storage
-   */
-  metadata?: Record<string, any> | null;
-}
-
-/**
- * UpdateApiRequestToolDTO
- * DTO for updating an existing API request tool.
- */
-export interface UpdateApiRequestToolDTO {
-  /**
-   * Type
-   * Tool type
-   * @default "apiRequest"
-   */
-  type?: "apiRequest";
-  /**
-   * Name
-   * Tool name
-   */
-  name?: string | null;
-  /**
-   * Description
-   * Tool description
-   */
-  description?: string | null;
-  /**
-   * Method
-   * HTTP method
-   */
-  method?: "GET" | "POST" | "PUT" | "PATCH" | "DELETE" | null;
-  /**
-   * Url
-   * API endpoint URL
-   */
-  url?: string | null;
-  /** HTTP headers configuration */
-  headers?: ApiRequestHeaders | null;
-  /** Request body schema */
-  body?: ApiRequestBody | null;
-  /**
-   * Timeoutseconds
-   * Request timeout
-   */
-  timeoutSeconds?: number | null;
-  /**
-   * Credentialid
-   * Credential identifier for authentication
-   */
-  credentialId?: string | null;
-  /**
-   * Messages
-   * Tool message configurations
-   */
-  messages?:
-    | (
-        | ToolMessageStart
-        | ToolMessageComplete
-        | ToolMessageFailed
-        | ToolMessageDelayed
-      )[]
-    | null;
-  /**
-   * Metadata
-   * Free-form metadata storage
-   */
-  metadata?: Record<string, any> | null;
+  cost: number;
 }
 
 /**
@@ -1872,20 +1775,11 @@ export interface UpdateAssistantDTO {
   transcriber?:
     | (
         | ({
-            provider: "assembly-ai";
-          } & AssemblyAITranscriber)
-        | ({
-            provider: "azure";
-          } & AzureSpeechTranscriber)
-        | ({
             provider: "cartesia";
           } & CartesiaTranscriber)
         | ({
             provider: "deepgram";
           } & DeepgramTranscriber)
-        | ({
-            provider: "openai";
-          } & OpenAITranscriber)
         | ({
             provider: "soniox";
           } & SonioxTranscriber)
@@ -1898,14 +1792,8 @@ export interface UpdateAssistantDTO {
   model?:
     | (
         | ({
-            provider: "anthropic";
-          } & AnthropicModel)
-        | ({
             provider: "custom-llm";
           } & CustomLLMModel)
-        | ({
-            provider: "google";
-          } & GoogleModel)
         | ({
             provider: "openai";
           } & OpenAIModel)
@@ -1918,23 +1806,14 @@ export interface UpdateAssistantDTO {
   voice?:
     | (
         | ({
-            provider: "amazon";
-          } & AmazonVoice)
-        | ({
             provider: "azure";
           } & AzureVoice)
         | ({
             provider: "cartesia";
           } & CartesiaVoice)
         | ({
-            provider: "elevenlabs";
-          } & ElevenLabsVoice)
-        | ({
             provider: "minimax";
           } & MinimaxVoice)
-        | ({
-            provider: "openai";
-          } & OpenAIVoice)
       )
     | null;
   /**
@@ -1974,6 +1853,79 @@ export interface ValidationError {
   msg: string;
   /** Error Type */
   type: string;
+}
+
+/**
+ * VoiceCost
+ * Cost for text-to-speech voice services.
+ */
+export interface VoiceCost {
+  /**
+   * Type
+   * Cost type identifier
+   * @default "voice"
+   */
+  type?: "voice";
+  /**
+   * Voice
+   * Voice configuration used
+   */
+  voice:
+    | ({
+        provider: "azure";
+      } & AzureVoice)
+    | ({
+        provider: "cartesia";
+      } & CartesiaVoice)
+    | ({
+        provider: "minimax";
+      } & MinimaxVoice);
+  /**
+   * Characters
+   * Number of characters synthesized
+   * @min 0
+   */
+  characters: number;
+  /**
+   * Cost
+   * Cost in USD
+   * @min 0
+   */
+  cost: number;
+}
+
+/**
+ * VoicemailDetectionCost
+ * Cost for voicemail detection services.
+ */
+export interface VoicemailDetectionCost {
+  /**
+   * Type
+   * Cost type identifier
+   * @default "voicemail-detection"
+   */
+  type?: "voicemail-detection";
+  /**
+   * Model
+   * Model used for detection
+   */
+  model?: Record<string, any> | null;
+  /**
+   * Provider
+   * Provider (twilio, google, openai)
+   */
+  provider?: string | null;
+  /**
+   * Minutes
+   * Minutes of detection usage
+   */
+  minutes?: number | null;
+  /**
+   * Cost
+   * Cost in USD
+   * @min 0
+   */
+  cost: number;
 }
 
 /** WebCallResponse */
@@ -2027,11 +1979,52 @@ export interface WebCallResponse {
    * Assistant ID reference
    */
   assistantId?: string | null;
+  /** Transient assistant config */
+  assistant?: CreateAssistantDTOOutput | null;
   /**
    * Phonenumberid
    * Phone number ID reference
    */
   phoneNumberId?: string | null;
+  /**
+   * Cost
+   * Total call cost in USD
+   */
+  cost?: number | null;
+  /**
+   * Costs
+   * Detailed cost items by service component
+   */
+  costs?:
+    | (
+        | ({
+            type: "analysis";
+          } & AnalysisCost)
+        | ({
+            type: "knowledge-base";
+          } & KnowledgeBaseCost)
+        | ({
+            type: "model";
+          } & ModelCost)
+        | ({
+            type: "nexagent";
+          } & NexagentCost)
+        | ({
+            type: "transcriber";
+          } & TranscriberCost)
+        | ({
+            type: "transport";
+          } & TransportCost)
+        | ({
+            type: "voice";
+          } & VoiceCost)
+        | ({
+            type: "voicemail-detection";
+          } & VoicemailDetectionCost)
+      )[]
+    | null;
+  /** Detailed cost breakdown */
+  costBreakdown?: CostBreakdown | null;
   /**
    * Metadata
    * Free-form metadata
@@ -2305,7 +2298,7 @@ export class HttpClient<SecurityDataType = unknown> {
 }
 
 /**
- * @title User Authentication API
+ * @title Nexagent API
  * @version 1.0.0
  *
  *
@@ -2316,7 +2309,7 @@ export class Api<
   SecurityDataType extends unknown,
 > extends HttpClient<SecurityDataType> {
   /**
-   * @description Root endpoint
+   * @description API root endpoint
    *
    * @name RootGet
    * @summary Root
@@ -2330,234 +2323,9 @@ export class Api<
       ...params,
     });
 
-  apiKey = {
-    /**
-     * @description Create a new API key for an organization with the provided information
-     *
-     * @tags api-keys
-     * @name CreateApiKeyEndpointApiKeyPost
-     * @summary Create new API key
-     * @request POST:/api-key
-     * @secure
-     */
-    createApiKeyEndpointApiKeyPost: (
-      data: ApiKeyCreate,
-      params: RequestParams = {},
-    ) =>
-      this.request<
-        ApiKeyOperationResponse,
-        ApiKeyErrorResponse | HTTPValidationError
-      >({
-        path: `/api-key`,
-        method: "POST",
-        body: data,
-        secure: true,
-        type: ContentType.Json,
-        format: "json",
-        ...params,
-      }),
-
-    /**
-     * @description Retrieve API key information by API key ID
-     *
-     * @tags api-keys
-     * @name GetApiKeyEndpointApiKeyKeyIdGet
-     * @summary Get API key by ID
-     * @request GET:/api-key/{key_id}
-     * @secure
-     */
-    getApiKeyEndpointApiKeyKeyIdGet: (
-      keyId: string,
-      params: RequestParams = {},
-    ) =>
-      this.request<ApiKeyResponse, ApiKeyErrorResponse | HTTPValidationError>({
-        path: `/api-key/${keyId}`,
-        method: "GET",
-        secure: true,
-        format: "json",
-        ...params,
-      }),
-
-    /**
-     * @description Revoke (delete) an API key by ID
-     *
-     * @tags api-keys
-     * @name RevokeApiKeyEndpointApiKeyKeyIdDelete
-     * @summary Revoke API key
-     * @request DELETE:/api-key/{key_id}
-     * @secure
-     */
-    revokeApiKeyEndpointApiKeyKeyIdDelete: (
-      keyId: string,
-      params: RequestParams = {},
-    ) =>
-      this.request<
-        Record<string, any>,
-        ApiKeyErrorResponse | HTTPValidationError
-      >({
-        path: `/api-key/${keyId}`,
-        method: "DELETE",
-        secure: true,
-        format: "json",
-        ...params,
-      }),
-  };
-  credential = {
-    /**
-     * @description Create a new credential with the provided authentication configuration
-     *
-     * @tags credentials
-     * @name CreateCredentialEndpointCredentialPost
-     * @summary Create new credential
-     * @request POST:/credential
-     * @secure
-     */
-    createCredentialEndpointCredentialPost: (
-      data: CredentialCreate,
-      params: RequestParams = {},
-    ) =>
-      this.request<CredentialResponse, HTTPValidationError>({
-        path: `/credential`,
-        method: "POST",
-        body: data,
-        secure: true,
-        type: ContentType.Json,
-        format: "json",
-        ...params,
-      }),
-
-    /**
-     * @description Retrieve a paginated list of credentials for the authenticated user's organization
-     *
-     * @tags credentials
-     * @name ListCredentialsEndpointCredentialGet
-     * @summary List credentials
-     * @request GET:/credential
-     * @secure
-     */
-    listCredentialsEndpointCredentialGet: (
-      query?: {
-        /**
-         * Provider
-         * Filter by provider type
-         */
-        provider?: string | null;
-        /**
-         * Status
-         * Filter by credential status
-         */
-        status?: CredentialStatus | null;
-        /**
-         * Limit
-         * @min 1
-         * @max 1000
-         * @default 100
-         */
-        limit?: number;
-        /** Next Token */
-        next_token?: string | null;
-        /**
-         * Ascending
-         * @default false
-         */
-        ascending?: boolean;
-        /** Created At Gt */
-        created_at_gt?: string | null;
-        /** Created At Ge */
-        created_at_ge?: string | null;
-        /** Created At Lt */
-        created_at_lt?: string | null;
-        /** Created At Le */
-        created_at_le?: string | null;
-        /** Updated At Gt */
-        updated_at_gt?: string | null;
-        /** Updated At Ge */
-        updated_at_ge?: string | null;
-        /** Updated At Lt */
-        updated_at_lt?: string | null;
-        /** Updated At Le */
-        updated_at_le?: string | null;
-      },
-      params: RequestParams = {},
-    ) =>
-      this.request<PaginationResponseCredentialResponse, HTTPValidationError>({
-        path: `/credential`,
-        method: "GET",
-        query: query,
-        secure: true,
-        format: "json",
-        ...params,
-      }),
-
-    /**
-     * @description Retrieve credential information by credential ID
-     *
-     * @tags credentials
-     * @name GetCredentialEndpointCredentialCredentialIdGet
-     * @summary Get credential by ID
-     * @request GET:/credential/{credential_id}
-     * @secure
-     */
-    getCredentialEndpointCredentialCredentialIdGet: (
-      credentialId: string,
-      params: RequestParams = {},
-    ) =>
-      this.request<CredentialResponse, HTTPValidationError>({
-        path: `/credential/${credentialId}`,
-        method: "GET",
-        secure: true,
-        format: "json",
-        ...params,
-      }),
-
-    /**
-     * @description Update credential information with the provided data
-     *
-     * @tags credentials
-     * @name UpdateCredentialEndpointCredentialCredentialIdPut
-     * @summary Update credential
-     * @request PUT:/credential/{credential_id}
-     * @secure
-     */
-    updateCredentialEndpointCredentialCredentialIdPut: (
-      credentialId: string,
-      data: CredentialUpdate,
-      params: RequestParams = {},
-    ) =>
-      this.request<CredentialResponse, HTTPValidationError>({
-        path: `/credential/${credentialId}`,
-        method: "PUT",
-        body: data,
-        secure: true,
-        type: ContentType.Json,
-        format: "json",
-        ...params,
-      }),
-
-    /**
-     * @description Delete a credential by ID
-     *
-     * @tags credentials
-     * @name DeleteCredentialEndpointCredentialCredentialIdDelete
-     * @summary Delete credential
-     * @request DELETE:/credential/{credential_id}
-     * @secure
-     */
-    deleteCredentialEndpointCredentialCredentialIdDelete: (
-      credentialId: string,
-      params: RequestParams = {},
-    ) =>
-      this.request<Record<string, any>, HTTPValidationError>({
-        path: `/credential/${credentialId}`,
-        method: "DELETE",
-        secure: true,
-        format: "json",
-        ...params,
-      }),
-  };
   assistant = {
     /**
-     * @description Create a new AI assistant with complex configuration. **Configuration Options:** - **Transcriber**: AssemblyAI, OpenAI Whisper, or Deepgram - **Model**: OpenAI GPT, Anthropic Claude, or Google Gemini - **Voice**: OpenAI TTS, ElevenLabs, or Amazon Polly Each configuration supports provider-specific options like temperature, confidence thresholds, and voice parameters. **Example Request:** ```json { "name": "Customer Support Assistant", "transcriber": { "provider": "assembly-ai", "language": "en", "confidenceThreshold": 0.4 }, "model": { "provider": "openai", "model": "gpt-4", "temperature": 0.7 }, "voice": { "provider": "openai", "voice": "alloy", "speed": 1.0 }, "firstMessage": "Hello! How can I help you today?", "metadata": { "department": "support", "version": "1.0" } } ```
+     * @description Create a new AI assistant with complex configuration. **Example Request:** ```json { "name": "Customer Support Assistant", "transcriber": { "language": "en", "model": "nova-2", "provider": "deepgram" }, "model": { "model": "gpt-4o", "provider": "openai" }, "voice": { "language": "en", "model": "sonic-english", "provider": "cartesia", "voiceId": "71a7ad14-091c-4e8e-a314-022ece01c121" }, "firstMessage": "Hello! How can I help you today?", "metadata": { "department": "support", "version": "1.0" } } ```
      *
      * @tags assistants
      * @name CreateAssistantEndpointAssistantPost
@@ -2566,7 +2334,7 @@ export class Api<
      * @secure
      */
     createAssistantEndpointAssistantPost: (
-      data: CreateAssistantDTO,
+      data: CreateAssistantDTOInput,
       params: RequestParams = {},
     ) =>
       this.request<AssistantResponse, void | HTTPValidationError>({
@@ -2633,7 +2401,7 @@ export class Api<
       }),
 
     /**
-     * @description Retrieve a specific assistant by its unique identifier. Returns the complete assistant configuration including: - Basic information (name, creation/update timestamps) - Complex nested configurations (transcriber, model, voice) - Custom metadata and first message **Organization Isolation:** Only returns assistants that belong to the authenticated user's organization. **Example Response:** ```json { "id": "123e4567-e89b-12d3-a456-426614174000", "orgId": "org-123", "name": "Customer Support Assistant", "createdAt": "2025-01-13T10:30:00Z", "updatedAt": "2025-01-13T15:45:00Z", "transcriber": { "provider": "assembly-ai", "language": "en", "confidenceThreshold": 0.4 }, "model": { "provider": "openai", "model": "gpt-4", "temperature": 0.7 }, "voice": { "provider": "openai", "voice": "alloy", "speed": 1.0 }, "firstMessage": "Hello! How can I help you today?", "metadata": { "department": "support", "version": "1.0" } } ```
+     * @description Retrieve a specific assistant by its unique identifier. Returns the complete assistant configuration including: - Basic information (name, creation/update timestamps) - Complex nested configurations (transcriber, model, voice) - Custom metadata and first message **Organization Isolation:** Only returns assistants that belong to the authenticated user's organization. **Example Response:** ```json { "id": "123e4567-e89b-12d3-a456-426614174000", "orgId": "org-123", "name": "Customer Support Assistant", "createdAt": "2025-01-13T10:30:00Z", "updatedAt": "2025-01-13T15:45:00Z", "transcriber": { "language": "en", "model": "nova-2", "provider": "deepgram" }, "model": { "model": "gpt-4o", "provider": "openai" }, "voice": { "language": "en", "model": "sonic-english", "provider": "cartesia", "voiceId": "71a7ad14-091c-4e8e-a314-022ece01c121" }, "firstMessage": "Hello! How can I help you today?", "metadata": { "department": "support", "version": "1.0" } } ```
      *
      * @tags assistants
      * @name GetAssistantEndpointAssistantAssistantIdGet
@@ -2783,7 +2551,7 @@ export class Api<
       }),
 
     /**
-     * @description Create a new call with comprehensive configuration. **Configuration Options:** - **Assistant**: assistantId must be provided - **Phone Number**: phoneNumberId must be provided (not required for web calls) **Example Call:** ```json { "name": "Customer Support Call", "assistantId": "550e8400-e29b-41d4-a716-446655440001", "phoneNumberId": "phone-456", "metadata": { "campaign": "support", "priority": "high" } } ```
+     * @description Create a new call with comprehensive configuration. **Configuration Options:** - **assistantId**: This is the assistant lD that will be used for the call. To use a transient assistant, use assistant instead. - **assistant**: This is the assistant that will be used for the cal. To use an existing assistant, use assistantId instead. **Example Call:** ```json { "name": "Customer Support Call", "assistantId": "550e8400-e29b-41d4-a716-446655440001" } { "name": "Customer Support Call", "assistant": { "name": "deepgram stt and cartesia tts", "firstMessage": "Anchor Customer Support I am an assistant.We will ask you the name of the product you are using and the details of your consultation. ", "model": { "model": "gpt-4o", "provider": "openai" }, "transcriber": { "language": "en", "model": "nova-2", "provider": "deepgram" }, "voice": { "language": "en", "model": "sonic-english", "provider": "cartesia", "voiceId": "71a7ad14-091c-4e8e-a314-022ece01c121" } } } ```
      *
      * @tags calls
      * @name CreateWebCallEndpointCallWebPost
@@ -3012,191 +2780,18 @@ export class Api<
         ...params,
       }),
   };
-  tool = {
+  voice = {
     /**
-     * @description Create a new API request tool with complex configuration. **Configuration Options:** - **Method**: HTTP method (GET, POST, PUT, PATCH, DELETE) - **URL**: API endpoint URL for external service integration - **Headers**: HTTP headers configuration with key-value pairs - **Body**: Request body schema for POST/PUT/PATCH requests - **Timeout**: Request timeout in seconds (1-300) - **Credentials**: Optional credential ID for authentication - **Messages**: Tool message configurations for different states **Example Request:** ```json { "type": "apiRequest", "name": "Weather API Tool", "description": "Fetches weather data from external API", "method": "GET", "url": "https://api.weather.com/v1/current", "headers": { "headers": { "Authorization": "Bearer {{api_key}}", "Content-Type": "application/json" } }, "body": { "schema": { "type": "object", "properties": { "query": { "type": "string" } } } }, "timeoutSeconds": 30, "credentialId": "550e8400-e29b-41d4-a716-446655440000", "messages": [ { "type": "request-start", "content": "Fetching weather data...", "blocking": false }, { "type": "request-complete", "content": "Weather data retrieved successfully", "role": "assistant", "endCallAfterSpokenEnabled": false } ], "metadata": { "category": "weather", "version": "1.0" } } ```
+     * @description Retrieve the complete catalog of available TTS voices. Returns all voice configurations from supported providers (Minimax, Cartesia, etc.) with details including: - Voice provider and ID - Voice name and description - Gender (Male/Female) - Supported language **Example Response:** ```json [ { "id": "01936e8f-1234-7890-abcd-ef1234567890", "voice_provider": "minimax", "voice_id": "English_expressive_narrator", "name": "Expressive Narrator", "description": "An expressive adult male voice with a British accent", "gender": "Male", "language": "en" }, { "id": "01936e8f-5678-7890-abcd-ef1234567891", "voice_provider": "cartesia", "voice_id": "71a7ad14-091c-4e8e-a314-022ece01c121", "name": "Sonic English", "description": "Clear and natural English voice", "gender": "Female", "language": "en" } ] ``` **Note:** This endpoint does not require authentication as voice catalog is public data.
      *
-     * @tags tools
-     * @name CreateToolEndpointToolPost
-     * @summary Create Tool
-     * @request POST:/tool
-     * @secure
+     * @tags voices
+     * @name ListVoicesEndpointVoiceGet
+     * @summary List Available Voices
+     * @request GET:/voice
      */
-    createToolEndpointToolPost: (
-      data: CreateToolDTO,
-      params: RequestParams = {},
-    ) =>
-      this.request<ToolResponse, void | HTTPValidationError>({
-        path: `/tool`,
-        method: "POST",
-        body: data,
-        secure: true,
-        type: ContentType.Json,
-        format: "json",
-        ...params,
-      }),
-
-    /**
-     * @description List all tools in the organization with pagination. Returns a paginated list of all API request tools belonging to the authenticated user's organization. Results are sorted by creation time for consistent ordering. **Pagination Support:** - Use `limit` parameter to control page size (1-1000, default: 100) - Use `next_token` from previous response to get next page - Use `ascending` parameter to control sort order (default: newest first) **Date Filtering:** - Filter by creation date using `created_at_*` parameters - Filter by update date using `updated_at_*` parameters - Support both inclusive and exclusive date boundaries **Example Response:** ```json { "items": [ { "id": "123e4567-e89b-12d3-a456-426614174000", "orgId": "org-123", "type": "apiRequest", "name": "Weather API Tool", "description": "Fetches weather data", "createdAt": "2025-01-13T10:30:00Z", "updatedAt": "2025-01-13T15:45:00Z", "method": "GET", "url": "https://api.weather.com/v1/current", "timeoutSeconds": 30, "metadata": { "category": "weather" } } ], "next_token": "eyJwayI6InRvbCIsInNrIjoiMTIzZTQ1NjcifQ==", "total_count": null } ```
-     *
-     * @tags tools
-     * @name ListToolsEndpointToolGet
-     * @summary List Tools
-     * @request GET:/tool
-     * @secure
-     */
-    listToolsEndpointToolGet: (
-      query?: {
-        /**
-         * Limit
-         * @min 1
-         * @max 1000
-         * @default 100
-         */
-        limit?: number;
-        /** Next Token */
-        next_token?: string | null;
-        /**
-         * Ascending
-         * @default false
-         */
-        ascending?: boolean;
-        /** Created At Gt */
-        created_at_gt?: string | null;
-        /** Created At Ge */
-        created_at_ge?: string | null;
-        /** Created At Lt */
-        created_at_lt?: string | null;
-        /** Created At Le */
-        created_at_le?: string | null;
-        /** Updated At Gt */
-        updated_at_gt?: string | null;
-        /** Updated At Ge */
-        updated_at_ge?: string | null;
-        /** Updated At Lt */
-        updated_at_lt?: string | null;
-        /** Updated At Le */
-        updated_at_le?: string | null;
-      },
-      params: RequestParams = {},
-    ) =>
-      this.request<PaginationResponseToolResponse, void | HTTPValidationError>({
-        path: `/tool`,
-        method: "GET",
-        query: query,
-        secure: true,
-        format: "json",
-        ...params,
-      }),
-
-    /**
-     * @description Retrieve a specific tool by its unique identifier. Returns the complete tool configuration including: - Basic information (name, description, creation/update timestamps) - HTTP configuration (method, URL, headers, body schema) - Timeout and credential settings - Tool message configurations for different states - Custom metadata **Organization Isolation:** Only returns tools that belong to the authenticated user's organization. **Example Response:** ```json { "id": "123e4567-e89b-12d3-a456-426614174000", "orgId": "org-123", "type": "apiRequest", "name": "Weather API Tool", "description": "Fetches weather data from external API", "createdAt": "2025-01-13T10:30:00Z", "updatedAt": "2025-01-13T15:45:00Z", "method": "GET", "url": "https://api.weather.com/v1/current", "headers": { "headers": { "Authorization": "Bearer {{api_key}}", "Content-Type": "application/json" } }, "body": { "schema": { "type": "object", "properties": { "query": { "type": "string" } } } }, "timeoutSeconds": 30, "credentialId": "550e8400-e29b-41d4-a716-446655440000", "messages": [ { "type": "request-start", "content": "Fetching weather data...", "blocking": false }, { "type": "request-complete", "content": "Weather data retrieved successfully", "role": "assistant", "endCallAfterSpokenEnabled": false } ], "metadata": { "category": "weather", "version": "1.0" } } ```
-     *
-     * @tags tools
-     * @name GetToolEndpointToolToolIdGet
-     * @summary Get Tool
-     * @request GET:/tool/{tool_id}
-     * @secure
-     */
-    getToolEndpointToolToolIdGet: (
-      toolId: string,
-      params: RequestParams = {},
-    ) =>
-      this.request<ToolResponse, void | HTTPValidationError>({
-        path: `/tool/${toolId}`,
-        method: "GET",
-        secure: true,
-        format: "json",
-        ...params,
-      }),
-
-    /**
-     * @description Update an existing tool's configuration with partial updates. Only provided fields will be updated. Complex configurations (headers, body schema, messages) can be updated independently. **Updatable Fields:** - Basic information: name, description - HTTP configuration: method, url, headers, body - Settings: timeoutSeconds, credentialId - Messages: tool message configurations - Metadata: custom metadata storage **Example Request:** ```json { "name": "Updated Weather Tool", "description": "Enhanced weather data fetching tool", "timeoutSeconds": 60, "headers": { "headers": { "Authorization": "Bearer {{new_api_key}}", "Content-Type": "application/json", "User-Agent": "NexAgent/1.0" } }, "messages": [ { "type": "request-start", "content": "Fetching updated weather data...", "blocking": false } ], "metadata": { "category": "weather", "version": "2.0", "updated": true } } ```
-     *
-     * @tags tools
-     * @name UpdateToolEndpointToolToolIdPatch
-     * @summary Update Tool
-     * @request PATCH:/tool/{tool_id}
-     * @secure
-     */
-    updateToolEndpointToolToolIdPatch: (
-      toolId: string,
-      data: UpdateToolDTO,
-      params: RequestParams = {},
-    ) =>
-      this.request<ToolResponse, void | HTTPValidationError>({
-        path: `/tool/${toolId}`,
-        method: "PATCH",
-        body: data,
-        secure: true,
-        type: ContentType.Json,
-        format: "json",
-        ...params,
-      }),
-
-    /**
-     * @description Delete a tool permanently. The tool must belong to the authenticated user's organization. This operation cannot be undone. **Security:** - Organization isolation enforced - Audit logging for compliance tracking - Authorization verification before deletion **Response:** - 204 No Content: Tool deleted successfully - 404 Not Found: Tool not found or not accessible - 401 Unauthorized: Authentication required
-     *
-     * @tags tools
-     * @name DeleteToolEndpointToolToolIdDelete
-     * @summary Delete Tool
-     * @request DELETE:/tool/{tool_id}
-     * @secure
-     */
-    deleteToolEndpointToolToolIdDelete: (
-      toolId: string,
-      params: RequestParams = {},
-    ) =>
-      this.request<void, void | HTTPValidationError>({
-        path: `/tool/${toolId}`,
-        method: "DELETE",
-        secure: true,
-        ...params,
-      }),
-  };
-  webhook = {
-    /**
-     * @description Handle Twilio voice webhook for starting calls with assistants. This endpoint receives Twilio webhook calls when a phone number is dialed. It processes the call and initiates the appropriate assistant conversation. Args: request: FastAPI request object call_data: Twilio call data Returns: TwiML response to control the call Raises: HTTPException: If assistant_id is missing or assistant not found
-     *
-     * @tags webhooks
-     * @name StartTwilioWebhookWebhookTwilioPhonePost
-     * @summary Start Twilio Webhook
-     * @request POST:/webhook/twilio-phone
-     */
-    startTwilioWebhookWebhookTwilioPhonePost: (params: RequestParams = {}) =>
-      this.request<any, any>({
-        path: `/webhook/twilio-phone`,
-        method: "POST",
-        format: "json",
-        ...params,
-      }),
-
-    /**
-     * @description Handle incoming Twilio call webhook. This endpoint: 1. Receives Twilio webhook data for incoming calls 2. Creates a Daily room with SIP capabilities 3. Starts the bot (locally or via Pipecat Cloud based on ENV) 4. Returns TwiML to put caller on hold while bot connects Returns: TwiML response with hold music for the caller
-     *
-     * @tags webhooks
-     * @name HandleCallWebhookTwilioSipPost
-     * @summary Handle Call
-     * @request POST:/webhook/twilio-sip
-     */
-    handleCallWebhookTwilioSipPost: (params: RequestParams = {}) =>
-      this.request<string, any>({
-        path: `/webhook/twilio-sip`,
-        method: "POST",
-        ...params,
-      }),
-  };
-  health = {
-    /**
-     * @description Health check endpoint for application monitoring. Performs comprehensive health checks including: - Application status - Repository connectivity (DynamoDB, S3) - Configuration validation Returns: Dict containing health status and detailed information
-     *
-     * @name HealthCheckHealthGet
-     * @summary Health Check
-     * @request GET:/health
-     */
-    healthCheckHealthGet: (params: RequestParams = {}) =>
-      this.request<any, any>({
-        path: `/health`,
+    listVoicesEndpointVoiceGet: (params: RequestParams = {}) =>
+      this.request<any, void>({
+        path: `/voice`,
         method: "GET",
         format: "json",
         ...params,

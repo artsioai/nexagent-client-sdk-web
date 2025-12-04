@@ -2,7 +2,7 @@
 set -euo pipefail
 
 API_JSON="./api-extended-json.json"
-SWAGGER_URL="https://nexagent.api.next.newcast.ai/openapi.json"
+SWAGGER_URL="https://nexagent.api.newcast.ai/openapi.json"
 
 curl -fSL "$SWAGGER_URL" -o "$API_JSON"
 

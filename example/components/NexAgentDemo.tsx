@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import NexAgent from "@newcast/nexagent-sdk-web";
+import type { CreateAssistantDTOInput } from "../../api";
 
 import { useAudioDevices } from "../hooks/useAudioDevices";
 import SessionView from "./SessionView";
@@ -29,9 +30,6 @@ export function NexAgentDemo() {
   const publicKey =
     process.env.NEXT_PUBLIC_NEXAGENT_PUBLIC_KEY ||
     "";
-  const assistantId =
-    process.env.NEXT_PUBLIC_NEXAGENT_ASSISTANT_ID || "";
-
   const [callState, setCallState] = useState<CallState>("idle");
   const [muted, setMuted] = useState(false);
   const [assistantSpeaking, setAssistantSpeaking] = useState(false);
@@ -323,9 +321,6 @@ export function NexAgentDemo() {
     if (!publicKey) {
       return true;
     }
-    if (!assistantId) {
-      return true;
-    }
     if (audioDevices.loading) {
       return true;
     }
@@ -333,19 +328,12 @@ export function NexAgentDemo() {
       return true;
     }
     return false;
-  }, [publicKey, assistantId, audioDevices.loading, audioDevices.error]);
+  }, [publicKey, audioDevices.loading, audioDevices.error]);
 
-  const startCall = useCallback(async () => {
+  const startCall = useCallback(async (assistantConfig: CreateAssistantDTOInput) => {
     const nexAgent = nexAgentRef.current;
     if (!nexAgent) {
       setLastError("NexAgent is not ready.");
-      setCallState("ready");
-      return;
-    }
-    if (!assistantId) {
-      setLastError(
-        "NEXT_PUBLIC_NEXAGENT_ASSISTANT_ID is required to start a call."
-      );
       setCallState("ready");
       return;
     }
@@ -357,7 +345,7 @@ export function NexAgentDemo() {
       bubbleIdCounterRef.current = 0;
       setMessages([]);
 
-      await nexAgent.start(assistantId);
+      await nexAgent.start(assistantConfig);
     } catch (error) {
       const message =
         error instanceof Error
@@ -366,7 +354,7 @@ export function NexAgentDemo() {
       setCallState("ready");
       setLastError(message);
     }
-  }, [assistantId]);
+  }, []);
 
   const endCall = useCallback(() => {
     nexAgentRef.current?.stop();
