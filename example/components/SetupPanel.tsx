@@ -6,9 +6,9 @@ import voiceCatalog from "../voice_catalog.json";
 const SYSTEM_PROMPT_STORAGE_KEY = "nexagent_demo_system_prompt";
 
 const STT_PROVIDERS = [
-  { value: "deepgram", label: "Deepgram (placeholder)" },
-  { value: "cartesia", label: "Cartesia (placeholder)" },
-  { value: "soniox", label: "Soniox (placeholder)" },
+  { value: "soniox", label: "Soniox" },
+  { value: "deepgram", label: "Deepgram" },
+  { value: "cartesia", label: "Cartesia" },
 ] as const;
 
 type VoiceOption = { value: string; label: string; language?: string; gender?: string; provider: string };
@@ -68,7 +68,10 @@ export function SetupPanel({
   callState,
   disabled,
 }: SetupPanelProps) {
-  const [sttProvider, setSttProvider] = useState<SttProvider>(STT_PROVIDERS[0].value);
+  const [sttProvider, setSttProvider] = useState<SttProvider>(
+    (STT_PROVIDERS.find((p) => p.value === "soniox")?.value ??
+      STT_PROVIDERS[0].value) as SttProvider
+  );
   const ttsProviders = Object.keys(parsedCatalog).length
     ? Object.keys(parsedCatalog).map((key) => ({
         value: key,
@@ -80,10 +83,13 @@ export function SetupPanel({
         { value: "minimax", label: "MiniMax" },
       ];
 
-  const [ttsProvider, setTtsProvider] = useState<string>(ttsProviders[0]?.value ?? "");
+  const [ttsProvider, setTtsProvider] = useState<string>(
+    ttsProviders.find((p) => p.value === "cartesia")?.value ?? ttsProviders[0]?.value ?? ""
+  );
   const [ttsLanguage, setTtsLanguage] = useState<TtsLanguage>(TTS_LANGUAGE_OPTIONS[0].value);
   const [ttsGender, setTtsGender] = useState<string>("all");
   const [showSystemPrompt, setShowSystemPrompt] = useState(false);
+  const [showTtsConfig, setShowTtsConfig] = useState(true);
   const [systemPrompt, setSystemPrompt] = useState("");
 
   useEffect(() => {
@@ -265,35 +271,54 @@ export function SetupPanel({
         onChange: handleSttChange,
         options: STT_PROVIDERS,
       })}
-      {renderSelectRow({
-        id: "tts-provider",
-        label: "Text-to-Speech Provider",
-        value: ttsProvider,
-        onChange: handleTtsChange,
-        options: ttsProviders,
-      })}
-      {renderSelectRow({
-        id: "tts-language",
-        label: "TTS Language",
-        value: ttsLanguage,
-        onChange: (value) => setTtsLanguage(value as TtsLanguage),
-        options: TTS_LANGUAGE_OPTIONS,
-      })}
-      {renderSelectRow({
-        id: "tts-gender",
-        label: "TTS Gender",
-        value: ttsGender,
-        onChange: setTtsGender,
-        options: TTS_GENDER_OPTIONS,
-      })}
-      {renderSelectRow({
-        id: "tts-voice",
-        label: "Voice",
-        value: voiceSelection,
-        onChange: handleVoiceChange,
-        options: filteredVoices,
-        disabled: filteredVoices.length === 0,
-      })}
+      <div className="card-section card-section--compact">
+        <div className="device-row device-row--tight" style={{ justifyContent: "space-between", alignItems: "center" }}>
+          <div>
+            <div className="label">TTS Configuration</div>
+            <div className="microphone-status">Provider, language, gender, and voice</div>
+          </div>
+          <button
+            type="button"
+            className="button"
+            onClick={() => setShowTtsConfig((prev) => !prev)}
+          >
+            {showTtsConfig ? "Hide" : "Show"}
+          </button>
+        </div>
+        {showTtsConfig && (
+          <div style={{ marginTop: 8 }}>
+            {renderSelectRow({
+              id: "tts-provider",
+              label: "Provider",
+              value: ttsProvider,
+              onChange: handleTtsChange,
+              options: ttsProviders,
+            })}
+            {renderSelectRow({
+              id: "tts-language",
+              label: "Language",
+              value: ttsLanguage,
+              onChange: (value) => setTtsLanguage(value as TtsLanguage),
+              options: TTS_LANGUAGE_OPTIONS,
+            })}
+            {renderSelectRow({
+              id: "tts-gender",
+              label: "Gender",
+              value: ttsGender,
+              onChange: setTtsGender,
+              options: TTS_GENDER_OPTIONS,
+            })}
+            {renderSelectRow({
+              id: "tts-voice",
+              label: "Voice",
+              value: voiceSelection,
+              onChange: handleVoiceChange,
+              options: filteredVoices,
+              disabled: filteredVoices.length === 0,
+            })}
+          </div>
+        )}
+      </div>
       <div className="card-section card-section--compact">
         <button
           type="button"
