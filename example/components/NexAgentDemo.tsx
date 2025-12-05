@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import NexAgent from "@newcast/nexagent-sdk-web";
-import type { CreateAssistantDTOInput } from "../../api";
+import type { CreateAssistantDTOInput } from "@newcast/nexagent-sdk-web/api";
 
 import { useAudioDevices } from "../hooks/useAudioDevices";
 import SessionView from "./SessionView";

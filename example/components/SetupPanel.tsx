@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import type { CreateAssistantDTOInput, Language } from "../../api";
+import type { CreateAssistantDTOInput, Language } from "@newcast/nexagent-sdk-web/api";
 import DeviceSelector from "./DeviceSelector";
 import voiceCatalog from "../voice_catalog.json";
 
