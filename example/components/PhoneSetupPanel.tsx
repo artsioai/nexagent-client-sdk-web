@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import type { CreateAssistantDTOInput, Language } from "@newcast/nexagent-sdk-web/api";
-import DeviceSelector from "./DeviceSelector";
+
+import { SYSTEM_PROMPT_STORAGE_KEY } from "./SetupPanel";
 import voiceCatalog from "../voice_catalog.json";
 
-export const SYSTEM_PROMPT_STORAGE_KEY = "nexagent_demo_system_prompt";
+const DEFAULT_NEXAGENT_BASE_URL = "https://nexagent.api.next.newcast.ai";
 
 const STT_PROVIDERS = [
   { value: "soniox", label: "Soniox" },
@@ -11,7 +12,19 @@ const STT_PROVIDERS = [
   { value: "cartesia", label: "Cartesia" },
 ] as const;
 
+const TTS_LANGUAGE_OPTIONS = [
+  { value: "en", label: "English" },
+  { value: "ja", label: "Japanese" },
+] as const;
+const TTS_GENDER_OPTIONS = [
+  { value: "all", label: "Any" },
+  { value: "female", label: "Female" },
+  { value: "male", label: "Male" },
+];
+
 type VoiceOption = { value: string; label: string; language?: string; gender?: string; provider: string };
+type SttProvider = (typeof STT_PROVIDERS)[number]["value"];
+type TtsLanguage = (typeof TTS_LANGUAGE_OPTIONS)[number]["value"];
 
 const parsedCatalog = (voiceCatalog as Array<{
   voice_provider: string;
@@ -32,42 +45,18 @@ const parsedCatalog = (voiceCatalog as Array<{
   return acc;
 }, {});
 
-const TTS_LANGUAGE_OPTIONS = [
-  { value: "en", label: "English" },
-  { value: "ja", label: "Japanese" },
-] as const;
-const TTS_GENDER_OPTIONS = [
-  { value: "all", label: "Any" },
-  { value: "female", label: "Female" },
-  { value: "male", label: "Male" },
-];
+const resolvedBaseUrl = (process.env.NEXT_PUBLIC_NEXAGENT_BASE_URL?.trim() || DEFAULT_NEXAGENT_BASE_URL).replace(
+  /\/+$/,
+  ""
+);
+const resolvedAssistantId = process.env.NEXT_PUBLIC_NEXAGENT_ASSISTANT_ID?.trim() || "";
+const resolvedAuthKey =
+  process.env.NEXT_PUBLIC_NEXAGENT_PRIVATE_KEY?.trim() ||
+  "";
 
-type SttProvider = (typeof STT_PROVIDERS)[number]["value"];
-type TtsLanguage = (typeof TTS_LANGUAGE_OPTIONS)[number]["value"];
+const LoadingSpinner = () => <span className="spinner" aria-hidden />;
 
-interface SetupPanelProps {
-  selectedDeviceId: string | null;
-  onDeviceChange: (deviceId: string) => void;
-  onDeviceRefresh: () => void;
-  devices: { deviceId: string; label: string }[];
-  deviceLoading: boolean;
-  deviceError: string | null;
-  onStart: (assistant: CreateAssistantDTOInput) => Promise<void>;
-  callState: "idle" | "ready" | "starting" | "connected";
-  disabled?: boolean;
-}
-
-export function SetupPanel({
-  selectedDeviceId,
-  onDeviceChange,
-  onDeviceRefresh,
-  devices,
-  deviceLoading,
-  deviceError,
-  onStart,
-  callState,
-  disabled,
-}: SetupPanelProps) {
+export function PhoneSetupPanel() {
   const [sttProvider, setSttProvider] = useState<SttProvider>(
     (STT_PROVIDERS.find((p) => p.value === "soniox")?.value ??
       STT_PROVIDERS[0].value) as SttProvider
@@ -88,9 +77,14 @@ export function SetupPanel({
   );
   const [ttsLanguage, setTtsLanguage] = useState<TtsLanguage>(TTS_LANGUAGE_OPTIONS[0].value);
   const [ttsGender, setTtsGender] = useState<string>("all");
+  const [voiceSelection, setVoiceSelection] = useState<string>("");
+
   const [showSystemPrompt, setShowSystemPrompt] = useState(false);
-  const [showTtsConfig, setShowTtsConfig] = useState(true);
   const [systemPrompt, setSystemPrompt] = useState("");
+  const [showTtsConfig, setShowTtsConfig] = useState(true);
+
+  const [updateStatus, setUpdateStatus] = useState<"idle" | "updating" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState<string | null>(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -102,9 +96,7 @@ export function SetupPanel({
   }, []);
 
   const voicesByProvider = useMemo(() => parsedCatalog, []);
-
   const voicesForProvider = useMemo(() => voicesByProvider[ttsProvider] ?? [], [ttsProvider, voicesByProvider]);
-
   const filteredVoices = useMemo(() => {
     const lang = ttsLanguage.toLowerCase();
     const gender = ttsGender.toLowerCase();
@@ -117,26 +109,9 @@ export function SetupPanel({
     });
   }, [ttsLanguage, ttsGender, voicesForProvider]);
 
-  const [voiceSelection, setVoiceSelection] = useState<string>(filteredVoices[0]?.value ?? "");
-
   useEffect(() => {
     setVoiceSelection(filteredVoices[0]?.value ?? "");
   }, [ttsProvider, filteredVoices]);
-
-  const handleSttChange = (value: string) => {
-    setSttProvider(value as SttProvider);
-    console.info(`[placeholder] STT provider selected: ${value}`);
-  };
-
-  const handleTtsChange = (value: string) => {
-    setTtsProvider(value);
-    console.info(`[placeholder] TTS provider selected: ${value}`);
-  };
-
-  const handleVoiceChange = (value: string) => {
-    setVoiceSelection(value);
-    console.info(`Voice selected: ${value}`);
-  };
 
   const buildAssistantConfig = (): CreateAssistantDTOInput => {
     const voice = (() => {
@@ -182,10 +157,10 @@ export function SetupPanel({
     })();
 
     return {
-      name: "Web Demo Assistant",
-      firstMessage: "Hi there! I'm your NexAgent demo assistant. How can I help?",
+      name: "Phone Call Assistant",
+      firstMessage: "Hi there! I'm your NexAgent phone assistant. How can I help?",
       metadata: {
-        source: "demo",
+        source: "demo-phone",
         sttProvider,
         ttsProvider,
       },
@@ -207,15 +182,6 @@ export function SetupPanel({
       voice,
     };
   };
-
-  const isStarting = callState === "starting";
-  const startButtonDisabled = disabled || isStarting || !voiceSelection;
-  const startLabel =
-    callState === "ready" || callState === "idle"
-      ? "Start Call"
-      : isStarting
-      ? "Starting…"
-      : "Start";
 
   const renderSelectRow = (
     {
@@ -256,21 +222,75 @@ export function SetupPanel({
     </div>
   );
 
+  const handleUpdate = async () => {
+    if (!resolvedAssistantId) {
+      setUpdateStatus("error");
+      setStatusMessage("NEXT_PUBLIC_NEXAGENT_ASSISTANT_ID is not configured.");
+      return;
+    }
+    if (!resolvedAuthKey) {
+      setUpdateStatus("error");
+      setStatusMessage("A private API key is required (NEXT_PUBLIC_NEXAGENT_PRIVATE_KEY).");
+      return;
+    }
+
+    setUpdateStatus("updating");
+    setStatusMessage(null);
+
+    const payload = buildAssistantConfig();
+    const trimmedPrompt = systemPrompt.trim();
+    if (typeof window !== "undefined") {
+      if (trimmedPrompt) {
+        window.localStorage.setItem(SYSTEM_PROMPT_STORAGE_KEY, trimmedPrompt);
+      } else {
+        window.localStorage.removeItem(SYSTEM_PROMPT_STORAGE_KEY);
+      }
+    }
+
+    try {
+      const response = await fetch(`${resolvedBaseUrl}/assistant/${resolvedAssistantId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${resolvedAuthKey}`,
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        const errorBody = await response.json().catch(() => ({}));
+        const message = errorBody?.detail || response.statusText || "Failed to update assistant.";
+        throw new Error(typeof message === "string" ? message : JSON.stringify(message));
+      }
+
+      const updated = await response.json();
+      setUpdateStatus("success");
+      setStatusMessage(`Updated assistant ${updated?.name || resolvedAssistantId} successfully.`);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Failed to update assistant.";
+      setUpdateStatus("error");
+      setStatusMessage(message);
+    }
+  };
+
+  const updateButtonLabel = updateStatus === "updating" ? "Updating…" : "Update";
+  const updateDisabled = updateStatus === "updating" || !voiceSelection;
+
   return (
     <div className="card">
       <div className="header">
-        <h1 className="title">NexAgent Web SDK Demo</h1>
-        <p className="subtitle">
-          Connect directly to NexAgent, and review live transcripts in real time.
-        </p>
+        <h1 className="title">Phone Call Configuration</h1>
+        <p className="subtitle">Update the phone assistant configuration</p>
       </div>
+
       {renderSelectRow({
-        id: "stt-provider",
+        id: "stt-provider-phone",
         label: "Speech-to-Text Provider",
         value: sttProvider,
-        onChange: handleSttChange,
+        onChange: (value) => setSttProvider(value as SttProvider),
         options: STT_PROVIDERS,
       })}
+
       <div className="card-section card-section--compact">
         <div className="device-row device-row--tight" style={{ justifyContent: "space-between", alignItems: "center" }}>
           <div>
@@ -288,37 +308,38 @@ export function SetupPanel({
         {showTtsConfig && (
           <div style={{ marginTop: 8 }}>
             {renderSelectRow({
-              id: "tts-provider",
+              id: "tts-provider-phone",
               label: "Provider",
               value: ttsProvider,
-              onChange: handleTtsChange,
+              onChange: setTtsProvider,
               options: ttsProviders,
             })}
             {renderSelectRow({
-              id: "tts-language",
+              id: "tts-language-phone",
               label: "Language",
               value: ttsLanguage,
               onChange: (value) => setTtsLanguage(value as TtsLanguage),
               options: TTS_LANGUAGE_OPTIONS,
             })}
             {renderSelectRow({
-              id: "tts-gender",
+              id: "tts-gender-phone",
               label: "Gender",
               value: ttsGender,
               onChange: setTtsGender,
               options: TTS_GENDER_OPTIONS,
             })}
             {renderSelectRow({
-              id: "tts-voice",
+              id: "tts-voice-phone",
               label: "Voice",
               value: voiceSelection,
-              onChange: handleVoiceChange,
+              onChange: setVoiceSelection,
               options: filteredVoices,
               disabled: filteredVoices.length === 0,
             })}
           </div>
         )}
       </div>
+
       <div className="card-section card-section--compact">
         <button
           type="button"
@@ -329,12 +350,12 @@ export function SetupPanel({
         </button>
         {showSystemPrompt && (
           <div style={{ marginTop: 8 }}>
-            <label className="label" htmlFor="system-prompt">
+            <label className="label" htmlFor="system-prompt-phone">
               System Prompt
             </label>
             <div className="device-row device-row--tight">
               <textarea
-                id="system-prompt"
+                id="system-prompt-phone"
                 className="input"
                 rows={6}
                 value={systemPrompt}
@@ -346,38 +367,27 @@ export function SetupPanel({
           </div>
         )}
       </div>
-      <DeviceSelector
-        selectedDeviceId={selectedDeviceId}
-        onChange={onDeviceChange}
-        onRefresh={onDeviceRefresh}
-        devices={devices}
-        loading={deviceLoading}
-        error={deviceError}
-      />
+
       <div className="controls">
         <button
+          type="button"
           className="button primary"
-          onClick={() => {
-            const assistantConfig = buildAssistantConfig();
-            const trimmedPrompt = systemPrompt.trim();
-            if (typeof window !== "undefined") {
-              if (trimmedPrompt) {
-                window.localStorage.setItem(SYSTEM_PROMPT_STORAGE_KEY, trimmedPrompt);
-              } else {
-                window.localStorage.removeItem(SYSTEM_PROMPT_STORAGE_KEY);
-              }
-            }
-            onStart(assistantConfig).catch(() => {
-              /* error handled upstream */
-            });
-          }}
-          disabled={startButtonDisabled}
+          onClick={handleUpdate}
+          disabled={updateDisabled}
         >
-          {startLabel}
+          {updateStatus === "updating" && <LoadingSpinner />}
+          {updateButtonLabel}
         </button>
       </div>
+
+      {statusMessage && (
+        <div className={`notice ${updateStatus === "success" ? "notice--success" : "notice--error"}`}>
+          {updateStatus === "updating" ? <LoadingSpinner /> : null}
+          <span>{statusMessage}</span>
+        </div>
+      )}
     </div>
   );
 }
 
-export default SetupPanel;
+export default PhoneSetupPanel;

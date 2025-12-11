@@ -6,6 +6,7 @@ import { useAudioDevices } from "../hooks/useAudioDevices";
 import SessionView from "./SessionView";
 import SetupPanel from "./SetupPanel";
 import { TranscriptMessage } from "./ChatTranscript";
+import PhoneSetupPanel from "./PhoneSetupPanel";
 
 type CallState = "idle" | "ready" | "starting" | "connected";
 
@@ -30,6 +31,7 @@ export function NexAgentDemo() {
   const publicKey =
     process.env.NEXT_PUBLIC_NEXAGENT_PUBLIC_KEY ||
     "";
+  const [activeTab, setActiveTab] = useState<"web" | "phone">("web");
   const [callState, setCallState] = useState<CallState>("idle");
   const [muted, setMuted] = useState(false);
   const [assistantSpeaking, setAssistantSpeaking] = useState(false);
@@ -377,33 +379,53 @@ export function NexAgentDemo() {
 
   return (
     <div className="page">
-      {lastError && (
+      <div className="tab-bar">
+        <button
+          className={`tab ${activeTab === "web" ? "active" : ""}`}
+          onClick={() => setActiveTab("web")}
+        >
+          Web call config
+        </button>
+        <button
+          className={`tab ${activeTab === "phone" ? "active" : ""}`}
+          onClick={() => setActiveTab("phone")}
+        >
+          Phone call config
+        </button>
+      </div>
+
+      {activeTab === "web" && lastError && (
         <div className="card" style={{ border: "1px solid #fecaca", background: "#fee2e2", color: "#991b1b" }}>
           <strong>Error:</strong> {lastError}
         </div>
       )}
-      {callState === "connected" ? (
-        <SessionView
-          messages={messages}
-          muted={muted}
-          onToggleMute={toggleMute}
-          onEnd={endCall}
-          assistantSpeaking={assistantSpeaking}
-        />
+
+      {activeTab === "web" ? (
+        callState === "connected" ? (
+          <SessionView
+            messages={messages}
+            muted={muted}
+            onToggleMute={toggleMute}
+            onEnd={endCall}
+            assistantSpeaking={assistantSpeaking}
+          />
+        ) : (
+          <SetupPanel
+            selectedDeviceId={audioDevices.selectedDeviceId}
+            onDeviceChange={(deviceId) => {
+              audioDevices.setSelectedDeviceId(deviceId || null);
+            }}
+            onDeviceRefresh={audioDevices.refresh}
+            devices={audioDevices.devices}
+            deviceLoading={audioDevices.loading}
+            deviceError={audioDevices.error}
+            onStart={startCall}
+            callState={callState}
+            disabled={startDisabled}
+          />
+        )
       ) : (
-        <SetupPanel
-          selectedDeviceId={audioDevices.selectedDeviceId}
-          onDeviceChange={(deviceId) => {
-            audioDevices.setSelectedDeviceId(deviceId || null);
-          }}
-          onDeviceRefresh={audioDevices.refresh}
-          devices={audioDevices.devices}
-          deviceLoading={audioDevices.loading}
-          deviceError={audioDevices.error}
-          onStart={startCall}
-          callState={callState}
-          disabled={startDisabled}
-        />
+        <PhoneSetupPanel />
       )}
     </div>
   );
