@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { CreateAssistantDTOInput, Language } from "@newcast/nexagent-sdk-web/api";
 import DeviceSelector from "./DeviceSelector";
 import voiceCatalog from "../voice_catalog.json";
@@ -118,10 +118,75 @@ export function SetupPanel({
   }, [ttsLanguage, ttsGender, voicesForProvider]);
 
   const [voiceSelection, setVoiceSelection] = useState<string>(filteredVoices[0]?.value ?? "");
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const progressRef = useRef<HTMLDivElement | null>(null);
+  const rafRef = useRef<number | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     setVoiceSelection(filteredVoices[0]?.value ?? "");
   }, [ttsProvider, filteredVoices]);
+
+  const selectedVoice = useMemo(
+    () => voicesForProvider.find((v) => v.value === voiceSelection),
+    [voiceSelection, voicesForProvider],
+  );
+
+  const previewUrl = selectedVoice
+    ? `https://aigcc-perm-data.s3.us-east-1.amazonaws.com/nexagent/voice_library/${selectedVoice.provider}/${selectedVoice.value}.mp3`
+    : undefined;
+
+  const handlePlayPreview = () => {
+    if (!previewUrl) return;
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.currentTime = 0;
+    audio
+      .play()
+      .then(() => {
+        setIsPlaying(true);
+        startProgressLoop();
+      })
+      .catch(() => {
+        /* ignore play errors (e.g., autoplay restrictions) */
+      });
+  };
+
+  const startProgressLoop = () => {
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+    }
+    const tick = () => {
+      const audio = audioRef.current;
+      const bar = progressRef.current;
+      if (!audio || !bar || !audio.duration || audio.paused || audio.ended) {
+        rafRef.current = null;
+        return;
+      }
+    const progress = Math.min(audio.currentTime / audio.duration, 1);
+    bar.style.transform = `scaleX(${progress})`;
+    rafRef.current = requestAnimationFrame(tick);
+  };
+  rafRef.current = requestAnimationFrame(tick);
+};
+
+const resetProgress = () => {
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    }
+    const bar = progressRef.current;
+    if (bar) {
+      bar.style.transform = "scaleX(0)";
+    }
+    setIsPlaying(false);
+  };
+
+  useEffect(() => () => {
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+    }
+  }, []);
 
   const handleSttChange = (value: string) => {
     setSttProvider(value as SttProvider);
@@ -308,14 +373,62 @@ export function SetupPanel({
               onChange: setTtsGender,
               options: TTS_GENDER_OPTIONS,
             })}
-            {renderSelectRow({
-              id: "tts-voice",
-              label: "Voice",
-              value: voiceSelection,
-              onChange: handleVoiceChange,
-              options: filteredVoices,
-              disabled: filteredVoices.length === 0,
-            })}
+            <div className="card-section card-section--compact">
+              <label className="label" htmlFor="tts-voice">
+                Voice
+              </label>
+              <div className="device-row device-row--tight device-row--meter" style={{ gap: 8 }}>
+                <select
+                  id="tts-voice"
+                  className="select select--compact select--meter"
+                  value={voiceSelection}
+                  onChange={(event) => handleVoiceChange(event.currentTarget.value)}
+                  disabled={filteredVoices.length === 0}
+                >
+                  {filteredVoices.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+                <button
+                  type="button"
+                  className="button"
+                  onClick={handlePlayPreview}
+                  disabled={!previewUrl}
+                  style={{
+                    position: "relative",
+                    overflow: "hidden",
+                    whiteSpace: "nowrap",
+                    backgroundColor: isPlaying ? "#e0e0e0" : undefined,
+                  }}
+                >
+                  <span
+                    ref={progressRef}
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      width: "100%",
+                      transform: "scaleX(0)",
+                      transformOrigin: "left center",
+                      willChange: "transform",
+                      backgroundColor: "#000",
+                      pointerEvents: "none",
+                    }}
+                  />
+                  <span style={{ position: "relative", zIndex: 1 }}>Play preview</span>
+                </button>
+              </div>
+              <audio
+                ref={audioRef}
+                src={previewUrl}
+                preload="none"
+                style={{ display: "none" }}
+                onEnded={resetProgress}
+                onPause={resetProgress}
+                onLoadedMetadata={startProgressLoop}
+              />
+            </div>
           </div>
         )}
       </div>
