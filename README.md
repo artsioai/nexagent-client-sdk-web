@@ -1,6 +1,6 @@
 # NexAgent Web SDK
 
-This package lets you start NexAgent calls directly in your webapp.
+This package lets you start NexAgent calls directly in your webapp
 
 ## Installation
 
